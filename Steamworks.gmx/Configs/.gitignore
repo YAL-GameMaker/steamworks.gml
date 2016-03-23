@@ -1,0 +1,5 @@
+# No reason to ship the default icons, see.
+*.png
+*.jpg
+*.ico
+*.bmp
