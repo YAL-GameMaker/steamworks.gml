@@ -328,7 +328,7 @@
     <option_linux_short_desc>GMS-Steamnet</option_linux_short_desc>
     <option_linux_sizeable>0</option_linux_sizeable>
     <option_linux_splash_png>Configs\Default\linux\splash.png</option_linux_splash_png>
-    <option_linux_steam_app_id>360660</option_linux_steam_app_id>
+    <option_linux_steam_app_id>480</option_linux_steam_app_id>
     <option_linux_sync>0</option_linux_sync>
     <option_linux_texture_page>2048</option_linux_texture_page>
     <option_linux_version_build>0</option_linux_version_build>
@@ -359,7 +359,7 @@
     <option_mac_signing_identity>Developer ID Application:</option_mac_signing_identity>
     <option_mac_sizeable>0</option_mac_sizeable>
     <option_mac_splash_png>Configs\Default\mac\splash.png</option_mac_splash_png>
-    <option_mac_steam_app_id>360660</option_mac_steam_app_id>
+    <option_mac_steam_app_id>480</option_mac_steam_app_id>
     <option_mac_sync>0</option_mac_sync>
     <option_mac_texture_page>2048</option_mac_texture_page>
     <option_noborder>false</option_noborder>
@@ -544,7 +544,7 @@
     <option_windows_sleep_margin>1</option_windows_sleep_margin>
     <option_windows_splash_background_colour>#000000</option_windows_splash_background_colour>
     <option_windows_splash_screen>Configs\Default\windows\splash.png</option_windows_splash_screen>
-    <option_windows_steam_app_id>360660</option_windows_steam_app_id>
+    <option_windows_steam_app_id>480</option_windows_steam_app_id>
     <option_windows_texture_page>2048</option_windows_texture_page>
     <option_windows_use_splash>-1</option_windows_use_splash>
     <option_windows_vertex_buffer_method2>1</option_windows_vertex_buffer_method2>
