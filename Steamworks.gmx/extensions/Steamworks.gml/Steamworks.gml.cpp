@@ -6,16 +6,45 @@
 // My sincere apologies if you are using a source code editor that
 // does not support collapsing "#pragma region" blocks.
 
+// GCC glue:
+#ifdef __GNUC__
+#include <stdlib.h>
+/// I know, and great, but that's what GMS runtime uses
+#pragma GCC diagnostic ignored "-Wwrite-strings"
+/// For what reasons this is not done automatically anyway?
+#define offsetof(type, field) __builtin_offsetof(type, field)
+/// (I guess because it's bad, but tell that to Valve)
+#pragma GCC diagnostic ignored "-Winvalid-offsetof"
+/// This one is not funny.
+#define nullptr NULL
+#endif
+
 #define VERSION_SAFE_STEAM_API_INTERFACES 1
-#include "steam/steam_api.h"
+#include "./../Steamworks/public/steam/steam_api.h"
 #include <vector>
+
+/// Different platforms, different syntax.
+#if defined(WIN32)
 #define dllx extern "C" __declspec(dllexport)
+#elif defined(GNUC)
+#define dllx extern "C" __attribute__ ((visibility("default"))) 
+#else
+#define dllx extern "C"
+#endif
+
+/// For debugging purposes.
 #define trace(...) { printf(__VA_ARGS__); printf("\n"); fflush(stdout); }
+
+// Shortcuts for uint32<->uint64 conversions
+#ifndef UINT32_MAX
+#define UINT32_MAX 4294967295u
+#endif
 #define uint64_make(high, low) (((uint64)(high) << 32) | (uint64)(low))
 #define uint64_high(value) (uint32)((value) >> 32)
 #define uint64_low(value) (uint32)((value) & UINT32_MAX)
+
+/// GameMaker has an unusual way of detecting if a value is "true".
 #define gml_bool(value) ((value) >= 0.5)
-//
 
 #pragma region GML callbacks
 // As per http://help.yoyogames.com/hc/en-us/articles/216755258:
@@ -37,9 +66,9 @@ gml_ds_map gml_ds_map_create() {
 #pragma endregion
 
 class steam_net_event {
-private:
+	private:
 	gml_ds_map map;
-public:
+	public:
 	steam_net_event() {
 		map = gml_ds_map_create();
 	}
@@ -87,7 +116,7 @@ CSteamID steam_lobby_current;
 
 #pragma region Steam Callbacks
 class steam_net_callbacks_t {
-public:
+	public:
 	steam_net_callbacks_t() {
 		//
 	};
@@ -100,7 +129,7 @@ public:
 	void lobby_joined(LobbyEnter_t* e, bool failed);
 };
 /*void steam_net_callbacks_t::OnPersonaStateChange(PersonaStateChange_t* e) {
-	trace("Persona state change %d\n", e->m_ulSteamID);
+trace("Persona state change %d\n", e->m_ulSteamID);
 }*/
 steam_net_callbacks_t steam_net_callbacks;
 #pragma endregion
@@ -198,7 +227,7 @@ dllx double steam_net_packet_receive() {
 			return 1;
 		}
 	}
-	return 0; 
+	return 0;
 }
 
 /// Returns the size of the last received packet (in bytes).
@@ -438,7 +467,7 @@ dllx double steam_lobby_list_join(double index) {
 	steam_lobby_leave();
 	int32 i = (int32)index;
 	if (i >= 0 && i < steam_lobby_count) {
-		auto call = SteamMatchmaking->JoinLobby(steam_lobby_list[i]);
+		SteamAPICall_t call = SteamMatchmaking->JoinLobby(steam_lobby_list[i]);
 		steam_lobby_joined.Set(call, &steam_net_callbacks, &steam_net_callbacks_t::lobby_joined);
 		return 1;
 	} else return 0;
@@ -515,10 +544,6 @@ dllx double steam_lobby_set_type(double type) {
 
 #pragma endregion
 
-dllx double steam_net_test() {
-	return gml_ds_map_create != nullptr;
-}
-
 dllx double steam_net_update() {
 	SteamAPI_RunCallbacks();
 	return 0;
@@ -536,6 +561,10 @@ dllx double steam_net_init_cpp(double app_id) {
 	}
 	steam_local_id = SteamUser->GetSteamID();
 	trace("steam_net initialized successfully.");
+	return 1;
+}
+
+dllx double steam_net_is_available() {
 	return 1;
 }
 

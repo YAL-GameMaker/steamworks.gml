@@ -79,9 +79,13 @@ return uint64_make(steam_lobby_list_get_lobby_id_high(i), steam_lobby_list_get_l
 /// steam_net_init_gml()
 /// steam_net_initialized = global.g_steam_net_initialized : Whether the extension is initialized.
 var app_id = steam_get_app_id();
-show_debug_message("Initializing steam_net with app_id " + string(app_id) + "...");
+show_debug_message("Initializing steamworks.gml with app_id " + string(app_id) + "...");
 //
-var r = steam_net_init_cpp(app_id) > 0;
+var r = 0;
+if (steam_net_is_available()) {
+	r = steam_net_init_cpp(app_id) > 0;
+	if (!r) show_debug_message("Failed to initialize steamworks.gml.");
+} else show_debug_message("Steamworks.gml binary is not loaded.");
 global.g_steam_net_initialized = r;
 if (!r) return 0;
 // parse 
