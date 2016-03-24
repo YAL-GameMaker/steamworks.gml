@@ -246,3 +246,6 @@ paket-files/
 
 # SteamWorks redist is to be obtained by yourself.
 SteamWorks/
+
+# Intermediate file on Linux:
+Steamworks.gml/Steamworks.gml.o

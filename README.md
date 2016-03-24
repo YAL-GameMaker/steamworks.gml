@@ -12,4 +12,4 @@ Create a "Steamworks" directory and place [Steamworks SDK](https://partner.steam
 
 Windows: Open the included Visual Studio solution and order it to make a x86 build.
 
-Linux: gcc Steamworks.gml/Steamworks.gml.cpp -shared -o Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.so
+Linux: run build_linux.sh
