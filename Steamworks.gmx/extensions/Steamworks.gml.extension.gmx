@@ -98,7 +98,7 @@
           <args>
             <arg>2</arg>
             <arg>2</arg>
-            <arg>2</arg>
+            <arg>1</arg>
             <arg>2</arg>
             <arg>2</arg>
           </args>
@@ -129,7 +129,7 @@
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
-            <arg>2</arg>
+            <arg>1</arg>
           </args>
         </function>
         <function>
@@ -818,7 +818,7 @@
           <args>
             <arg>2</arg>
             <arg>2</arg>
-            <arg>2</arg>
+            <arg>1</arg>
             <arg>2</arg>
             <arg>2</arg>
           </args>
@@ -849,7 +849,7 @@
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
-            <arg>2</arg>
+            <arg>1</arg>
           </args>
         </function>
         <function>

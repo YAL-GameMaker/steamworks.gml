@@ -9,13 +9,13 @@
 // GCC glue:
 #ifdef __GNUC__
 #include <stdlib.h>
-/// I know, and great, but that's what GMS runtime uses
+// I know, and great, but that's what GMS runtime uses
 #pragma GCC diagnostic ignored "-Wwrite-strings"
-/// For what reasons this is not done automatically anyway?
+// For what reasons this is not done automatically anyway?
 #define offsetof(type, field) __builtin_offsetof(type, field)
-/// (I guess because it's bad, but tell that to Valve)
+// (I guess because it's bad, but tell that to Valve)
 #pragma GCC diagnostic ignored "-Winvalid-offsetof"
-/// This one is not funny.
+// This one is not funny.
 #define nullptr NULL
 #endif
 
@@ -189,10 +189,10 @@ dllx double steam_net_close_p2p_session_raw(double user_id_high, double user_id_
 #define steam_net_packet_type_reliable 2
 /// Buffering send (Nagle algorithm)
 #define steam_net_packet_type_reliable_buffer 3
-dllx double steam_net_packet_send_raw(double id_high, double id_low, double data_addr, double size, double type) {
+dllx double steam_net_packet_send_raw(double id_high, double id_low, char* data_addr, double size, double type) {
 	CSteamID target;
 	target.SetFromUint64(uint64_make(id_high, id_low));
-	void* data = (void*)(intp)data_addr;
+	void* data = (void*)data_addr;
 	EP2PSend k_type = k_EP2PSendUnreliable;
 	switch ((int32)type) {
 		case steam_net_packet_type_unreliable_nodelay: k_type = k_EP2PSendUnreliableNoDelay; break;
@@ -235,9 +235,9 @@ dllx double steam_net_packet_get_size() {
 	return steam_net_packet_size;
 }
 
-dllx double steam_net_packet_get_data_raw(double data_ptr) {
+dllx double steam_net_packet_get_data_raw(char* data_ptr) {
 	if (steam_net_packet_data != nullptr) {
-		void* data = (void*)(intp)data_ptr;
+		void* data = (void*)data_ptr;
 		memcpy(data, steam_net_packet_data, steam_net_packet_size);
 		return 1;
 	} else return 0;
@@ -556,11 +556,11 @@ dllx double steam_net_init_cpp(double app_id) {
 		return -1;
 	}
 	if (!SteamAPI.Init()) {
-		trace("Failed to init Steam API.");
+		trace("Steamworks.gml failed to link with Steam API.");
 		return 0;
 	}
 	steam_local_id = SteamUser->GetSteamID();
-	trace("steam_net initialized successfully.");
+	trace("Steamworks.gml initialized successfully.");
 	return 1;
 }
 
@@ -569,7 +569,7 @@ dllx double steam_net_is_available() {
 }
 
 dllx double steam_net_init_cpp_pre() {
-	trace("steam_net DLL loaded.");
+	trace("Steamworks.gml' native extension loaded.");
 	steam_lobby_current.Clear();
 	return 1;
 }
