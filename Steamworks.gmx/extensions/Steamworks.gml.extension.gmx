@@ -575,16 +575,6 @@
           <value>2</value>
           <hidden>0</hidden>
         </constant>
-        <constant>
-          <name>nullptr</name>
-          <value>NULL</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>nullptr /* This one is not funny. */</name>
-          <value>NULL</value>
-          <hidden>0</hidden>
-        </constant>
       </constants>
     </file>
     <file>
@@ -1148,162 +1138,87 @@
         <constant>
           <name>steam_net_packet_type_unreliable</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_unreliable_nodelay</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_reliable</name>
           <value>2</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_reliable_buffer</name>
           <value>3</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_eq</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_ne</name>
           <value>3</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_lt</name>
           <value>-1</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_gt</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_le</name>
           <value>-2</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_ge</name>
           <value>2</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_close</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_default</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_far</name>
           <value>2</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_worldwide</name>
           <value>3</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_private</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_friends_only</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_public</name>
           <value>2</value>
-          <hidden>-1</hidden>
-        </constant>
-        <constant>
-          <name>nullptr</name>
-          <value>NULL</value>
-          <hidden>-1</hidden>
-        </constant>
-        <constant>
-          <name>nullptr /* This one is not funny. */</name>
-          <value>NULL</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_net_packet_type_unreliable /* Basic UDP send (&lt;1200 bytes; may get lost) */</name>
-          <value>0</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_net_packet_type_unreliable_nodelay /* Instant non-buffering UDP send (e.g. for voice data) */</name>
-          <value>1</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_net_packet_type_reliable /* Reliable send (up to 1MB) */</name>
-          <value>2</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_net_packet_type_reliable_buffer /* Buffering send (Nagle algorithm) */</name>
-          <value>3</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_lobby_list_filter_eq /* "==" / Equal */</name>
-          <value>0</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_lobby_list_filter_ne /* "!=" / Not Equal */</name>
-          <value>3</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_lobby_list_filter_lt /* "&lt;" / Less Than */</name>
-          <value>-1</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_lobby_list_filter_gt /* "&gt;" / Greater Than */</name>
-          <value>1</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_lobby_list_filter_le /* "&lt;=" / Less than or Equal */</name>
-          <value>-2</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_lobby_list_filter_ge /* "&gt;=" / Greater than or Equal */</name>
-          <value>2</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_lobby_type_private /* Private lobby. People can only join if invited. */</name>
-          <value>0</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_lobby_type_friends_only /* Friends-only lobby. Visible to friends. */</name>
-          <value>1</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_lobby_type_public /* Public lobby. Visible to everyone. */</name>
-          <value>2</value>
-          <hidden>0</hidden>
+          <hidden>1</hidden>
         </constant>
       </constants>
     </file>
