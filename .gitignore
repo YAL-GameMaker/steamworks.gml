@@ -244,8 +244,8 @@ paket-files/
 .idea/
 *.sln.iml
 
-# SteamWorks redist is to be obtained by yourself.
-SteamWorks/
+# Steamworks redist is to be obtained by yourself.
+Steamworks/
 
 # Intermediate file on Linux:
 Steamworks.gml/Steamworks.gml.o
