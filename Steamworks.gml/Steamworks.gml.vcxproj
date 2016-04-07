@@ -141,9 +141,9 @@ copy /y "$(ProjectDir)Steamworks.gml.cpp" "$(SolutionDir)Steamworks.gmx\extensio
       <AdditionalDependencies>steam_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy /y "$(TargetPath)" "$(SolutionDir)GMS-SteamNet.gmx\extensions\GMS-SteamNet\$(TargetFileName)"
-copy /y "$(ProjectDir)GMS-SteamNet.cpp" "$(SolutionDir)GMS-SteamNet.gmx\extensions\GMS-SteamNet\GMS-SteamNet.cpp"
-"$(SolutionDir)GmxGen.exe" ""$(SolutionDir)GMS-SteamNet.gmx\extensions\GMS-SteamNet.extension.gmx"</Command>
+      <Command>copy /y "$(TargetPath)" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\$(TargetFileName)"
+copy /y "$(ProjectDir)Steamworks.gml.cpp" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.cpp"
+"$(SolutionDir)GmxGen.exe" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.extension.gmx"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
