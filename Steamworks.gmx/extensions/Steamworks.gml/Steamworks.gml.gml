@@ -96,8 +96,8 @@ for (var i = 0; i < n; i += 1) {
 		s = parameter_string(++i);
 		var lobby_id = int64(s);
 		var lobby_id_high = lobby_id >> int64(32);
-		if (lobby_id_high < 0) lobby_id_high += 4294967296;
-		var lobby_id_low = lobby_id & $FFFFFFFF;
+		if (lobby_id_high < 0) lobby_id_high += int64(4294967296);
+		var lobby_id_low = lobby_id & int64($FFFFFFFF);
 		steam_lobby_join_id_raw(lobby_id_high, lobby_id_low);
 	}
 }
