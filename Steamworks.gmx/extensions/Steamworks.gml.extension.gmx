@@ -34,7 +34,7 @@
       <uncompress>0</uncompress>
       <ConfigOptions>
         <Config name="Default">
-          <CopyToMask>105553658380352</CopyToMask>
+          <CopyToMask>123145844424768</CopyToMask>
         </Config>
       </ConfigOptions>
       <ProxyFiles/>
@@ -98,7 +98,7 @@
           <args>
             <arg>2</arg>
             <arg>2</arg>
-            <arg>1</arg>
+            <arg>2</arg>
             <arg>2</arg>
             <arg>2</arg>
           </args>
@@ -129,7 +129,7 @@
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
-            <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -737,14 +737,14 @@
     </file>
     <file>
       <filename>Steamworks.gml.so</filename>
-      <origname>extensions\steamworks.so</origname>
+      <origname>extensions\Steamworks.gml.so</origname>
       <init>steam_net_init_cpp_pre</init>
       <final></final>
       <kind>1</kind>
       <uncompress>0</uncompress>
       <ConfigOptions>
         <Config name="Default">
-          <CopyToMask>134217856</CopyToMask>
+          <CopyToMask>17592320262272</CopyToMask>
         </Config>
       </ConfigOptions>
       <ProxyFiles/>
@@ -808,7 +808,7 @@
           <args>
             <arg>2</arg>
             <arg>2</arg>
-            <arg>1</arg>
+            <arg>2</arg>
             <arg>2</arg>
             <arg>2</arg>
           </args>
@@ -839,7 +839,7 @@
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
-            <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1138,87 +1138,87 @@
         <constant>
           <name>steam_net_packet_type_unreliable</name>
           <value>0</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_unreliable_nodelay</name>
           <value>1</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_reliable</name>
           <value>2</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_reliable_buffer</name>
           <value>3</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_eq</name>
           <value>0</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_ne</name>
           <value>3</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_lt</name>
           <value>-1</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_gt</name>
           <value>1</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_le</name>
           <value>-2</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_ge</name>
           <value>2</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_close</name>
           <value>0</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_default</name>
           <value>1</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_far</name>
           <value>2</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_worldwide</name>
           <value>3</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_private</name>
           <value>0</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_friends_only</name>
           <value>1</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_public</name>
           <value>2</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
       </constants>
     </file>

@@ -189,17 +189,19 @@ dllx double steam_net_close_p2p_session_raw(double user_id_high, double user_id_
 #define steam_net_packet_type_reliable 2
 /// Buffering send (Nagle algorithm)
 #define steam_net_packet_type_reliable_buffer 3
-dllx double steam_net_packet_send_raw(double id_high, double id_low, char* data_addr, double size, double type) {
+dllx double steam_net_packet_send_raw(double id_high, double id_low, double data_addr, double size, double type) {
 	CSteamID target;
 	target.SetFromUint64(uint64_make(id_high, id_low));
-	void* data = (void*)data_addr;
 	EP2PSend k_type = k_EP2PSendUnreliable;
 	switch ((int32)type) {
 		case steam_net_packet_type_unreliable_nodelay: k_type = k_EP2PSendUnreliableNoDelay; break;
 		case steam_net_packet_type_reliable: k_type = k_EP2PSendReliable; break;
 		case steam_net_packet_type_reliable_buffer: k_type = k_EP2PSendReliableWithBuffering; break;
 	}
-	return SteamNetworking->SendP2PPacket(target, data, (int32)size, k_type);
+	void* data = (void*)(uint32)data_addr;
+	int32 isize = (int32)size;
+	bool r = SteamNetworking->SendP2PPacket(target, data, isize, k_type);
+	return r;
 }
 
 #pragma endregion
@@ -235,9 +237,9 @@ dllx double steam_net_packet_get_size() {
 	return steam_net_packet_size;
 }
 
-dllx double steam_net_packet_get_data_raw(char* data_ptr) {
+dllx double steam_net_packet_get_data_raw(double data_addr) {
 	if (steam_net_packet_data != nullptr) {
-		void* data = (void*)data_ptr;
+		void* data = (void*)(uint32)data_addr;
 		memcpy(data, steam_net_packet_data, steam_net_packet_size);
 		return 1;
 	} else return 0;

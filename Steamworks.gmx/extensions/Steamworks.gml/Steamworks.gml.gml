@@ -53,13 +53,16 @@ return uint64_make(steam_net_packet_get_sender_id_high(), steam_net_packet_get_s
 var buf = argument0;
 var size = steam_net_packet_get_size();
 if (buffer_get_size(buf) < size) buffer_resize(buf, size);
-return steam_net_packet_get_data_raw(buffer_get_address(buf));
+var addr = real(buffer_get_address(buf));
+return steam_net_packet_get_data_raw(addr);
 
 #define steam_net_packet_send
 /// steam_net_packet_send(steam_id, buffer, size, type) : Sends a packet to the given destination.
 var steam_id = argument0;
-var data_addr = buffer_get_address(argument1);
-return steam_net_packet_send_raw(uint64_high(steam_id), uint64_low(steam_id), data_addr, argument2, argument3);
+var addr = real(buffer_get_address(argument1));
+var size = argument2;
+var type = argument3;
+return steam_net_packet_send_raw(uint64_high(steam_id), uint64_low(steam_id), addr, size, type);
 
 #define steam_lobby_join_id
 /// steam_lobby_join_id(steam_id) : Joins the given lobby
@@ -99,5 +102,6 @@ for (var i = 0; i < n; i += 1) {
 		if (lobby_id_high < 0) lobby_id_high += int64(4294967296);
 		var lobby_id_low = lobby_id & int64($FFFFFFFF);
 		steam_lobby_join_id_raw(lobby_id_high, lobby_id_low);
+		break;
 	}
 }
