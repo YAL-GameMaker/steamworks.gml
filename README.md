@@ -8,6 +8,12 @@ A native extension for GameMaker: Studio that implements various Steam API featu
 3. Import the "Steamworks.gml" extension (from ./Steamworks.gmx/extensions) to your desired project.
 4. Have the game call steam_net_update once per step (required for steam events to dispatch).
 
+If all is well, upon running the game you'll see `Steamworks.gml initialized successfully.` in the CompileForm.
+
+`Steamworks.gml failed to link with Steam API.` means that either the Steam client is not running, or you have specified an incorrect App ID.
+
+`Steamworks.gml binary is not loaded.` means that the DLL/DyLib/SO could not be loaded, usually due to the native extension file missing or being otherwise inaccessible.
+
 ## Building
 
 Download or clone the repository.
