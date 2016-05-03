@@ -386,6 +386,46 @@
           </args>
         </function>
         <function>
+          <name>steam_get_user_steam_id_high</name>
+          <externalName>steam_get_user_steam_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_get_user_steam_id_low</name>
+          <externalName>steam_get_user_steam_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>int64_from_string_high</name>
+          <externalName>int64_from_string_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>int64_from_string_low</name>
+          <externalName>int64_from_string_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_net_update</name>
           <externalName>steam_net_update</externalName>
           <kind>11</kind>
@@ -1096,6 +1136,46 @@
           </args>
         </function>
         <function>
+          <name>steam_get_user_steam_id_high</name>
+          <externalName>steam_get_user_steam_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_get_user_steam_id_low</name>
+          <externalName>steam_get_user_steam_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>int64_from_string_high</name>
+          <externalName>int64_from_string_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>int64_from_string_low</name>
+          <externalName>int64_from_string_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_net_update</name>
           <externalName>steam_net_update</externalName>
           <kind>11</kind>
@@ -1138,87 +1218,87 @@
         <constant>
           <name>steam_net_packet_type_unreliable</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_unreliable_nodelay</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_reliable</name>
           <value>2</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_reliable_buffer</name>
           <value>3</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_eq</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_ne</name>
           <value>3</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_lt</name>
           <value>-1</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_gt</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_le</name>
           <value>-2</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_ge</name>
           <value>2</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_close</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_default</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_far</name>
           <value>2</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_worldwide</name>
           <value>3</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_private</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_friends_only</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_public</name>
           <value>2</value>
-          <hidden>-1</hidden>
+          <hidden>1</hidden>
         </constant>
       </constants>
     </file>

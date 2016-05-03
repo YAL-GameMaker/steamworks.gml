@@ -546,6 +546,50 @@ dllx double steam_lobby_set_type(double type) {
 
 #pragma endregion
 
+#pragma region User
+dllx double steam_get_user_steam_id_high() {
+	return uint64_high(steam_local_id.ConvertToUint64());
+}
+
+dllx double steam_get_user_steam_id_low() {
+	return uint64_low(steam_local_id.ConvertToUint64());
+}
+#pragma endregion
+
+#pragma region int64 workarounds (http://bugs.yoyogames.com/view.php?id=21357)
+// An extremely non-picky parser. Will combine up to 20 digits from
+// an input string into an int64, skipping any other characters.
+uint64 int64_from_string(char* cstring) {
+	char c;
+	int start = -1, end = -1;
+	for (int pos = 0; (c = cstring[pos]) != '\0'; pos++) {
+		if (c >= '0' && c <= '9') {
+			if (start < 0) start = pos;
+			end = pos;
+		}
+	}
+	uint64 out = 0;
+	if (start < 0) return out;
+	uint64 mul = 1;
+	int digit = 0;
+	for (int pos = end; pos >= start; pos--) {
+		c = cstring[pos];
+		if (c >= '0' && c <= '9') {
+			out += ((uint64)(c - '0')) * mul;
+			mul *= 10;
+			if (++digit >= 20) return out;
+		}
+	}
+	return out;
+}
+dllx double int64_from_string_high(char* cstring) {
+	return uint64_high(int64_from_string(cstring));
+}
+dllx double int64_from_string_low(char* cstring) {
+	return uint64_low(int64_from_string(cstring));
+}
+#pragma endregion
+
 dllx double steam_net_update() {
 	SteamAPI_RunCallbacks();
 	return 0;
