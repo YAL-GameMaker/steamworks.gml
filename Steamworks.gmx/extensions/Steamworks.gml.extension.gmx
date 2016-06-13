@@ -218,6 +218,15 @@
           </args>
         </function>
         <function>
+          <name>steam_lobby_activate_invite_overlay</name>
+          <externalName>steam_lobby_activate_invite_overlay</externalName>
+          <kind>11</kind>
+          <help>steam_lobby_activate_invite_overlay() : Opens an overlay to invite users to the current lobby.</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>steam_lobby_list_request</name>
           <externalName>steam_lobby_list_request</externalName>
           <kind>11</kind>
@@ -402,6 +411,29 @@
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
+        </function>
+        <function>
+          <name>steam_user_set_played_with</name>
+          <externalName>steam_user_set_played_with</externalName>
+          <kind>11</kind>
+          <help>steam_user_set_played_with(id_high, id_low) : Can be called on lobby session start, adds the user to "recently played with" list.</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_activate_overlay_raw</name>
+          <externalName>steam_activate_overlay_raw</externalName>
+          <kind>11</kind>
+          <help>steam_activate_overlay_raw(overlay_code) : Activates an overlay by it's raw Steam API name.</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
         </function>
         <function>
           <name>int64_from_string_high</name>
@@ -968,6 +1000,15 @@
           </args>
         </function>
         <function>
+          <name>steam_lobby_activate_invite_overlay</name>
+          <externalName>steam_lobby_activate_invite_overlay</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>steam_lobby_list_request</name>
           <externalName>steam_lobby_list_request</externalName>
           <kind>11</kind>
@@ -1152,6 +1193,29 @@
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
+        </function>
+        <function>
+          <name>steam_user_set_played_with</name>
+          <externalName>steam_user_set_played_with</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_activate_overlay_raw</name>
+          <externalName>steam_activate_overlay_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
         </function>
         <function>
           <name>int64_from_string_high</name>

@@ -305,6 +305,13 @@ dllx double steam_lobby_get_member_id_high(double index) {
 dllx double steam_lobby_get_member_id_low(double index) {
 	return uint64_low(steam_lobby_get_member_id((int)index));
 }
+/// Opens an overlay to invite users to the current lobby.
+dllx double steam_lobby_activate_invite_overlay() {
+	if (steam_lobby_current.IsValid()) {
+		SteamFriends->ActivateGameOverlayInviteDialog(steam_lobby_current);
+		return true;
+	} else return false;
+}
 
 void steam_net_callbacks_t::lobby_chat_update(LobbyChatUpdate_t* e) {
 	//auto map = gml_event_create("lobby_chat_update");
@@ -553,6 +560,20 @@ dllx double steam_get_user_steam_id_high() {
 
 dllx double steam_get_user_steam_id_low() {
 	return uint64_low(steam_local_id.ConvertToUint64());
+}
+
+/// Can be called on lobby session start, adds the user to "recently played with" list.
+dllx double steam_user_set_played_with(double id_high, double id_low) {
+	CSteamID target;
+	target.SetFromUint64(uint64_make(id_high, id_low));
+	SteamFriends->SetPlayedWith(target);
+	return true;
+}
+
+/// Activates an overlay by it's raw Steam API name.
+dllx double steam_activate_overlay_raw(char* overlay_code) {
+	SteamFriends->ActivateGameOverlay(overlay_code);
+	return true;
 }
 #pragma endregion
 
