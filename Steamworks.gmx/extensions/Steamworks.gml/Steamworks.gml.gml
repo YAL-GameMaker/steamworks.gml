@@ -1,52 +1,46 @@
-#define uint64_make
-/// uint64_make(high, low)
-/*gml_pragma("forceinline");
-return (int64(argument0) << 32) | int64(argument1);*/
-
-//return string(argument0) + ":" + string(argument1);
-
+#define steam_id_create
+/// steam_id_create(high, low) : Creates an immutable Steam ID.
+// (as of 1.4.1457 there are still issues with int64 operations on YYC)
 var r;
 r[1] = argument1;
 r[0] = argument0;
 return r;
 
-#define uint64_high
-/// uint64_high(uint)
-/*gml_pragma("forceinline");
-var r = int64(argument0) >> 32;
-if (r < 0) r += 4294967296;
-return r;*/
-
-/*var s = argument0;
-var p = string_pos(":", s);
-return real(string_copy(s, 1, p - 1));*/
-
+#define steam_id_get_high
+/// steam_id_get_high(steam_id) : Returns higher 32 bits of a Steam ID
 return argument0[0];
 
-#define uint64_low
-/// uint64_low(uint)
-/*gml_pragma("forceinline");
-return argument0 & $FFFFFFFF;*/
-
-/*var s = argument0;
-var p = string_pos(":", s);
-return real(string_copy(s, p + 1, string_length(s) - p));*/
-
+#define steam_id_get_low
+/// steam_id_get_low(steam_id) : Returns lower 32 bits of a Steam ID
 return argument0[1];
+
+#define steam_id_equals
+/// steam_id_equals(id1, id2) : Returns whether two IDs match up.
+return argument0[0] == argument1[0] && argument0[1] == argument1[1];
+
+#define steam_id_from_int64
+/// steam_id_from_int64(value) : Creates a Steam ID from an int64
+var s = string(argument0);
+return steam_id_create(int64_from_string_high(s), int64_from_string_low(s));
+
+#define steam_id_to_int64
+/// steam_id_to_int64(steam_id) : Converts a Steam ID to int64
+var q = argument0;
+return int64(int64_combine_string(steam_id_get_high(q), steam_id_get_low(q)));
 
 #define steam_net_accept_p2p_session
 /// steam_net_accept_p2p_session(user_id) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.
 var user_id = argument0;
-return steam_net_accept_p2p_session_raw(uint64_high(user_id), uint64_low(user_id));
+return steam_net_accept_p2p_session_raw(steam_id_get_high(user_id), steam_id_get_low(user_id));
 
 #define steam_net_close_p2p_session
 /// steam_net_close_p2p_session(user_id) : Closes the P2P session with the given user (if any)
 var user_id = argument0;
-return steam_net_close_p2p_session_raw(uint64_high(user_id), uint64_low(user_id));
+return steam_net_close_p2p_session_raw(steam_id_get_high(user_id), steam_id_get_low(user_id));
 
 #define steam_net_packet_get_sender_id
 /// steam_net_packet_get_sender_id() : Returns the sender ID (int64) of the last received packet.
-return uint64_make(steam_net_packet_get_sender_id_high(), steam_net_packet_get_sender_id_low());
+return steam_id_create(steam_net_packet_get_sender_id_high(), steam_net_packet_get_sender_id_low());
 
 #define steam_net_packet_get_data
 /// steam_net_packet_get_data(buffer) : Copies the current packet data to the given buffer.
@@ -67,16 +61,16 @@ return steam_net_packet_send_raw(uint64_high(steam_id), uint64_low(steam_id), ad
 #define steam_lobby_join_id
 /// steam_lobby_join_id(steam_id) : Joins the given lobby
 var lobby_id = argument0;
-return steam_lobby_join_id_raw(uint64_high(lobby_id), uint64_low(lobby_id));
+return steam_lobby_join_id_raw(steam_id_get_high(lobby_id), steam_id_get_low(lobby_id));
 
 #define steam_lobby_get_owner_id
 /// steam_lobby_get_owner_id() : Returns the user ID of the authoritative user in the lobby.
-return uint64_make(steam_lobby_get_owner_id_high(), steam_lobby_get_owner_id_low());
+return steam_id_create(steam_lobby_get_owner_id_high(), steam_lobby_get_owner_id_low());
 
 #define steam_lobby_list_get_lobby_id
 /// steam_lobby_list_get_lobby_id(index) : Returns the ID of the given lobby.
 var i = argument0;
-return uint64_make(steam_lobby_list_get_lobby_id_high(i), steam_lobby_list_get_lobby_id_low(i));
+return steam_id_create(steam_lobby_list_get_lobby_id_high(i), steam_lobby_list_get_lobby_id_low(i));
 
 #define steam_net_init_gml
 /// steam_net_init_gml()
