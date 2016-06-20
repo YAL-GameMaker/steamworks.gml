@@ -89,17 +89,27 @@
           </args>
         </function>
         <function>
+          <name>steam_net_packet_set_type</name>
+          <externalName>steam_net_packet_set_type</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_net_packet_send_raw</name>
           <externalName>steam_net_packet_send_raw</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>5</argCount>
+          <argCount>4</argCount>
           <args>
             <arg>2</arg>
             <arg>2</arg>
-            <arg>2</arg>
-            <arg>2</arg>
+            <arg>1</arg>
             <arg>2</arg>
           </args>
         </function>
@@ -439,7 +449,7 @@
           <name>int64_from_string_high</name>
           <externalName>int64_from_string_high</externalName>
           <kind>11</kind>
-          <help></help>
+          <help>int64_from_string_high(cstring)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -450,11 +460,23 @@
           <name>int64_from_string_low</name>
           <externalName>int64_from_string_low</externalName>
           <kind>11</kind>
-          <help></help>
+          <help>int64_from_string_low(cstring)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
             <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>int64_combine_string</name>
+          <externalName>int64_combine_string</externalName>
+          <kind>11</kind>
+          <help>int64_combine_string(high, low)</help>
+          <returnType>1</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -650,164 +672,6 @@
       </constants>
     </file>
     <file>
-      <filename>Steamworks.gml.gml</filename>
-      <origname>Steamworks.gml.gml</origname>
-      <init>steam_net_init_gml</init>
-      <final></final>
-      <kind>2</kind>
-      <uncompress>0</uncompress>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>123146358329582</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <ProxyFiles/>
-      <functions>
-        <function>
-          <name>uint64_make</name>
-          <externalName>uint64_make</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>2</argCount>
-          <args>
-            <arg>2</arg>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>uint64_high</name>
-          <externalName>uint64_high</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>uint64_low</name>
-          <externalName>uint64_low</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_net_accept_p2p_session</name>
-          <externalName>steam_net_accept_p2p_session</externalName>
-          <kind>11</kind>
-          <help>steam_net_accept_p2p_session(user_id) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_net_close_p2p_session</name>
-          <externalName>steam_net_close_p2p_session</externalName>
-          <kind>11</kind>
-          <help>steam_net_close_p2p_session(user_id) : Closes the P2P session with the given user (if any)</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_net_packet_get_sender_id</name>
-          <externalName>steam_net_packet_get_sender_id</externalName>
-          <kind>11</kind>
-          <help>steam_net_packet_get_sender_id() : Returns the sender ID (int64) of the last received packet.</help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>steam_net_packet_get_data</name>
-          <externalName>steam_net_packet_get_data</externalName>
-          <kind>11</kind>
-          <help>steam_net_packet_get_data(buffer) : Copies the current packet data to the given buffer.</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_net_packet_send</name>
-          <externalName>steam_net_packet_send</externalName>
-          <kind>11</kind>
-          <help>steam_net_packet_send(steam_id, buffer, size, type) : Sends a packet to the given destination.</help>
-          <returnType>2</returnType>
-          <argCount>4</argCount>
-          <args>
-            <arg>2</arg>
-            <arg>2</arg>
-            <arg>2</arg>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_lobby_join_id</name>
-          <externalName>steam_lobby_join_id</externalName>
-          <kind>11</kind>
-          <help>steam_lobby_join_id(steam_id) : Joins the given lobby</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_lobby_get_owner_id</name>
-          <externalName>steam_lobby_get_owner_id</externalName>
-          <kind>11</kind>
-          <help>steam_lobby_get_owner_id() : Returns the user ID of the authoritative user in the lobby.</help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>steam_lobby_list_get_lobby_id</name>
-          <externalName>steam_lobby_list_get_lobby_id</externalName>
-          <kind>11</kind>
-          <help>steam_lobby_list_get_lobby_id(index) : Returns the ID of the given lobby.</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_net_init_gml</name>
-          <externalName>steam_net_init_gml</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-      </functions>
-      <constants>
-        <constant>
-          <name>steam_net_initialized</name>
-          <value>global.g_steam_net_initialized</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_net_initialized /* Whether the extension is initialized. */</name>
-          <value>global.g_steam_net_initialized</value>
-          <hidden>0</hidden>
-        </constant>
-      </constants>
-    </file>
-    <file>
       <filename>Steamworks.gml.so</filename>
       <origname>extensions\Steamworks.gml.so</origname>
       <init>steam_net_init_cpp_pre</init>
@@ -871,17 +735,27 @@
           </args>
         </function>
         <function>
+          <name>steam_net_packet_set_type</name>
+          <externalName>steam_net_packet_set_type</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_net_packet_send_raw</name>
           <externalName>steam_net_packet_send_raw</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>5</argCount>
+          <argCount>4</argCount>
           <args>
             <arg>2</arg>
             <arg>2</arg>
-            <arg>2</arg>
-            <arg>2</arg>
+            <arg>1</arg>
             <arg>2</arg>
           </args>
         </function>
@@ -1240,6 +1114,18 @@
           </args>
         </function>
         <function>
+          <name>int64_combine_string</name>
+          <externalName>int64_combine_string</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>1</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_net_update</name>
           <externalName>steam_net_update</externalName>
           <kind>11</kind>
@@ -1282,87 +1168,859 @@
         <constant>
           <name>steam_net_packet_type_unreliable</name>
           <value>0</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_unreliable_nodelay</name>
           <value>1</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_reliable</name>
           <value>2</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_reliable_buffer</name>
           <value>3</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_eq</name>
           <value>0</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_ne</name>
           <value>3</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_lt</name>
           <value>-1</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_gt</name>
           <value>1</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_le</name>
           <value>-2</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_ge</name>
           <value>2</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_close</name>
           <value>0</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_default</name>
           <value>1</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_far</name>
           <value>2</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_worldwide</name>
           <value>3</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_private</name>
           <value>0</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_friends_only</name>
           <value>1</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_public</name>
           <value>2</value>
-          <hidden>1</hidden>
+          <hidden>-1</hidden>
+        </constant>
+      </constants>
+    </file>
+    <file>
+      <filename>Steamworks.gml.dylib</filename>
+      <origname>extensions\Steamworks.gml.dylib</origname>
+      <init>steam_net_init_cpp_pre</init>
+      <final></final>
+      <kind>1</kind>
+      <uncompress>0</uncompress>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>67108866</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <ProxyFiles/>
+      <functions>
+        <function>
+          <name>RegisterCallbacks</name>
+          <externalName>RegisterCallbacks</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>4</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+            <arg>1</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_set_auto_accept_p2p_sessions</name>
+          <externalName>steam_net_set_auto_accept_p2p_sessions</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_accept_p2p_session_raw</name>
+          <externalName>steam_net_accept_p2p_session_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_close_p2p_session_raw</name>
+          <externalName>steam_net_close_p2p_session_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_packet_set_type</name>
+          <externalName>steam_net_packet_set_type</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_packet_send_raw</name>
+          <externalName>steam_net_packet_send_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>4</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_packet_receive</name>
+          <externalName>steam_net_packet_receive</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_net_packet_get_size</name>
+          <externalName>steam_net_packet_get_size</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_net_packet_get_data_raw</name>
+          <externalName>steam_net_packet_get_data_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_packet_get_sender_id_high</name>
+          <externalName>steam_net_packet_get_sender_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_net_packet_get_sender_id_low</name>
+          <externalName>steam_net_packet_get_sender_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_leave</name>
+          <externalName>steam_lobby_leave</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_is_owner</name>
+          <externalName>steam_lobby_is_owner</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_get_owner_id_high</name>
+          <externalName>steam_lobby_get_owner_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_get_owner_id_low</name>
+          <externalName>steam_lobby_get_owner_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_get_member_count</name>
+          <externalName>steam_lobby_get_member_count</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_get_member_id_high</name>
+          <externalName>steam_lobby_get_member_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_get_member_id_low</name>
+          <externalName>steam_lobby_get_member_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_activate_invite_overlay</name>
+          <externalName>steam_lobby_activate_invite_overlay</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_list_request</name>
+          <externalName>steam_lobby_list_request</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_list_is_loading</name>
+          <externalName>steam_lobby_list_is_loading</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_list_add_string_filter</name>
+          <externalName>steam_lobby_list_add_string_filter</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_add_numerical_filter</name>
+          <externalName>steam_lobby_list_add_numerical_filter</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_add_near_filter</name>
+          <externalName>steam_lobby_list_add_near_filter</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_add_distance_filter</name>
+          <externalName>steam_lobby_list_add_distance_filter</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_count</name>
+          <externalName>steam_lobby_list_get_count</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_data</name>
+          <externalName>steam_lobby_list_get_data</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>1</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_id_high</name>
+          <externalName>steam_lobby_list_get_lobby_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_id_low</name>
+          <externalName>steam_lobby_list_get_lobby_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_join</name>
+          <externalName>steam_lobby_list_join</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_join_id_raw</name>
+          <externalName>steam_lobby_join_id_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_create</name>
+          <externalName>steam_lobby_create</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_set_data</name>
+          <externalName>steam_lobby_set_data</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_set_type</name>
+          <externalName>steam_lobby_set_type</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_get_user_steam_id_high</name>
+          <externalName>steam_get_user_steam_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_get_user_steam_id_low</name>
+          <externalName>steam_get_user_steam_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_user_set_played_with</name>
+          <externalName>steam_user_set_played_with</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_activate_overlay_raw</name>
+          <externalName>steam_activate_overlay_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>int64_from_string_high</name>
+          <externalName>int64_from_string_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>int64_from_string_low</name>
+          <externalName>int64_from_string_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>int64_combine_string</name>
+          <externalName>int64_combine_string</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>1</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_update</name>
+          <externalName>steam_net_update</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_net_init_cpp</name>
+          <externalName>steam_net_init_cpp</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_is_available</name>
+          <externalName>steam_net_is_available</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_net_init_cpp_pre</name>
+          <externalName>steam_net_init_cpp_pre</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+      </functions>
+      <constants>
+        <constant>
+          <name>steam_net_packet_type_unreliable</name>
+          <value>0</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_net_packet_type_unreliable_nodelay</name>
+          <value>1</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_net_packet_type_reliable</name>
+          <value>2</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_net_packet_type_reliable_buffer</name>
+          <value>3</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_list_filter_eq</name>
+          <value>0</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_list_filter_ne</name>
+          <value>3</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_list_filter_lt</name>
+          <value>-1</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_list_filter_gt</name>
+          <value>1</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_list_filter_le</name>
+          <value>-2</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_list_filter_ge</name>
+          <value>2</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_list_distance_filter_close</name>
+          <value>0</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_list_distance_filter_default</name>
+          <value>1</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_list_distance_filter_far</name>
+          <value>2</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_list_distance_filter_worldwide</name>
+          <value>3</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_type_private</name>
+          <value>0</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_type_friends_only</name>
+          <value>1</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_type_public</name>
+          <value>2</value>
+          <hidden>-1</hidden>
+        </constant>
+      </constants>
+    </file>
+    <file>
+      <filename>Steamworks.gml.gml</filename>
+      <origname>Steamworks.gml.gml</origname>
+      <init>steam_net_init_gml</init>
+      <final></final>
+      <kind>2</kind>
+      <uncompress>0</uncompress>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>123146358329582</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <ProxyFiles/>
+      <functions>
+        <function>
+          <name>steam_id_create</name>
+          <externalName>steam_id_create</externalName>
+          <kind>11</kind>
+          <help>steam_id_create(high, low) : Creates an immutable Steam ID.</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_id_get_high</name>
+          <externalName>steam_id_get_high</externalName>
+          <kind>11</kind>
+          <help>steam_id_get_high(steam_id) : Returns higher 32 bits of a Steam ID</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_id_get_low</name>
+          <externalName>steam_id_get_low</externalName>
+          <kind>11</kind>
+          <help>steam_id_get_low(steam_id) : Returns lower 32 bits of a Steam ID</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_id_from_int64</name>
+          <externalName>steam_id_from_int64</externalName>
+          <kind>11</kind>
+          <help>steam_id_from_int64(value) : Creates a Steam ID from an int64</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_id_to_int64</name>
+          <externalName>steam_id_to_int64</externalName>
+          <kind>11</kind>
+          <help>steam_id_to_int64(steam_id) : Converts a Steam ID to int64</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_accept_p2p_session</name>
+          <externalName>steam_net_accept_p2p_session</externalName>
+          <kind>11</kind>
+          <help>steam_net_accept_p2p_session(user_id) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_close_p2p_session</name>
+          <externalName>steam_net_close_p2p_session</externalName>
+          <kind>11</kind>
+          <help>steam_net_close_p2p_session(user_id) : Closes the P2P session with the given user (if any)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_packet_get_sender_id</name>
+          <externalName>steam_net_packet_get_sender_id</externalName>
+          <kind>11</kind>
+          <help>steam_net_packet_get_sender_id() : Returns the sender ID (int64) of the last received packet.</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_net_packet_get_data</name>
+          <externalName>steam_net_packet_get_data</externalName>
+          <kind>11</kind>
+          <help>steam_net_packet_get_data(buffer) : Copies the current packet data to the given buffer.</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_packet_send</name>
+          <externalName>steam_net_packet_send</externalName>
+          <kind>11</kind>
+          <help>steam_net_packet_send(steam_id, buffer, size, type) : Sends a packet to the given destination.</help>
+          <returnType>2</returnType>
+          <argCount>4</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_join_id</name>
+          <externalName>steam_lobby_join_id</externalName>
+          <kind>11</kind>
+          <help>steam_lobby_join_id(steam_id) : Joins the given lobby</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_get_owner_id</name>
+          <externalName>steam_lobby_get_owner_id</externalName>
+          <kind>11</kind>
+          <help>steam_lobby_get_owner_id() : Returns the user ID of the authoritative user in the lobby.</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_get_member_id</name>
+          <externalName>steam_lobby_get_member_id</externalName>
+          <kind>11</kind>
+          <help>steam_lobby_get_member_id(index) : Returns the user ID of the given user in the lobby.</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_id</name>
+          <externalName>steam_lobby_list_get_lobby_id</externalName>
+          <kind>11</kind>
+          <help>steam_lobby_list_get_lobby_id(index) : Returns the ID of the given lobby.</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_init_gml</name>
+          <externalName>steam_net_init_gml</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+      </functions>
+      <constants>
+        <constant>
+          <name>steam_net_initialized</name>
+          <value>global.g_steam_net_initialized</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_net_initialized /* Whether the extension is initialized. */</name>
+          <value>global.g_steam_net_initialized</value>
+          <hidden>0</hidden>
         </constant>
       </constants>
     </file>
