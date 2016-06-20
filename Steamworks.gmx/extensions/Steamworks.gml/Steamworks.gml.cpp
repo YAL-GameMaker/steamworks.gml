@@ -603,11 +603,20 @@ uint64 int64_from_string(char* cstring) {
 	}
 	return out;
 }
+///
 dllx double int64_from_string_high(char* cstring) {
 	return uint64_high(int64_from_string(cstring));
 }
+///
 dllx double int64_from_string_low(char* cstring) {
 	return uint64_low(int64_from_string(cstring));
+}
+char int64_combine_buf[21];
+///
+dllx char* int64_combine_string(double high, double low) {
+	strcpy(int64_combine_buf, "");
+	sprintf(int64_combine_buf, "%llu", uint64_make(high, low));
+	return int64_combine_buf;
 }
 #pragma endregion
 
