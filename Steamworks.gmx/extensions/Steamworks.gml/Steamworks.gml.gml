@@ -53,10 +53,10 @@ return steam_net_packet_get_data_raw(addr);
 #define steam_net_packet_send
 /// steam_net_packet_send(steam_id, buffer, size, type) : Sends a packet to the given destination.
 var steam_id = argument0;
-var addr = real(buffer_get_address(argument1));
+var addr = buffer_get_address(argument1);
 var size = argument2;
-var type = argument3;
-return steam_net_packet_send_raw(uint64_high(steam_id), uint64_low(steam_id), addr, size, type);
+steam_net_packet_set_type(argument3);
+return steam_net_packet_send_raw(steam_id_get_high(steam_id), steam_id_get_low(steam_id), addr, size);
 
 #define steam_lobby_join_id
 /// steam_lobby_join_id(steam_id) : Joins the given lobby
