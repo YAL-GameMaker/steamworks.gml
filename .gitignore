@@ -249,3 +249,4 @@ Steamworks/
 
 # Intermediate file on Linux:
 Steamworks.gml/Steamworks.gml.o
+Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.cpp
