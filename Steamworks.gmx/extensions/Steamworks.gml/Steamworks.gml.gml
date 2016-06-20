@@ -67,6 +67,11 @@ return steam_lobby_join_id_raw(steam_id_get_high(lobby_id), steam_id_get_low(lob
 /// steam_lobby_get_owner_id() : Returns the user ID of the authoritative user in the lobby.
 return steam_id_create(steam_lobby_get_owner_id_high(), steam_lobby_get_owner_id_low());
 
+#define steam_lobby_get_member_id
+/// steam_lobby_get_member_id(index) : Returns the user ID of the given user in the lobby.
+var i = argument0;
+return steam_id_create(steam_lobby_get_member_id_high(i), steam_lobby_get_member_id_low(i));
+
 #define steam_lobby_list_get_lobby_id
 /// steam_lobby_list_get_lobby_id(index) : Returns the ID of the given lobby.
 var i = argument0;
