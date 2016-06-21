@@ -203,7 +203,6 @@ dllx double steam_net_packet_set_type(double type) {
 //
 dllx double steam_net_packet_send_raw(double id_high, double id_low, char* data, double size) {
 	CSteamID target(uint64_make(id_high, id_low));
-	trace("%u -> %llu", (int32)size, target.ConvertToUint64());
 	return SteamNetworking->SendP2PPacket(target, data, (int32)size, steam_net_packet_type);
 }
 
