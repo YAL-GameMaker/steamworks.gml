@@ -627,12 +627,13 @@ dllx double steam_net_update() {
 	return 0;
 }
 
+/// Detects if the app was run from Steam client and restarts if needed. Returns whether app should quit.
+dllx double steam_restart_if_necessary() {
+	return SteamAPI_RestartAppIfNecessary(steam_app_id);
+}
+
 dllx double steam_net_init_cpp(double app_id) {
 	steam_app_id = (uint32)app_id;
-	if (SteamAPI_RestartAppIfNecessary(steam_app_id)) {
-		trace("Restarting as necessary.");
-		return -1;
-	}
 	if (!SteamAPI.Init()) {
 		trace("Steamworks.gml failed to link with Steam API.");
 		return 0;

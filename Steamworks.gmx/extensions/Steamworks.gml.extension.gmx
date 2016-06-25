@@ -489,6 +489,15 @@
           <args/>
         </function>
         <function>
+          <name>steam_restart_if_necessary</name>
+          <externalName>steam_restart_if_necessary</externalName>
+          <kind>11</kind>
+          <help>steam_restart_if_necessary() : Detects if the app was run from Steam client and restarts if needed. Returns whether app should quit.</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>steam_net_init_cpp</name>
           <externalName>steam_net_init_cpp</externalName>
           <kind>11</kind>
@@ -1135,6 +1144,15 @@
           <args/>
         </function>
         <function>
+          <name>steam_restart_if_necessary</name>
+          <externalName>steam_restart_if_necessary</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>steam_net_init_cpp</name>
           <externalName>steam_net_init_cpp</externalName>
           <kind>11</kind>
@@ -1716,6 +1734,15 @@
           <args/>
         </function>
         <function>
+          <name>steam_restart_if_necessary</name>
+          <externalName>steam_restart_if_necessary</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>steam_net_init_cpp</name>
           <externalName>steam_net_init_cpp</externalName>
           <kind>11</kind>
@@ -1878,6 +1905,18 @@
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_id_equals</name>
+          <externalName>steam_id_equals</externalName>
+          <kind>11</kind>
+          <help>steam_id_equals(id1, id2) : Returns whether two IDs match up.</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
             <arg>2</arg>
           </args>
         </function>
