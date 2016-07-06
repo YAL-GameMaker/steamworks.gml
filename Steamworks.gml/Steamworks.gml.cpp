@@ -168,13 +168,13 @@ void steam_net_callbacks_t::p2p_session_request(P2PSessionRequest_t* e) {
 /// Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.
 dllx double steam_net_accept_p2p_session_raw(double user_id_high, double user_id_low) {
 	CSteamID user(uint64_make(user_id_high, user_id_low));
-	return SteamNetworking->AcceptP2PSessionWithUser(user);
+	return SteamNetworking && SteamNetworking->AcceptP2PSessionWithUser(user);
 }
 
 ///
 dllx double steam_net_close_p2p_session_raw(double user_id_high, double user_id_low) {
 	CSteamID user(uint64_make(user_id_high, user_id_low));
-	return SteamNetworking->CloseP2PSessionWithUser(user);
+	return SteamNetworking && SteamNetworking->CloseP2PSessionWithUser(user);
 }
 
 #pragma endregion
@@ -203,7 +203,7 @@ dllx double steam_net_packet_set_type(double type) {
 //
 dllx double steam_net_packet_send_raw(double id_high, double id_low, char* data, double size) {
 	CSteamID target(uint64_make(id_high, id_low));
-	return SteamNetworking->SendP2PPacket(target, data, (int32)size, steam_net_packet_type);
+	return SteamNetworking && SteamNetworking->SendP2PPacket(target, data, (int32)size, steam_net_packet_type);
 }
 
 #pragma endregion
@@ -217,11 +217,11 @@ CSteamID steam_net_packet_sender;
 /// Receives a packet, returns whether successful (retrieve data via steam_net_packet_).
 dllx double steam_net_packet_receive() {
 	uint32 steam_net_packet_size_pre = 0;
-	if (SteamNetworking->IsP2PPacketAvailable(&steam_net_packet_size_pre)) {
+	if (SteamNetworking && SteamNetworking->IsP2PPacketAvailable(&steam_net_packet_size_pre)) {
 		// dealloc the current buffer if it's still around:
-		if (steam_net_packet_data != NULL) {
+		if (steam_net_packet_data != nullptr) {
 			free(steam_net_packet_data);
-			steam_net_packet_data = NULL;
+			steam_net_packet_data = nullptr;
 		}
 		//
 		steam_net_packet_data = malloc(steam_net_packet_size_pre);
@@ -294,7 +294,9 @@ dllx double steam_lobby_get_owner_id_low() {
 }
 /// Returns the number of users in the lobby.
 dllx double steam_lobby_get_member_count() {
-	return SteamMatchmaking->GetNumLobbyMembers(steam_lobby_current);
+	if (SteamMatchmaking) {
+		return SteamMatchmaking->GetNumLobbyMembers(steam_lobby_current);
+	} else return 0;
 }
 uint64 steam_lobby_get_member_id(int index) {
 	if (index >= 0 && index < steam_lobby_get_member_count()) {
@@ -309,7 +311,7 @@ dllx double steam_lobby_get_member_id_low(double index) {
 }
 /// Opens an overlay to invite users to the current lobby.
 dllx double steam_lobby_activate_invite_overlay() {
-	if (steam_lobby_current.IsValid()) {
+	if (steam_lobby_current.IsValid() && SteamFriends) {
 		SteamFriends->ActivateGameOverlayInviteDialog(steam_lobby_current);
 		return true;
 	} else return false;
@@ -343,10 +345,12 @@ void steam_net_callbacks_t::lobby_list_received(LobbyMatchList_t* e, bool failed
 
 /// Requests the list of lobbies to be (re-)loaded.
 dllx double steam_lobby_list_request() {
-	SteamAPICall_t call = SteamMatchmaking->RequestLobbyList();
-	steam_lobby_list_received.Set(call, &steam_net_callbacks, &steam_net_callbacks_t::lobby_list_received);
-	steam_lobby_list_loading = true;
-	return 1;
+	if (SteamMatchmaking) {
+		SteamAPICall_t call = SteamMatchmaking->RequestLobbyList();
+		steam_lobby_list_received.Set(call, &steam_net_callbacks, &steam_net_callbacks_t::lobby_list_received);
+		steam_lobby_list_loading = true;
+		return true;
+	} else return false;
 }
 
 /// Returns whether the list of lobbies is currently loading.
@@ -384,22 +388,28 @@ ELobbyComparison steam_lobby_list_filter_convert(int32 filter) {
 
 /// Sets a string filter for the next lobby list request.
 dllx double steam_lobby_list_add_string_filter(char* key, char* value, double comparison_type) {
-	ELobbyComparison cmp = steam_lobby_list_filter_convert((int32)comparison_type);
-	SteamMatchmaking->AddRequestLobbyListStringFilter(key, value, cmp);
-	return 1;
+	if (SteamMatchmaking) {
+		ELobbyComparison cmp = steam_lobby_list_filter_convert((int32)comparison_type);
+		SteamMatchmaking->AddRequestLobbyListStringFilter(key, value, cmp);
+		return true;
+	} else return false;
 }
 
 /// Sets a numerical filter for the next lobby list request.
 dllx double steam_lobby_list_add_numerical_filter(char* key, double value, double comparison_type) {
-	ELobbyComparison cmp = steam_lobby_list_filter_convert((int32)comparison_type);
-	SteamMatchmaking->AddRequestLobbyListNumericalFilter(key, (int)value, cmp);
-	return 1;
+	if (SteamMatchmaking) {
+		ELobbyComparison cmp = steam_lobby_list_filter_convert((int32)comparison_type);
+		SteamMatchmaking->AddRequestLobbyListNumericalFilter(key, (int)value, cmp);
+		return true;
+	} else return false;
 }
 
 /// Sorts the results of the next lobby list request based to proximity to the given value.
 dllx double steam_lobby_list_add_near_filter(char* key, double value) {
-	SteamMatchmaking->AddRequestLobbyListNearValueFilter(key, (int)value);
-	return 1;
+	if (SteamMatchmaking) {
+		SteamMatchmaking->AddRequestLobbyListNearValueFilter(key, (int)value);
+		return true;
+	} else return false;
 }
 
 ///
@@ -420,8 +430,10 @@ dllx double steam_lobby_list_add_distance_filter(double mode) {
 		case 2: d = k_ELobbyDistanceFilterFar; break;
 		case 3: d = k_ELobbyDistanceFilterWorldwide; break;
 	}
-	SteamMatchmaking->AddRequestLobbyListDistanceFilter(d);
-	return 1;
+	if (SteamMatchmaking) {
+		SteamMatchmaking->AddRequestLobbyListDistanceFilter(d);
+		return true;
+	} else return false;
 }
 
 #pragma endregion
@@ -480,18 +492,20 @@ dllx double steam_lobby_list_join(double index) {
 	if (i >= 0 && i < steam_lobby_count) {
 		SteamAPICall_t call = SteamMatchmaking->JoinLobby(steam_lobby_list[i]);
 		steam_lobby_joined.Set(call, &steam_net_callbacks, &steam_net_callbacks_t::lobby_joined);
-		return 1;
-	} else return 0;
+		return true;
+	} else return false;
 }
 
-void steam_lobby_join_id(uint64 lobby_id) {
-	SteamAPICall_t call = SteamMatchmaking->JoinLobby(lobby_id);
-	steam_lobby_joined.Set(call, &steam_net_callbacks, &steam_net_callbacks_t::lobby_joined);
+bool steam_lobby_join_id(uint64 lobby_id) {
+	if (SteamMatchmaking) {
+		SteamAPICall_t call = SteamMatchmaking->JoinLobby(lobby_id);
+		steam_lobby_joined.Set(call, &steam_net_callbacks, &steam_net_callbacks_t::lobby_joined);
+		return true;
+	} else return false;
 }
 
 dllx double steam_lobby_join_id_raw(double lobby_id_high, double lobby_id_low) {
-	steam_lobby_join_id(uint64_make(lobby_id_high, lobby_id_low));
-	return 1;
+	return steam_lobby_join_id(uint64_make(lobby_id_high, lobby_id_low));
 }
 
 void steam_net_callbacks_t::lobby_join_requested(GameLobbyJoinRequested_t* e) {
@@ -528,9 +542,11 @@ void steam_net_callbacks_t::lobby_created(LobbyCreated_t* e, bool failed) {
 /// [async] Creates a lobby.
 dllx double steam_lobby_create(double type, double max_members) {
 	steam_lobby_leave();
-	SteamAPICall_t call = SteamMatchmaking->CreateLobby(steam_lobby_type_from_int((int32)type), (int)max_members);
-	steam_lobby_created.Set(call, &steam_net_callbacks, &steam_net_callbacks_t::lobby_created);
-	return 1;
+	if (SteamMatchmaking) {
+		SteamAPICall_t call = SteamMatchmaking->CreateLobby(steam_lobby_type_from_int((int32)type), (int)max_members);
+		steam_lobby_created.Set(call, &steam_net_callbacks, &steam_net_callbacks_t::lobby_created);
+		return true;
+	} else return false;
 }
 
 #pragma endregion
@@ -539,16 +555,16 @@ dllx double steam_lobby_create(double type, double max_members) {
 
 /// [lobby owner only] Sets the data for the current lobby.
 dllx double steam_lobby_set_data(char* key, char* value) {
-	if (steam_lobby_current.IsValid()) {
+	if (steam_lobby_current.IsValid() && SteamMatchmaking) {
 		return SteamMatchmaking->SetLobbyData(steam_lobby_current, key, value);
-	} else return 0;
+	} else return false;
 }
 
 /// [lobby owner only] Changes the type of the current lobby.
 dllx double steam_lobby_set_type(double type) {
-	if (steam_lobby_current.IsValid()) {
+	if (steam_lobby_current.IsValid() && SteamMatchmaking) {
 		return SteamMatchmaking->SetLobbyType(steam_lobby_current, steam_lobby_type_from_int((int32)type));
-	} else return 0;
+	} else return false;
 }
 
 #pragma endregion
@@ -568,14 +584,18 @@ dllx double steam_get_user_steam_id_low() {
 dllx double steam_user_set_played_with(double id_high, double id_low) {
 	CSteamID target;
 	target.SetFromUint64(uint64_make(id_high, id_low));
-	SteamFriends->SetPlayedWith(target);
-	return true;
+	if (SteamFriends) {
+		SteamFriends->SetPlayedWith(target);
+		return true;
+	} else return false;
 }
 
 /// Activates an overlay by it's raw Steam API name.
 dllx double steam_activate_overlay_raw(char* overlay_code) {
-	SteamFriends->ActivateGameOverlay(overlay_code);
-	return true;
+	if (SteamFriends) {
+		SteamFriends->ActivateGameOverlay(overlay_code);
+		return true;
+	} else return false;
 }
 #pragma endregion
 
@@ -630,6 +650,16 @@ dllx double steam_net_update() {
 /// Detects if the app was run from Steam client and restarts if needed. Returns whether app should quit.
 dllx double steam_restart_if_necessary() {
 	return SteamAPI_RestartAppIfNecessary(steam_app_id);
+}
+
+dllx double steam_net_api_flags() {
+	int r = 0;
+	if (SteamUtils) r |= 1;
+	if (SteamUser) r |= 2;
+	if (SteamFriends) r |= 4;
+	if (SteamNetworking) r |= 8;
+	if (SteamMatchmaking) r |= 16;
+	return r;
 }
 
 dllx double steam_net_init_cpp(double app_id) {
