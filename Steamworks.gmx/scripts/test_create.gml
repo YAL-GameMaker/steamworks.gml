@@ -1,6 +1,9 @@
 trace_log = ds_list_create();
 window_set_caption("[" + steam_get_persona_name() + "]");
-trace("Flags: " + string(steam_net_api_flags()));
+var s = "Native extension is ";
+if (!steam_net_is_available()) s += "not ";
+trace(s + "loaded.");
+trace("API flags: " + string(steam_net_api_flags()));
 test_params();
 // if account's nick starts with a dot, have it connect instead of hosting:
 is_secondary = (string_char_at(steam_get_persona_name(), 1) == ".");
