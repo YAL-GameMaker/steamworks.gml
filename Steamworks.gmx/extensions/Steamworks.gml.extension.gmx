@@ -498,6 +498,15 @@
           <args/>
         </function>
         <function>
+          <name>steam_net_api_flags</name>
+          <externalName>steam_net_api_flags</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>steam_net_init_cpp</name>
           <externalName>steam_net_init_cpp</externalName>
           <kind>11</kind>
@@ -522,6 +531,15 @@
           <externalName>steam_net_init_cpp_pre</externalName>
           <kind>11</kind>
           <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_net_is_ready</name>
+          <externalName>steam_net_is_ready</externalName>
+          <kind>11</kind>
+          <help>steam_net_is_ready() : Returns whether the extension has initialized successfully.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1153,6 +1171,15 @@
           <args/>
         </function>
         <function>
+          <name>steam_net_api_flags</name>
+          <externalName>steam_net_api_flags</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>steam_net_init_cpp</name>
           <externalName>steam_net_init_cpp</externalName>
           <kind>11</kind>
@@ -1175,6 +1202,15 @@
         <function>
           <name>steam_net_init_cpp_pre</name>
           <externalName>steam_net_init_cpp_pre</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_net_is_ready</name>
+          <externalName>steam_net_is_ready</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1743,6 +1779,15 @@
           <args/>
         </function>
         <function>
+          <name>steam_net_api_flags</name>
+          <externalName>steam_net_api_flags</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>steam_net_init_cpp</name>
           <externalName>steam_net_init_cpp</externalName>
           <kind>11</kind>
@@ -1765,6 +1810,15 @@
         <function>
           <name>steam_net_init_cpp_pre</name>
           <externalName>steam_net_init_cpp_pre</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_net_is_ready</name>
+          <externalName>steam_net_is_ready</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
