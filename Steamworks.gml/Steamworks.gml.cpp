@@ -1,6 +1,6 @@
 // Steamworks.gml
 // author: YellowAfterlife
-// license: GNU LGPL v3 https://www.gnu.org/licenses/lgpl-3.0
+// license: MIT https://opensource.org/licenses/mit-license.php
 //
 // This is where pretty much everything happens.
 // My sincere apologies if you are using a source code editor that
@@ -652,13 +652,15 @@ dllx double steam_restart_if_necessary() {
 	return SteamAPI_RestartAppIfNecessary(steam_app_id);
 }
 
+bool steam_net_ready = false;
 dllx double steam_net_api_flags() {
 	int r = 0;
-	if (SteamUtils) r |= 1;
-	if (SteamUser) r |= 2;
-	if (SteamFriends) r |= 4;
-	if (SteamNetworking) r |= 8;
-	if (SteamMatchmaking) r |= 16;
+	if (steam_net_ready) r |= 1;
+	if (SteamUtils) r |= 2;
+	if (SteamUser) r |= 4;
+	if (SteamFriends) r |= 8;
+	if (SteamNetworking) r |= 16;
+	if (SteamMatchmaking) r |= 32;
 	return r;
 }
 
@@ -668,9 +670,15 @@ dllx double steam_net_init_cpp(double app_id) {
 		trace("Steamworks.gml failed to link with Steam API.");
 		return 0;
 	}
+	steam_net_ready = true;
 	steam_local_id = SteamUser->GetSteamID();
 	trace("Steamworks.gml initialized successfully.");
 	return 1;
+}
+
+/// Returns whether the extension has initialized successfully.
+dllx double steam_net_is_ready() {
+	return steam_net_ready;
 }
 
 dllx double steam_net_is_available() {
