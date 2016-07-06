@@ -31,7 +31,7 @@ The extension is automatically updated to reflect the functions/macros from the 
 ## Meta
 Author: Vadim "YellowAfterlife" Dyachenko
 
-License: GNU LGPL v3 https://www.gnu.org/licenses/lgpl-3.0
+License: MIT https://opensource.org/licenses/mit-license.php
 
 ## Special thanks
 
