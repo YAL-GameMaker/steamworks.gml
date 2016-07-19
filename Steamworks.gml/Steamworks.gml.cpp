@@ -239,9 +239,8 @@ dllx double steam_net_packet_get_size() {
 	return steam_net_packet_size;
 }
 
-dllx double steam_net_packet_get_data_raw(double data_addr) {
+dllx double steam_net_packet_get_data_raw(char* data) {
 	if (steam_net_packet_data != nullptr) {
-		void* data = (void*)(uint32)data_addr;
 		memcpy(data, steam_net_packet_data, steam_net_packet_size);
 		return 1;
 	} else return 0;

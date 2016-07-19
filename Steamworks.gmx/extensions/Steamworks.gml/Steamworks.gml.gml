@@ -47,7 +47,7 @@ return steam_id_create(steam_net_packet_get_sender_id_high(), steam_net_packet_g
 var buf = argument0;
 var size = steam_net_packet_get_size();
 if (buffer_get_size(buf) < size) buffer_resize(buf, size);
-var addr = real(buffer_get_address(buf));
+var addr = buffer_get_address(buf);
 return steam_net_packet_get_data_raw(addr);
 
 #define steam_net_packet_send
