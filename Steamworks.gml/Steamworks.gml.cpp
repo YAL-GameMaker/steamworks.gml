@@ -6,6 +6,10 @@
 // My sincere apologies if you are using a source code editor that
 // does not support collapsing "#pragma region" blocks.
 
+//
+///
+#define steam_net_version 100
+
 // GCC glue:
 #ifdef __GNUC__
 #include <stdlib.h>
@@ -678,6 +682,11 @@ dllx double steam_net_init_cpp(double app_id) {
 /// Returns whether the extension has initialized successfully.
 dllx double steam_net_is_ready() {
 	return steam_net_ready;
+}
+
+/// Returns 
+dllx double steam_net_get_version() {
+	return steam_net_version;
 }
 
 dllx double steam_net_is_available() {

@@ -28,6 +28,10 @@ return steam_id_create(int64_from_string_high(s), int64_from_string_low(s));
 var q = argument0;
 return int64(int64_combine_string(steam_id_get_high(q), steam_id_get_low(q)));
 
+#define steam_net_check_version
+/// steam_net_check_version() : Returns whether the DLL matches the extension version.
+return steam_net_version == steam_net_get_version();
+
 #define steam_net_accept_p2p_session
 /// steam_net_accept_p2p_session(user_id) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.
 var user_id = argument0;
