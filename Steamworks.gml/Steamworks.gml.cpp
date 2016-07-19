@@ -512,7 +512,14 @@ dllx double steam_lobby_join_id_raw(double lobby_id_high, double lobby_id_low) {
 }
 
 void steam_net_callbacks_t::lobby_join_requested(GameLobbyJoinRequested_t* e) {
-	steam_lobby_join_id(e->m_steamIDLobby.ConvertToUint64());
+	steam_net_event q("lobby_join_requested");
+	uint64 lobby_id = e->m_steamIDLobby.ConvertToUint64();
+	q.set("lobby_id_high", uint64_high(lobby_id));
+	q.set("lobby_id_low", uint64_low(lobby_id));
+	uint64 friend_id = e->m_steamIDFriend.ConvertToUint64();
+	q.set("friend_id_high", uint64_high(friend_id));
+	q.set("friend_id_low", uint64_low(friend_id));
+	q.dispatch();
 }
 
 #pragma endregion
