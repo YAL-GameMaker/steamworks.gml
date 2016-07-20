@@ -139,7 +139,7 @@
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
-            <arg>2</arg>
+            <arg>1</arg>
           </args>
         </function>
         <function>
@@ -527,6 +527,15 @@
           <args/>
         </function>
         <function>
+          <name>steam_net_get_version</name>
+          <externalName>steam_net_get_version</externalName>
+          <kind>11</kind>
+          <help>steam_net_get_version() : Returns </help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>steam_net_is_available</name>
           <externalName>steam_net_is_available</externalName>
           <kind>11</kind>
@@ -546,6 +555,11 @@
         </function>
       </functions>
       <constants>
+        <constant>
+          <name>steam_net_version</name>
+          <value>100</value>
+          <hidden>0</hidden>
+        </constant>
         <constant>
           <name>steam_net_packet_type_unreliable</name>
           <value>0</value>
@@ -812,7 +826,7 @@
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
-            <arg>2</arg>
+            <arg>1</arg>
           </args>
         </function>
         <function>
@@ -1200,6 +1214,15 @@
           <args/>
         </function>
         <function>
+          <name>steam_net_get_version</name>
+          <externalName>steam_net_get_version</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>steam_net_is_available</name>
           <externalName>steam_net_is_available</externalName>
           <kind>11</kind>
@@ -1219,6 +1242,11 @@
         </function>
       </functions>
       <constants>
+        <constant>
+          <name>steam_net_version</name>
+          <value>100</value>
+          <hidden>-1</hidden>
+        </constant>
         <constant>
           <name>steam_net_packet_type_unreliable</name>
           <value>0</value>
@@ -1420,7 +1448,7 @@
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
-            <arg>2</arg>
+            <arg>1</arg>
           </args>
         </function>
         <function>
@@ -1808,6 +1836,15 @@
           <args/>
         </function>
         <function>
+          <name>steam_net_get_version</name>
+          <externalName>steam_net_get_version</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>steam_net_is_available</name>
           <externalName>steam_net_is_available</externalName>
           <kind>11</kind>
@@ -1827,6 +1864,11 @@
         </function>
       </functions>
       <constants>
+        <constant>
+          <name>steam_net_version</name>
+          <value>100</value>
+          <hidden>-1</hidden>
+        </constant>
         <constant>
           <name>steam_net_packet_type_unreliable</name>
           <value>0</value>
@@ -1995,6 +2037,15 @@
           <args>
             <arg>2</arg>
           </args>
+        </function>
+        <function>
+          <name>steam_net_check_version</name>
+          <externalName>steam_net_check_version</externalName>
+          <kind>11</kind>
+          <help>steam_net_check_version() : Returns whether the DLL matches the extension version.</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
         </function>
         <function>
           <name>steam_net_accept_p2p_session</name>
