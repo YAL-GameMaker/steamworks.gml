@@ -8,8 +8,6 @@
   <license>LGPLv3</license>
   <description></description>
   <helpfile></helpfile>
-  <androidProps>0</androidProps>
-  <iosProps>0</iosProps>
   <installdir></installdir>
   <classname></classname>
   <androidclassname></androidclassname>
@@ -19,22 +17,30 @@
   <maclinkerflags></maclinkerflags>
   <maccompilerflags></maccompilerflags>
   <androidinject></androidinject>
+  <androidmanifestinject></androidmanifestinject>
+  <iosplistinject></iosplistinject>
+  <androidactivityinject></androidactivityinject>
   <gradleinject></gradleinject>
   <iosSystemFrameworks/>
   <iosThirdPartyFrameworks/>
+  <ConfigOptions>
+    <Config name="Default">
+      <CopyToMask>9223372036854775807</CopyToMask>
+    </Config>
+  </ConfigOptions>
   <androidPermissions/>
   <IncludedResources/>
   <files>
     <file>
       <filename>Steamworks.gml.dll</filename>
       <origname>Steamworks.gml.dll</origname>
-      <init>steam_net_init_cpp_pre</init>
+      <init>steam_gml_init_cpp_pre</init>
       <final></final>
       <kind>1</kind>
       <uncompress>0</uncompress>
       <ConfigOptions>
         <Config name="Default">
-          <CopyToMask>123145844424768</CopyToMask>
+          <CopyToMask>105553658380352</CopyToMask>
         </Config>
       </ConfigOptions>
       <ProxyFiles/>
@@ -347,6 +353,63 @@
           </args>
         </function>
         <function>
+          <name>steam_lobby_list_get_lobby_owner_id_high</name>
+          <externalName>steam_lobby_list_get_lobby_owner_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_owner_id_low</name>
+          <externalName>steam_lobby_list_get_lobby_owner_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_member_count</name>
+          <externalName>steam_lobby_list_get_lobby_member_count</externalName>
+          <kind>11</kind>
+          <help>steam_lobby_list_get_lobby_member_count(lobby_index) : Returns the number of members in the given lobby in search results.</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_member_id_high</name>
+          <externalName>steam_lobby_list_get_lobby_member_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_member_id_low</name>
+          <externalName>steam_lobby_list_get_lobby_member_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_lobby_list_join</name>
           <externalName>steam_lobby_list_join</externalName>
           <kind>11</kind>
@@ -403,6 +466,145 @@
           <args>
             <arg>2</arg>
           </args>
+        </function>
+        <function>
+          <name>steam_controller_reset</name>
+          <externalName>steam_controller_reset</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_init</name>
+          <externalName>steam_controller_init</externalName>
+          <kind>11</kind>
+          <help>steam_controller_init() : Should be called on game start if you use Steam Controller</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_update</name>
+          <externalName>steam_controller_update</externalName>
+          <kind>11</kind>
+          <help>steam_controller_update() : Can be called prior to other controller functions for lower latency. Called by steam_gml_update.</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_get_max_count_raw</name>
+          <externalName>steam_controller_get_max_count_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_get_ids_raw</name>
+          <externalName>steam_controller_get_ids_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_actionset_id</name>
+          <externalName>steam_controller_get_actionset_id</externalName>
+          <kind>11</kind>
+          <help>steam_controller_get_actionset_id(actionSetName) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_actionset</name>
+          <externalName>steam_controller_get_actionset</externalName>
+          <kind>11</kind>
+          <help>steam_controller_get_actionset(controller) : Returns action set ID (generated by steam_controller_get_actionset_id), as per GetCurrentActionSet</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_set_actionset</name>
+          <externalName>steam_controller_set_actionset</externalName>
+          <kind>11</kind>
+          <help>steam_controller_set_actionset(controller, actionset_id) : Changes controller action set, as per ActivateActionSet</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_digital_id</name>
+          <externalName>steam_controller_get_digital_id</externalName>
+          <kind>11</kind>
+          <help>steam_controller_get_digital_id(digitalActionName)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_digital_value</name>
+          <externalName>steam_controller_get_digital_value</externalName>
+          <kind>11</kind>
+          <help>steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true/false)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_digital_status</name>
+          <externalName>steam_controller_get_digital_status</externalName>
+          <kind>11</kind>
+          <help>steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true/false)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_digital_origins_raw</name>
+          <externalName>steam_controller_get_digital_origins_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>4</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_max_origins_raw</name>
+          <externalName>steam_controller_get_max_origins_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
         </function>
         <function>
           <name>steam_get_user_steam_id_high</name>
@@ -480,8 +682,8 @@
           </args>
         </function>
         <function>
-          <name>steam_net_update</name>
-          <externalName>steam_net_update</externalName>
+          <name>steam_gml_update</name>
+          <externalName>steam_gml_update</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -498,8 +700,8 @@
           <args/>
         </function>
         <function>
-          <name>steam_net_api_flags</name>
-          <externalName>steam_net_api_flags</externalName>
+          <name>steam_gml_api_flags</name>
+          <externalName>steam_gml_api_flags</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -507,8 +709,8 @@
           <args/>
         </function>
         <function>
-          <name>steam_net_init_cpp</name>
-          <externalName>steam_net_init_cpp</externalName>
+          <name>steam_gml_init_cpp</name>
+          <externalName>steam_gml_init_cpp</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -518,26 +720,17 @@
           </args>
         </function>
         <function>
-          <name>steam_net_is_ready</name>
-          <externalName>steam_net_is_ready</externalName>
+          <name>steam_gml_is_ready</name>
+          <externalName>steam_gml_is_ready</externalName>
           <kind>11</kind>
-          <help>steam_net_is_ready() : Returns whether the extension has initialized successfully.</help>
+          <help>steam_gml_is_ready() : Returns whether the extension has initialized successfully.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
         </function>
         <function>
-          <name>steam_net_get_version</name>
-          <externalName>steam_net_get_version</externalName>
-          <kind>11</kind>
-          <help>steam_net_get_version() : Returns </help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>steam_net_is_available</name>
-          <externalName>steam_net_is_available</externalName>
+          <name>steam_gml_get_version</name>
+          <externalName>steam_gml_get_version</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -545,8 +738,17 @@
           <args/>
         </function>
         <function>
-          <name>steam_net_init_cpp_pre</name>
-          <externalName>steam_net_init_cpp_pre</externalName>
+          <name>steam_gml_is_available</name>
+          <externalName>steam_gml_is_available</externalName>
+          <kind>11</kind>
+          <help>steam_gml_is_available() : Returns whether the extension was loaded at all (GML returns 0 for unloaded extension calls).</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_gml_init_cpp_pre</name>
+          <externalName>steam_gml_init_cpp_pre</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1034,6 +1236,63 @@
           </args>
         </function>
         <function>
+          <name>steam_lobby_list_get_lobby_owner_id_high</name>
+          <externalName>steam_lobby_list_get_lobby_owner_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_owner_id_low</name>
+          <externalName>steam_lobby_list_get_lobby_owner_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_member_count</name>
+          <externalName>steam_lobby_list_get_lobby_member_count</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_member_id_high</name>
+          <externalName>steam_lobby_list_get_lobby_member_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_member_id_low</name>
+          <externalName>steam_lobby_list_get_lobby_member_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_lobby_list_join</name>
           <externalName>steam_lobby_list_join</externalName>
           <kind>11</kind>
@@ -1090,6 +1349,145 @@
           <args>
             <arg>2</arg>
           </args>
+        </function>
+        <function>
+          <name>steam_controller_reset</name>
+          <externalName>steam_controller_reset</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_init</name>
+          <externalName>steam_controller_init</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_update</name>
+          <externalName>steam_controller_update</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_get_max_count_raw</name>
+          <externalName>steam_controller_get_max_count_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_get_ids_raw</name>
+          <externalName>steam_controller_get_ids_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_actionset_id</name>
+          <externalName>steam_controller_get_actionset_id</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_actionset</name>
+          <externalName>steam_controller_get_actionset</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_set_actionset</name>
+          <externalName>steam_controller_set_actionset</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_digital_id</name>
+          <externalName>steam_controller_get_digital_id</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_digital_value</name>
+          <externalName>steam_controller_get_digital_value</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_digital_status</name>
+          <externalName>steam_controller_get_digital_status</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_digital_origins_raw</name>
+          <externalName>steam_controller_get_digital_origins_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>4</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_max_origins_raw</name>
+          <externalName>steam_controller_get_max_origins_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
         </function>
         <function>
           <name>steam_get_user_steam_id_high</name>
@@ -1167,8 +1565,8 @@
           </args>
         </function>
         <function>
-          <name>steam_net_update</name>
-          <externalName>steam_net_update</externalName>
+          <name>steam_gml_update</name>
+          <externalName>steam_gml_update</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1185,8 +1583,8 @@
           <args/>
         </function>
         <function>
-          <name>steam_net_api_flags</name>
-          <externalName>steam_net_api_flags</externalName>
+          <name>steam_gml_api_flags</name>
+          <externalName>steam_gml_api_flags</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1194,8 +1592,8 @@
           <args/>
         </function>
         <function>
-          <name>steam_net_init_cpp</name>
-          <externalName>steam_net_init_cpp</externalName>
+          <name>steam_gml_init_cpp</name>
+          <externalName>steam_gml_init_cpp</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1205,8 +1603,8 @@
           </args>
         </function>
         <function>
-          <name>steam_net_is_ready</name>
-          <externalName>steam_net_is_ready</externalName>
+          <name>steam_gml_is_ready</name>
+          <externalName>steam_gml_is_ready</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1214,8 +1612,8 @@
           <args/>
         </function>
         <function>
-          <name>steam_net_get_version</name>
-          <externalName>steam_net_get_version</externalName>
+          <name>steam_gml_get_version</name>
+          <externalName>steam_gml_get_version</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1223,8 +1621,8 @@
           <args/>
         </function>
         <function>
-          <name>steam_net_is_available</name>
-          <externalName>steam_net_is_available</externalName>
+          <name>steam_gml_is_available</name>
+          <externalName>steam_gml_is_available</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1232,8 +1630,8 @@
           <args/>
         </function>
         <function>
-          <name>steam_net_init_cpp_pre</name>
-          <externalName>steam_net_init_cpp_pre</externalName>
+          <name>steam_gml_init_cpp_pre</name>
+          <externalName>steam_gml_init_cpp_pre</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1656,6 +2054,63 @@
           </args>
         </function>
         <function>
+          <name>steam_lobby_list_get_lobby_owner_id_high</name>
+          <externalName>steam_lobby_list_get_lobby_owner_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_owner_id_low</name>
+          <externalName>steam_lobby_list_get_lobby_owner_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_member_count</name>
+          <externalName>steam_lobby_list_get_lobby_member_count</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_member_id_high</name>
+          <externalName>steam_lobby_list_get_lobby_member_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_member_id_low</name>
+          <externalName>steam_lobby_list_get_lobby_member_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_lobby_list_join</name>
           <externalName>steam_lobby_list_join</externalName>
           <kind>11</kind>
@@ -1712,6 +2167,145 @@
           <args>
             <arg>2</arg>
           </args>
+        </function>
+        <function>
+          <name>steam_controller_reset</name>
+          <externalName>steam_controller_reset</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_init</name>
+          <externalName>steam_controller_init</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_update</name>
+          <externalName>steam_controller_update</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_get_max_count_raw</name>
+          <externalName>steam_controller_get_max_count_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_get_ids_raw</name>
+          <externalName>steam_controller_get_ids_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_actionset_id</name>
+          <externalName>steam_controller_get_actionset_id</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_actionset</name>
+          <externalName>steam_controller_get_actionset</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_set_actionset</name>
+          <externalName>steam_controller_set_actionset</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_digital_id</name>
+          <externalName>steam_controller_get_digital_id</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_digital_value</name>
+          <externalName>steam_controller_get_digital_value</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_digital_status</name>
+          <externalName>steam_controller_get_digital_status</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_digital_origins_raw</name>
+          <externalName>steam_controller_get_digital_origins_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>4</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_max_origins_raw</name>
+          <externalName>steam_controller_get_max_origins_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
         </function>
         <function>
           <name>steam_get_user_steam_id_high</name>
@@ -1789,8 +2383,8 @@
           </args>
         </function>
         <function>
-          <name>steam_net_update</name>
-          <externalName>steam_net_update</externalName>
+          <name>steam_gml_update</name>
+          <externalName>steam_gml_update</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1807,8 +2401,8 @@
           <args/>
         </function>
         <function>
-          <name>steam_net_api_flags</name>
-          <externalName>steam_net_api_flags</externalName>
+          <name>steam_gml_api_flags</name>
+          <externalName>steam_gml_api_flags</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1816,8 +2410,8 @@
           <args/>
         </function>
         <function>
-          <name>steam_net_init_cpp</name>
-          <externalName>steam_net_init_cpp</externalName>
+          <name>steam_gml_init_cpp</name>
+          <externalName>steam_gml_init_cpp</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1827,8 +2421,8 @@
           </args>
         </function>
         <function>
-          <name>steam_net_is_ready</name>
-          <externalName>steam_net_is_ready</externalName>
+          <name>steam_gml_is_ready</name>
+          <externalName>steam_gml_is_ready</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1836,8 +2430,8 @@
           <args/>
         </function>
         <function>
-          <name>steam_net_get_version</name>
-          <externalName>steam_net_get_version</externalName>
+          <name>steam_gml_get_version</name>
+          <externalName>steam_gml_get_version</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1845,8 +2439,8 @@
           <args/>
         </function>
         <function>
-          <name>steam_net_is_available</name>
-          <externalName>steam_net_is_available</externalName>
+          <name>steam_gml_is_available</name>
+          <externalName>steam_gml_is_available</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1854,8 +2448,8 @@
           <args/>
         </function>
         <function>
-          <name>steam_net_init_cpp_pre</name>
-          <externalName>steam_net_init_cpp_pre</externalName>
+          <name>steam_gml_init_cpp_pre</name>
+          <externalName>steam_gml_init_cpp_pre</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -1959,13 +2553,13 @@
     <file>
       <filename>Steamworks.gml.gml</filename>
       <origname>Steamworks.gml.gml</origname>
-      <init>steam_net_init_gml</init>
+      <init>steam_gml_init_gml</init>
       <final></final>
       <kind>2</kind>
       <uncompress>0</uncompress>
       <ConfigOptions>
         <Config name="Default">
-          <CopyToMask>123146358329582</CopyToMask>
+          <CopyToMask>105554172285166</CopyToMask>
         </Config>
       </ConfigOptions>
       <ProxyFiles/>
@@ -2039,10 +2633,10 @@
           </args>
         </function>
         <function>
-          <name>steam_net_check_version</name>
-          <externalName>steam_net_check_version</externalName>
+          <name>steam_gml_check_version</name>
+          <externalName>steam_gml_check_version</externalName>
           <kind>11</kind>
-          <help>steam_net_check_version() : Returns whether the DLL matches the extension version.</help>
+          <help>steam_gml_check_version() : Returns whether the DLL matches the extension version.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2146,8 +2740,97 @@
           </args>
         </function>
         <function>
-          <name>steam_net_init_gml</name>
-          <externalName>steam_net_init_gml</externalName>
+          <name>steam_lobby_list_get_lobby_owner_id</name>
+          <externalName>steam_lobby_list_get_lobby_owner_id</externalName>
+          <kind>11</kind>
+          <help>steam_lobby_list_get_lobby_owner_id(index) : Returns the user ID of the owner of the given lobby.</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_owner_id</name>
+          <externalName>steam_lobby_list_get_lobby_owner_id</externalName>
+          <kind>11</kind>
+          <help>steam_lobby_list_get_lobby_owner_id(lobby_index, member_index) : Returns the user ID of the given member of the given lobby.</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_gml_prepare_buffer</name>
+          <externalName>steam_gml_prepare_buffer</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_max_count</name>
+          <externalName>steam_controller_get_max_count</externalName>
+          <kind>11</kind>
+          <help>steam_controller_get_max_count(): Returns the maximum number of controllers</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_get_ids</name>
+          <externalName>steam_controller_get_ids</externalName>
+          <kind>11</kind>
+          <help>steam_controller_get_ids(?out:array&lt;index&gt;):
+var b = steam_gml_prepare_buffer(steam_controller_get_max_count() * 4);</help>
+          <returnType>2</returnType>
+          <argCount>-1</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_get_max_origins</name>
+          <externalName>steam_controller_get_max_origins</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_get_digital_origins</name>
+          <externalName>steam_controller_get_digital_origins</externalName>
+          <kind>11</kind>
+          <help>steam_controller_get_digital_origins(controller, actionset_id, digital_id, ?out:array&lt;origin&gt;): as per GetDigitalActionOrigins</help>
+          <returnType>2</returnType>
+          <argCount>-1</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_gml_init_gml</name>
+          <externalName>steam_gml_init_gml</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_net_is_available</name>
+          <externalName>steam_net_is_available</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_net_update</name>
+          <externalName>steam_net_update</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -2157,14 +2840,24 @@
       </functions>
       <constants>
         <constant>
-          <name>steam_net_initialized</name>
-          <value>global.g_steam_net_initialized</value>
+          <name>steam_id_use_int64</name>
+          <value>true</value>
+          <hidden>-1</hidden>
+        </constant>
+        <constant>
+          <name>steam_gml_initialized</name>
+          <value>global.g_steam_gml_initialized</value>
           <hidden>0</hidden>
         </constant>
         <constant>
-          <name>steam_net_initialized /* Whether the extension is initialized. */</name>
-          <value>global.g_steam_net_initialized</value>
+          <name>steam_gml_initialized /* Whether the extension is initialized. */</name>
+          <value>global.g_steam_gml_initialized</value>
           <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_net_initialized</name>
+          <value>global.g_steam_gml_initialized</value>
+          <hidden>-1</hidden>
         </constant>
       </constants>
     </file>

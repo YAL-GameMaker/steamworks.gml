@@ -250,3 +250,7 @@ Steamworks/
 # Intermediate file on Linux:
 Steamworks.gml/Steamworks.gml.o
 Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.cpp
+Steamworks.gml.VC.db
+Steamworks.gmx/Configs/Default/PS3/
+Steamworks.gmx/Configs/Default/PS4/
+Steamworks.gmx/Configs/Default/PSVita/

@@ -21,6 +21,7 @@ for (i = 0; i < argc; i++) {
 }
 if (!is_secondary) {
     argv += " -secondary";
+    //argv += " -forcecontrollerappid " + string(steam_get_app_id());
     argv = '"C:\Program Files\Sandboxie\Start.exe" /box:SteamBox ' + argv;
     clipboard_set_text(argv);
 }

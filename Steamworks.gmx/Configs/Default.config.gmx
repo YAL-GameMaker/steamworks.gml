@@ -43,6 +43,7 @@
     <option_android_interpolate>-1</option_android_interpolate>
     <option_android_licensing_enable>0</option_android_licensing_enable>
     <option_android_licensing_key></option_android_licensing_key>
+    <option_android_lint>-1</option_android_lint>
     <option_android_major_version>1</option_android_major_version>
     <option_android_min_sdk_version>9</option_android_min_sdk_version>
     <option_android_minor_version>0</option_android_minor_version>
@@ -57,13 +58,14 @@
     <option_android_ouya_icon>Configs\Default\android\icons\ouyaIcon.png</option_android_ouya_icon>
     <option_android_package_company>companyname</option_android_package_company>
     <option_android_package_domain>com</option_android_package_domain>
-    <option_android_package_product>GMS-Steamnet</option_android_package_product>
+    <option_android_package_product>GMSSteamnet</option_android_package_product>
     <option_android_permission_flags>8</option_android_permission_flags>
     <option_android_portrait_splash_png>Configs\Default\android\portrait_splash.png</option_android_portrait_splash_png>
     <option_android_push_enable>0</option_android_push_enable>
     <option_android_push_id></option_android_push_id>
     <option_android_scale>-1</option_android_scale>
     <option_android_set_device_id></option_android_set_device_id>
+    <option_android_sleep_margin>4</option_android_sleep_margin>
     <option_android_splash_png>Configs\Default\android\splash.png</option_android_splash_png>
     <option_android_splash_time>0</option_android_splash_time>
     <option_android_support_lib_version>23.1.1</option_android_support_lib_version>
@@ -114,6 +116,7 @@
     <option_androidfire_large_icon_png>Configs\Default\amazonfire\icons\large_icon.png</option_androidfire_large_icon_png>
     <option_androidfire_licensing_enable>false</option_androidfire_licensing_enable>
     <option_androidfire_licensing_key></option_androidfire_licensing_key>
+    <option_androidfire_lint>0</option_androidfire_lint>
     <option_androidfire_major_version>1</option_androidfire_major_version>
     <option_androidfire_min_sdk_version>9</option_androidfire_min_sdk_version>
     <option_androidfire_minor_version>0</option_androidfire_minor_version>
@@ -124,7 +127,7 @@
     <option_androidfire_orient_portrait_flipped>True</option_androidfire_orient_portrait_flipped>
     <option_androidfire_package_company>companyname</option_androidfire_package_company>
     <option_androidfire_package_domain>com</option_androidfire_package_domain>
-    <option_androidfire_package_product>GMS-Steamnet</option_androidfire_package_product>
+    <option_androidfire_package_product>GMSSteamnet</option_androidfire_package_product>
     <option_androidfire_permission_flags>8</option_androidfire_permission_flags>
     <option_androidfire_portrait_splash_png>Configs\Default\amazonfire\portrait_splash.png</option_androidfire_portrait_splash_png>
     <option_androidfire_push_enable>0</option_androidfire_push_enable>
@@ -182,12 +185,13 @@
     <option_androidtv_large_icon_png>Configs\Default\androidtv\icons\large_icon.png</option_androidtv_large_icon_png>
     <option_androidtv_licensing_enable>0</option_androidtv_licensing_enable>
     <option_androidtv_licensing_key></option_androidtv_licensing_key>
+    <option_androidtv_lint>-1</option_androidtv_lint>
     <option_androidtv_major_version>1</option_androidtv_major_version>
     <option_androidtv_minor_version>0</option_androidtv_minor_version>
     <option_androidtv_moga>0</option_androidtv_moga>
     <option_androidtv_package_company>companyname</option_androidtv_package_company>
     <option_androidtv_package_domain>com</option_androidtv_package_domain>
-    <option_androidtv_package_product>GMS-Steamnet</option_androidtv_package_product>
+    <option_androidtv_package_product>GMSSteamnet</option_androidtv_package_product>
     <option_androidtv_permission_flags>8</option_androidtv_permission_flags>
     <option_androidtv_push_enable>0</option_androidtv_push_enable>
     <option_androidtv_push_id></option_androidtv_push_id>
@@ -213,6 +217,7 @@
     <option_facebook_app_display_name></option_facebook_app_display_name>
     <option_facebook_appid></option_facebook_appid>
     <option_facebook_enable>false</option_facebook_enable>
+    <option_fast_collision_compatibility>False</option_fast_collision_compatibility>
     <option_freeze>false</option_freeze>
     <option_frequency>0</option_frequency>
     <option_frontimage>nil</option_frontimage>
@@ -312,6 +317,7 @@
     <option_ios_set_device_id></option_ios_set_device_id>
     <option_ios_splash_png>Configs\Default\ios\splash.png</option_ios_splash_png>
     <option_ios_splash_time>0</option_ios_splash_time>
+    <option_ios_team_id></option_ios_team_id>
     <option_ios_texture_page>1024</option_ios_texture_page>
     <option_ios_use_test_ads>false</option_ios_use_test_ads>
     <option_lastchanged></option_lastchanged>
@@ -362,6 +368,7 @@
     <option_mac_splash_png>Configs\Default\mac\splash.png</option_mac_splash_png>
     <option_mac_steam_app_id>480</option_mac_steam_app_id>
     <option_mac_sync>0</option_mac_sync>
+    <option_mac_team_id></option_mac_team_id>
     <option_mac_texture_page>2048</option_mac_texture_page>
     <option_noborder>false</option_noborder>
     <option_nobuttons>false</option_nobuttons>
@@ -500,6 +507,7 @@
     <option_win8_portrait_allowed>-1</option_win8_portrait_allowed>
     <option_win8_portrait_flipped_allowed>-1</option_win8_portrait_flipped_allowed>
     <option_win8_publisher_display_name>YourPublisherName</option_win8_publisher_display_name>
+    <option_win8_publisher_name>CN=YoyoGames</option_win8_publisher_name>
     <option_win8_revision_version>0</option_win8_revision_version>
     <option_win8_scaling_stretch>false</option_win8_scaling_stretch>
     <option_win8_search_capable>0</option_win8_search_capable>
@@ -509,9 +517,11 @@
     <option_win8_store_logo>Configs\Default\Windows8\logos\logo50.png</option_win8_store_logo>
     <option_win8_texture_page>1024</option_win8_texture_page>
     <option_win8_wide_logo>Configs\Default\Windows8\logos\logo310.png</option_win8_wide_logo>
+    <option_winUAP_allowfullscreen>0</option_winUAP_allowfullscreen>
     <option_winUAP_build_version>0</option_winUAP_build_version>
     <option_winUAP_certificate_location>WinUWPRunner_TemporaryKey.pfx</option_winUAP_certificate_location>
     <option_winUAP_display_name>GMS-Steamnet</option_winUAP_display_name>
+    <option_winUAP_fullscreen>0</option_winUAP_fullscreen>
     <option_winUAP_internet_capable>0</option_winUAP_internet_capable>
     <option_winUAP_interpolate>-1</option_winUAP_interpolate>
     <option_winUAP_landscape_allowed>-1</option_winUAP_landscape_allowed>
@@ -529,6 +539,7 @@
     <option_winUAP_portrait_allowed>-1</option_winUAP_portrait_allowed>
     <option_winUAP_portrait_flipped_allowed>-1</option_winUAP_portrait_flipped_allowed>
     <option_winUAP_publisher_display_name>YourPublisherName</option_winUAP_publisher_display_name>
+    <option_winUAP_publisher_name>CN=Sandbox</option_winUAP_publisher_name>
     <option_winUAP_revision_version>0</option_winUAP_revision_version>
     <option_winUAP_scaling_stretch>false</option_winUAP_scaling_stretch>
     <option_winUAP_search_capable>0</option_winUAP_search_capable>
@@ -562,7 +573,7 @@
     <option_windows_splash_screen>Configs\Default\windows\splash.png</option_windows_splash_screen>
     <option_windows_steam_app_id>480</option_windows_steam_app_id>
     <option_windows_texture_page>2048</option_windows_texture_page>
-    <option_windows_use_splash>-1</option_windows_use_splash>
+    <option_windows_use_splash>0</option_windows_use_splash>
     <option_windows_vertex_buffer_method2>1</option_windows_vertex_buffer_method2>
     <option_winphone_480_splash_image>Configs\Default\WinPhone\SplashScreenImage480.jpg</option_winphone_480_splash_image>
     <option_winphone_720_splash_image>Configs\Default\WinPhone\SplashScreenImage720.jpg</option_winphone_720_splash_image>

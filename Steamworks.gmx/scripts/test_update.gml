@@ -1,4 +1,4 @@
-steam_net_update();
+steam_gml_update();
 if (request_lobbies > 0 && --request_lobbies <= 0) {
     trace("Requesting lobbies.");
     steam_lobby_list_add_string_filter("game", "steamworks.gml", steam_lobby_list_filter_eq);
@@ -22,4 +22,5 @@ while (steam_net_packet_receive()) {
             break;
     }
 }
+
 

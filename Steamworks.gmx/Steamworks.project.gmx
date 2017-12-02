@@ -38,6 +38,10 @@
     <script>scripts\test_update.gml</script>
     <script>scripts\test_steam.gml</script>
     <script>scripts\test_draw.gml</script>
+    <scripts name="controller">
+      <script>scripts\test_create_controller.gml</script>
+      <script>scripts\test_draw_controller.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_test</font>
