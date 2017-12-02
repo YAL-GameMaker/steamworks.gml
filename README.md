@@ -1,6 +1,11 @@
 # Steamworks.gml
 A native extension for GameMaker: Studio that implements various Steam API features not covered by the built-in functions - most importantly, P2P networking, lobbies, and matchmaking.
 
+## Quick links
+* [Extension' documentation](https://yal.cc/r/17/steamworks-gml/)
+* [Example files](https://yellowafterlife.itch.io/steamworks-gml-example)
+* [Donate (via itch.io)](https://yellowafterlife.itch.io/steamworks-gml-example)
+
 ## Usage
 
 1. Set up GameMaker: Studio for Steamworks SDK development ([see doc](http://help.yoyogames.com/hc/en-us/articles/216754138-Using-The-Steamworks-SDK-With-GameMaker-Studio)).
