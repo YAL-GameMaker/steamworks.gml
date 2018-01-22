@@ -21,6 +21,8 @@ bt_fire = steam_controller_get_digital_id("fire");
 trace("Fire ID:", bt_fire);
 bt_pause = steam_controller_get_digital_id("pause_menu");
 trace("Pause ID:", bt_pause);
+al_move = steam_controller_get_analog_id("move");
+trace("Move ID:", al_move);
 //
 trace("Fire origins:", steam_controller_get_digital_origins(controller, aset_ingame, bt_fire));
 trace("Pause origins:", steam_controller_get_digital_origins(controller, aset_menu, bt_pause));

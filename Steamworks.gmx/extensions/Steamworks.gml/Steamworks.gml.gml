@@ -155,20 +155,48 @@ if (n < 0) {
 }
 return n;
 
-#define steam_controller_get_digital_origins
-/// steam_controller_get_digital_origins(controller, actionset_id, digital_id, ?out:array<origin>): as per GetDigitalActionOrigins
-var b = steam_gml_prepare_buffer(steam_controller_get_max_origins() * 4);
-var n = steam_controller_get_digital_origins_raw(argument[0], argument[1], argument[2], buffer_get_address(b));
-var w, r;
-if (argument_count > 3) {
-	w = argument[3]; r = n;
-} else {
-	w = array_create(n); r = w;
-}
+#define steam_controller_get_origins_raw
+/// steam_controller_get_origins_raw(found, buffer, out)
+var n = argument0;
+var b = argument1;
+var w = argument2;
+if (!is_array(w)) {
+    w = array_create(n); r = w;
+} else r = n;
 for (var i = 0; i < n; i++) {
 	w[@i] = buffer_read(b, buffer_s32);
 }
 return r;
+
+#define steam_controller_get_digital_origins
+/// steam_controller_get_digital_origins(controller, actionset_id, digital_id, ?out:array<origin>): as per GetDigitalActionOrigins
+var b = steam_gml_prepare_buffer(steam_controller_get_max_origins() * 4);
+var n = steam_controller_get_digital_origins_raw(argument[0], argument[1], argument[2], buffer_get_address(b));
+var w; if (argument_count > 3) w = argument[3]; else w = undefined;
+return steam_controller_get_origins_raw(n, b, w);
+
+#define steam_controller_get_analog_origins
+/// steam_controller_get_digital_origins(controller, actionset_id, analog_id, ?out:array<origin>): as per GetDigitalActionOrigins
+var b = steam_gml_prepare_buffer(steam_controller_get_max_origins() * 4);
+var n = steam_controller_get_analog_origins_raw(argument[0], argument[1], argument[2], buffer_get_address(b));
+var w; if (argument_count > 3) w = argument[3]; else w = undefined;
+return steam_controller_get_origins_raw(n, b, w);
+
+#define steam_controller_get_analog_x
+/// steam_controller_get_analog_x(controller, analog_id): (-1..1) for sticks, delta for mouse
+return steam_controller_get_analog_data(argument0, argument1, 2);
+
+#define steam_controller_get_analog_y
+/// steam_controller_get_analog_y(controller, analog_id): (-1..1) for sticks, delta for mouse
+return steam_controller_get_analog_data(argument0, argument1, 3);
+
+#define steam_controller_get_analog_mode
+/// steam_controller_get_analog_mode(controller, analog_id): IDs as per EControllerSourceMode
+return steam_controller_get_analog_data(argument0, argument1, 1);
+
+#define steam_controller_get_analog_status
+/// steam_controller_get_analog_status(controller, analog_id): true/false
+return steam_controller_get_analog_data(argument0, argument1, 0);
 
 #define steam_gml_init_gml
 /// steam_gml_init_gml()

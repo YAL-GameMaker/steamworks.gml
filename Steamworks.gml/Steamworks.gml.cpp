@@ -871,6 +871,46 @@ dllx double steam_controller_get_digital_origins_raw(
 }
 #pragma endregion
 
+#pragma region Analog action
+///
+dllx double steam_controller_get_analog_id(char* analogActionName) {
+	if (!SteamController()) return -1;
+	int i; if (steam_controller_actionsets.find_name(analogActionName, &i)) return i;
+	ControllerDigitalActionHandle_t r = SteamController()->GetAnalogActionHandle(analogActionName);
+	if (r != 0) {
+		return steam_controller_analog.set(analogActionName, r);
+	} else return steam_controller_analog.set_noone(analogActionName);
+}
+dllx double steam_controller_get_analog_data(double controller, double analog_id, double data_id) {
+	if (!SteamController()) return 0;
+	ControllerHandle_t q = steam_controller_find(controller); if (q == 0) return -1;
+	ControllerAnalogActionHandle_t t; if (!steam_controller_analog.get(analog_id, &t)) return -2;
+	ControllerAnalogActionData_t d = SteamController()->GetAnalogActionData(q, t);
+	switch ((int)data_id) {
+		case 1: return (int)d.eMode;
+		case 2: return d.x;
+		case 3: return d.y;
+		default: return d.bActive;
+	}
+}
+dllx double steam_controller_get_analog_origins_raw(
+	double controller, double actionset_id, double digital_id, char* out
+) {
+	if (!SteamController()) return 0;
+	ControllerHandle_t ctl = steam_controller_find(controller); if (ctl == 0) return 0;
+	ControllerActionSetHandle_t set;
+	if (!steam_controller_actionsets.get(actionset_id, &set)) return 0;
+	ControllerDigitalActionHandle_t act = 4;
+	if (!steam_controller_analog.get(digital_id, &act)) return 0;
+	int found = SteamController()->GetAnalogActionOrigins(ctl, set, act, steam_controller_origins);
+	buffer buf(out);
+	for (int i = 0; i < found; i++) {
+		buf.write<int32>(steam_controller_origins[i]);
+	}
+	return found;
+}
+#pragma endregion
+
 #pragma region Origin
 dllx double steam_controller_get_max_origins_raw() {
 	return STEAM_CONTROLLER_MAX_ORIGINS;

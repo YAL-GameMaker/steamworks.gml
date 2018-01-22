@@ -33,6 +33,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\trace.gml</script>
+    <script>scripts\sfmt.gml</script>
     <script>scripts\test_params.gml</script>
     <script>scripts\test_create.gml</script>
     <script>scripts\test_update.gml</script>

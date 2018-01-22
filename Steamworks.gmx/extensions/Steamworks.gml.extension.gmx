@@ -598,6 +598,44 @@
           </args>
         </function>
         <function>
+          <name>steam_controller_get_analog_id</name>
+          <externalName>steam_controller_get_analog_id</externalName>
+          <kind>11</kind>
+          <help>steam_controller_get_analog_id(analogActionName)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_analog_data</name>
+          <externalName>steam_controller_get_analog_data</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_analog_origins_raw</name>
+          <externalName>steam_controller_get_analog_origins_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>4</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_controller_get_max_origins_raw</name>
           <externalName>steam_controller_get_max_origins_raw</externalName>
           <kind>11</kind>
@@ -1481,6 +1519,44 @@
           </args>
         </function>
         <function>
+          <name>steam_controller_get_analog_id</name>
+          <externalName>steam_controller_get_analog_id</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_analog_data</name>
+          <externalName>steam_controller_get_analog_data</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_analog_origins_raw</name>
+          <externalName>steam_controller_get_analog_origins_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>4</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_controller_get_max_origins_raw</name>
           <externalName>steam_controller_get_max_origins_raw</externalName>
           <kind>11</kind>
@@ -2299,6 +2375,44 @@
           </args>
         </function>
         <function>
+          <name>steam_controller_get_analog_id</name>
+          <externalName>steam_controller_get_analog_id</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_analog_data</name>
+          <externalName>steam_controller_get_analog_data</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_analog_origins_raw</name>
+          <externalName>steam_controller_get_analog_origins_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>4</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_controller_get_max_origins_raw</name>
           <externalName>steam_controller_get_max_origins_raw</externalName>
           <kind>11</kind>
@@ -2802,6 +2916,19 @@ var b = steam_gml_prepare_buffer(steam_controller_get_max_count() * 4);</help>
           <args/>
         </function>
         <function>
+          <name>steam_controller_get_origins_raw</name>
+          <externalName>steam_controller_get_origins_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_controller_get_digital_origins</name>
           <externalName>steam_controller_get_digital_origins</externalName>
           <kind>11</kind>
@@ -2809,6 +2936,63 @@ var b = steam_gml_prepare_buffer(steam_controller_get_max_count() * 4);</help>
           <returnType>2</returnType>
           <argCount>-1</argCount>
           <args/>
+        </function>
+        <function>
+          <name>steam_controller_get_digital_origins</name>
+          <externalName>steam_controller_get_digital_origins</externalName>
+          <kind>11</kind>
+          <help>steam_controller_get_digital_origins(controller, actionset_id, analog_id, ?out:array&lt;origin&gt;): as per GetDigitalActionOrigins</help>
+          <returnType>2</returnType>
+          <argCount>-1</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_controller_get_analog_x</name>
+          <externalName>steam_controller_get_analog_x</externalName>
+          <kind>11</kind>
+          <help>steam_controller_get_analog_x(controller, analog_id): (-1..1) for sticks, delta for mouse</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_analog_y</name>
+          <externalName>steam_controller_get_analog_y</externalName>
+          <kind>11</kind>
+          <help>steam_controller_get_analog_y(controller, analog_id): (-1..1) for sticks, delta for mouse</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_analog_mode</name>
+          <externalName>steam_controller_get_analog_mode</externalName>
+          <kind>11</kind>
+          <help>steam_controller_get_analog_mode(controller, analog_id): IDs as per EControllerSourceMode</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_controller_get_analog_status</name>
+          <externalName>steam_controller_get_analog_status</externalName>
+          <kind>11</kind>
+          <help>steam_controller_get_analog_status(controller, analog_id): true/false</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
         </function>
         <function>
           <name>steam_gml_init_gml</name>
