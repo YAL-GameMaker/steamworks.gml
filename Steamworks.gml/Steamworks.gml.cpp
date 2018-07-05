@@ -268,6 +268,7 @@ class steam_net_callbacks_t {
 	//STEAM_CALLBACK(steam_net_callbacks_t, OnPersonaStateChange, PersonaStateChange_t);
 	STEAM_CALLBACK(steam_net_callbacks_t, lobby_chat_update, LobbyChatUpdate_t);
 	STEAM_CALLBACK(steam_net_callbacks_t, lobby_join_requested, GameLobbyJoinRequested_t);
+	STEAM_CALLBACK(steam_net_callbacks_t, micro_txn_auth_response, MicroTxnAuthorizationResponse_t);
 	void lobby_list_received(LobbyMatchList_t* e, bool failed);
 	void lobby_created(LobbyCreated_t* e, bool failed);
 	void lobby_joined(LobbyEnter_t* e, bool failed);
@@ -944,6 +945,15 @@ dllx double steam_activate_overlay_raw(char* overlay_code) {
 		SteamFriends()->ActivateGameOverlay(overlay_code);
 		return true;
 	} else return false;
+}
+
+void steam_net_callbacks_t::micro_txn_auth_response(MicroTxnAuthorizationResponse_t* e) {
+	steam_net_event r("micro_txn_auth_response");
+	r.set_result(e->m_bAuthorized);
+	r.set("order_id_high", uint64_high(e->m_ulOrderID));
+	r.set("order_id_low", uint64_low(e->m_ulOrderID));
+	r.set("app_id", e->m_unAppID);
+	r.dispatch();
 }
 #pragma endregion
 
