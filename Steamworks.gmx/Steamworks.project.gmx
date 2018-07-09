@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="3" name="datafiles">
+  <datafiles number="4" name="datafiles">
     <datafile>
       <name>steam_appid.txt</name>
       <exists>-1</exists>
@@ -20,6 +20,23 @@
         </Config>
       </ConfigOptions>
       <filename>steam_appid.txt</filename>
+    </datafile>
+    <datafile>
+      <name>steamworks.gml.html</name>
+      <exists>-1</exists>
+      <size>55682</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>0</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>steamworks.gml.html</filename>
     </datafile>
   </datafiles>
   <NewExtensions>

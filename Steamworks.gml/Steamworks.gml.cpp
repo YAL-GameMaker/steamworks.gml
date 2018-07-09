@@ -742,6 +742,13 @@ dllx double steam_lobby_set_data(char* key, char* value) {
 	} else return false;
 }
 
+/// [anyone] Retrieves previously set data for the current lobby.
+dllx char* steam_lobby_get_data(char* key) {
+	if (steam_lobby_current.IsValid() && SteamMatchmaking()) {
+		return gml_string(SteamMatchmaking()->GetLobbyData(steam_lobby_current, key));
+	} return "";
+}
+
 /// [lobby owner only] Changes the type of the current lobby.
 dllx double steam_lobby_set_type(double type) {
 	if (steam_lobby_current.IsValid() && SteamMatchmaking()) {

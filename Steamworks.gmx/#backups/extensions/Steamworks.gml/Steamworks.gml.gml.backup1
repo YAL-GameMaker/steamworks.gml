@@ -1,3 +1,4 @@
+// 2018-07-05 16:57:07
 #define steam_id_create
 /// steam_id_create(high, low) : Creates an immutable Steam ID.
 /// steam_id_use_int64 = true
@@ -207,6 +208,77 @@ return steam_controller_get_analog_data(argument0, argument1, 1);
 #define steam_controller_get_analog_status
 /// steam_controller_get_analog_status(controller, analog_id): true/false
 return steam_controller_get_analog_data(argument0, argument1, 0);
+
+//}
+
+//{ Inventory
+
+#define steam_inventory_result_get_items
+/// steam_inventory_result_get_items(inv_result): array<[item_inst, item_def, quantity, flags]> OR undefined (if failed)
+var n = steam_inventory_result_get_items_raw(argument0, pointer_null, 0);
+if (n < 0) return undefined;
+var b = steam_gml_prepare_buffer(n * 16);
+n = steam_inventory_result_get_items_raw(argument0, buffer_get_address(b), n);
+if (n < 0) return undefined;
+var w = array_create(n);
+for (var i = 0; i < n; i++) {
+	var q = array_create(4);
+	q[@0] = buffer_read(b, buffer_u64);
+	q[@1] = buffer_read(b, buffer_s32);
+	q[@2] = buffer_read(b, buffer_u16);
+	q[@3] = buffer_read(b, buffer_u16);
+	w[@i] = q;
+}
+return w;
+
+#define steam_inventory_item_exchange
+/// steam_inventory_item_exchange(item_def_to_create, items_to_destroy:array<[item_inst, quantity]>): Returns async result ID (ExchangeItems)
+var w = argument1;
+var n = array_length_1d(w);
+var b = steam_gml_prepare_buffer(4 + 12 * n);
+buffer_write(b, buffer_u32, n);
+var i, q;
+// write quantities:
+for (i = 0; i < n; i++) {
+    q = w[i];
+    if (is_array(q)) {
+        buffer_write(b, buffer_u32, q[1]);
+    } else buffer_write(b, buffer_u32, 0);
+}
+// write instance IDs:
+for (i = 0; i < n; i++) {
+    q = w[i];
+    if (is_array(q)) {
+        buffer_write(b, buffer_u64, q[0]);
+    } else buffer_write(b, buffer_u64, q);
+}
+return steam_inventory_item_exchange_raw(argument0, buffer_get_address(b));
+
+#define steam_inventory_item_consume
+/// steam_inventory_item_consume(item_inst, quantity): Returns async result ID (ConsumeItem)
+return steam_inventory_item_consume_raw(steam_id_get_high(argument0), steam_id_get_low(argument0), argument1);
+
+#define steam_inventory_item_def_get_property
+/// steam_inventory_item_def_get_property(item_def, property_name): Returns item property value (undefined if amiss)
+var n = steam_inventory_item_def_get_property_raw(argument0, argument1, pointer_null, 0);
+if (n < 0) return undefined;
+var b = steam_gml_prepare_buffer(n);
+if (steam_inventory_item_def_get_property_raw(argument0, argument1, buffer_get_address(b), n)) {
+    return buffer_read(b, buffer_string);
+} else return undefined;
+
+#define steam_inventory_item_def_get_property_names
+/// steam_inventory_item_def_get_property_names(item_def): Returns an array of item property names (undefined if invalid)
+var n = steam_inventory_item_def_get_property_raw(argument0, pointer_null, pointer_null, 0);
+if (n < 0) return undefined;
+var b = steam_gml_prepare_buffer(n);
+n = steam_inventory_item_def_get_property_raw(argument0, pointer_null, buffer_get_address(b), n);
+if (n < 0) return undefined;
+var w = array_create(n);
+for (var i = 0; i < n; i++) {
+    w[@i] = buffer_read(b, buffer_string);
+}
+return w;
 
 //}
 

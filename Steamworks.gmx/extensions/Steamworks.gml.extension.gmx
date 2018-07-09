@@ -3,7 +3,7 @@
   <name>Steamworks.gml</name>
   <version>1.0.0</version>
   <packageID></packageID>
-  <ProductID></ProductID>
+  <ProductID>F79C97955FD1AF4686EB4EF4EF90F0DB</ProductID>
   <date>20/02/16</date>
   <license>LGPLv3</license>
   <description></description>
@@ -25,11 +25,13 @@
   <iosThirdPartyFrameworks/>
   <ConfigOptions>
     <Config name="Default">
-      <CopyToMask>9223372036854775807</CopyToMask>
+      <CopyToMask>105554163798254</CopyToMask>
     </Config>
   </ConfigOptions>
   <androidPermissions/>
-  <IncludedResources/>
+  <IncludedResources>
+    <Resource>Included Files\steamworks.gml.html</Resource>
+  </IncludedResources>
   <files>
     <file>
       <filename>Steamworks.gml.dll</filename>
@@ -453,6 +455,17 @@
           <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_get_data</name>
+          <externalName>steam_lobby_get_data</externalName>
+          <kind>11</kind>
+          <help>steam_lobby_get_data(key) : [anyone] Retrieves previously set data for the current lobby.</help>
+          <returnType>1</returnType>
+          <argCount>1</argCount>
+          <args>
             <arg>1</arg>
           </args>
         </function>
@@ -1378,6 +1391,17 @@
           </args>
         </function>
         <function>
+          <name>steam_lobby_get_data</name>
+          <externalName>steam_lobby_get_data</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>1</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_lobby_set_type</name>
           <externalName>steam_lobby_set_type</externalName>
           <kind>11</kind>
@@ -2230,6 +2254,17 @@
           <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_get_data</name>
+          <externalName>steam_lobby_get_data</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>1</returnType>
+          <argCount>1</argCount>
+          <args>
             <arg>1</arg>
           </args>
         </function>
