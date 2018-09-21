@@ -140,11 +140,11 @@ template<class T> class steam_gml_map {
 	}
 	// Returns whether the value exists in this map.
 	bool exists(T key) {
-		return t2i.find(key) != std::map::end;
+		return t2i.find(key) != t2i.end();
 	}
 	// Adds a value to the map, returns it's index.
 	int add(T item) {
-		map<T, int>::iterator pair = t2i.find(item);
+		auto pair = t2i.find(item);
 		if (pair != t2i.end()) return pair->second;
 		t2i[item] = next;
 		i2t.push_back(item);
@@ -177,7 +177,7 @@ template<class T> class steam_gml_namedmap {
 	}
 	// If name exists in map, fetches index to &out and returns true.
 	bool find_name(char* name, int* out) {
-		map<string, int>::iterator pair = s2i.find(name);
+		auto pair = s2i.find(name);
 		if (pair != s2i.end()) {
 			*out = pair->second;
 			return true;
@@ -185,7 +185,7 @@ template<class T> class steam_gml_namedmap {
 	}
 	// If value exists in map, fetches index to &out and returns true.
 	bool find_value(T value, int* out) {
-		map<T, int>::iterator pair = t2i.find(value);
+		auto pair = t2i.find(value);
 		if (pair != t2i.end()) {
 			*out = pair->second;
 			return true;
