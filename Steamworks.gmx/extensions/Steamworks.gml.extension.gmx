@@ -64,7 +64,7 @@
         <function>
           <name>steam_net_set_auto_accept_p2p_sessions</name>
           <externalName>steam_net_set_auto_accept_p2p_sessions</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_net_set_auto_accept_p2p_sessions(auto_accept) : Sets whether to auto-accept all incoming P2P session requests.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -75,7 +75,7 @@
         <function>
           <name>steam_net_accept_p2p_session_raw</name>
           <externalName>steam_net_accept_p2p_session_raw</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_net_accept_p2p_session_raw(user_id_high, user_id_low) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -87,7 +87,7 @@
         <function>
           <name>steam_net_close_p2p_session_raw</name>
           <externalName>steam_net_close_p2p_session_raw</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_net_close_p2p_session_raw(user_id_high, user_id_low)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -124,7 +124,7 @@
         <function>
           <name>steam_net_packet_receive</name>
           <externalName>steam_net_packet_receive</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_net_packet_receive() : Receives a packet, returns whether successful (retrieve data via steam_net_packet_).</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -133,7 +133,7 @@
         <function>
           <name>steam_net_packet_get_size</name>
           <externalName>steam_net_packet_get_size</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_net_packet_get_size() : Returns the size of the last received packet (in bytes).</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -171,7 +171,7 @@
         <function>
           <name>steam_lobby_leave</name>
           <externalName>steam_lobby_leave</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_leave() : Leaves the current lobby (if any)</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -180,7 +180,7 @@
         <function>
           <name>steam_lobby_is_owner</name>
           <externalName>steam_lobby_is_owner</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_is_owner() : Returns whether the local user is the owner of the current lobby.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -207,7 +207,7 @@
         <function>
           <name>steam_lobby_get_member_count</name>
           <externalName>steam_lobby_get_member_count</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_get_member_count() : Returns the number of users in the lobby.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -238,7 +238,7 @@
         <function>
           <name>steam_lobby_activate_invite_overlay</name>
           <externalName>steam_lobby_activate_invite_overlay</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_activate_invite_overlay() : Opens an overlay to invite users to the current lobby.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -247,7 +247,7 @@
         <function>
           <name>steam_lobby_list_request</name>
           <externalName>steam_lobby_list_request</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_list_request() : Requests the list of lobbies to be (re-)loaded.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -256,7 +256,7 @@
         <function>
           <name>steam_lobby_list_is_loading</name>
           <externalName>steam_lobby_list_is_loading</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_list_is_loading() : Returns whether the list of lobbies is currently loading.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -265,7 +265,7 @@
         <function>
           <name>steam_lobby_list_add_string_filter</name>
           <externalName>steam_lobby_list_add_string_filter</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_list_add_string_filter(key, value, comparison_type) : Sets a string filter for the next lobby list request.</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
@@ -278,7 +278,7 @@
         <function>
           <name>steam_lobby_list_add_numerical_filter</name>
           <externalName>steam_lobby_list_add_numerical_filter</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_list_add_numerical_filter(key, value, comparison_type) : Sets a numerical filter for the next lobby list request.</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
@@ -291,7 +291,7 @@
         <function>
           <name>steam_lobby_list_add_near_filter</name>
           <externalName>steam_lobby_list_add_near_filter</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_list_add_near_filter(key, value) : Sorts the results of the next lobby list request based to proximity to the given value.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -303,7 +303,7 @@
         <function>
           <name>steam_lobby_list_add_distance_filter</name>
           <externalName>steam_lobby_list_add_distance_filter</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_list_add_distance_filter(mode) : Restricts results by region</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -314,7 +314,7 @@
         <function>
           <name>steam_lobby_list_get_count</name>
           <externalName>steam_lobby_list_get_count</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_list_get_count() : Returns the number of the matching lobbies.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -323,7 +323,7 @@
         <function>
           <name>steam_lobby_list_get_data</name>
           <externalName>steam_lobby_list_get_data</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_list_get_data(index, key) : Retrieves given information about the given lobby</help>
           <returnType>1</returnType>
           <argCount>2</argCount>
@@ -379,7 +379,7 @@
         <function>
           <name>steam_lobby_list_get_lobby_member_count</name>
           <externalName>steam_lobby_list_get_lobby_member_count</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_list_get_lobby_member_count(lobby_index) : Returns the number of members in the given lobby in search results.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -414,7 +414,7 @@
         <function>
           <name>steam_lobby_list_join</name>
           <externalName>steam_lobby_list_join</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_list_join(index) : [async] Starts joining the given lobby.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -437,7 +437,7 @@
         <function>
           <name>steam_lobby_create</name>
           <externalName>steam_lobby_create</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_create(type, max_members) : [async] Creates a lobby.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -449,7 +449,7 @@
         <function>
           <name>steam_lobby_set_data</name>
           <externalName>steam_lobby_set_data</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_set_data(key, value) : [lobby owner only] Sets the data for the current lobby.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -461,7 +461,7 @@
         <function>
           <name>steam_lobby_get_data</name>
           <externalName>steam_lobby_get_data</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_get_data(key) : [anyone] Retrieves previously set data for the current lobby.</help>
           <returnType>1</returnType>
           <argCount>1</argCount>
@@ -472,7 +472,7 @@
         <function>
           <name>steam_lobby_set_type</name>
           <externalName>steam_lobby_set_type</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_lobby_set_type(type) : [lobby owner only] Changes the type of the current lobby.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -492,7 +492,7 @@
         <function>
           <name>steam_controller_init</name>
           <externalName>steam_controller_init</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_controller_init() : Should be called on game start if you use Steam Controller</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -501,7 +501,7 @@
         <function>
           <name>steam_controller_update</name>
           <externalName>steam_controller_update</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_controller_update() : Can be called prior to other controller functions for lower latency. Called by steam_gml_update.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -530,7 +530,7 @@
         <function>
           <name>steam_controller_get_actionset_id</name>
           <externalName>steam_controller_get_actionset_id</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_controller_get_actionset_id(actionSetName) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -541,7 +541,7 @@
         <function>
           <name>steam_controller_get_actionset</name>
           <externalName>steam_controller_get_actionset</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_controller_get_actionset(controller) : Returns action set ID (generated by steam_controller_get_actionset_id), as per GetCurrentActionSet</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -552,7 +552,7 @@
         <function>
           <name>steam_controller_set_actionset</name>
           <externalName>steam_controller_set_actionset</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_controller_set_actionset(controller, actionset_id) : Changes controller action set, as per ActivateActionSet</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -564,7 +564,7 @@
         <function>
           <name>steam_controller_get_digital_id</name>
           <externalName>steam_controller_get_digital_id</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_controller_get_digital_id(digitalActionName)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -575,7 +575,7 @@
         <function>
           <name>steam_controller_get_digital_value</name>
           <externalName>steam_controller_get_digital_value</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true/false)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -587,7 +587,7 @@
         <function>
           <name>steam_controller_get_digital_status</name>
           <externalName>steam_controller_get_digital_status</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true/false)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -613,7 +613,7 @@
         <function>
           <name>steam_controller_get_analog_id</name>
           <externalName>steam_controller_get_analog_id</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_controller_get_analog_id(analogActionName)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -678,7 +678,7 @@
         <function>
           <name>steam_user_set_played_with</name>
           <externalName>steam_user_set_played_with</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_user_set_played_with(id_high, id_low) : Can be called on lobby session start, adds the user to "recently played with" list.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -690,7 +690,7 @@
         <function>
           <name>steam_activate_overlay_raw</name>
           <externalName>steam_activate_overlay_raw</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_activate_overlay_raw(overlay_code) : Activates an overlay by it's raw Steam API name.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -701,7 +701,7 @@
         <function>
           <name>int64_from_string_high</name>
           <externalName>int64_from_string_high</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>int64_from_string_high(cstring)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -712,7 +712,7 @@
         <function>
           <name>int64_from_string_low</name>
           <externalName>int64_from_string_low</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>int64_from_string_low(cstring)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -723,7 +723,7 @@
         <function>
           <name>int64_combine_string</name>
           <externalName>int64_combine_string</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>int64_combine_string(high, low)</help>
           <returnType>1</returnType>
           <argCount>2</argCount>
@@ -744,7 +744,7 @@
         <function>
           <name>steam_restart_if_necessary</name>
           <externalName>steam_restart_if_necessary</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_restart_if_necessary() : Detects if the app was run from Steam client and restarts if needed. Returns whether app should quit.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -773,7 +773,7 @@
         <function>
           <name>steam_gml_is_ready</name>
           <externalName>steam_gml_is_ready</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_gml_is_ready() : Returns whether the extension has initialized successfully.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -791,7 +791,7 @@
         <function>
           <name>steam_gml_is_available</name>
           <externalName>steam_gml_is_available</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>steam_gml_is_available() : Returns whether the extension was loaded at all (GML returns 0 for unloaded extension calls).</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -819,17 +819,7 @@
           <hidden>0</hidden>
         </constant>
         <constant>
-          <name>steam_net_packet_type_unreliable /* Basic UDP send (&lt;1200 bytes; may get lost) */</name>
-          <value>0</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
           <name>steam_net_packet_type_unreliable_nodelay</name>
-          <value>1</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_net_packet_type_unreliable_nodelay /* Instant non-buffering UDP send (e.g. for voice data) */</name>
           <value>1</value>
           <hidden>0</hidden>
         </constant>
@@ -839,17 +829,7 @@
           <hidden>0</hidden>
         </constant>
         <constant>
-          <name>steam_net_packet_type_reliable /* Reliable send (up to 1MB) */</name>
-          <value>2</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
           <name>steam_net_packet_type_reliable_buffer</name>
-          <value>3</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_net_packet_type_reliable_buffer /* Buffering send (Nagle algorithm) */</name>
           <value>3</value>
           <hidden>0</hidden>
         </constant>
@@ -859,17 +839,7 @@
           <hidden>0</hidden>
         </constant>
         <constant>
-          <name>steam_lobby_list_filter_eq /* "==" / Equal */</name>
-          <value>0</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
           <name>steam_lobby_list_filter_ne</name>
-          <value>3</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_lobby_list_filter_ne /* "!=" / Not Equal */</name>
           <value>3</value>
           <hidden>0</hidden>
         </constant>
@@ -879,17 +849,7 @@
           <hidden>0</hidden>
         </constant>
         <constant>
-          <name>steam_lobby_list_filter_lt /* "&lt;" / Less Than */</name>
-          <value>-1</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
           <name>steam_lobby_list_filter_gt</name>
-          <value>1</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_lobby_list_filter_gt /* "&gt;" / Greater Than */</name>
           <value>1</value>
           <hidden>0</hidden>
         </constant>
@@ -899,17 +859,7 @@
           <hidden>0</hidden>
         </constant>
         <constant>
-          <name>steam_lobby_list_filter_le /* "&lt;=" / Less than or Equal */</name>
-          <value>-2</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
           <name>steam_lobby_list_filter_ge</name>
-          <value>2</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_lobby_list_filter_ge /* "&gt;=" / Greater than or Equal */</name>
           <value>2</value>
           <hidden>0</hidden>
         </constant>
@@ -939,27 +889,12 @@
           <hidden>0</hidden>
         </constant>
         <constant>
-          <name>steam_lobby_type_private /* Private lobby. People can only join if invited. */</name>
-          <value>0</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
           <name>steam_lobby_type_friends_only</name>
           <value>1</value>
           <hidden>0</hidden>
         </constant>
         <constant>
-          <name>steam_lobby_type_friends_only /* Friends-only lobby. Visible to friends. */</name>
-          <value>1</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
           <name>steam_lobby_type_public</name>
-          <value>2</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_lobby_type_public /* Public lobby. Visible to everyone. */</name>
           <value>2</value>
           <hidden>0</hidden>
         </constant>
@@ -996,8 +931,8 @@
         <function>
           <name>steam_net_set_auto_accept_p2p_sessions</name>
           <externalName>steam_net_set_auto_accept_p2p_sessions</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_net_set_auto_accept_p2p_sessions(auto_accept) : Sets whether to auto-accept all incoming P2P session requests.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1007,8 +942,8 @@
         <function>
           <name>steam_net_accept_p2p_session_raw</name>
           <externalName>steam_net_accept_p2p_session_raw</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_net_accept_p2p_session_raw(user_id_high, user_id_low) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1019,8 +954,8 @@
         <function>
           <name>steam_net_close_p2p_session_raw</name>
           <externalName>steam_net_close_p2p_session_raw</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_net_close_p2p_session_raw(user_id_high, user_id_low)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1056,8 +991,8 @@
         <function>
           <name>steam_net_packet_receive</name>
           <externalName>steam_net_packet_receive</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_net_packet_receive() : Receives a packet, returns whether successful (retrieve data via steam_net_packet_).</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1065,8 +1000,8 @@
         <function>
           <name>steam_net_packet_get_size</name>
           <externalName>steam_net_packet_get_size</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_net_packet_get_size() : Returns the size of the last received packet (in bytes).</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1103,8 +1038,8 @@
         <function>
           <name>steam_lobby_leave</name>
           <externalName>steam_lobby_leave</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_leave() : Leaves the current lobby (if any)</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1112,8 +1047,8 @@
         <function>
           <name>steam_lobby_is_owner</name>
           <externalName>steam_lobby_is_owner</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_is_owner() : Returns whether the local user is the owner of the current lobby.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1139,8 +1074,8 @@
         <function>
           <name>steam_lobby_get_member_count</name>
           <externalName>steam_lobby_get_member_count</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_get_member_count() : Returns the number of users in the lobby.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1170,8 +1105,8 @@
         <function>
           <name>steam_lobby_activate_invite_overlay</name>
           <externalName>steam_lobby_activate_invite_overlay</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_activate_invite_overlay() : Opens an overlay to invite users to the current lobby.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1179,8 +1114,8 @@
         <function>
           <name>steam_lobby_list_request</name>
           <externalName>steam_lobby_list_request</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_request() : Requests the list of lobbies to be (re-)loaded.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1188,8 +1123,8 @@
         <function>
           <name>steam_lobby_list_is_loading</name>
           <externalName>steam_lobby_list_is_loading</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_is_loading() : Returns whether the list of lobbies is currently loading.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1197,8 +1132,8 @@
         <function>
           <name>steam_lobby_list_add_string_filter</name>
           <externalName>steam_lobby_list_add_string_filter</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_add_string_filter(key, value, comparison_type) : Sets a string filter for the next lobby list request.</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -1210,8 +1145,8 @@
         <function>
           <name>steam_lobby_list_add_numerical_filter</name>
           <externalName>steam_lobby_list_add_numerical_filter</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_add_numerical_filter(key, value, comparison_type) : Sets a numerical filter for the next lobby list request.</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -1223,8 +1158,8 @@
         <function>
           <name>steam_lobby_list_add_near_filter</name>
           <externalName>steam_lobby_list_add_near_filter</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_add_near_filter(key, value) : Sorts the results of the next lobby list request based to proximity to the given value.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1235,8 +1170,8 @@
         <function>
           <name>steam_lobby_list_add_distance_filter</name>
           <externalName>steam_lobby_list_add_distance_filter</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_add_distance_filter(mode) : Restricts results by region</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1246,8 +1181,8 @@
         <function>
           <name>steam_lobby_list_get_count</name>
           <externalName>steam_lobby_list_get_count</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_get_count() : Returns the number of the matching lobbies.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1255,8 +1190,8 @@
         <function>
           <name>steam_lobby_list_get_data</name>
           <externalName>steam_lobby_list_get_data</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_get_data(index, key) : Retrieves given information about the given lobby</help>
           <returnType>1</returnType>
           <argCount>2</argCount>
           <args>
@@ -1311,8 +1246,8 @@
         <function>
           <name>steam_lobby_list_get_lobby_member_count</name>
           <externalName>steam_lobby_list_get_lobby_member_count</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_get_lobby_member_count(lobby_index) : Returns the number of members in the given lobby in search results.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1346,8 +1281,8 @@
         <function>
           <name>steam_lobby_list_join</name>
           <externalName>steam_lobby_list_join</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_join(index) : [async] Starts joining the given lobby.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1369,8 +1304,8 @@
         <function>
           <name>steam_lobby_create</name>
           <externalName>steam_lobby_create</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_create(type, max_members) : [async] Creates a lobby.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1381,8 +1316,8 @@
         <function>
           <name>steam_lobby_set_data</name>
           <externalName>steam_lobby_set_data</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_set_data(key, value) : [lobby owner only] Sets the data for the current lobby.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1393,8 +1328,8 @@
         <function>
           <name>steam_lobby_get_data</name>
           <externalName>steam_lobby_get_data</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_get_data(key) : [anyone] Retrieves previously set data for the current lobby.</help>
           <returnType>1</returnType>
           <argCount>1</argCount>
           <args>
@@ -1404,8 +1339,8 @@
         <function>
           <name>steam_lobby_set_type</name>
           <externalName>steam_lobby_set_type</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_set_type(type) : [lobby owner only] Changes the type of the current lobby.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1424,8 +1359,8 @@
         <function>
           <name>steam_controller_init</name>
           <externalName>steam_controller_init</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_init() : Should be called on game start if you use Steam Controller</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1433,8 +1368,8 @@
         <function>
           <name>steam_controller_update</name>
           <externalName>steam_controller_update</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_update() : Can be called prior to other controller functions for lower latency. Called by steam_gml_update.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1462,8 +1397,8 @@
         <function>
           <name>steam_controller_get_actionset_id</name>
           <externalName>steam_controller_get_actionset_id</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_get_actionset_id(actionSetName) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1473,8 +1408,8 @@
         <function>
           <name>steam_controller_get_actionset</name>
           <externalName>steam_controller_get_actionset</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_get_actionset(controller) : Returns action set ID (generated by steam_controller_get_actionset_id), as per GetCurrentActionSet</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1484,8 +1419,8 @@
         <function>
           <name>steam_controller_set_actionset</name>
           <externalName>steam_controller_set_actionset</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_set_actionset(controller, actionset_id) : Changes controller action set, as per ActivateActionSet</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1496,8 +1431,8 @@
         <function>
           <name>steam_controller_get_digital_id</name>
           <externalName>steam_controller_get_digital_id</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_get_digital_id(digitalActionName)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1507,8 +1442,8 @@
         <function>
           <name>steam_controller_get_digital_value</name>
           <externalName>steam_controller_get_digital_value</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true/false)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1519,8 +1454,8 @@
         <function>
           <name>steam_controller_get_digital_status</name>
           <externalName>steam_controller_get_digital_status</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true/false)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1545,8 +1480,8 @@
         <function>
           <name>steam_controller_get_analog_id</name>
           <externalName>steam_controller_get_analog_id</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_get_analog_id(analogActionName)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1610,8 +1545,8 @@
         <function>
           <name>steam_user_set_played_with</name>
           <externalName>steam_user_set_played_with</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_user_set_played_with(id_high, id_low) : Can be called on lobby session start, adds the user to "recently played with" list.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1622,8 +1557,8 @@
         <function>
           <name>steam_activate_overlay_raw</name>
           <externalName>steam_activate_overlay_raw</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_activate_overlay_raw(overlay_code) : Activates an overlay by it's raw Steam API name.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1633,8 +1568,8 @@
         <function>
           <name>int64_from_string_high</name>
           <externalName>int64_from_string_high</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>int64_from_string_high(cstring)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1644,8 +1579,8 @@
         <function>
           <name>int64_from_string_low</name>
           <externalName>int64_from_string_low</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>int64_from_string_low(cstring)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1655,8 +1590,8 @@
         <function>
           <name>int64_combine_string</name>
           <externalName>int64_combine_string</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>int64_combine_string(high, low)</help>
           <returnType>1</returnType>
           <argCount>2</argCount>
           <args>
@@ -1676,8 +1611,8 @@
         <function>
           <name>steam_restart_if_necessary</name>
           <externalName>steam_restart_if_necessary</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_restart_if_necessary() : Detects if the app was run from Steam client and restarts if needed. Returns whether app should quit.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1705,8 +1640,8 @@
         <function>
           <name>steam_gml_is_ready</name>
           <externalName>steam_gml_is_ready</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_gml_is_ready() : Returns whether the extension has initialized successfully.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1723,8 +1658,8 @@
         <function>
           <name>steam_gml_is_available</name>
           <externalName>steam_gml_is_available</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_gml_is_available() : Returns whether the extension was loaded at all (GML returns 0 for unloaded extension calls).</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1743,92 +1678,92 @@
         <constant>
           <name>steam_net_version</name>
           <value>100</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_unreliable</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_unreliable_nodelay</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_reliable</name>
           <value>2</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_reliable_buffer</name>
           <value>3</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_eq</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_ne</name>
           <value>3</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_lt</name>
           <value>-1</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_gt</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_le</name>
           <value>-2</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_ge</name>
           <value>2</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_close</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_default</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_far</name>
           <value>2</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_worldwide</name>
           <value>3</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_private</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_friends_only</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_public</name>
           <value>2</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
       </constants>
     </file>
@@ -1863,8 +1798,8 @@
         <function>
           <name>steam_net_set_auto_accept_p2p_sessions</name>
           <externalName>steam_net_set_auto_accept_p2p_sessions</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_net_set_auto_accept_p2p_sessions(auto_accept) : Sets whether to auto-accept all incoming P2P session requests.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1874,8 +1809,8 @@
         <function>
           <name>steam_net_accept_p2p_session_raw</name>
           <externalName>steam_net_accept_p2p_session_raw</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_net_accept_p2p_session_raw(user_id_high, user_id_low) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1886,8 +1821,8 @@
         <function>
           <name>steam_net_close_p2p_session_raw</name>
           <externalName>steam_net_close_p2p_session_raw</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_net_close_p2p_session_raw(user_id_high, user_id_low)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1923,8 +1858,8 @@
         <function>
           <name>steam_net_packet_receive</name>
           <externalName>steam_net_packet_receive</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_net_packet_receive() : Receives a packet, returns whether successful (retrieve data via steam_net_packet_).</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1932,8 +1867,8 @@
         <function>
           <name>steam_net_packet_get_size</name>
           <externalName>steam_net_packet_get_size</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_net_packet_get_size() : Returns the size of the last received packet (in bytes).</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1970,8 +1905,8 @@
         <function>
           <name>steam_lobby_leave</name>
           <externalName>steam_lobby_leave</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_leave() : Leaves the current lobby (if any)</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -1979,8 +1914,8 @@
         <function>
           <name>steam_lobby_is_owner</name>
           <externalName>steam_lobby_is_owner</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_is_owner() : Returns whether the local user is the owner of the current lobby.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2006,8 +1941,8 @@
         <function>
           <name>steam_lobby_get_member_count</name>
           <externalName>steam_lobby_get_member_count</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_get_member_count() : Returns the number of users in the lobby.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2037,8 +1972,8 @@
         <function>
           <name>steam_lobby_activate_invite_overlay</name>
           <externalName>steam_lobby_activate_invite_overlay</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_activate_invite_overlay() : Opens an overlay to invite users to the current lobby.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2046,8 +1981,8 @@
         <function>
           <name>steam_lobby_list_request</name>
           <externalName>steam_lobby_list_request</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_request() : Requests the list of lobbies to be (re-)loaded.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2055,8 +1990,8 @@
         <function>
           <name>steam_lobby_list_is_loading</name>
           <externalName>steam_lobby_list_is_loading</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_is_loading() : Returns whether the list of lobbies is currently loading.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2064,8 +1999,8 @@
         <function>
           <name>steam_lobby_list_add_string_filter</name>
           <externalName>steam_lobby_list_add_string_filter</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_add_string_filter(key, value, comparison_type) : Sets a string filter for the next lobby list request.</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -2077,8 +2012,8 @@
         <function>
           <name>steam_lobby_list_add_numerical_filter</name>
           <externalName>steam_lobby_list_add_numerical_filter</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_add_numerical_filter(key, value, comparison_type) : Sets a numerical filter for the next lobby list request.</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -2090,8 +2025,8 @@
         <function>
           <name>steam_lobby_list_add_near_filter</name>
           <externalName>steam_lobby_list_add_near_filter</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_add_near_filter(key, value) : Sorts the results of the next lobby list request based to proximity to the given value.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2102,8 +2037,8 @@
         <function>
           <name>steam_lobby_list_add_distance_filter</name>
           <externalName>steam_lobby_list_add_distance_filter</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_add_distance_filter(mode) : Restricts results by region</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2113,8 +2048,8 @@
         <function>
           <name>steam_lobby_list_get_count</name>
           <externalName>steam_lobby_list_get_count</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_get_count() : Returns the number of the matching lobbies.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2122,8 +2057,8 @@
         <function>
           <name>steam_lobby_list_get_data</name>
           <externalName>steam_lobby_list_get_data</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_get_data(index, key) : Retrieves given information about the given lobby</help>
           <returnType>1</returnType>
           <argCount>2</argCount>
           <args>
@@ -2178,8 +2113,8 @@
         <function>
           <name>steam_lobby_list_get_lobby_member_count</name>
           <externalName>steam_lobby_list_get_lobby_member_count</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_get_lobby_member_count(lobby_index) : Returns the number of members in the given lobby in search results.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2213,8 +2148,8 @@
         <function>
           <name>steam_lobby_list_join</name>
           <externalName>steam_lobby_list_join</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_list_join(index) : [async] Starts joining the given lobby.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2236,8 +2171,8 @@
         <function>
           <name>steam_lobby_create</name>
           <externalName>steam_lobby_create</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_create(type, max_members) : [async] Creates a lobby.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2248,8 +2183,8 @@
         <function>
           <name>steam_lobby_set_data</name>
           <externalName>steam_lobby_set_data</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_set_data(key, value) : [lobby owner only] Sets the data for the current lobby.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2260,8 +2195,8 @@
         <function>
           <name>steam_lobby_get_data</name>
           <externalName>steam_lobby_get_data</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_get_data(key) : [anyone] Retrieves previously set data for the current lobby.</help>
           <returnType>1</returnType>
           <argCount>1</argCount>
           <args>
@@ -2271,8 +2206,8 @@
         <function>
           <name>steam_lobby_set_type</name>
           <externalName>steam_lobby_set_type</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_lobby_set_type(type) : [lobby owner only] Changes the type of the current lobby.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2291,8 +2226,8 @@
         <function>
           <name>steam_controller_init</name>
           <externalName>steam_controller_init</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_init() : Should be called on game start if you use Steam Controller</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2300,8 +2235,8 @@
         <function>
           <name>steam_controller_update</name>
           <externalName>steam_controller_update</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_update() : Can be called prior to other controller functions for lower latency. Called by steam_gml_update.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2329,8 +2264,8 @@
         <function>
           <name>steam_controller_get_actionset_id</name>
           <externalName>steam_controller_get_actionset_id</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_get_actionset_id(actionSetName) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2340,8 +2275,8 @@
         <function>
           <name>steam_controller_get_actionset</name>
           <externalName>steam_controller_get_actionset</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_get_actionset(controller) : Returns action set ID (generated by steam_controller_get_actionset_id), as per GetCurrentActionSet</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2351,8 +2286,8 @@
         <function>
           <name>steam_controller_set_actionset</name>
           <externalName>steam_controller_set_actionset</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_set_actionset(controller, actionset_id) : Changes controller action set, as per ActivateActionSet</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2363,8 +2298,8 @@
         <function>
           <name>steam_controller_get_digital_id</name>
           <externalName>steam_controller_get_digital_id</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_get_digital_id(digitalActionName)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2374,8 +2309,8 @@
         <function>
           <name>steam_controller_get_digital_value</name>
           <externalName>steam_controller_get_digital_value</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true/false)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2386,8 +2321,8 @@
         <function>
           <name>steam_controller_get_digital_status</name>
           <externalName>steam_controller_get_digital_status</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true/false)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2412,8 +2347,8 @@
         <function>
           <name>steam_controller_get_analog_id</name>
           <externalName>steam_controller_get_analog_id</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_controller_get_analog_id(analogActionName)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2477,8 +2412,8 @@
         <function>
           <name>steam_user_set_played_with</name>
           <externalName>steam_user_set_played_with</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_user_set_played_with(id_high, id_low) : Can be called on lobby session start, adds the user to "recently played with" list.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2489,8 +2424,8 @@
         <function>
           <name>steam_activate_overlay_raw</name>
           <externalName>steam_activate_overlay_raw</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_activate_overlay_raw(overlay_code) : Activates an overlay by it's raw Steam API name.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2500,8 +2435,8 @@
         <function>
           <name>int64_from_string_high</name>
           <externalName>int64_from_string_high</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>int64_from_string_high(cstring)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2511,8 +2446,8 @@
         <function>
           <name>int64_from_string_low</name>
           <externalName>int64_from_string_low</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>int64_from_string_low(cstring)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2522,8 +2457,8 @@
         <function>
           <name>int64_combine_string</name>
           <externalName>int64_combine_string</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>int64_combine_string(high, low)</help>
           <returnType>1</returnType>
           <argCount>2</argCount>
           <args>
@@ -2543,8 +2478,8 @@
         <function>
           <name>steam_restart_if_necessary</name>
           <externalName>steam_restart_if_necessary</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_restart_if_necessary() : Detects if the app was run from Steam client and restarts if needed. Returns whether app should quit.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2572,8 +2507,8 @@
         <function>
           <name>steam_gml_is_ready</name>
           <externalName>steam_gml_is_ready</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_gml_is_ready() : Returns whether the extension has initialized successfully.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2590,8 +2525,8 @@
         <function>
           <name>steam_gml_is_available</name>
           <externalName>steam_gml_is_available</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>steam_gml_is_available() : Returns whether the extension was loaded at all (GML returns 0 for unloaded extension calls).</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2610,92 +2545,92 @@
         <constant>
           <name>steam_net_version</name>
           <value>100</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_unreliable</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_unreliable_nodelay</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_reliable</name>
           <value>2</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_net_packet_type_reliable_buffer</name>
           <value>3</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_eq</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_ne</name>
           <value>3</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_lt</name>
           <value>-1</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_gt</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_le</name>
           <value>-2</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_filter_ge</name>
           <value>2</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_close</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_default</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_far</name>
           <value>2</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_list_distance_filter_worldwide</name>
           <value>3</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_private</name>
           <value>0</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_friends_only</name>
           <value>1</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>steam_lobby_type_public</name>
           <value>2</value>
-          <hidden>-1</hidden>
+          <hidden>0</hidden>
         </constant>
       </constants>
     </file>
@@ -2716,8 +2651,8 @@
         <function>
           <name>steam_id_create</name>
           <externalName>steam_id_create</externalName>
-          <kind>11</kind>
-          <help>steam_id_create(high, low) : Creates an immutable Steam ID.</help>
+          <kind>2</kind>
+          <help>steam_id_create(high, low)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2728,8 +2663,8 @@
         <function>
           <name>steam_id_get_high</name>
           <externalName>steam_id_get_high</externalName>
-          <kind>11</kind>
-          <help>steam_id_get_high(steam_id) : Returns higher 32 bits of a Steam ID</help>
+          <kind>2</kind>
+          <help>steam_id_get_high(steam_id)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2739,8 +2674,8 @@
         <function>
           <name>steam_id_get_low</name>
           <externalName>steam_id_get_low</externalName>
-          <kind>11</kind>
-          <help>steam_id_get_low(steam_id) : Returns lower 32 bits of a Steam ID</help>
+          <kind>2</kind>
+          <help>steam_id_get_low(steam_id)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2750,8 +2685,8 @@
         <function>
           <name>steam_id_equals</name>
           <externalName>steam_id_equals</externalName>
-          <kind>11</kind>
-          <help>steam_id_equals(id1, id2) : Returns whether two IDs match up.</help>
+          <kind>2</kind>
+          <help>steam_id_equals(id1, id2)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2762,8 +2697,8 @@
         <function>
           <name>steam_id_from_int64</name>
           <externalName>steam_id_from_int64</externalName>
-          <kind>11</kind>
-          <help>steam_id_from_int64(value) : Creates a Steam ID from an int64</help>
+          <kind>2</kind>
+          <help>steam_id_from_int64(value)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2773,8 +2708,8 @@
         <function>
           <name>steam_id_to_int64</name>
           <externalName>steam_id_to_int64</externalName>
-          <kind>11</kind>
-          <help>steam_id_to_int64(steam_id) : Converts a Steam ID to int64</help>
+          <kind>2</kind>
+          <help>steam_id_to_int64(steam_id)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2785,7 +2720,7 @@
           <name>steam_gml_check_version</name>
           <externalName>steam_gml_check_version</externalName>
           <kind>11</kind>
-          <help>steam_gml_check_version() : Returns whether the DLL matches the extension version.</help>
+          <help></help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2793,8 +2728,8 @@
         <function>
           <name>steam_net_accept_p2p_session</name>
           <externalName>steam_net_accept_p2p_session</externalName>
-          <kind>11</kind>
-          <help>steam_net_accept_p2p_session(user_id) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.</help>
+          <kind>2</kind>
+          <help>steam_net_accept_p2p_session(user_id)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2804,8 +2739,8 @@
         <function>
           <name>steam_net_close_p2p_session</name>
           <externalName>steam_net_close_p2p_session</externalName>
-          <kind>11</kind>
-          <help>steam_net_close_p2p_session(user_id) : Closes the P2P session with the given user (if any)</help>
+          <kind>2</kind>
+          <help>steam_net_close_p2p_session(user_id)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2816,7 +2751,7 @@
           <name>steam_net_packet_get_sender_id</name>
           <externalName>steam_net_packet_get_sender_id</externalName>
           <kind>11</kind>
-          <help>steam_net_packet_get_sender_id() : Returns the sender ID (int64) of the last received packet.</help>
+          <help></help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2824,8 +2759,8 @@
         <function>
           <name>steam_net_packet_get_data</name>
           <externalName>steam_net_packet_get_data</externalName>
-          <kind>11</kind>
-          <help>steam_net_packet_get_data(buffer) : Copies the current packet data to the given buffer.</help>
+          <kind>2</kind>
+          <help>steam_net_packet_get_data(buffer)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2835,8 +2770,8 @@
         <function>
           <name>steam_net_packet_send</name>
           <externalName>steam_net_packet_send</externalName>
-          <kind>11</kind>
-          <help>steam_net_packet_send(steam_id, buffer, size, type) : Sends a packet to the given destination.</help>
+          <kind>2</kind>
+          <help>steam_net_packet_send(steam_id, buffer, size, type)</help>
           <returnType>2</returnType>
           <argCount>4</argCount>
           <args>
@@ -2849,8 +2784,8 @@
         <function>
           <name>steam_lobby_join_id</name>
           <externalName>steam_lobby_join_id</externalName>
-          <kind>11</kind>
-          <help>steam_lobby_join_id(steam_id) : Joins the given lobby</help>
+          <kind>2</kind>
+          <help>steam_lobby_join_id(steam_id)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2861,7 +2796,7 @@
           <name>steam_lobby_get_owner_id</name>
           <externalName>steam_lobby_get_owner_id</externalName>
           <kind>11</kind>
-          <help>steam_lobby_get_owner_id() : Returns the user ID of the authoritative user in the lobby.</help>
+          <help></help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2869,8 +2804,8 @@
         <function>
           <name>steam_lobby_get_member_id</name>
           <externalName>steam_lobby_get_member_id</externalName>
-          <kind>11</kind>
-          <help>steam_lobby_get_member_id(index) : Returns the user ID of the given user in the lobby.</help>
+          <kind>2</kind>
+          <help>steam_lobby_get_member_id(index)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2880,8 +2815,8 @@
         <function>
           <name>steam_lobby_list_get_lobby_id</name>
           <externalName>steam_lobby_list_get_lobby_id</externalName>
-          <kind>11</kind>
-          <help>steam_lobby_list_get_lobby_id(index) : Returns the ID of the given lobby.</help>
+          <kind>2</kind>
+          <help>steam_lobby_list_get_lobby_id(index)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2891,8 +2826,8 @@
         <function>
           <name>steam_lobby_list_get_lobby_owner_id</name>
           <externalName>steam_lobby_list_get_lobby_owner_id</externalName>
-          <kind>11</kind>
-          <help>steam_lobby_list_get_lobby_owner_id(index) : Returns the user ID of the owner of the given lobby.</help>
+          <kind>2</kind>
+          <help>steam_lobby_list_get_lobby_owner_id(index)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2900,10 +2835,10 @@
           </args>
         </function>
         <function>
-          <name>steam_lobby_list_get_lobby_owner_id</name>
-          <externalName>steam_lobby_list_get_lobby_owner_id</externalName>
-          <kind>11</kind>
-          <help>steam_lobby_list_get_lobby_owner_id(lobby_index, member_index) : Returns the user ID of the given member of the given lobby.</help>
+          <name>steam_lobby_list_get_lobby_member_id</name>
+          <externalName>steam_lobby_list_get_lobby_member_id</externalName>
+          <kind>2</kind>
+          <help>steam_lobby_list_get_lobby_member_id(lobby_index, member_index)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2914,8 +2849,8 @@
         <function>
           <name>steam_gml_prepare_buffer</name>
           <externalName>steam_gml_prepare_buffer</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>2</kind>
+          <help>steam_gml_prepare_buffer(min_size)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2926,7 +2861,7 @@
           <name>steam_controller_get_max_count</name>
           <externalName>steam_controller_get_max_count</externalName>
           <kind>11</kind>
-          <help>steam_controller_get_max_count(): Returns the maximum number of controllers</help>
+          <help></help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2934,9 +2869,8 @@
         <function>
           <name>steam_controller_get_ids</name>
           <externalName>steam_controller_get_ids</externalName>
-          <kind>11</kind>
-          <help>steam_controller_get_ids(?out:array&lt;index&gt;):
-var b = steam_gml_prepare_buffer(steam_controller_get_max_count() * 4);</help>
+          <kind>2</kind>
+          <help>steam_controller_get_ids(?out:array&lt;index&gt;)</help>
           <returnType>2</returnType>
           <argCount>-1</argCount>
           <args/>
@@ -2953,8 +2887,8 @@ var b = steam_gml_prepare_buffer(steam_controller_get_max_count() * 4);</help>
         <function>
           <name>steam_controller_get_origins_raw</name>
           <externalName>steam_controller_get_origins_raw</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>2</kind>
+          <help>steam_controller_get_origins_raw(found, buffer, out)</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -2966,17 +2900,17 @@ var b = steam_gml_prepare_buffer(steam_controller_get_max_count() * 4);</help>
         <function>
           <name>steam_controller_get_digital_origins</name>
           <externalName>steam_controller_get_digital_origins</externalName>
-          <kind>11</kind>
-          <help>steam_controller_get_digital_origins(controller, actionset_id, digital_id, ?out:array&lt;origin&gt;): as per GetDigitalActionOrigins</help>
+          <kind>2</kind>
+          <help>steam_controller_get_digital_origins(controller, actionset_id, digital_id, ?out:array&lt;origin&gt;)</help>
           <returnType>2</returnType>
           <argCount>-1</argCount>
           <args/>
         </function>
         <function>
-          <name>steam_controller_get_digital_origins</name>
-          <externalName>steam_controller_get_digital_origins</externalName>
-          <kind>11</kind>
-          <help>steam_controller_get_digital_origins(controller, actionset_id, analog_id, ?out:array&lt;origin&gt;): as per GetDigitalActionOrigins</help>
+          <name>steam_controller_get_analog_origins</name>
+          <externalName>steam_controller_get_analog_origins</externalName>
+          <kind>2</kind>
+          <help>steam_controller_get_analog_origins(controller, actionset_id, analog_id, ?out:array&lt;origin&gt;)</help>
           <returnType>2</returnType>
           <argCount>-1</argCount>
           <args/>
@@ -2984,8 +2918,8 @@ var b = steam_gml_prepare_buffer(steam_controller_get_max_count() * 4);</help>
         <function>
           <name>steam_controller_get_analog_x</name>
           <externalName>steam_controller_get_analog_x</externalName>
-          <kind>11</kind>
-          <help>steam_controller_get_analog_x(controller, analog_id): (-1..1) for sticks, delta for mouse</help>
+          <kind>2</kind>
+          <help>steam_controller_get_analog_x(controller, analog_id)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2996,8 +2930,8 @@ var b = steam_gml_prepare_buffer(steam_controller_get_max_count() * 4);</help>
         <function>
           <name>steam_controller_get_analog_y</name>
           <externalName>steam_controller_get_analog_y</externalName>
-          <kind>11</kind>
-          <help>steam_controller_get_analog_y(controller, analog_id): (-1..1) for sticks, delta for mouse</help>
+          <kind>2</kind>
+          <help>steam_controller_get_analog_y(controller, analog_id)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -3008,8 +2942,8 @@ var b = steam_gml_prepare_buffer(steam_controller_get_max_count() * 4);</help>
         <function>
           <name>steam_controller_get_analog_mode</name>
           <externalName>steam_controller_get_analog_mode</externalName>
-          <kind>11</kind>
-          <help>steam_controller_get_analog_mode(controller, analog_id): IDs as per EControllerSourceMode</help>
+          <kind>2</kind>
+          <help>steam_controller_get_analog_mode(controller, analog_id)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -3020,8 +2954,8 @@ var b = steam_gml_prepare_buffer(steam_controller_get_max_count() * 4);</help>
         <function>
           <name>steam_controller_get_analog_status</name>
           <externalName>steam_controller_get_analog_status</externalName>
-          <kind>11</kind>
-          <help>steam_controller_get_analog_status(controller, analog_id): true/false</help>
+          <kind>2</kind>
+          <help>steam_controller_get_analog_status(controller, analog_id)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -3056,29 +2990,17 @@ var b = steam_gml_prepare_buffer(steam_controller_get_max_count() * 4);</help>
           <argCount>0</argCount>
           <args/>
         </function>
+        <function>
+          <name>steam_net_check_version</name>
+          <externalName>steam_net_check_version</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
       </functions>
-      <constants>
-        <constant>
-          <name>steam_id_use_int64</name>
-          <value>true</value>
-          <hidden>-1</hidden>
-        </constant>
-        <constant>
-          <name>steam_gml_initialized</name>
-          <value>global.g_steam_gml_initialized</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_gml_initialized /* Whether the extension is initialized. */</name>
-          <value>global.g_steam_gml_initialized</value>
-          <hidden>0</hidden>
-        </constant>
-        <constant>
-          <name>steam_net_initialized</name>
-          <value>global.g_steam_gml_initialized</value>
-          <hidden>-1</hidden>
-        </constant>
-      </constants>
+      <constants/>
     </file>
   </files>
 </extension>
