@@ -244,14 +244,25 @@ paket-files/
 .idea/
 *.sln.iml
 
+Steamworks.gml.VC.db
+
 # Steamworks redist is to be obtained by yourself.
 Steamworks/
 
-# Intermediate file on Linux:
+# Intermediate file on Mac/Linux:
 Steamworks.gml/Steamworks.gml.o
+
+# Docs are copied from export:
+Steamworks.gmx/datafiles/*.html
+Steamworks_yy/datafiles/*.html
+
+# Intermediate .cpp files
 Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.cpp
-Steamworks.gml.VC.db
-Steamworks.gmx/Configs/Default/PS3/
-Steamworks.gmx/Configs/Default/PS4/
-Steamworks.gmx/Configs/Default/PSVita/
+Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.cpp
+
+# GMS1 configs:
+Steamworks.gmx/Configs/*/
+
+# GMEdit backups:
 Steamworks.gmx/#backups/
+Steamworks_yy/#backups/
