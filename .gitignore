@@ -252,13 +252,20 @@ Steamworks/
 # Intermediate file on Mac/Linux:
 Steamworks.gml/Steamworks.gml.o
 
-# Docs are copied from export:
+# Auto-synced files:
+Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.cpp
+Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.gml
+Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.dll
+Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.dylib
+Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.vm.dylib
+Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.so
+Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.cpp
+Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.dll
+Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.so
+Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.dylib
+Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.vm.dylib
 Steamworks.gmx/datafiles/*.html
 Steamworks_yy/datafiles/*.html
-
-# Intermediate .cpp files
-Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.cpp
-Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.cpp
 
 # GMS1 configs:
 Steamworks.gmx/Configs/*/
