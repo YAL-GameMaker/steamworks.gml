@@ -57,7 +57,7 @@ if (steam_id_use_int64) {
 
 #define steam_gml_check_version
 /// @description  steam_gml_check_version() : Returns whether the DLL matches the extension version.
-return steam_gml_version == steam_gml_get_version();
+return steam_net_version == steam_gml_get_version();
 
 #define steam_net_accept_p2p_session
 /// @description  steam_net_accept_p2p_session(user_id) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.
