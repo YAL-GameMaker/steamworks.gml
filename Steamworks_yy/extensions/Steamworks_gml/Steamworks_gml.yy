@@ -4036,7 +4036,7 @@
                     "mvc": "1.0",
                     "constantName": "steam_id_use_int64",
                     "hidden": false,
-                    "value": "false"
+                    "value": "true"
                 }
             ],
             "copyToTargets": 105554172285166,

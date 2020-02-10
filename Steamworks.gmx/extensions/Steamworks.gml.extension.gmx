@@ -3000,7 +3000,13 @@
           <args/>
         </function>
       </functions>
-      <constants/>
+      <constants>
+        <constant>
+          <name>steam_id_use_int64</name>
+          <value>true</value>
+          <hidden>0</hidden>
+        </constant>
+      </constants>
     </file>
   </files>
 </extension>
