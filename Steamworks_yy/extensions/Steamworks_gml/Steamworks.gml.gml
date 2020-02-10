@@ -2,7 +2,7 @@
 /// @description  steam_id_create(high, low) : Creates an immutable Steam ID.
 /// @param high
 /// @param  low
-/// steam_id_use_int64 = true
+//#macro steam_id_use_int64 true
 // (in versions 1.4.1757 and earlier, you'll need to set steam_id_use_int64 to false)
 if (steam_id_use_int64) {
 	return (argument0 << 32) | argument1;
