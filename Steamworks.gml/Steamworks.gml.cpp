@@ -715,8 +715,11 @@ ELobbyType steam_lobby_type_from_int(int32 type) {
 
 CCallResult<steam_net_callbacks_t, LobbyCreated_t> steam_lobby_created;
 void steam_net_callbacks_t::lobby_created(LobbyCreated_t* e, bool failed) {
-	steam_lobby_current.SetFromUint64(e->m_ulSteamIDLobby);
+	uint64 lobby_id = e->m_ulSteamIDLobby;
+	steam_lobby_current.SetFromUint64(lobby_id);
 	steam_net_event r("lobby_created");
+	r.set("lobby_id_high", uint64_high(lobby_id));
+	r.set("lobby_id_low", uint64_low(lobby_id));
 	r.set_result(e->m_eResult);
 	r.dispatch();
 }
