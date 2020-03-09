@@ -169,6 +169,24 @@
           <args/>
         </function>
         <function>
+          <name>steam_lobby_get_lobby_id_high</name>
+          <externalName>steam_lobby_get_lobby_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_get_lobby_id_low</name>
+          <externalName>steam_lobby_get_lobby_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>steam_lobby_leave</name>
           <externalName>steam_lobby_leave</externalName>
           <kind>1</kind>
@@ -1036,6 +1054,24 @@
           <args/>
         </function>
         <function>
+          <name>steam_lobby_get_lobby_id_high</name>
+          <externalName>steam_lobby_get_lobby_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_get_lobby_id_low</name>
+          <externalName>steam_lobby_get_lobby_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>steam_lobby_leave</name>
           <externalName>steam_lobby_leave</externalName>
           <kind>1</kind>
@@ -1896,6 +1932,24 @@
         <function>
           <name>steam_net_packet_get_sender_id_low</name>
           <externalName>steam_net_packet_get_sender_id_low</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_get_lobby_id_high</name>
+          <externalName>steam_lobby_get_lobby_id_high</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_get_lobby_id_low</name>
+          <externalName>steam_lobby_get_lobby_id_low</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -2791,6 +2845,15 @@
           <args>
             <arg>2</arg>
           </args>
+        </function>
+        <function>
+          <name>steam_lobby_get_lobby_id</name>
+          <externalName>steam_lobby_get_lobby_id</externalName>
+          <kind>2</kind>
+          <help>steam_lobby_get_lobby_id()-&gt;lobby_id : Returns the lobby ID of the current lobby</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
         </function>
         <function>
           <name>steam_lobby_get_owner_id</name>

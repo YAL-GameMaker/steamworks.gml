@@ -354,6 +354,36 @@
                     "returnType": 2
                 },
                 {
+                    "id": "a5b5a8ee-a2ac-79a7-715b-8f3b06accc18",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_lobby_get_lobby_id_high",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_get_lobby_id_high",
+                    "returnType": 2
+                },
+                {
+                    "id": "359efd17-dd30-e9ab-ee67-05682437e479",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_lobby_get_lobby_id_low",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_get_lobby_id_low",
+                    "returnType": 2
+                },
+                {
                     "id": "9fb15cc4-d241-417a-8c6a-1741ad770509",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -1684,6 +1714,36 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "steam_net_packet_get_sender_id_low",
+                    "returnType": 2
+                },
+                {
+                    "id": "3de1f829-a1ad-b3c7-bd94-4afed6a9e9a1",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_lobby_get_lobby_id_high",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_get_lobby_id_high",
+                    "returnType": 2
+                },
+                {
+                    "id": "5cb1c787-a8c8-c119-e30f-1c60c5f18f55",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_lobby_get_lobby_id_low",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_get_lobby_id_low",
                     "returnType": 2
                 },
                 {
@@ -3020,6 +3080,36 @@
                     "returnType": 2
                 },
                 {
+                    "id": "73ba2eee-9232-8695-0853-d6a0126b0cc9",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_lobby_get_lobby_id_high",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_get_lobby_id_high",
+                    "returnType": 2
+                },
+                {
+                    "id": "28813c80-34ea-2b4a-38e2-881cee0e4063",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_lobby_get_lobby_id_low",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_get_lobby_id_low",
+                    "returnType": 2
+                },
+                {
                     "id": "c1c865c0-dc88-464e-b82e-7a765375f9ea",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -4241,6 +4331,21 @@
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_lobby_join_id",
+                    "returnType": 2
+                },
+                {
+                    "id": "268f6e1c-5f26-9ed2-f706-d9655c1e794e",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_lobby_get_lobby_id",
+                    "help": "steam_lobby_get_lobby_id()->lobby_id : Returns the lobby ID of the current lobby",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_lobby_get_lobby_id",
                     "returnType": 2
                 },
                 {

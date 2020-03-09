@@ -105,6 +105,9 @@ return steam_net_packet_send_raw(steam_id_get_high(steam_id), steam_id_get_low(s
 var lobby_id = argument0;
 return steam_lobby_join_id_raw(steam_id_get_high(lobby_id), steam_id_get_low(lobby_id));
 
+#define steam_lobby_get_lobby_id
+/// steam_lobby_get_lobby_id()->lobby_id : Returns the lobby ID of the current lobby
+return steam_id_create(steam_lobby_get_lobby_id_high(), steam_lobby_get_lobby_id_low());
 #define steam_lobby_get_owner_id
 /// @description  steam_lobby_get_owner_id() : Returns the user ID of the authoritative user in the lobby.
 return steam_id_create(steam_lobby_get_owner_id_high(), steam_lobby_get_owner_id_low());

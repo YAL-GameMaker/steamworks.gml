@@ -409,6 +409,13 @@ dllx double steam_net_packet_get_sender_id_low() {
 
 #pragma region Current lobby
 
+dllx double steam_lobby_get_lobby_id_high() {
+	return uint64_high(steam_lobby_current.ConvertToUint64());
+}
+dllx double steam_lobby_get_lobby_id_low() {
+	return uint64_low(steam_lobby_current.ConvertToUint64());
+}
+
 /// Leaves the current lobby (if any)
 dllx double steam_lobby_leave() {
 	if (steam_lobby_current.IsValid()) {
