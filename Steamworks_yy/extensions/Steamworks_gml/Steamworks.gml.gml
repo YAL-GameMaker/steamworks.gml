@@ -1,7 +1,5 @@
 #define steam_id_create
-/// @description  steam_id_create(high, low) : Creates an immutable Steam ID.
-/// @param high
-/// @param  low
+/// steam_id_create(high, low) : Creates an immutable Steam ID.
 //#macro steam_id_use_int64 true
 // (in versions 1.4.1757 and earlier, you'll need to set steam_id_use_int64 to false)
 if (steam_id_use_int64) {
@@ -14,30 +12,25 @@ if (steam_id_use_int64) {
 }
 
 #define steam_id_get_high
-/// @description  steam_id_get_high(steam_id) : Returns higher 32 bits of a Steam ID
-/// @param steam_id
+/// steam_id_get_high(steam_id) : Returns higher 32 bits of a Steam ID
 if (steam_id_use_int64) {
 	return (argument0 >> 32) & $FFFFFFFF;
 } else return argument0[0];
 
 #define steam_id_get_low
-/// @description  steam_id_get_low(steam_id) : Returns lower 32 bits of a Steam ID
-/// @param steam_id
+/// steam_id_get_low(steam_id) : Returns lower 32 bits of a Steam ID
 if (steam_id_use_int64) {
 	return argument0 & $FFFFFFFF;
 } else return argument0[1];
 
 #define steam_id_equals
-/// @description  steam_id_equals(id1, id2) : Returns whether two IDs match up.
-/// @param id1
-/// @param  id2
+/// steam_id_equals(id1, id2) : Returns whether two IDs match up.
 if (steam_id_use_int64) {
 	return argument0 == argument1;
 } else return argument0[0] == argument1[0] && argument0[1] == argument1[1];
 
 #define steam_id_from_int64
-/// @description  steam_id_from_int64(value) : Creates a Steam ID from an int64
-/// @param value
+/// steam_id_from_int64(value) : Creates a Steam ID from an int64
 if (steam_id_use_int64) {
 	return argument0;
 } else {
@@ -46,8 +39,7 @@ if (steam_id_use_int64) {
 }
 
 #define steam_id_to_int64
-/// @description  steam_id_to_int64(steam_id) : Converts a Steam ID to int64
-/// @param steam_id
+/// steam_id_to_int64(steam_id) : Converts a Steam ID to int64
 if (steam_id_use_int64) {
 	return argument0;
 } else {
@@ -56,29 +48,26 @@ if (steam_id_use_int64) {
 }
 
 #define steam_gml_check_version
-/// @description  steam_gml_check_version() : Returns whether the DLL matches the extension version.
+/// steam_gml_check_version() : Returns whether the DLL matches the extension version.
 return steam_net_version == steam_gml_get_version();
 
 #define steam_net_accept_p2p_session
-/// @description  steam_net_accept_p2p_session(user_id) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.
-/// @param user_id
+/// steam_net_accept_p2p_session(user_id) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.
 var user_id = argument0;
 return steam_net_accept_p2p_session_raw(steam_id_get_high(user_id), steam_id_get_low(user_id));
 
 #define steam_net_close_p2p_session
-/// @description  steam_net_close_p2p_session(user_id) : Closes the P2P session with the given user (if any)
-/// @param user_id
+/// steam_net_close_p2p_session(user_id) : Closes the P2P session with the given user (if any)
 var user_id = argument0;
 return steam_net_close_p2p_session_raw(steam_id_get_high(user_id), steam_id_get_low(user_id));
 //{ Packet
 
 #define steam_net_packet_get_sender_id
-/// @description  steam_net_packet_get_sender_id() : Returns the sender ID (int64) of the last received packet.
+/// steam_net_packet_get_sender_id() : Returns the sender ID (int64) of the last received packet.
 return steam_id_create(steam_net_packet_get_sender_id_high(), steam_net_packet_get_sender_id_low());
 
 #define steam_net_packet_get_data
-/// @description  steam_net_packet_get_data(buffer) : Copies the current packet data to the given buffer.
-/// @param buffer
+/// steam_net_packet_get_data(buffer) : Copies the current packet data to the given buffer.
 var buf = argument0;
 var size = steam_net_packet_get_size();
 if (buffer_get_size(buf) < size) buffer_resize(buf, size);
@@ -86,11 +75,7 @@ var addr = buffer_get_address(buf);
 return steam_net_packet_get_data_raw(addr);
 
 #define steam_net_packet_send
-/// @description  steam_net_packet_send(steam_id, buffer, size, type) : Sends a packet to the given destination.
-/// @param steam_id
-/// @param  buffer
-/// @param  size
-/// @param  type
+/// steam_net_packet_send(steam_id, buffer, size, type) : Sends a packet to the given destination.
 var steam_id = argument0;
 var addr = buffer_get_address(argument1);
 var size = argument2;
@@ -100,47 +85,41 @@ return steam_net_packet_send_raw(steam_id_get_high(steam_id), steam_id_get_low(s
 //{ Lobby
 
 #define steam_lobby_join_id
-/// @description  steam_lobby_join_id(steam_id) : Joins the given lobby
-/// @param steam_id
+/// steam_lobby_join_id(lobby_id)->ok? : Joins the given lobby
 var lobby_id = argument0;
 return steam_lobby_join_id_raw(steam_id_get_high(lobby_id), steam_id_get_low(lobby_id));
 
 #define steam_lobby_get_lobby_id
 /// steam_lobby_get_lobby_id()->lobby_id : Returns the lobby ID of the current lobby
 return steam_id_create(steam_lobby_get_lobby_id_high(), steam_lobby_get_lobby_id_low());
+
 #define steam_lobby_get_owner_id
-/// @description  steam_lobby_get_owner_id() : Returns the user ID of the authoritative user in the lobby.
+/// steam_lobby_get_owner_id()->user_id : Returns the user ID of the authoritative user in the lobby.
 return steam_id_create(steam_lobby_get_owner_id_high(), steam_lobby_get_owner_id_low());
 
 #define steam_lobby_get_member_id
-/// @description  steam_lobby_get_member_id(index) : Returns the user ID of the given user in the lobby.
-/// @param index
+/// steam_lobby_get_member_id(index)->user_id : Returns the user ID of the given user in the lobby.
 var i = argument0;
 return steam_id_create(steam_lobby_get_member_id_high(i), steam_lobby_get_member_id_low(i));
 
 #define steam_lobby_list_get_lobby_id
-/// @description  steam_lobby_list_get_lobby_id(index) : Returns the ID of the given lobby.
-/// @param index
+/// steam_lobby_list_get_lobby_id(index)->lobby_id : Returns the ID of the given lobby.
 var i = argument0;
 return steam_id_create(steam_lobby_list_get_lobby_id_high(i), steam_lobby_list_get_lobby_id_low(i));
 
 #define steam_lobby_list_get_lobby_owner_id
-/// @description  steam_lobby_list_get_lobby_owner_id(index) : Returns the user ID of the owner of the given lobby.
-/// @param index
+/// steam_lobby_list_get_lobby_owner_id(index)->user_id : Returns the user ID of the owner of the given lobby.
 var i = argument0;
 return steam_id_create(steam_lobby_list_get_lobby_owner_id_high(i), steam_lobby_list_get_lobby_owner_id_low(i));
 
 #define steam_lobby_list_get_lobby_member_id
-/// @description  steam_lobby_list_get_lobby_owner_id(lobby_index, member_index) : Returns the user ID of the given member of the given lobby.
-/// @param lobby_index
-/// @param  member_index
+/// steam_lobby_list_get_lobby_owner_id(lobby_index, member_index)->user_id : Returns the user ID of the given member of the given lobby.
 var i = argument0, k = argument1;
 return steam_id_create(steam_lobby_list_get_lobby_member_id_high(i, k), steam_lobby_list_get_lobby_member_id_low(i, k));
 //}
 
 #define steam_gml_prepare_buffer
-/// @description  steam_gml_prepare_buffer(min_size)
-/// @param min_size
+/// steam_gml_prepare_buffer(min_size)->buffer~
 var b = global.g_steam_net_buffer;
 if (b < 0) {
 	b = buffer_create(argument0, buffer_grow, 1);
@@ -153,7 +132,7 @@ return b;
 //{ Controller
 
 #define steam_controller_get_max_count
-/// @description  steam_controller_get_max_count(): Returns the maximum number of controllers
+/// steam_controller_get_max_count()->int: Returns the maximum number of controllers
 var n = global.g_steam_controller_get_max_count;
 if (n < 0) {
 	n = steam_controller_get_max_count_raw();
@@ -162,8 +141,7 @@ if (n < 0) {
 return n;
 
 #define steam_controller_get_ids
-/// @description  steam_controller_get_ids(?out:array<index>):
-/// @param ?out:array<index>
+/// steam_controller_get_ids(?out:array<index>)->array
 var b = steam_gml_prepare_buffer(steam_controller_get_max_count() * 4);
 var n = steam_controller_get_ids_raw(buffer_get_address(b));
 var w, r;
@@ -178,7 +156,7 @@ for (var i = 0; i < n; i++) {
 return r;
 
 #define steam_controller_get_max_origins
-/// @description  steam_controller_get_max_origins()
+/// steam_controller_get_max_origins()->int
 var n = global.g_steam_controller_get_max_origins;
 if (n < 0) {
 	n = steam_controller_get_max_origins_raw();
@@ -187,10 +165,7 @@ if (n < 0) {
 return n;
 
 #define steam_controller_get_origins_raw
-/// @description  steam_controller_get_origins_raw(found, buffer, out)
-/// @param found
-/// @param  buffer
-/// @param  out
+/// steam_controller_get_origins_raw(found, buffer, out)->array
 var n = argument0;
 var b = argument1;
 var w = argument2;
@@ -203,54 +178,38 @@ for (var i = 0; i < n; i++) {
 return r;
 
 #define steam_controller_get_digital_origins
-/// @description  steam_controller_get_digital_origins(controller, actionset_id, digital_id, ?out:array<origin>): as per GetDigitalActionOrigins
-/// @param controller
-/// @param  actionset_id
-/// @param  digital_id
-/// @param  ?out:array<origin>
+/// steam_controller_get_digital_origins(controller, actionset_id, digital_id, ?out:array<origin>): as per GetDigitalActionOrigins
 var b = steam_gml_prepare_buffer(steam_controller_get_max_origins() * 4);
 var n = steam_controller_get_digital_origins_raw(argument[0], argument[1], argument[2], buffer_get_address(b));
 var w; if (argument_count > 3) w = argument[3]; else w = undefined;
 return steam_controller_get_origins_raw(n, b, w);
 
 #define steam_controller_get_analog_origins
-/// @description  steam_controller_get_digital_origins(controller, actionset_id, analog_id, ?out:array<origin>): as per GetDigitalActionOrigins
-/// @param controller
-/// @param  actionset_id
-/// @param  analog_id
-/// @param  ?out:array<origin>
+/// steam_controller_get_digital_origins(controller, actionset_id, analog_id, ?out:array<origin>): as per GetDigitalActionOrigins
 var b = steam_gml_prepare_buffer(steam_controller_get_max_origins() * 4);
 var n = steam_controller_get_analog_origins_raw(argument[0], argument[1], argument[2], buffer_get_address(b));
 var w; if (argument_count > 3) w = argument[3]; else w = undefined;
 return steam_controller_get_origins_raw(n, b, w);
 
 #define steam_controller_get_analog_x
-/// @description  steam_controller_get_analog_x(controller, analog_id): (-1..1) for sticks, delta for mouse
-/// @param controller
-/// @param  analog_id
+/// steam_controller_get_analog_x(controller, analog_id)->number: (-1..1) for sticks, delta for mouse
 return steam_controller_get_analog_data(argument0, argument1, 2);
 
 #define steam_controller_get_analog_y
-/// @description  steam_controller_get_analog_y(controller, analog_id): (-1..1) for sticks, delta for mouse
-/// @param controller
-/// @param  analog_id
+/// steam_controller_get_analog_y(controller, analog_id)->number: (-1..1) for sticks, delta for mouse
 return steam_controller_get_analog_data(argument0, argument1, 3);
 
 #define steam_controller_get_analog_mode
-/// @description  steam_controller_get_analog_mode(controller, analog_id): IDs as per EControllerSourceMode
-/// @param controller
-/// @param  analog_id
+/// steam_controller_get_analog_mode(controller, analog_id)->EControllerSourceMode
 return steam_controller_get_analog_data(argument0, argument1, 1);
 
 #define steam_controller_get_analog_status
-/// @description  steam_controller_get_analog_status(controller, analog_id): true/false
-/// @param controller
-/// @param  analog_id
+/// steam_controller_get_analog_status(controller, analog_id)->bool
 return steam_controller_get_analog_data(argument0, argument1, 0);
 //}
 
 #define steam_gml_init_gml
-/// @description  steam_gml_init_gml()
+/// steam_gml_init_gml()
 /// steam_gml_initialized = global.g_steam_gml_initialized : Whether the extension is initialized.
 /// steam_net_initialized = global.g_steam_gml_initialized
 global.g_steam_net_buffer = -1;
@@ -281,11 +240,11 @@ for (var i = 0; i < n; i += 1) {
 // Legacy scripts:
 
 #define steam_net_is_available
-/// @description  steam_net_is_available()
+/// steam_net_is_available()->bool
 return steam_gml_is_available();
 
 #define steam_net_update
-/// @description  steam_net_update()
+/// steam_net_update()->bool
 return steam_gml_update();
 
 #define steam_net_check_version
