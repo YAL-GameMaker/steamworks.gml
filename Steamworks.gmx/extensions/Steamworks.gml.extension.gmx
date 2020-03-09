@@ -2706,7 +2706,7 @@
           <name>steam_id_create</name>
           <externalName>steam_id_create</externalName>
           <kind>2</kind>
-          <help>steam_id_create(high, low)</help>
+          <help>steam_id_create(high, low) : Creates an immutable Steam ID.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2718,7 +2718,7 @@
           <name>steam_id_get_high</name>
           <externalName>steam_id_get_high</externalName>
           <kind>2</kind>
-          <help>steam_id_get_high(steam_id)</help>
+          <help>steam_id_get_high(steam_id) : Returns higher 32 bits of a Steam ID</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2729,7 +2729,7 @@
           <name>steam_id_get_low</name>
           <externalName>steam_id_get_low</externalName>
           <kind>2</kind>
-          <help>steam_id_get_low(steam_id)</help>
+          <help>steam_id_get_low(steam_id) : Returns lower 32 bits of a Steam ID</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2740,7 +2740,7 @@
           <name>steam_id_equals</name>
           <externalName>steam_id_equals</externalName>
           <kind>2</kind>
-          <help>steam_id_equals(id1, id2)</help>
+          <help>steam_id_equals(id1, id2) : Returns whether two IDs match up.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2752,7 +2752,7 @@
           <name>steam_id_from_int64</name>
           <externalName>steam_id_from_int64</externalName>
           <kind>2</kind>
-          <help>steam_id_from_int64(value)</help>
+          <help>steam_id_from_int64(value) : Creates a Steam ID from an int64</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2763,7 +2763,7 @@
           <name>steam_id_to_int64</name>
           <externalName>steam_id_to_int64</externalName>
           <kind>2</kind>
-          <help>steam_id_to_int64(steam_id)</help>
+          <help>steam_id_to_int64(steam_id) : Converts a Steam ID to int64</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2773,8 +2773,8 @@
         <function>
           <name>steam_gml_check_version</name>
           <externalName>steam_gml_check_version</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>2</kind>
+          <help>steam_gml_check_version() : Returns whether the DLL matches the extension version.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2783,7 +2783,7 @@
           <name>steam_net_accept_p2p_session</name>
           <externalName>steam_net_accept_p2p_session</externalName>
           <kind>2</kind>
-          <help>steam_net_accept_p2p_session(user_id)</help>
+          <help>steam_net_accept_p2p_session(user_id) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2794,7 +2794,7 @@
           <name>steam_net_close_p2p_session</name>
           <externalName>steam_net_close_p2p_session</externalName>
           <kind>2</kind>
-          <help>steam_net_close_p2p_session(user_id)</help>
+          <help>steam_net_close_p2p_session(user_id) : Closes the P2P session with the given user (if any)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2804,8 +2804,8 @@
         <function>
           <name>steam_net_packet_get_sender_id</name>
           <externalName>steam_net_packet_get_sender_id</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>2</kind>
+          <help>steam_net_packet_get_sender_id() : Returns the sender ID (int64) of the last received packet.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2814,7 +2814,7 @@
           <name>steam_net_packet_get_data</name>
           <externalName>steam_net_packet_get_data</externalName>
           <kind>2</kind>
-          <help>steam_net_packet_get_data(buffer)</help>
+          <help>steam_net_packet_get_data(buffer) : Copies the current packet data to the given buffer.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2825,7 +2825,7 @@
           <name>steam_net_packet_send</name>
           <externalName>steam_net_packet_send</externalName>
           <kind>2</kind>
-          <help>steam_net_packet_send(steam_id, buffer, size, type)</help>
+          <help>steam_net_packet_send(steam_id, buffer, size, type) : Sends a packet to the given destination.</help>
           <returnType>2</returnType>
           <argCount>4</argCount>
           <args>
@@ -2839,7 +2839,7 @@
           <name>steam_lobby_join_id</name>
           <externalName>steam_lobby_join_id</externalName>
           <kind>2</kind>
-          <help>steam_lobby_join_id(steam_id)</help>
+          <help>steam_lobby_join_id(lobby_id)-&gt;ok? : Joins the given lobby</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2858,8 +2858,8 @@
         <function>
           <name>steam_lobby_get_owner_id</name>
           <externalName>steam_lobby_get_owner_id</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>2</kind>
+          <help>steam_lobby_get_owner_id()-&gt;user_id : Returns the user ID of the authoritative user in the lobby.</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2868,7 +2868,7 @@
           <name>steam_lobby_get_member_id</name>
           <externalName>steam_lobby_get_member_id</externalName>
           <kind>2</kind>
-          <help>steam_lobby_get_member_id(index)</help>
+          <help>steam_lobby_get_member_id(index)-&gt;user_id : Returns the user ID of the given user in the lobby.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2879,7 +2879,7 @@
           <name>steam_lobby_list_get_lobby_id</name>
           <externalName>steam_lobby_list_get_lobby_id</externalName>
           <kind>2</kind>
-          <help>steam_lobby_list_get_lobby_id(index)</help>
+          <help>steam_lobby_list_get_lobby_id(index)-&gt;lobby_id : Returns the ID of the given lobby.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2890,7 +2890,7 @@
           <name>steam_lobby_list_get_lobby_owner_id</name>
           <externalName>steam_lobby_list_get_lobby_owner_id</externalName>
           <kind>2</kind>
-          <help>steam_lobby_list_get_lobby_owner_id(index)</help>
+          <help>steam_lobby_list_get_lobby_owner_id(index)-&gt;user_id : Returns the user ID of the owner of the given lobby.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2901,7 +2901,7 @@
           <name>steam_lobby_list_get_lobby_member_id</name>
           <externalName>steam_lobby_list_get_lobby_member_id</externalName>
           <kind>2</kind>
-          <help>steam_lobby_list_get_lobby_member_id(lobby_index, member_index)</help>
+          <help>steam_lobby_list_get_lobby_owner_id(lobby_index, member_index)-&gt;user_id : Returns the user ID of the given member of the given lobby.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2913,7 +2913,7 @@
           <name>steam_gml_prepare_buffer</name>
           <externalName>steam_gml_prepare_buffer</externalName>
           <kind>2</kind>
-          <help>steam_gml_prepare_buffer(min_size)</help>
+          <help>steam_gml_prepare_buffer(min_size)-&gt;buffer~</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2923,8 +2923,8 @@
         <function>
           <name>steam_controller_get_max_count</name>
           <externalName>steam_controller_get_max_count</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>2</kind>
+          <help>steam_controller_get_max_count()-&gt;int: Returns the maximum number of controllers</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2933,7 +2933,7 @@
           <name>steam_controller_get_ids</name>
           <externalName>steam_controller_get_ids</externalName>
           <kind>2</kind>
-          <help>steam_controller_get_ids(?out:array&lt;index&gt;)</help>
+          <help>steam_controller_get_ids(?out:array&lt;index&gt;)-&gt;array</help>
           <returnType>2</returnType>
           <argCount>-1</argCount>
           <args/>
@@ -2941,8 +2941,8 @@
         <function>
           <name>steam_controller_get_max_origins</name>
           <externalName>steam_controller_get_max_origins</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>2</kind>
+          <help>steam_controller_get_max_origins()-&gt;int</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -2951,7 +2951,7 @@
           <name>steam_controller_get_origins_raw</name>
           <externalName>steam_controller_get_origins_raw</externalName>
           <kind>2</kind>
-          <help>steam_controller_get_origins_raw(found, buffer, out)</help>
+          <help>steam_controller_get_origins_raw(found, buffer, out)-&gt;array</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -2964,7 +2964,7 @@
           <name>steam_controller_get_digital_origins</name>
           <externalName>steam_controller_get_digital_origins</externalName>
           <kind>2</kind>
-          <help>steam_controller_get_digital_origins(controller, actionset_id, digital_id, ?out:array&lt;origin&gt;)</help>
+          <help>steam_controller_get_digital_origins(controller, actionset_id, digital_id, ?out:array&lt;origin&gt;): as per GetDigitalActionOrigins</help>
           <returnType>2</returnType>
           <argCount>-1</argCount>
           <args/>
@@ -2973,7 +2973,7 @@
           <name>steam_controller_get_analog_origins</name>
           <externalName>steam_controller_get_analog_origins</externalName>
           <kind>2</kind>
-          <help>steam_controller_get_analog_origins(controller, actionset_id, analog_id, ?out:array&lt;origin&gt;)</help>
+          <help>steam_controller_get_digital_origins(controller, actionset_id, analog_id, ?out:array&lt;origin&gt;): as per GetDigitalActionOrigins</help>
           <returnType>2</returnType>
           <argCount>-1</argCount>
           <args/>
@@ -2982,7 +2982,7 @@
           <name>steam_controller_get_analog_x</name>
           <externalName>steam_controller_get_analog_x</externalName>
           <kind>2</kind>
-          <help>steam_controller_get_analog_x(controller, analog_id)</help>
+          <help>steam_controller_get_analog_x(controller, analog_id)-&gt;number: (-1..1) for sticks, delta for mouse</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2994,7 +2994,7 @@
           <name>steam_controller_get_analog_y</name>
           <externalName>steam_controller_get_analog_y</externalName>
           <kind>2</kind>
-          <help>steam_controller_get_analog_y(controller, analog_id)</help>
+          <help>steam_controller_get_analog_y(controller, analog_id)-&gt;number: (-1..1) for sticks, delta for mouse</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -3006,7 +3006,7 @@
           <name>steam_controller_get_analog_mode</name>
           <externalName>steam_controller_get_analog_mode</externalName>
           <kind>2</kind>
-          <help>steam_controller_get_analog_mode(controller, analog_id)</help>
+          <help>steam_controller_get_analog_mode(controller, analog_id)-&gt;EControllerSourceMode</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -3018,7 +3018,7 @@
           <name>steam_controller_get_analog_status</name>
           <externalName>steam_controller_get_analog_status</externalName>
           <kind>2</kind>
-          <help>steam_controller_get_analog_status(controller, analog_id)</help>
+          <help>steam_controller_get_analog_status(controller, analog_id)-&gt;bool</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -3029,8 +3029,8 @@
         <function>
           <name>steam_gml_init_gml</name>
           <externalName>steam_gml_init_gml</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>2</kind>
+          <help>steam_gml_init_gml()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -3038,8 +3038,8 @@
         <function>
           <name>steam_net_is_available</name>
           <externalName>steam_net_is_available</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>2</kind>
+          <help>steam_net_is_available()-&gt;bool</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -3047,8 +3047,8 @@
         <function>
           <name>steam_net_update</name>
           <externalName>steam_net_update</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>2</kind>
+          <help>steam_net_update()-&gt;bool</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>

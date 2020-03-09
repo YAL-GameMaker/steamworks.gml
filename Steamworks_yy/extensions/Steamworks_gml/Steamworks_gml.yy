@@ -33,7 +33,7 @@
             "constants": [
                 {
                     "id": "c91c4f07-3ee0-4bf0-a5dc-2f0aedaa3e8b",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_version",
                     "hidden": false,
@@ -41,7 +41,7 @@
                 },
                 {
                     "id": "0e082856-a408-40f4-bfa6-e789c5563619",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_packet_type_unreliable",
                     "hidden": false,
@@ -49,7 +49,7 @@
                 },
                 {
                     "id": "70f606ec-1d2f-4f9a-83d6-182015f67d89",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_packet_type_unreliable_nodelay",
                     "hidden": false,
@@ -57,7 +57,7 @@
                 },
                 {
                     "id": "654c8601-b24e-4ec3-89f5-c2a385b3b321",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_packet_type_reliable",
                     "hidden": false,
@@ -65,7 +65,7 @@
                 },
                 {
                     "id": "a6418d5f-463e-4203-a19d-b51a1d387699",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_packet_type_reliable_buffer",
                     "hidden": false,
@@ -73,7 +73,7 @@
                 },
                 {
                     "id": "a2363bf1-780a-47d1-8035-52df62586ba5",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_eq",
                     "hidden": false,
@@ -81,7 +81,7 @@
                 },
                 {
                     "id": "5fda95d9-ccfe-4da0-a3cc-b8d79a3566fa",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_ne",
                     "hidden": false,
@@ -89,7 +89,7 @@
                 },
                 {
                     "id": "f04cad02-ba95-44a9-9692-0cd0a6671d3e",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_lt",
                     "hidden": false,
@@ -97,7 +97,7 @@
                 },
                 {
                     "id": "efaa1498-17a1-41c6-b40f-b91c880bc4d6",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_gt",
                     "hidden": false,
@@ -105,7 +105,7 @@
                 },
                 {
                     "id": "e0e3a534-5e00-4fda-a259-8957cb3a9dfc",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_le",
                     "hidden": false,
@@ -113,7 +113,7 @@
                 },
                 {
                     "id": "2f7ad07b-4edc-4be2-a337-1442a8bc59e9",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_ge",
                     "hidden": false,
@@ -121,7 +121,7 @@
                 },
                 {
                     "id": "6ed1700c-b7d1-4a29-ad8a-ad48b3141a44",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_distance_filter_close",
                     "hidden": false,
@@ -129,7 +129,7 @@
                 },
                 {
                     "id": "0a0f831c-3c9e-49f2-9d91-e17568dbc1a6",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_distance_filter_default",
                     "hidden": false,
@@ -137,7 +137,7 @@
                 },
                 {
                     "id": "e3b320b2-7599-4ce3-921b-fc3a59dd6f70",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_distance_filter_far",
                     "hidden": false,
@@ -145,7 +145,7 @@
                 },
                 {
                     "id": "55cedc69-ba24-49f6-8c58-2f3c452f3951",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_distance_filter_worldwide",
                     "hidden": false,
@@ -153,7 +153,7 @@
                 },
                 {
                     "id": "1c0bfe24-fefc-4b0f-8d0a-9c501384283f",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_type_private",
                     "hidden": false,
@@ -161,7 +161,7 @@
                 },
                 {
                     "id": "510ddd05-d333-4706-bc0e-3f73c0a3faea",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_type_friends_only",
                     "hidden": false,
@@ -169,7 +169,7 @@
                 },
                 {
                     "id": "4997f457-6db7-4ad7-9af6-464c0bb415d2",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_type_public",
                     "hidden": false,
@@ -1396,7 +1396,7 @@
             "constants": [
                 {
                     "id": "b2fc18d4-9418-48c2-aa17-5c5abbb6c4f3",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_version",
                     "hidden": false,
@@ -1404,7 +1404,7 @@
                 },
                 {
                     "id": "896d6503-7000-40b2-9e88-4da47776acef",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_packet_type_unreliable",
                     "hidden": false,
@@ -1412,7 +1412,7 @@
                 },
                 {
                     "id": "55bca1db-2610-40be-8eff-ceb11eb67599",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_packet_type_unreliable_nodelay",
                     "hidden": false,
@@ -1420,7 +1420,7 @@
                 },
                 {
                     "id": "e2ccad93-7c64-4984-8a34-3403c62848ce",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_packet_type_reliable",
                     "hidden": false,
@@ -1428,7 +1428,7 @@
                 },
                 {
                     "id": "2467e2a5-c6c3-4e8e-9f7b-c7e367d0143a",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_packet_type_reliable_buffer",
                     "hidden": false,
@@ -1436,7 +1436,7 @@
                 },
                 {
                     "id": "0b66689d-8f4c-407d-ae8c-138541c0fe0e",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_eq",
                     "hidden": false,
@@ -1444,7 +1444,7 @@
                 },
                 {
                     "id": "b5a6dc56-a56e-48ae-b977-6a6399631679",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_ne",
                     "hidden": false,
@@ -1452,7 +1452,7 @@
                 },
                 {
                     "id": "1e5c76d9-3838-4477-aba2-38026330ea83",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_lt",
                     "hidden": false,
@@ -1460,7 +1460,7 @@
                 },
                 {
                     "id": "48420b9e-3cc1-4661-a922-326232394961",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_gt",
                     "hidden": false,
@@ -1468,7 +1468,7 @@
                 },
                 {
                     "id": "b0ae9a50-4578-4147-ad51-2b4c3017f377",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_le",
                     "hidden": false,
@@ -1476,7 +1476,7 @@
                 },
                 {
                     "id": "075a0fe1-1ec4-4b33-916c-ce6b5df0e939",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_ge",
                     "hidden": false,
@@ -1484,7 +1484,7 @@
                 },
                 {
                     "id": "a246763d-c796-4335-807f-a2087d19ce88",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_distance_filter_close",
                     "hidden": false,
@@ -1492,7 +1492,7 @@
                 },
                 {
                     "id": "7c132e4c-4f58-4669-b907-fb28c0c3af4a",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_distance_filter_default",
                     "hidden": false,
@@ -1500,7 +1500,7 @@
                 },
                 {
                     "id": "af7cf215-0808-45ca-ade6-a3c1e0bb2adc",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_distance_filter_far",
                     "hidden": false,
@@ -1508,7 +1508,7 @@
                 },
                 {
                     "id": "c4883b4d-1f9c-4f8b-b437-bff31e6be725",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_distance_filter_worldwide",
                     "hidden": false,
@@ -1516,7 +1516,7 @@
                 },
                 {
                     "id": "db181972-686a-4e44-b82e-2e0a93bc7e16",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_type_private",
                     "hidden": false,
@@ -1524,7 +1524,7 @@
                 },
                 {
                     "id": "eae46fa2-17f8-4f38-b163-86614b3bc616",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_type_friends_only",
                     "hidden": false,
@@ -1532,7 +1532,7 @@
                 },
                 {
                     "id": "a5ce4ec0-d5e6-4f25-bd7c-1d57a939ef62",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_type_public",
                     "hidden": false,
@@ -2759,7 +2759,7 @@
             "constants": [
                 {
                     "id": "6e413374-3677-4998-940d-41cc26686a78",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_version",
                     "hidden": false,
@@ -2767,7 +2767,7 @@
                 },
                 {
                     "id": "a2aab721-460f-4854-80bf-407b60117071",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_packet_type_unreliable",
                     "hidden": false,
@@ -2775,7 +2775,7 @@
                 },
                 {
                     "id": "7cf21972-7b6f-4be6-8ca4-3c880e8f4cde",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_packet_type_unreliable_nodelay",
                     "hidden": false,
@@ -2783,7 +2783,7 @@
                 },
                 {
                     "id": "0c1779e0-c79f-485d-90ac-18bc97a6ed47",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_packet_type_reliable",
                     "hidden": false,
@@ -2791,7 +2791,7 @@
                 },
                 {
                     "id": "856926d7-430b-489d-87f1-bc27c0caffac",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_packet_type_reliable_buffer",
                     "hidden": false,
@@ -2799,7 +2799,7 @@
                 },
                 {
                     "id": "704c5309-9091-4536-ad49-4c083f3e324b",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_eq",
                     "hidden": false,
@@ -2807,7 +2807,7 @@
                 },
                 {
                     "id": "88222e50-685f-442e-9454-be30194811e4",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_ne",
                     "hidden": false,
@@ -2815,7 +2815,7 @@
                 },
                 {
                     "id": "a1af9058-458f-4811-a604-7291c9ab1634",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_lt",
                     "hidden": false,
@@ -2823,7 +2823,7 @@
                 },
                 {
                     "id": "faf46536-1763-441c-a252-8b9d317586a0",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_gt",
                     "hidden": false,
@@ -2831,7 +2831,7 @@
                 },
                 {
                     "id": "59d5c83a-9752-4205-a5eb-802131bf0ea2",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_le",
                     "hidden": false,
@@ -2839,7 +2839,7 @@
                 },
                 {
                     "id": "893ea64c-d79a-44af-91a4-5181d1eb13a1",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_filter_ge",
                     "hidden": false,
@@ -2847,7 +2847,7 @@
                 },
                 {
                     "id": "e1b46ae2-dd8b-4567-9d8b-22e452398851",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_distance_filter_close",
                     "hidden": false,
@@ -2855,7 +2855,7 @@
                 },
                 {
                     "id": "e516ea90-5d81-4472-a0de-ca001856a465",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_distance_filter_default",
                     "hidden": false,
@@ -2863,7 +2863,7 @@
                 },
                 {
                     "id": "d12a27fa-6dd3-4bab-9320-17eea2561a31",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_distance_filter_far",
                     "hidden": false,
@@ -2871,7 +2871,7 @@
                 },
                 {
                     "id": "f921b0f1-20cf-43f1-bad5-bf21714030b9",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_list_distance_filter_worldwide",
                     "hidden": false,
@@ -2879,7 +2879,7 @@
                 },
                 {
                     "id": "57384aad-e296-46bc-8baa-90b524e014aa",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_type_private",
                     "hidden": false,
@@ -2887,7 +2887,7 @@
                 },
                 {
                     "id": "ffd4f0a8-1bac-401d-9fd9-1e6aba6937b7",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_type_friends_only",
                     "hidden": false,
@@ -2895,7 +2895,7 @@
                 },
                 {
                     "id": "f416bc4a-8feb-4b7e-81aa-b5e1879251c7",
-                    "modelName": "GMExtensionFile",
+                    "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_lobby_type_public",
                     "hidden": false,
@@ -4143,7 +4143,7 @@
                         2
                     ],
                     "externalName": "steam_id_create",
-                    "help": "steam_id_create(high, low)",
+                    "help": "steam_id_create(high, low) : Creates an immutable Steam ID.",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_id_create",
@@ -4158,7 +4158,7 @@
                         2
                     ],
                     "externalName": "steam_id_get_high",
-                    "help": "steam_id_get_high(steam_id)",
+                    "help": "steam_id_get_high(steam_id) : Returns higher 32 bits of a Steam ID",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_id_get_high",
@@ -4173,7 +4173,7 @@
                         2
                     ],
                     "externalName": "steam_id_get_low",
-                    "help": "steam_id_get_low(steam_id)",
+                    "help": "steam_id_get_low(steam_id) : Returns lower 32 bits of a Steam ID",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_id_get_low",
@@ -4189,7 +4189,7 @@
                         2
                     ],
                     "externalName": "steam_id_equals",
-                    "help": "steam_id_equals(id1, id2)",
+                    "help": "steam_id_equals(id1, id2) : Returns whether two IDs match up.",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_id_equals",
@@ -4204,7 +4204,7 @@
                         2
                     ],
                     "externalName": "steam_id_from_int64",
-                    "help": "steam_id_from_int64(value)",
+                    "help": "steam_id_from_int64(value) : Creates a Steam ID from an int64",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_id_from_int64",
@@ -4219,7 +4219,7 @@
                         2
                     ],
                     "externalName": "steam_id_to_int64",
-                    "help": "steam_id_to_int64(steam_id)",
+                    "help": "steam_id_to_int64(steam_id) : Converts a Steam ID to int64",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_id_to_int64",
@@ -4234,9 +4234,9 @@
                         
                     ],
                     "externalName": "steam_gml_check_version",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
+                    "help": "steam_gml_check_version() : Returns whether the DLL matches the extension version.",
+                    "hidden": false,
+                    "kind": 2,
                     "name": "steam_gml_check_version",
                     "returnType": 2
                 },
@@ -4249,7 +4249,7 @@
                         2
                     ],
                     "externalName": "steam_net_accept_p2p_session",
-                    "help": "steam_net_accept_p2p_session(user_id)",
+                    "help": "steam_net_accept_p2p_session(user_id) : Accepts a P2P session with the given user. Should only be called in the \"p2p_session_request\" event.",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_net_accept_p2p_session",
@@ -4264,7 +4264,7 @@
                         2
                     ],
                     "externalName": "steam_net_close_p2p_session",
-                    "help": "steam_net_close_p2p_session(user_id)",
+                    "help": "steam_net_close_p2p_session(user_id) : Closes the P2P session with the given user (if any)",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_net_close_p2p_session",
@@ -4279,9 +4279,9 @@
                         
                     ],
                     "externalName": "steam_net_packet_get_sender_id",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
+                    "help": "steam_net_packet_get_sender_id() : Returns the sender ID (int64) of the last received packet.",
+                    "hidden": false,
+                    "kind": 2,
                     "name": "steam_net_packet_get_sender_id",
                     "returnType": 2
                 },
@@ -4294,7 +4294,7 @@
                         2
                     ],
                     "externalName": "steam_net_packet_get_data",
-                    "help": "steam_net_packet_get_data(buffer)",
+                    "help": "steam_net_packet_get_data(buffer) : Copies the current packet data to the given buffer.",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_net_packet_get_data",
@@ -4312,7 +4312,7 @@
                         2
                     ],
                     "externalName": "steam_net_packet_send",
-                    "help": "steam_net_packet_send(steam_id, buffer, size, type)",
+                    "help": "steam_net_packet_send(steam_id, buffer, size, type) : Sends a packet to the given destination.",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_net_packet_send",
@@ -4327,7 +4327,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_join_id",
-                    "help": "steam_lobby_join_id(steam_id)",
+                    "help": "steam_lobby_join_id(lobby_id)->ok? : Joins the given lobby",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_lobby_join_id",
@@ -4357,9 +4357,9 @@
                         
                     ],
                     "externalName": "steam_lobby_get_owner_id",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
+                    "help": "steam_lobby_get_owner_id()->user_id : Returns the user ID of the authoritative user in the lobby.",
+                    "hidden": false,
+                    "kind": 2,
                     "name": "steam_lobby_get_owner_id",
                     "returnType": 2
                 },
@@ -4372,7 +4372,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_get_member_id",
-                    "help": "steam_lobby_get_member_id(index)",
+                    "help": "steam_lobby_get_member_id(index)->user_id : Returns the user ID of the given user in the lobby.",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_lobby_get_member_id",
@@ -4387,7 +4387,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_get_lobby_id",
-                    "help": "steam_lobby_list_get_lobby_id(index)",
+                    "help": "steam_lobby_list_get_lobby_id(index)->lobby_id : Returns the ID of the given lobby.",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_lobby_list_get_lobby_id",
@@ -4402,7 +4402,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_get_lobby_owner_id",
-                    "help": "steam_lobby_list_get_lobby_owner_id(index)",
+                    "help": "steam_lobby_list_get_lobby_owner_id(index)->user_id : Returns the user ID of the owner of the given lobby.",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_lobby_list_get_lobby_owner_id",
@@ -4418,7 +4418,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_get_lobby_member_id",
-                    "help": "steam_lobby_list_get_lobby_member_id(lobby_index, member_index)",
+                    "help": "steam_lobby_list_get_lobby_owner_id(lobby_index, member_index)->user_id : Returns the user ID of the given member of the given lobby.",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_lobby_list_get_lobby_member_id",
@@ -4433,7 +4433,7 @@
                         2
                     ],
                     "externalName": "steam_gml_prepare_buffer",
-                    "help": "steam_gml_prepare_buffer(min_size)",
+                    "help": "steam_gml_prepare_buffer(min_size)->buffer~",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_gml_prepare_buffer",
@@ -4448,9 +4448,9 @@
                         
                     ],
                     "externalName": "steam_controller_get_max_count",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
+                    "help": "steam_controller_get_max_count()->int: Returns the maximum number of controllers",
+                    "hidden": false,
+                    "kind": 2,
                     "name": "steam_controller_get_max_count",
                     "returnType": 2
                 },
@@ -4463,7 +4463,7 @@
                         
                     ],
                     "externalName": "steam_controller_get_ids",
-                    "help": "steam_controller_get_ids(?out:array<index>)",
+                    "help": "steam_controller_get_ids(?out:array<index>)->array",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_controller_get_ids",
@@ -4478,9 +4478,9 @@
                         
                     ],
                     "externalName": "steam_controller_get_max_origins",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
+                    "help": "steam_controller_get_max_origins()->int",
+                    "hidden": false,
+                    "kind": 2,
                     "name": "steam_controller_get_max_origins",
                     "returnType": 2
                 },
@@ -4495,7 +4495,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_origins_raw",
-                    "help": "steam_controller_get_origins_raw(found, buffer, out)",
+                    "help": "steam_controller_get_origins_raw(found, buffer, out)->array",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_controller_get_origins_raw",
@@ -4510,7 +4510,7 @@
                         
                     ],
                     "externalName": "steam_controller_get_digital_origins",
-                    "help": "steam_controller_get_digital_origins(controller, actionset_id, digital_id, ?out:array<origin>)",
+                    "help": "steam_controller_get_digital_origins(controller, actionset_id, digital_id, ?out:array<origin>): as per GetDigitalActionOrigins",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_controller_get_digital_origins",
@@ -4525,7 +4525,7 @@
                         
                     ],
                     "externalName": "steam_controller_get_analog_origins",
-                    "help": "steam_controller_get_analog_origins(controller, actionset_id, analog_id, ?out:array<origin>)",
+                    "help": "steam_controller_get_digital_origins(controller, actionset_id, analog_id, ?out:array<origin>): as per GetDigitalActionOrigins",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_controller_get_analog_origins",
@@ -4541,7 +4541,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_analog_x",
-                    "help": "steam_controller_get_analog_x(controller, analog_id)",
+                    "help": "steam_controller_get_analog_x(controller, analog_id)->number: (-1..1) for sticks, delta for mouse",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_controller_get_analog_x",
@@ -4557,7 +4557,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_analog_y",
-                    "help": "steam_controller_get_analog_y(controller, analog_id)",
+                    "help": "steam_controller_get_analog_y(controller, analog_id)->number: (-1..1) for sticks, delta for mouse",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_controller_get_analog_y",
@@ -4573,7 +4573,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_analog_mode",
-                    "help": "steam_controller_get_analog_mode(controller, analog_id)",
+                    "help": "steam_controller_get_analog_mode(controller, analog_id)->EControllerSourceMode",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_controller_get_analog_mode",
@@ -4589,7 +4589,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_analog_status",
-                    "help": "steam_controller_get_analog_status(controller, analog_id)",
+                    "help": "steam_controller_get_analog_status(controller, analog_id)->bool",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_controller_get_analog_status",
@@ -4604,9 +4604,9 @@
                         
                     ],
                     "externalName": "steam_gml_init_gml",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
+                    "help": "steam_gml_init_gml()",
+                    "hidden": false,
+                    "kind": 2,
                     "name": "steam_gml_init_gml",
                     "returnType": 2
                 },
@@ -4619,9 +4619,9 @@
                         
                     ],
                     "externalName": "steam_net_is_available",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
+                    "help": "steam_net_is_available()->bool",
+                    "hidden": false,
+                    "kind": 2,
                     "name": "steam_net_is_available",
                     "returnType": 2
                 },
@@ -4634,9 +4634,9 @@
                         
                     ],
                     "externalName": "steam_net_update",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
+                    "help": "steam_net_update()->bool",
+                    "hidden": false,
+                    "kind": 2,
                     "name": "steam_net_update",
                     "returnType": 2
                 },
