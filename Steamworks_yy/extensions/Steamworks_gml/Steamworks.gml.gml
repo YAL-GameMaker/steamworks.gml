@@ -128,7 +128,7 @@ return steam_id_create(steam_lobby_list_get_lobby_id_high(i), steam_lobby_list_g
 /// @description  steam_lobby_list_get_lobby_owner_id(index) : Returns the user ID of the owner of the given lobby.
 /// @param index
 var i = argument0;
-return steam_id_create(steam_lobby_list_get_lobby_id_high(i), steam_lobby_list_get_lobby_id_low(i));
+return steam_id_create(steam_lobby_list_get_lobby_owner_id_high(i), steam_lobby_list_get_lobby_owner_id_low(i));
 
 #define steam_lobby_list_get_lobby_member_id
 /// @description  steam_lobby_list_get_lobby_owner_id(lobby_index, member_index) : Returns the user ID of the given member of the given lobby.
