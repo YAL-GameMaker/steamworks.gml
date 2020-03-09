@@ -135,7 +135,7 @@ return steam_id_create(steam_lobby_list_get_lobby_id_high(i), steam_lobby_list_g
 /// @param lobby_index
 /// @param  member_index
 var i = argument0, k = argument1;
-return steam_id_create(steam_lobby_list_get_lobby_member_id_high(i), steam_lobby_list_get_lobby_member_id_low(i));
+return steam_id_create(steam_lobby_list_get_lobby_member_id_high(i, k), steam_lobby_list_get_lobby_member_id_low(i, k));
 //}
 
 #define steam_gml_prepare_buffer
