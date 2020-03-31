@@ -972,6 +972,40 @@ void steam_net_callbacks_t::micro_txn_auth_response(MicroTxnAuthorizationRespons
 	r.set("app_id", e->m_unAppID);
 	r.dispatch();
 }
+
+struct steam_get_friends_game_info_t {
+	CSteamID friendId{};
+	FriendGameInfo_t gameInfo{};
+};
+static std::vector<steam_get_friends_game_info_t> steam_get_friends_game_info_vec{};
+dllx double steam_get_friends_game_info_1() {
+	int flags = k_EFriendFlagImmediate;
+	auto count = SteamFriends()->GetFriendCount(flags);
+	steam_get_friends_game_info_vec.clear();
+	steam_get_friends_game_info_t tmp{};
+	for (auto i = 0; i < count; i++) {
+		tmp.friendId = SteamFriends()->GetFriendByIndex(i, flags);
+		if (!SteamFriends()->GetFriendGamePlayed(tmp.friendId, &tmp.gameInfo)) continue;
+		steam_get_friends_game_info_vec.push_back(tmp);
+	}
+	return steam_get_friends_game_info_vec.size();
+}
+struct steam_get_friends_game_info_r {
+	int64 friendId;
+	int64 gameId;
+	int64 lobbyId;
+};
+dllx double steam_get_friends_game_info_2(steam_get_friends_game_info_r* out) {
+	for (auto i = 0u; i < steam_get_friends_game_info_vec.size(); i++) {
+		auto& q = steam_get_friends_game_info_vec[i];
+		auto& r = out[i];
+		r.friendId = q.friendId.ConvertToUint64();
+		r.gameId = q.gameInfo.m_gameID.AppID();
+		r.lobbyId = q.gameInfo.m_steamIDLobby.ConvertToUint64();
+	}
+	return 1;
+}
+
 #pragma endregion
 
 #pragma region int64 workarounds (http://bugs.yoyogames.com/view.php?id=21357)

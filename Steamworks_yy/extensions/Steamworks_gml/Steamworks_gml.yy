@@ -975,7 +975,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_value",
-                    "help": "steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true\/false)",
+                    "help": "steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_value",
@@ -991,7 +991,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_status",
-                    "help": "steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true\/false)",
+                    "help": "steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_status",
@@ -1139,6 +1139,36 @@
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_activate_overlay_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "5a4a5711-808e-5b58-351f-16a29ef922f7",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_get_friends_game_info_1",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_friends_game_info_1",
+                    "returnType": 2
+                },
+                {
+                    "id": "16adcef9-82cf-cb83-6701-d21e9e681b79",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_get_friends_game_info_2",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_friends_game_info_2",
                     "returnType": 2
                 },
                 {
@@ -2338,7 +2368,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_value",
-                    "help": "steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true\/false)",
+                    "help": "steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_value",
@@ -2354,7 +2384,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_status",
-                    "help": "steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true\/false)",
+                    "help": "steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_status",
@@ -2502,6 +2532,36 @@
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_activate_overlay_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "7969ad7c-f533-e693-2261-1f71984c665e",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_get_friends_game_info_1",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_friends_game_info_1",
+                    "returnType": 2
+                },
+                {
+                    "id": "a91c6786-629d-e3c3-0d51-b1b7cf8687ab",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_get_friends_game_info_2",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_friends_game_info_2",
                     "returnType": 2
                 },
                 {
@@ -3701,7 +3761,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_value",
-                    "help": "steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true\/false)",
+                    "help": "steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_value",
@@ -3717,7 +3777,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_status",
-                    "help": "steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true\/false)",
+                    "help": "steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_status",
@@ -3865,6 +3925,36 @@
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_activate_overlay_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "d8091e33-fefe-9960-5ce6-321a6a16d16d",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_get_friends_game_info_1",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_friends_game_info_1",
+                    "returnType": 2
+                },
+                {
+                    "id": "28b254e6-5349-a338-cf9f-51dc5fef0d5c",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_get_friends_game_info_2",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_friends_game_info_2",
                     "returnType": 2
                 },
                 {
@@ -4593,6 +4683,21 @@
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_controller_get_analog_status",
+                    "returnType": 2
+                },
+                {
+                    "id": "b4a4b9ff-7f71-a4b6-bd97-8f3b0ddb66b9",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_get_friends_game_info",
+                    "help": "steam_get_friends_game_info()->array<[user_id, game_id, lobby_id]>",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_get_friends_game_info",
                     "returnType": 2
                 },
                 {

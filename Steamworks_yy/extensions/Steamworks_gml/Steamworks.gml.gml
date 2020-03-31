@@ -208,6 +208,20 @@ return steam_controller_get_analog_data(argument0, argument1, 1);
 return steam_controller_get_analog_data(argument0, argument1, 0);
 //}
 
+#define steam_get_friends_game_info
+/// ()->array<[user_id, game_id, lobby_id]>
+var n = steam_get_friends_game_info_1();
+var b = steam_gml_prepare_buffer(n * (8 * 3));
+steam_get_friends_game_info_2(buffer_get_address(b));
+var r = array_create(n);
+for (var i = 0; i < n; i++) {
+	var l_user_id = buffer_read(b, buffer_u64);
+	var l_game_id = buffer_read(b, buffer_u64);
+	var l_lobby_id = buffer_read(b, buffer_u64);
+	r[i] = [l_user_id, l_game_id, l_lobby_id];
+}
+return r;
+
 #define steam_gml_init_gml
 /// steam_gml_init_gml()
 /// steam_gml_initialized = global.g_steam_gml_initialized : Whether the extension is initialized.
