@@ -251,6 +251,7 @@ CSteamAPIContext SteamAPI;
 #define SteamMatchmaking SteamAPI.SteamMatchmaking
 #define SteamUtils SteamAPI.SteamUtils
 #define SteamController SteamAPI.SteamController
+#define SteamUGC SteamAPI.SteamUGC
 
 uint32 steam_app_id = 0;
 CSteamID steam_local_id;
@@ -272,6 +273,7 @@ class steam_net_callbacks_t {
 	void lobby_list_received(LobbyMatchList_t* e, bool failed);
 	void lobby_created(LobbyCreated_t* e, bool failed);
 	void lobby_joined(LobbyEnter_t* e, bool failed);
+	void item_deleted(DeleteItemResult_t* r, bool failed);
 };
 /*void steam_net_callbacks_t::OnPersonaStateChange(PersonaStateChange_t* e) {
 trace("Persona state change %d\n", e->m_ulSteamID);
@@ -1008,6 +1010,29 @@ dllx double steam_get_friends_game_info_2(steam_get_friends_game_info_r* out) {
 
 #pragma endregion
 
+#pragma region Functions that should be native in GMS2.
+
+CCallResult<steam_net_callbacks_t, DeleteItemResult_t> steam_item_deleted;
+
+/// Deletes an item from Steam Workshop.
+dllx double steam_ugc_delete_item(double published_file_id) {
+	if (SteamUGC()) {
+		SteamAPICall_t call = SteamUGC()->DeleteItem(published_file_id);
+		steam_item_deleted.Set(call, &steam_net_callbacks, &steam_net_callbacks_t::item_deleted);
+	}
+	return 0;
+}
+
+void steam_net_callbacks_t::item_deleted(DeleteItemResult_t* r, bool failed) {
+	steam_net_event x("ugc_delete_item");
+	x.set_result(r->m_eResult);
+	x.set("published_file_id_high", uint64_high(r->m_nPublishedFileId));
+	x.set("published_file_id_low", uint64_low(r->m_nPublishedFileId));
+	x.dispatch();
+}
+
+#pragma endregion
+
 #pragma region int64 workarounds (http://bugs.yoyogames.com/view.php?id=21357)
 // An extremely non-picky parser. Will combine up to 20 digits from
 // an input string into an int64, skipping any other characters.
@@ -1071,6 +1096,7 @@ dllx double steam_gml_api_flags() {
 	if (SteamNetworking()) r |= 16;
 	if (SteamMatchmaking()) r |= 32;
 	if (SteamController()) r |= 64;
+	if (SteamUGC()) r |= 128;
 	return r;
 }
 
