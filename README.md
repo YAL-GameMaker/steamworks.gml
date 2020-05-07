@@ -27,11 +27,12 @@ Create a "Steamworks" directory and place [Steamworks SDK](https://partner.steam
 
 **Windows:** Open the included Visual Studio solution and order it to make a x86 build.
 
-**Linux:** Run build_linux.sh. You'll need cpp:i386, gcc:i386, and g++:i386 installed.
+**Linux:** Run build_linux_gms#.sh. You'll need cpp:i386, gcc:i386, and g++:i386 installed.
 
-**Mac OSX:** Run build_osx.sh. You'll need XCode command line tools installed.
+**Mac OSX:** Run build_osx_gms#.sh. You'll need XCode command line tools installed.
 
 The extension is automatically updated to reflect the functions/macros from the source code as a post-build step in the Visual Studio project (via [gmxgen](https://bitbucket.org/yal_cc/gmxgen)).
+Copy `GmxGen.exe` (build it yourself or get one from Downloads) into `Steamworks.gml` directory or add it to your PATH.
 
 ## Meta
 Author: Vadim "YellowAfterlife" Dyachenko
