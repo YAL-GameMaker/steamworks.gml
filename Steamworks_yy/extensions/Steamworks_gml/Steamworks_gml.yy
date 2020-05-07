@@ -1172,6 +1172,21 @@
                     "returnType": 2
                 },
                 {
+                    "id": "83c53554-d2ed-2733-23b7-997e58a1b9ba",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_ugc_delete_item",
+                    "help": "steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_ugc_delete_item",
+                    "returnType": 2
+                },
+                {
                     "id": "08db8398-10a8-4b0e-9650-d8ce5b8c5f00",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -2565,6 +2580,21 @@
                     "returnType": 2
                 },
                 {
+                    "id": "05db20a0-e7af-0b37-523c-fdefbd0ba493",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_ugc_delete_item",
+                    "help": "steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_ugc_delete_item",
+                    "returnType": 2
+                },
+                {
                     "id": "bb294bab-0bcd-400f-95f6-085efef0b13f",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -3955,6 +3985,21 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "steam_get_friends_game_info_2",
+                    "returnType": 2
+                },
+                {
+                    "id": "64dd9812-9b91-e8e9-42b8-5fa36d040e59",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_ugc_delete_item",
+                    "help": "steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_ugc_delete_item",
                     "returnType": 2
                 },
                 {

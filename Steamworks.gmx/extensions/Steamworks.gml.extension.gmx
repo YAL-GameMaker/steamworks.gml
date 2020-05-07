@@ -737,6 +737,17 @@
           </args>
         </function>
         <function>
+          <name>steam_ugc_delete_item</name>
+          <externalName>steam_ugc_delete_item</externalName>
+          <kind>1</kind>
+          <help>steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>int64_from_string_high</name>
           <externalName>int64_from_string_high</externalName>
           <kind>1</kind>
@@ -1642,6 +1653,17 @@
           </args>
         </function>
         <function>
+          <name>steam_ugc_delete_item</name>
+          <externalName>steam_ugc_delete_item</externalName>
+          <kind>1</kind>
+          <help>steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>int64_from_string_high</name>
           <externalName>int64_from_string_high</externalName>
           <kind>1</kind>
@@ -2544,6 +2566,17 @@
           <argCount>1</argCount>
           <args>
             <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_ugc_delete_item</name>
+          <externalName>steam_ugc_delete_item</externalName>
+          <kind>1</kind>
+          <help>steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
           </args>
         </function>
         <function>
