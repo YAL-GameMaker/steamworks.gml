@@ -1233,6 +1233,22 @@
                     "returnType": 1
                 },
                 {
+                    "id": "f0e0fdbb-a2ac-79f2-f9d3-52e6d4db66bd",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        1
+                    ],
+                    "externalName": "steam_get_app_ownership_ticket_data_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_app_ownership_ticket_data_raw",
+                    "returnType": 2
+                },
+                {
                     "id": "a22764fd-0ede-45c7-8364-ba8a59cfce83",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -1426,7 +1442,13 @@
                 "2e96b664-5caf-4de4-8a85-f70ecb510153",
                 "2c1071f0-c117-498a-83a9-104714c47a6d",
                 "37d5e044-18ca-48d8-a96b-f3172f47c202",
-                "458b8e8d-58ea-43c0-90ac-4b7d2f17fed9"
+                "458b8e8d-58ea-43c0-90ac-4b7d2f17fed9",
+                "a5b5a8ee-a2ac-79a7-715b-8f3b06accc18",
+                "359efd17-dd30-e9ab-ee67-05682437e479",
+                "5a4a5711-808e-5b58-351f-16a29ef922f7",
+                "16adcef9-82cf-cb83-6701-d21e9e681b79",
+                "83c53554-d2ed-2733-23b7-997e58a1b9ba",
+                "f0e0fdbb-a2ac-79f2-f9d3-52e6d4db66bd"
             ],
             "origname": "Steamworks.gml.dll",
             "uncompress": false
@@ -2639,6 +2661,22 @@
                     "kind": 1,
                     "name": "int64_combine_string",
                     "returnType": 1
+                },
+                {
+                    "id": "3952318e-9a47-cb8a-f010-acfe1bf81b1f",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        1
+                    ],
+                    "externalName": "steam_get_app_ownership_ticket_data_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_app_ownership_ticket_data_raw",
+                    "returnType": 2
                 },
                 {
                     "id": "880e71a4-b077-498e-8de9-62cbdf5bcedf",
@@ -4049,6 +4087,22 @@
                     "returnType": 1
                 },
                 {
+                    "id": "b5c38f5e-d978-3b40-9bf2-2cc5b3f64b80",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        1
+                    ],
+                    "externalName": "steam_get_app_ownership_ticket_data_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_app_ownership_ticket_data_raw",
+                    "returnType": 2
+                },
+                {
                     "id": "df6c66a8-7487-4108-b9c2-a4fd6b81968d",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -4743,6 +4797,21 @@
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_get_friends_game_info",
+                    "returnType": 2
+                },
+                {
+                    "id": "e6ed14b3-64a6-2f01-c14d-c822e64a2f52",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": -1,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_get_app_ownership_ticket_data",
+                    "help": "steam_get_app_ownership_ticket_data(buffer, ?app_id)->[size_total, ofs_app_id, ofs_steam_id, ofs_signature, size_signature]",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_get_app_ownership_ticket_data",
                     "returnType": 2
                 },
                 {

@@ -27,6 +27,7 @@
 #define VERSION_SAFE_STEAM_API_INTERFACES 1
 #define _CRT_SECURE_NO_WARNINGS
 #include "./../Steamworks/public/steam/steam_api.h"
+#include "./../Steamworks/public/steam/isteamappticket.h"
 #include <vector>
 #include <map>
 #include <string>
@@ -1075,6 +1076,29 @@ dllx char* int64_combine_string(double high, double low) {
 	return int64_combine_buf;
 }
 #pragma endregion
+
+dllx double steam_get_app_ownership_ticket_data_raw(char* outbuf, uint32* vals) {
+	static ISteamAppTicket* SteamAppTicket = nullptr;
+	static bool ready = false;
+	if (!ready) {
+		ready = true;
+		SteamAppTicket = (ISteamAppTicket*)SteamClient()->GetISteamGenericInterface(
+			SteamAPI_GetHSteamUser(), SteamAPI_GetHSteamPipe(), STEAMAPPTICKET_INTERFACE_VERSION);
+	}
+	uint32 ret = 0;
+	uint32 iAppID = 0;
+	uint32 iSteamID = 0;
+	uint32 iSignature = 0;
+	uint32 cbSignature = 0;
+	if (SteamAppTicket) ret = SteamAppTicket->GetAppOwnershipTicketData(
+		vals[0], outbuf, vals[1], &iAppID, &iSteamID, &iSignature, &cbSignature);
+	vals[0] = ret;
+	vals[1] = iAppID;
+	vals[2] = iSteamID;
+	vals[3] = iSignature;
+	vals[4] = cbSignature;
+	return ret;
+}
 
 dllx double steam_gml_update() {
 	SteamAPI_RunCallbacks();

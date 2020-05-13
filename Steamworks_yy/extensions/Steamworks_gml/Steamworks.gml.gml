@@ -222,6 +222,22 @@ for (var i = 0; i < n; i++) {
 }
 return r;
 
+#define steam_get_app_ownership_ticket_data
+/// (buffer, ?app_id)->[size_total, ofs_app_id, ofs_steam_id, ofs_signature, size_signature]
+var l_buf = argument[0];
+var l_app_id = argument_count > 1 ? argument[1] : steam_get_app_id();
+var b = steam_gml_prepare_buffer(4 * 5);
+buffer_seek(b, 0, 0);
+buffer_write(b, buffer_u32, l_app_id);
+buffer_write(b, buffer_u32, buffer_get_size(l_buf));
+steam_get_app_ownership_ticket_data_raw(buffer_get_address(l_buf), buffer_get_address(b));
+buffer_seek(b, 0, 0);
+var r = array_create(5);
+for (var i = 0; i < 5; i++) {
+	r[i] = buffer_read(b, buffer_u32);
+}
+return r;
+
 #define steam_gml_init_gml
 /// steam_gml_init_gml()
 /// steam_gml_initialized = global.g_steam_gml_initialized : Whether the extension is initialized.

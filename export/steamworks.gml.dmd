@@ -92,6 +92,36 @@ A most up-to-date version of the manual is always [available online](https://yal
 		
 		This is usually something to do on session start for all remote users.
 	}
+	#[steam_get_app_ownership_ticket_data(buffer, ?app_id)]() {
+		Takes a buffer and fills it up with a reasonable "future proof" view of an app ownership ticket for a given app ID.
+		
+		`buffer` is a buffer to fill up.
+		Documentation is not very specific, but it seems like it should be at least 256 bytes long.
+		
+		`app_id` is the Steam App ID to retrieve ownership data for.
+		If not specified, this defaults to `steam_get_app_id()`.
+		
+		Returns a 5-element array: --{
+		--	0: Total number of bytes retrieved (0 if the buffer wasn't large enough).
+		--	1: Byte offset for App ID in the buffer.
+		--	2: Byte offset for Steam User ID in the buffer.
+		--	3: Byte offset for signature in the buffer.
+		--	4: Byte length for signature in the buffer.
+		}
+		```
+		var b = buffer_create(256, buffer_fixed, 1);
+		var d = steam_get_app_ownership_ticket_data(b);
+		if (d[0] > 0) {
+			show_debug_message("App ID: " + string(buffer_peek(b, d[1], buffer_u32)));
+			show_debug_message("User ID: " + string(buffer_peek(b, d[2], buffer_u64)));
+			show_debug_message("Signature: " + string(d[4]) + " bytes at offset " + string(d[3]));
+		} else {
+			show_debug_message("Failed to retrieve app ownership data.");
+		}
+		```
+		
+		See: [ISteamAppTicket](https://partner.steamgames.com/doc/api/ISteamAppTicket)
+	}
 }
 #[Async events](steam_async) {
 	As result of a number of function calls, the extension dispatches asynchronous events.
