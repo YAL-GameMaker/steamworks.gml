@@ -64,7 +64,12 @@ size_t __gml_string_n = 1;
 char* gml_string(const char* s) {
 	size_t n = strlen(s) + 1;
 	if (__gml_string_n < n) {
-		__gml_string_b = realloc(__gml_string_b, n);
+		auto b = realloc(__gml_string_b, n);
+		if (b == nullptr) {
+			trace("Failed to realloc %zu bytes.", n);
+			return "";
+		}
+		__gml_string_b = b;
 	}
 	strcpy((char*)__gml_string_b, s);
 	return (char*)__gml_string_b;
