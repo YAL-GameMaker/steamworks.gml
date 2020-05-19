@@ -24,5 +24,8 @@
     <ClCompile Include="Steamworks.gml.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="base64_encode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

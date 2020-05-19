@@ -975,7 +975,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_value",
-                    "help": "steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true/false)",
+                    "help": "steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true\/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_value",
@@ -991,7 +991,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_status",
-                    "help": "steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true/false)",
+                    "help": "steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true\/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_status",
@@ -1187,6 +1187,38 @@
                     "returnType": 2
                 },
                 {
+                    "id": "f0e0fdbb-a2ac-79f2-f9d3-52e6d4db66bd",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        1
+                    ],
+                    "externalName": "steam_get_app_ownership_ticket_data_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_app_ownership_ticket_data_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "96869bdd-e6e8-3d94-ac86-2591ac71ff2b",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        2
+                    ],
+                    "externalName": "steam_user_request_encrypted_app_ticket_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_user_request_encrypted_app_ticket_raw",
+                    "returnType": 2
+                },
+                {
                     "id": "08db8398-10a8-4b0e-9650-d8ce5b8c5f00",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -1231,22 +1263,6 @@
                     "kind": 1,
                     "name": "int64_combine_string",
                     "returnType": 1
-                },
-                {
-                    "id": "f0e0fdbb-a2ac-79f2-f9d3-52e6d4db66bd",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        1,
-                        1
-                    ],
-                    "externalName": "steam_get_app_ownership_ticket_data_raw",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "steam_get_app_ownership_ticket_data_raw",
-                    "returnType": 2
                 },
                 {
                     "id": "a22764fd-0ede-45c7-8364-ba8a59cfce83",
@@ -2405,7 +2421,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_value",
-                    "help": "steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true/false)",
+                    "help": "steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true\/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_value",
@@ -2421,7 +2437,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_status",
-                    "help": "steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true/false)",
+                    "help": "steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true\/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_status",
@@ -2617,6 +2633,38 @@
                     "returnType": 2
                 },
                 {
+                    "id": "3952318e-9a47-cb8a-f010-acfe1bf81b1f",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        1
+                    ],
+                    "externalName": "steam_get_app_ownership_ticket_data_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_app_ownership_ticket_data_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "795231ac-84a9-0749-cc01-812c1f6e7da4",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        2
+                    ],
+                    "externalName": "steam_user_request_encrypted_app_ticket_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_user_request_encrypted_app_ticket_raw",
+                    "returnType": 2
+                },
+                {
                     "id": "bb294bab-0bcd-400f-95f6-085efef0b13f",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -2661,22 +2709,6 @@
                     "kind": 1,
                     "name": "int64_combine_string",
                     "returnType": 1
-                },
-                {
-                    "id": "3952318e-9a47-cb8a-f010-acfe1bf81b1f",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        1,
-                        1
-                    ],
-                    "externalName": "steam_get_app_ownership_ticket_data_raw",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "steam_get_app_ownership_ticket_data_raw",
-                    "returnType": 2
                 },
                 {
                     "id": "880e71a4-b077-498e-8de9-62cbdf5bcedf",
@@ -3829,7 +3861,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_value",
-                    "help": "steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true/false)",
+                    "help": "steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true\/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_value",
@@ -3845,7 +3877,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_status",
-                    "help": "steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true/false)",
+                    "help": "steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true\/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_status",
@@ -4041,6 +4073,38 @@
                     "returnType": 2
                 },
                 {
+                    "id": "b5c38f5e-d978-3b40-9bf2-2cc5b3f64b80",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        1
+                    ],
+                    "externalName": "steam_get_app_ownership_ticket_data_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_app_ownership_ticket_data_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "e0c3ad7c-f485-d5a1-aead-d31a70c77a94",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        2
+                    ],
+                    "externalName": "steam_user_request_encrypted_app_ticket_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_user_request_encrypted_app_ticket_raw",
+                    "returnType": 2
+                },
+                {
                     "id": "3da2b2fe-4fc4-40ca-8493-997449f58cdd",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -4085,22 +4149,6 @@
                     "kind": 1,
                     "name": "int64_combine_string",
                     "returnType": 1
-                },
-                {
-                    "id": "b5c38f5e-d978-3b40-9bf2-2cc5b3f64b80",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        1,
-                        1
-                    ],
-                    "externalName": "steam_get_app_ownership_ticket_data_raw",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "steam_get_app_ownership_ticket_data_raw",
-                    "returnType": 2
                 },
                 {
                     "id": "df6c66a8-7487-4108-b9c2-a4fd6b81968d",
@@ -4812,6 +4860,21 @@
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_get_app_ownership_ticket_data",
+                    "returnType": 2
+                },
+                {
+                    "id": "0122bc3c-66ce-2fb9-e370-528401c2ffdd",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": -1,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_user_request_encrypted_app_ticket",
+                    "help": "steam_user_request_encrypted_app_ticket(?bufferOrStringToInclude, ?bufferToIncludeSize)",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_user_request_encrypted_app_ticket",
                     "returnType": 2
                 },
                 {

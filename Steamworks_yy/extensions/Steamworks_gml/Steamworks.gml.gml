@@ -238,6 +238,21 @@ for (var i = 0; i < 5; i++) {
 }
 return r;
 
+#define steam_user_request_encrypted_app_ticket
+/// (?bufferOrStringToInclude, ?bufferToIncludeSize)
+var l_data = argument_count > 0 ? argument[0] : undefined;
+var l_size = argument_count > 1 ? argument[1] : undefined;
+if (l_data == undefined) {
+	l_data = "";
+	l_size = 0;
+} else if (is_string(l_data)) {
+	if (l_size == undefined) l_size = string_byte_length(l_data);
+} else {
+	if (l_size == undefined) l_size = buffer_get_size(l_data);
+	l_data = buffer_get_address(l_data);
+}
+return steam_user_request_encrypted_app_ticket_raw(l_data, l_size);
+
 #define steam_gml_init_gml
 /// steam_gml_init_gml()
 /// steam_gml_initialized = global.g_steam_gml_initialized : Whether the extension is initialized.

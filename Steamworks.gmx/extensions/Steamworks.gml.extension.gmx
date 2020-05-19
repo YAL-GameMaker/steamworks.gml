@@ -748,6 +748,30 @@
           </args>
         </function>
         <function>
+          <name>steam_get_app_ownership_ticket_data_raw</name>
+          <externalName>steam_get_app_ownership_ticket_data_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_user_request_encrypted_app_ticket_raw</name>
+          <externalName>steam_user_request_encrypted_app_ticket_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>int64_from_string_high</name>
           <externalName>int64_from_string_high</externalName>
           <kind>1</kind>
@@ -779,18 +803,6 @@
           <args>
             <arg>2</arg>
             <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_get_app_ownership_ticket_data_raw</name>
-          <externalName>steam_get_app_ownership_ticket_data_raw</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>2</argCount>
-          <args>
-            <arg>1</arg>
-            <arg>1</arg>
           </args>
         </function>
         <function>
@@ -1676,6 +1688,30 @@
           </args>
         </function>
         <function>
+          <name>steam_get_app_ownership_ticket_data_raw</name>
+          <externalName>steam_get_app_ownership_ticket_data_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_user_request_encrypted_app_ticket_raw</name>
+          <externalName>steam_user_request_encrypted_app_ticket_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>int64_from_string_high</name>
           <externalName>int64_from_string_high</externalName>
           <kind>1</kind>
@@ -1707,18 +1743,6 @@
           <args>
             <arg>2</arg>
             <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_get_app_ownership_ticket_data_raw</name>
-          <externalName>steam_get_app_ownership_ticket_data_raw</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>2</argCount>
-          <args>
-            <arg>1</arg>
-            <arg>1</arg>
           </args>
         </function>
         <function>
@@ -2604,6 +2628,30 @@
           </args>
         </function>
         <function>
+          <name>steam_get_app_ownership_ticket_data_raw</name>
+          <externalName>steam_get_app_ownership_ticket_data_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_user_request_encrypted_app_ticket_raw</name>
+          <externalName>steam_user_request_encrypted_app_ticket_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>int64_from_string_high</name>
           <externalName>int64_from_string_high</externalName>
           <kind>1</kind>
@@ -2635,18 +2683,6 @@
           <args>
             <arg>2</arg>
             <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_get_app_ownership_ticket_data_raw</name>
-          <externalName>steam_get_app_ownership_ticket_data_raw</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>2</argCount>
-          <args>
-            <arg>1</arg>
-            <arg>1</arg>
           </args>
         </function>
         <function>
@@ -3169,6 +3205,15 @@
           <externalName>steam_get_app_ownership_ticket_data</externalName>
           <kind>2</kind>
           <help>steam_get_app_ownership_ticket_data(buffer, ?app_id)-&gt;[size_total, ofs_app_id, ofs_steam_id, ofs_signature, size_signature]</help>
+          <returnType>2</returnType>
+          <argCount>-1</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_user_request_encrypted_app_ticket</name>
+          <externalName>steam_user_request_encrypted_app_ticket</externalName>
+          <kind>2</kind>
+          <help>steam_user_request_encrypted_app_ticket(?bufferOrStringToInclude, ?bufferToIncludeSize)</help>
           <returnType>2</returnType>
           <argCount>-1</argCount>
           <args/>

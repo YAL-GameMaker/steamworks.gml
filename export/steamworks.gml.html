@@ -25,14 +25,14 @@ body {
 	width: 100%;
 	min-height: 100%;
 	min-height: 100vh;
-	background-color: #f9f9f9;
+	background-color: #899FC6;
 }
 .page {
 	max-width: 656px;
 	background: #ffffff;
 	margin: 0 auto;
 	padding: 8px;
-	box-shadow: 0 0 0 2px #eee;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 	min-height: 100%;
 	min-height: 100vh;
 	box-sizing: border-box;
@@ -40,7 +40,6 @@ body {
 .page > p:first-child {
 	margin-top: 0;
 }
-
 #doc, #doc ul, #doc ol {
 	padding-left: 0;
 	margin: 0;
@@ -225,7 +224,7 @@ label[for="night"] {
 }
 #night:checked + .main .page {
 	background-color: #1A202D;
-	box-shadow: 0 0 0 2px #9bccff63;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	color: white;
 }
 #night:checked + .main a,
@@ -307,9 +306,25 @@ label[for="night"] {
 	color: white;
 }
 </style>
+<style type="text/css" id="print_css">
+@media print {
+	.main { background-color: transparent }
+	.display-controls { display: none; }
+	.page { width: 100%; box-shadow: none; }
+	#doc .header::before,
+	#doc .item.open .header::before	{
+		content: "~";
+	}
+	#doc { display: inherit }
+	#doc .item:not(.open) > .content,
+	#doc[ready] .item:not(.open) > .content	{
+		display: inherit;
+	}
+}
+</style>
 <noscript><style>
 #doc .header::before {
-	display: none;
+	content: "~";
 }
 #doc .header:hover {
 	border-left-color: #f3f3f3;
@@ -322,7 +337,7 @@ label[for="night"] {
 </style></noscript>
 </head><body>
 <input type="checkbox" id="night" checked/>
-<div class="main <!--%[mainclass]-->">
+<div class="main boxtt">
 <script type="text/javascript">
 (function() {
 	var night = document.getElementById("night");
@@ -337,11 +352,11 @@ label[for="night"] {
 })();
 </script>
 <div class="page">
-<p>This is a function "cheat sheet" for Steamworks.gml extension by YellowAfterlife.
-The extension is available <a href="https://github.com/YellowAfterlife/steamworks.gml">on GitHub</a>.
-Example files are available via <a href="https://yellowafterlife.itch.io/steamworks-gml-example">itch.io</a>.
-Donations are accepted via itch.io.
-A most up-to-date version of the manual is always <a href="https://yal.cc/r/17/steamworks-gml/">available online</a>.</p><p>
+<p>This is a function "cheat sheet" for Steamworks.gml extension by YellowAfterlife.  <br/>
+The extension is available <a href="https://github.com/YellowAfterlife/steamworks.gml">on GitHub</a>.  <br/>
+Example files are available via <a href="https://yellowafterlife.itch.io/steamworks-gml-example">itch.io</a>.  <br/>
+Donations are accepted via itch.io.  <br/>
+A most up-to-date version of the manual is always <a href="https://yal.cc/r/17/steamworks-gml/">available online</a>.</p><p class="display-controls">
 Click on sections to expand/collapse them.<br>Quick display controls: <a href="#" onclick="opt_none(); return false">Categories</a>
 &middot; <a href="#" onclick="opt_list(); return false">Sections</a>
 &middot; <a href="#" onclick="opt_all(); return false">Everything</a>
@@ -366,16 +381,16 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		To make the process even more straightforward, you can also run multiple game instances straight from the editor. To do so, you would add a small script to return the combined parameter string for the program,
 		</p><pre class="gmlmd">
 <span class="co">/// parameter_string_all()</span>
-<span class="kw">var</span> <span class="lv">r</span> <span class="op">=</span> <span class="st">""</span><span class="op">;</span>
-<span class="kw">var</span> <span class="lv">n</span> <span class="op">=</span> <span class="sf">parameter_count</span><span class="op">(</span><span class="op">)</span><span class="op">;</span>
-<span class="kw">for</span> <span class="op">(</span><span class="kw">var</span> <span class="lv">i</span> <span class="op">=</span> <span class="nu">0</span><span class="op">;</span> <span class="lv">i</span> <span class="op">&lt;</span> <span class="lv">n</span><span class="op">;</span> <span class="lv">i</span><span class="op">++</span><span class="op">)</span> <span class="cb">{</span>
-    <span class="kw">if</span> <span class="op">(</span><span class="lv">i</span> <span class="op">&gt;</span> <span class="nu">0</span><span class="op">)</span> <span class="lv">r</span> <span class="op">+=</span> <span class="st">" "</span><span class="op">;</span>
+<span class="kw">var</span> <span class="sv">r</span> <span class="op">=</span> <span class="st">""</span><span class="op">;</span>
+<span class="kw">var</span> <span class="sv">n</span> <span class="op">=</span> <span class="sf">parameter_count</span><span class="op">(</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">for</span> <span class="op">(</span><span class="kw">var</span> <span class="lv">i</span> <span class="op">=</span> <span class="nu">0</span><span class="op">;</span> <span class="lv">i</span> <span class="op">&lt;</span> <span class="sv">n</span><span class="op">;</span> <span class="lv">i</span><span class="op">++</span><span class="op">)</span> <span class="cb">{</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="lv">i</span> <span class="op">&gt;</span> <span class="nu">0</span><span class="op">)</span> <span class="sv">r</span> <span class="op">+=</span> <span class="st">" "</span><span class="op">;</span>
     <span class="kw">var</span> <span class="lv">s</span> <span class="op">=</span> <span class="sf">parameter_string</span><span class="op">(</span><span class="lv">i</span><span class="op">)</span><span class="op">;</span>
     <span class="kw">if</span> <span class="op">(</span><span class="sf">string_pos</span><span class="op">(</span><span class="st">" "</span><span class="op">,</span> <span class="lv">s</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
-        <span class="lv">r</span> <span class="op">+=</span> <span class="st">'"'</span> <span class="op">+</span> <span class="lv">s</span> <span class="op">+</span> <span class="st">'"'</span><span class="op">;</span>
-    <span class="cb">}</span> <span class="kw">else</span> <span class="lv">r</span> <span class="op">+=</span> <span class="lv">s</span><span class="op">;</span>
+        <span class="sv">r</span> <span class="op">+=</span> <span class="st">'"'</span> <span class="op">+</span> <span class="lv">s</span> <span class="op">+</span> <span class="st">'"'</span><span class="op">;</span>
+    <span class="cb">}</span> <span class="kw">else</span> <span class="sv">r</span> <span class="op">+=</span> <span class="lv">s</span><span class="op">;</span>
 <span class="cb">}</span>
-<span class="kw">return</span> <span class="lv">r</span><span class="op">;</span>
+<span class="kw">return</span> <span class="sv">r</span><span class="op">;</span>
 </pre><p>and then copy that string to clipboard,
 		</p><pre class="gmlmd">
 <span class="sf">clipboard_set_text</span><span class="op">(</span><span class="uf">parameter_string_all</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
@@ -415,6 +430,67 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		Adds the given user to the "recently played with" list (accessed via "Players" - "Recent games") menu in Steam overlay.
 		</p><p>
 		This is usually something to do on session start for all remote users.
+	</p></div></div><hr/><div class="item"><a class="header" id="steam_get_app_ownership_ticket_data" href="#steam_get_app_ownership_ticket_data" title="(permalink)">steam_get_app_ownership_ticket_data(buffer, ?app_id)</a><div class="content"><p>
+		Takes a buffer and fills it up with a reasonable "future proof" view of an app ownership ticket for a given app ID.
+		</p><p>
+		<tt>buffer</tt> is a buffer to fill up.
+		Documentation is not very specific, but it seems like it should be at least 256 bytes long.
+		</p><p>
+		<tt>app_id</tt> is the Steam App ID to retrieve ownership data for.
+		If not specified, this defaults to <tt>steam_get_app_id()</tt>.
+		</p><p>
+		Returns a 5-element array: </p><ul>
+		<li>	0: Total number of bytes retrieved (0 if the buffer wasn't large enough).
+		</li><li>	1: Byte offset for App ID in the buffer.
+		</li><li>	2: Byte offset for Steam User ID in the buffer.
+		</li><li>	3: Byte offset for signature in the buffer.
+		</li><li>	4: Byte length for signature in the buffer.
+		</li></ul><p class="pad">
+		
+		For example,
+		</p><pre class="gmlmd">
+<span class="kw">var</span> <span class="lv">b</span> <span class="op">=</span> <span class="sf">buffer_create</span><span class="op">(</span><span class="nu">256</span><span class="op">,</span> <span class="sv">buffer_fixed</span><span class="op">,</span> <span class="nu">1</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">var</span> <span class="lv">d</span> <span class="op">=</span> <span class="sf">steam_get_app_ownership_ticket_data</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">if</span> <span class="op">(</span><span class="lv">d</span><span class="op">[</span><span class="nu">0</span><span class="op">]</span> <span class="op">&gt;</span> <span class="nu">0</span><span class="op">)</span> <span class="cb">{</span>
+    <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"App ID: "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="sf">buffer_peek</span><span class="op">(</span><span class="lv">b</span><span class="op">,</span> <span class="lv">d</span><span class="op">[</span><span class="nu">1</span><span class="op">]</span><span class="op">,</span> <span class="sv">buffer_u32</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
+    <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"User ID: "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="sf">buffer_peek</span><span class="op">(</span><span class="lv">b</span><span class="op">,</span> <span class="lv">d</span><span class="op">[</span><span class="nu">2</span><span class="op">]</span><span class="op">,</span> <span class="sv">buffer_u64</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
+    <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"Signature: "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="lv">d</span><span class="op">[</span><span class="nu">4</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span> <span class="st">"B at ofs:"</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="lv">d</span><span class="op">[</span><span class="nu">3</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
+<span class="cb">}</span> <span class="kw">else</span> <span class="cb">{</span>
+    <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"Failed to retrieve app ownership data."</span><span class="op">)</span><span class="op">;</span>
+<span class="cb">}</span>
+</pre><p>See: <a href="https://partner.steamgames.com/doc/api/ISteamAppTicket">ISteamAppTicket</a>
+	</p></div></div><div class="item"><a class="header" id="steam_user_request_encrypted_app_ticket" href="#steam_user_request_encrypted_app_ticket" title="(permalink)">steam_user_request_encrypted_app_ticket(?data, ?data_size)</a><div class="content"><p>
+		<tt>data</tt> (optional) is a string or a buffer to include in the resulting buffer.<br/>If not specified, defaults to NULL and includes no additional data.
+		</p><p>
+		<tt>data_size</tt> (optional) is the number of bytes in <tt>data</tt>.<br/>If not specified, this will be set to byte count in a string (not including the final NUL),
+		or buffer size.
+		</p><p>
+		This function is async.
+		Once ready, it will dispatch the following Async - Steam event: </p><ul>
+		<li>	<tt>"event_type"</tt>: will be <tt>"user_encrypted_app_ticket_response_received"</tt>.
+		</li><li>	<tt>"success"</tt>: will be <tt>true</tt> or <tt>false</tt> depending on whether the operation succeeded.
+		</li><li>	<tt>"result"</tt>: will hold the extended EResult ID if you need that.
+		</li><li>	<tt>"ticket_data"</tt>: will hold base64 of returned binary data.<br/>You'll probably want to <tt>buffer_base64_decode</tt> it.
+		</li></ul><p class="pad">
+		
+		For example:
+		</p><pre class="gmlmd">
+<span class="sf">steam_user_request_encrypted_app_ticket</span><span class="op">(</span><span class="op">)</span><span class="op">;</span>
+</pre><p>and in Async - Steam:
+		</p><pre class="gmlmd">
+<span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"user_encrypted_app_ticket_response_received"</span><span class="op">)</span> <span class="cb">{</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"success"</span><span class="op">]</span><span class="op">)</span> <span class="cb">{</span>
+        <span class="kw">var</span> <span class="lv">buf</span> <span class="op">=</span> <span class="sf">buffer_base64_decode</span><span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"ticket_data"</span><span class="op">]</span><span class="op">)</span><span class="op">;</span>
+        <span class="co">// ... do something with buf</span>
+        <span class="sf">buffer_delete</span><span class="op">(</span><span class="lv">buf</span><span class="op">)</span><span class="op">;</span>
+    <span class="cb">}</span> <span class="kw">else</span> <span class="cb">{</span>
+        <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"Failed to retrieve app ticket - "</span>
+            <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"result"</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
+    <span class="cb">}</span>
+<span class="cb">}</span>
+</pre><p>See: <a href="https://partner.steamgames.com/doc/api/ISteamUser#RequestEncryptedAppTicket">RequestEncryptedAppTicket</a>
+		</p><p>
+		Not to be confused with <a href="#steam_get_app_ownership_ticket_data">steam_get_app_ownership_ticket_data</a>!
 	</p></div></div></div></div><div class="item"><a class="header" id="steam_async" href="#steam_async" title="(permalink)">Async events</a><div class="content"><p>
 	As result of a number of function calls, the extension dispatches asynchronous events.
 	</p><p>
@@ -461,38 +537,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
         <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"lobby_id_low"</span><span class="op">]</span>
     <span class="op">)</span><span class="op">)</span><span class="op">;</span>
 <span class="cb">}</span>
-</pre></div></div><div class="item"><a class="header" id="inventory_result_ready" href="#inventory_result_ready" title="(permalink)">inventory_result_ready</a><div class="content"><p>
-		Fires after an inventory request finishes.
-		</p><p>
-		This is where you handle the returned value and call <a href="#steam_inventory_result_destroy">steam_inventory_result_destroy</a>.
-		</p><p>
-		Has the following fields: </p><ul>
-		<li>	<tt>async_load[?"handle"]</tt>: <a href="#steam_inventory_result">steam_inventory_result</a>
-		</li><li>	<tt>async_load[?"result"]</tt>: Status constant (see <a href="#steam_inventory_result_get_status">steam_inventory_result_get_status</a>).
-		</li></ul><p class="pad">
-		
-		So, for example, you might do:
-		</p><pre class="gmlmd">
-<span class="kw">global</span><span class="op">.</span><span class="gv">fetch_items</span> <span class="op">=</span> <span class="uf">steam_inventory_item_retrieve_all</span><span class="op">(</span><span class="op">)</span><span class="op">;</span>
-</pre><p>and then handle the result in the async event:
-		</p><pre class="gmlmd">
-<span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"inventory_result_ready"</span><span class="op">)</span> <span class="cb">{</span>
-    <span class="kw">var</span> <span class="lv">r</span> <span class="op">=</span> <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"handle"</span><span class="op">]</span><span class="op">;</span>
-    <span class="kw">if</span> <span class="op">(</span><span class="lv">r</span> <span class="op">==</span> <span class="kw">global</span><span class="op">.</span><span class="gv">fetch_items</span><span class="op">)</span> <span class="cb">{</span>
-        <span class="kw">var</span> <span class="lv">items</span> <span class="op">=</span> <span class="uf">steam_inventory_result_get_items</span><span class="op">(</span><span class="lv">r</span><span class="op">)</span><span class="op">;</span>
-        <span class="co">// handle items here</span>
-        <span class="uf">steam_inventory_result_destroy</span><span class="op">(</span><span class="lv">r</span><span class="op">)</span><span class="op">;</span>
-    <span class="cb">}</span>
-<span class="cb">}</span>
-</pre></div></div><div class="item"><a class="header" id="steam_inventory_full_update" href="#steam_inventory_full_update" title="(permalink)">steam_inventory_full_update</a><div class="content"><p>
-		Fires after <a href="#steam_inventory_item_retrieve_all">steam_inventory_item_retrieve_all</a> successfully returns a result which is newer/fresher than the last known result. A regular <a href="#inventory_result_ready">inventory_result_ready</a> event will trigger immediately afterwards.
-		</p><p>
-		Has the following fields: </p><ul>
-		<li>	<tt>async_load[?"handle"]</tt>: <a href="#steam_inventory_result">steam_inventory_result</a>
-		</li></ul><p class="pad">
-		
-		C++ version: <a href="https://partner.steamgames.com/doc/api/ISteamInventory#SteamInventoryFullUpdate_t">SteamInventoryFullUpdate_t</a>
-	</p></div></div></div></div><div class="item"><a class="header" id="steam_net" href="#steam_net" title="(permalink)">Networking functions</a><div class="content"><p>
+</pre></div></div></div></div><div class="item"><a class="header" id="steam_net" href="#steam_net" title="(permalink)">Networking functions</a><div class="content"><p>
 	The following functions allow to send and receive Steam P2P packets.
 	</p><div class="item"><a class="header" id="steam_net_packet_receive" href="#steam_net_packet_receive" title="(permalink)">steam_net_packet_receive()</a><div class="content"><p>
 		Attempts to get the next packet from Steam API and returns whether successfully done so.
@@ -551,7 +596,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</p><pre class="gmlmd">
 <span class="kw">var</span> <span class="lv">b</span> <span class="op">=</span> <span class="sf">buffer_create</span><span class="op">(</span><span class="nu">16</span><span class="op">,</span> <span class="sv">buffer_grow</span><span class="op">,</span> <span class="nu">1</span><span class="op">)</span><span class="op">;</span>
 <span class="sf">buffer_write</span><span class="op">(</span><span class="lv">b</span><span class="op">,</span> <span class="sv">buffer_string</span><span class="op">,</span> <span class="st">"Hello!"</span><span class="op">)</span><span class="op">;</span>
-<span class="sf">steam_net_packet_send</span><span class="op">(</span><span class="uv">steam_id</span><span class="op">,</span> <span class="lv">b</span><span class="op">,</span> <span class="sf">buffer_tell</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">,</span> <span class="uv">steam_net_packet_type_reliable</span><span class="op">)</span><span class="op">;</span>
+<span class="sf">steam_net_packet_send</span><span class="op">(</span><span class="sv">steam_id</span><span class="op">,</span> <span class="lv">b</span><span class="op">,</span> <span class="sf">buffer_tell</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">,</span> <span class="uv">steam_net_packet_type_reliable</span><span class="op">)</span><span class="op">;</span>
 <span class="sf">buffer_delete</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">;</span>
 </pre><p>Where <tt>steam_id</tt> would hold the user ID to send the packet to.
 	</p></div></div></div></div><div class="item"><a class="header" id="steam_lobby" href="#steam_lobby" title="(permalink)">Lobby functions</a><div class="content"><p>
@@ -606,7 +651,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		Returns a lobby field value, as set by <a href="#steam_lobby_set_data">steam_lobby_set_data</a>.
 		
 </p><pre class="gmlmd">
-<span class="kw">var</span> <span class="lv">title</span> <span class="op">=</span> <span class="sf">steam_lobby_get_data</span><span class="op">(</span><span class="st">"title"</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">var</span> <span class="sv">title</span> <span class="op">=</span> <span class="sf">steam_lobby_get_data</span><span class="op">(</span><span class="st">"title"</span><span class="op">)</span><span class="op">;</span>
 </pre></div></div><div class="item"><a class="header" id="steam_lobby_set_data" href="#steam_lobby_set_data" title="(permalink)">steam_lobby_set_data(key:string, value:string)</a><div class="content"><p>
 		Changes a lobby' field. You must be the lobby' owner to do this.
 		</p><p>

@@ -31,6 +31,7 @@
 #include <vector>
 #include <map>
 #include <string>
+std::string b64encode(const void* data, const size_t& len);
 
 using std::map;
 using std::vector;
@@ -280,6 +281,7 @@ class steam_net_callbacks_t {
 	void lobby_created(LobbyCreated_t* e, bool failed);
 	void lobby_joined(LobbyEnter_t* e, bool failed);
 	void item_deleted(DeleteItemResult_t* r, bool failed);
+	void encrypted_app_ticket_response_received(EncryptedAppTicketResponse_t* pEncryptedAppTicketResponse, bool bIOFailure);
 };
 /*void steam_net_callbacks_t::OnPersonaStateChange(PersonaStateChange_t* e) {
 trace("Persona state change %d\n", e->m_ulSteamID);
@@ -1016,7 +1018,7 @@ dllx double steam_get_friends_game_info_2(steam_get_friends_game_info_r* out) {
 
 #pragma endregion
 
-#pragma region Functions that should be native in GMS2.
+#pragma region Workshop
 
 CCallResult<steam_net_callbacks_t, DeleteItemResult_t> steam_item_deleted;
 
@@ -1037,6 +1039,57 @@ void steam_net_callbacks_t::item_deleted(DeleteItemResult_t* r, bool failed) {
 	x.dispatch();
 }
 
+#pragma endregion
+
+#pragma region Secure App Tickets
+dllx double steam_get_app_ownership_ticket_data_raw(char* outbuf, uint32* vals) {
+	static ISteamAppTicket* SteamAppTicket = nullptr;
+	static bool ready = false;
+	if (!ready) {
+		ready = true;
+		SteamAppTicket = (ISteamAppTicket*)SteamClient()->GetISteamGenericInterface(
+			SteamAPI_GetHSteamUser(), SteamAPI_GetHSteamPipe(), STEAMAPPTICKET_INTERFACE_VERSION);
+	}
+	uint32 ret = 0;
+	uint32 iAppID = 0;
+	uint32 iSteamID = 0;
+	uint32 iSignature = 0;
+	uint32 cbSignature = 0;
+	if (SteamAppTicket) ret = SteamAppTicket->GetAppOwnershipTicketData(
+		vals[0], outbuf, vals[1], &iAppID, &iSteamID, &iSignature, &cbSignature);
+	vals[0] = ret;
+	vals[1] = iAppID;
+	vals[2] = iSteamID;
+	vals[3] = iSignature;
+	vals[4] = cbSignature;
+	return ret;
+}
+
+void steam_net_callbacks_t::encrypted_app_ticket_response_received(EncryptedAppTicketResponse_t* r, bool failed) {
+	steam_net_event e("user_encrypted_app_ticket_response_received");
+	auto result = r->m_eResult;
+	if (result == k_EResultOK) {
+		uint8 ticket[1024];
+		uint32 ticketSize;
+		if (SteamUser()->GetEncryptedAppTicket(&ticket, sizeof ticket, &ticketSize)) {
+			static std::string s;
+			s = b64encode(ticket, ticketSize);
+			e.set("ticket_data", &s[0]);
+		} else {
+			trace("Failed to retrieve GetEncryptedAppTicket data.");
+			result = k_EResultFail;
+		}
+	}
+	e.set_result(result);
+	e.dispatch();
+}
+
+CCallResult<steam_net_callbacks_t, EncryptedAppTicketResponse_t> steam_user_app_ticket;
+dllx double steam_user_request_encrypted_app_ticket_raw(char* data, double size) {
+	auto cc = SteamUser()->RequestEncryptedAppTicket(data, (int)size);
+	steam_user_app_ticket.Set(cc, &steam_net_callbacks, &steam_net_callbacks_t::encrypted_app_ticket_response_received);
+	return 1;
+}
 #pragma endregion
 
 #pragma region int64 workarounds (http://bugs.yoyogames.com/view.php?id=21357)
@@ -1081,29 +1134,6 @@ dllx char* int64_combine_string(double high, double low) {
 	return int64_combine_buf;
 }
 #pragma endregion
-
-dllx double steam_get_app_ownership_ticket_data_raw(char* outbuf, uint32* vals) {
-	static ISteamAppTicket* SteamAppTicket = nullptr;
-	static bool ready = false;
-	if (!ready) {
-		ready = true;
-		SteamAppTicket = (ISteamAppTicket*)SteamClient()->GetISteamGenericInterface(
-			SteamAPI_GetHSteamUser(), SteamAPI_GetHSteamPipe(), STEAMAPPTICKET_INTERFACE_VERSION);
-	}
-	uint32 ret = 0;
-	uint32 iAppID = 0;
-	uint32 iSteamID = 0;
-	uint32 iSignature = 0;
-	uint32 cbSignature = 0;
-	if (SteamAppTicket) ret = SteamAppTicket->GetAppOwnershipTicketData(
-		vals[0], outbuf, vals[1], &iAppID, &iSteamID, &iSignature, &cbSignature);
-	vals[0] = ret;
-	vals[1] = iAppID;
-	vals[2] = iSteamID;
-	vals[3] = iSignature;
-	vals[4] = cbSignature;
-	return ret;
-}
 
 dllx double steam_gml_update() {
 	SteamAPI_RunCallbacks();

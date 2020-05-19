@@ -2,11 +2,12 @@
 ```set autoapi ext```
 ```gmlapi fnames```
 ```set title steamworks.gml cheat sheet```
+```set mainclass boxtt```
 ```set intro
-This is a function "cheat sheet" for Steamworks.gml extension by YellowAfterlife.
-The extension is available [on GitHub](https://github.com/YellowAfterlife/steamworks.gml).
-Example files are available via [itch.io](https://yellowafterlife.itch.io/steamworks-gml-example).
-Donations are accepted via itch.io.
+This is a function "cheat sheet" for Steamworks.gml extension by YellowAfterlife.  
+The extension is available [on GitHub](https://github.com/YellowAfterlife/steamworks.gml).  
+Example files are available via [itch.io](https://yellowafterlife.itch.io/steamworks-gml-example).  
+Donations are accepted via itch.io.  
 A most up-to-date version of the manual is always [available online](https://yal.cc/r/17/steamworks-gml/).
 ```
 #[General]() {
@@ -92,6 +93,7 @@ A most up-to-date version of the manual is always [available online](https://yal
 		
 		This is usually something to do on session start for all remote users.
 	}
+	---
 	#[steam_get_app_ownership_ticket_data(buffer, ?app_id)]() {
 		Takes a buffer and fills it up with a reasonable "future proof" view of an app ownership ticket for a given app ID.
 		
@@ -108,19 +110,60 @@ A most up-to-date version of the manual is always [available online](https://yal
 		--	3: Byte offset for signature in the buffer.
 		--	4: Byte length for signature in the buffer.
 		}
+		
+		For example,
 		```
 		var b = buffer_create(256, buffer_fixed, 1);
 		var d = steam_get_app_ownership_ticket_data(b);
 		if (d[0] > 0) {
 			show_debug_message("App ID: " + string(buffer_peek(b, d[1], buffer_u32)));
 			show_debug_message("User ID: " + string(buffer_peek(b, d[2], buffer_u64)));
-			show_debug_message("Signature: " + string(d[4]) + " bytes at offset " + string(d[3]));
+			show_debug_message("Signature: " + string(d[4]) + "B at ofs:" + string(d[3]));
 		} else {
 			show_debug_message("Failed to retrieve app ownership data.");
 		}
 		```
 		
 		See: [ISteamAppTicket](https://partner.steamgames.com/doc/api/ISteamAppTicket)
+	}
+	#[steam_user_request_encrypted_app_ticket(?data, ?data_size)]() {
+		`data` (optional) is a string or a buffer to include in the resulting buffer.\
+		If not specified, defaults to NULL and includes no additional data.
+		
+		`data_size` (optional) is the number of bytes in `data`.\
+		If not specified, this will be set to byte count in a string (not including the final NUL),
+		or buffer size.
+		
+		This function is async.
+		Once ready, it will dispatch the following Async - Steam event: --{
+		--	`"event_type"`: will be `"user_encrypted_app_ticket_response_received"`.
+		--	`"success"`: will be `true` or `false` depending on whether the operation succeeded.
+		--	`"result"`: will hold the extended EResult ID if you need that.
+		--	`"ticket_data"`: will hold base64 of returned binary data.\
+			You'll probably want to `buffer_base64_decode` it.
+		}
+		
+		For example:
+		```
+		steam_user_request_encrypted_app_ticket();
+		```
+		and in Async - Steam:
+		```
+		if (async_load[?"event_type"] == "user_encrypted_app_ticket_response_received") {
+			if (async_load[?"success"]) {
+				var buf = buffer_base64_decode(async_load[?"ticket_data"]);
+				// ... do something with buf
+				buffer_delete(buf);
+			} else {
+				show_debug_message("Failed to retrieve app ticket - "
+					+ string(async_load[?"result"]));
+			}
+		}
+		```
+		
+		See: [RequestEncryptedAppTicket](https://partner.steamgames.com/doc/api/ISteamUser#RequestEncryptedAppTicket)
+		
+		Not to be confused with [steam_get_app_ownership_ticket_data]!
 	}
 }
 #[Async events](steam_async) {
@@ -173,41 +216,6 @@ A most up-to-date version of the manual is always [available online](https://yal
 		    ));
 		}
 		```
-	}
-	#[inventory_result_ready]() {
-		Fires after an inventory request finishes.
-		
-		This is where you handle the returned value and call [steam_inventory_result_destroy].
-		
-		Has the following fields: --{
-		--	`async_load[?"handle"]`: [steam_inventory_result]
-		--	`async_load[?"result"]`: Status constant (see [steam_inventory_result_get_status]).
-		}
-		
-		So, for example, you might do:
-		```
-		global.fetch_items = steam_inventory_item_retrieve_all();
-		```
-		and then handle the result in the async event:
-		```
-		if (async_load[?"event_type"] == "inventory_result_ready") {
-			var r = async_load[?"handle"];
-			if (r == global.fetch_items) {
-				var items = steam_inventory_result_get_items(r);
-				// handle items here
-				steam_inventory_result_destroy(r);
-			}
-		}
-		```
-	}
-	#[steam_inventory_full_update]() {
-		Fires after [steam_inventory_item_retrieve_all] successfully returns a result which is newer/fresher than the last known result. A regular [inventory_result_ready] event will trigger immediately afterwards.
-		
-		Has the following fields: --{
-		--	`async_load[?"handle"]`: [steam_inventory_result]
-		}
-		
-		C++ version: [SteamInventoryFullUpdate_t](https://partner.steamgames.com/doc/api/ISteamInventory#SteamInventoryFullUpdate_t)
 	}
 }
 #[Networking functions](steam_net) {
