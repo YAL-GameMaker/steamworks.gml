@@ -103,11 +103,13 @@
       <Command>cmd /C echo Copying GML from GMS2 project to GMS1...
 copy /y "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.gml" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.gml"
 
-cmd /C echo Copying files...
+cmd /C echo Combining source files...
+type "$(ProjectDir)steam_*.h" "$(ProjectDir)steam_*.cpp" &gt; "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp"
+copy /y "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.cpp"
+
+cmd /C echo Copying DLL...
 copy /y "$(TargetPath)" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\$(TargetFileName)"
-copy /y "$(ProjectDir)Steamworks.gml.cpp" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.cpp"
 copy /y "$(TargetPath)" "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\$(TargetFileName)"
-copy /y "$(ProjectDir)Steamworks.gml.cpp" "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp"
 
 cmd /C echo Copying documentation from export/ to projects
 copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks.gmx\datafiles\$(AssemblyName).html"
@@ -157,11 +159,13 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_
       <Command>cmd /C echo Copying GML from GMS2 project to GMS1...
 copy /y "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.gml" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.gml"
 
-cmd /C echo Copying files...
+cmd /C echo Combining source files...
+type "$(ProjectDir)steam_*.h" "$(ProjectDir)steam_*.cpp" &gt; "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp"
+copy /y "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.cpp"
+
+cmd /C echo Copying DLL...
 copy /y "$(TargetPath)" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\$(TargetFileName)"
-copy /y "$(ProjectDir)Steamworks.gml.cpp" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.cpp"
 copy /y "$(TargetPath)" "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\$(TargetFileName)"
-copy /y "$(ProjectDir)Steamworks.gml.cpp" "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp"
 
 cmd /C echo Copying documentation from export/ to projects
 copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks.gmx\datafiles\$(AssemblyName).html"
@@ -209,7 +213,23 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Steamworks.gml.cpp" />
+    <ClCompile Include="gml_glue.cpp" />
+    <ClCompile Include="steam_callbacks.cpp" />
+    <ClCompile Include="steam_controller.cpp" />
+    <ClCompile Include="steam_glue.cpp" />
+    <ClCompile Include="steam_matchmaking.cpp" />
+    <ClCompile Include="steam_misc.cpp" />
+    <ClCompile Include="steam_networking.cpp" />
+    <ClCompile Include="steam_unsorted.cpp" />
+    <ClCompile Include="steam_user.cpp" />
+    <ClCompile Include="steam_workshop.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="gml_glue.h" />
+    <ClInclude Include="gml_glue_map.h" />
+    <ClInclude Include="steam_callbacks.h" />
+    <ClInclude Include="steam_glue.h" />
+    <ClInclude Include="steam_a_note.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
