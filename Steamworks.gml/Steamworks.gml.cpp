@@ -674,6 +674,8 @@ CCallResult<steam_net_callbacks_t, LobbyEnter_t> steam_lobby_joined;
 void steam_net_callbacks_t::lobby_joined(LobbyEnter_t* e, bool failed) {
 	steam_lobby_current.SetFromUint64(e->m_ulSteamIDLobby);
 	steam_net_event q("lobby_joined");
+	q.set("lobby_id_high", uint64_high(e->m_ulSteamIDLobby));
+	q.set("lobby_id_low", uint64_low(e->m_ulSteamIDLobby));
 	q.set_success(!failed);
 	q.dispatch();
 }
