@@ -23,7 +23,9 @@ If all is well, upon running the game you'll see `Steamworks.gml initialized suc
 
 Download or clone the repository.
 
-Create a "Steamworks" directory and place [Steamworks SDK](https://partner.steamgames.com/) there.
+Create a "Steamworks" directory and place [Steamworks SDK](https://partner.steamgames.com/) there.  
+You must pick a Steamworks version that matches the recommended version for your version of GameMaker (e.g. 1.42 for GMS2.3 - see [helpdesk](https://help.yoyogames.com/hc/en-us/articles/227860547-GMS2-Required-SDKs)).  
+Steamworks' `Readme.txt` should be located at `Steamworks/Readme.txt` as result.
 
 **Windows:** Open the included Visual Studio solution and order it to make a x86 build.
 
