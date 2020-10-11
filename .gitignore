@@ -251,6 +251,7 @@ Steamworks/
 
 # Intermediate file on Mac/Linux:
 Steamworks.gml/Steamworks.gml.o
+Steamworks.gml/linux32
 
 # Auto-synced files:
 Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.cpp

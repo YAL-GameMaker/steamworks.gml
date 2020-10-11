@@ -30,6 +30,9 @@ Steamworks' `Readme.txt` should be located at `Steamworks/Readme.txt` as result.
 **Windows:** Open the included Visual Studio solution and order it to make a x86 build.
 
 **Linux:** Run build_linux_gms#.sh. You'll need cpp:i386, gcc:i386, and g++:i386 installed.
+```bash
+make release_linux32 STEAMWORKS_SDK=../../Steamworks
+```
 
 **Mac OSX:** Run build_osx_gms#.sh. You'll need XCode command line tools installed.
 

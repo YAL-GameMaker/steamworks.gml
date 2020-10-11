@@ -21,8 +21,8 @@
 // Might be a conflict with GM runtime.
 #define VERSION_SAFE_STEAM_API_INTERFACES 1
 #define _CRT_SECURE_NO_WARNINGS
-#include "./../Steamworks/public/steam/steam_api.h"
-#include "./../Steamworks/public/steam/isteamappticket.h"
+#include "steam_api.h"
+#include "isteamappticket.h"
 
 // The following are solely in case it is ever needed to switch to "unsafe" API
 extern CSteamAPIContext SteamAPI;
