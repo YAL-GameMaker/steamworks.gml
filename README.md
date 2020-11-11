@@ -1,23 +1,25 @@
 # Steamworks.gml
-A native extension for GameMaker: Studio that implements various Steam API features not covered by the built-in functions - most importantly, P2P networking, lobbies, and matchmaking.
+**Quick links:** 
+[documentation](https://yal.cc/r/17/steamworks-gml/)
+· [sample project](https://yellowafterlife.itch.io/steamworks-gml-example)
+· [donate](https://yellowafterlife.itch.io/steamworks-gml-example/purchase)
 
-## Quick links
-* [Extension' documentation](https://yal.cc/r/17/steamworks-gml/)
-* [Example files](https://yellowafterlife.itch.io/steamworks-gml-example)
-* [Donate (via itch.io)](https://yellowafterlife.itch.io/steamworks-gml-example)
+A native extension for GameMaker (GMS1, GMS2, GMS2.3+) that implements various Steam API features not covered by the built-in functions - most importantly, P2P networking, lobbies, and matchmaking.
 
 ## Usage
 
-1. Set up GameMaker: Studio for Steamworks SDK development ([see doc](http://help.yoyogames.com/hc/en-us/articles/216754138-Using-The-Steamworks-SDK-With-GameMaker-Studio)).
+1. Set up GameMaker for Steamworks SDK development ([GMS1](http://help.yoyogames.com/hc/en-us/articles/216754138-Using-The-Steamworks-SDK-With-GameMaker-Studio), [GMS2](https://help.yoyogames.com/hc/en-us/articles/360006823232-Enabling-Steam-Integration-In-Your-Desktop-Games)).
 2. Enable Steamworks support for desired platform(s) in Global Game Settings, "Steam" tab. Don't forget to set the game ID.
 3. Import the "Steamworks.gml" extension (from ./Steamworks.gmx/extensions) to your desired project.
-4. Have the game call steam_net_update once per step (required for steam events to dispatch).
+4. Have the game call `steam_gml_update` once per step (required for steam events to dispatch).
 
 If all is well, upon running the game you'll see `Steamworks.gml initialized successfully.` in the CompileForm.
 
 `Steamworks.gml failed to link with Steam API.` means that either the Steam client is not running, or you have specified an incorrect App ID.
 
 `Steamworks.gml binary is not loaded.` means that the DLL/DyLib/SO could not be loaded, usually due to the native extension file missing or being otherwise inaccessible.
+
+**Note:** If you are grabbing the sample project straight from this repository, you will need to compile it first using Visual Studio (Windows) or via included .sh scripts (Mac, Linux). [Sample project](https://yellowafterlife.itch.io/steamworks-gml-example) page has pre-compiled binaries.
 
 ## Building
 
@@ -33,7 +35,7 @@ Steamworks' `Readme.txt` should be located at `Steamworks/Readme.txt` as result.
 
 **Mac OSX:** Run build_osx_gms#.sh. You'll need XCode command line tools installed.
 
-The extension is automatically updated to reflect the functions/macros from the source code as a post-build step in the Visual Studio project (via [gmxgen](https://bitbucket.org/yal_cc/gmxgen)).
+The extension is automatically updated to reflect the functions/macros from the source code as a post-build step in the Visual Studio project (via [gmxgen](https://github.com/YAL-GameMaker-Tools/GmxGen)).
 Copy `GmxGen.exe` (build it yourself or get one from Downloads) into `Steamworks.gml` directory or add it to your PATH.
 
 ## Meta

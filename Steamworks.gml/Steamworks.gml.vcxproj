@@ -106,6 +106,7 @@ copy /y "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.gm
 cmd /C echo Combining source files...
 type "$(ProjectDir)steam_*.h" "$(ProjectDir)steam_*.cpp" &gt; "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp"
 copy /y "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.cpp"
+copy /y "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp" "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks.gml.cpp"
 
 cmd /C echo Copying DLL...
 copy /y "$(TargetPath)" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\$(TargetFileName)"
@@ -114,10 +115,12 @@ copy /y "$(TargetPath)" "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\$
 cmd /C echo Copying documentation from export/ to projects
 copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks.gmx\datafiles\$(AssemblyName).html"
 copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks_yy\datafiles\$(AssemblyName).html"
+copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks_23\datafiles\$(AssemblyName).html"
 
 cmd /C echo Running gmxgen to update extensions (https://bitbucket.org/yal_cc/gmxgen/)
 cmd /c GmxGen "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml.extension.gmx"
-cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy"</Command>
+cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy"
+cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_gml.yy"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -162,6 +165,7 @@ copy /y "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.gm
 cmd /C echo Combining source files...
 type "$(ProjectDir)steam_*.h" "$(ProjectDir)steam_*.cpp" &gt; "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp"
 copy /y "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.cpp"
+copy /y "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp" "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks.gml.cpp"
 
 cmd /C echo Copying DLL...
 copy /y "$(TargetPath)" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\$(TargetFileName)"
@@ -170,10 +174,12 @@ copy /y "$(TargetPath)" "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\$
 cmd /C echo Copying documentation from export/ to projects
 copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks.gmx\datafiles\$(AssemblyName).html"
 copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks_yy\datafiles\$(AssemblyName).html"
+copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks_23\datafiles\$(AssemblyName).html"
 
 cmd /C echo Running gmxgen to update extensions (https://bitbucket.org/yal_cc/gmxgen/)
 cmd /c GmxGen "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml.extension.gmx"
-cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy"</Command>
+cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy"
+cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_gml.yy"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
