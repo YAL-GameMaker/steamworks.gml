@@ -68,3 +68,23 @@ dllx double steam_get_friends_game_info_2(steam_get_friends_game_info_r* out) {
 	}
 	return 1;
 }
+
+#pragma region Rich Text Presence
+
+/// Sets rich text presence for the active user. See: https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence
+dllx double steam_set_rich_presence(const char* pchKey, const char* pchValue) {
+	if (SteamFriends()) {
+		SteamFriends()->SetRichPresence(pchKey, pchValue);
+		return true;
+	}
+	else return false;
+}
+
+/// Clears rich text presence.
+dllx double steam_clear_rich_presence() {
+	if (SteamFriends()) {
+		SteamFriends()->ClearRichPresence();
+	}
+}
+
+#pragma endregion
