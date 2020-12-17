@@ -34,10 +34,4 @@ function sfmt() {
 	buffer_write(b, buffer_u8, 0);
 	buffer_seek(b, buffer_seek_start, 0);
 	return buffer_read(b, buffer_string);
-
-
-
-
-
-
 }
