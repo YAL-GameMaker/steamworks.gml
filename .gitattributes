@@ -1,1 +1,3 @@
 *.yy linguist-language=Game Maker Language
+
+export/steamworks.gml.html linguist-vendored
