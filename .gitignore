@@ -247,7 +247,7 @@ paket-files/
 Steamworks.gml.VC.db
 
 # Steamworks redist is to be obtained by yourself.
-Steamworks/
+Steamworks
 
 # Intermediate file on Mac/Linux:
 Steamworks.gml/Steamworks.gml.o
