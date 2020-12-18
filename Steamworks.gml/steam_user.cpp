@@ -76,15 +76,15 @@ dllx double steam_set_rich_presence(const char* pchKey, const char* pchValue) {
 	if (SteamFriends()) {
 		SteamFriends()->SetRichPresence(pchKey, pchValue);
 		return true;
-	}
-	else return false;
+	} else return false;
 }
 
 /// Clears rich text presence.
 dllx double steam_clear_rich_presence() {
 	if (SteamFriends()) {
 		SteamFriends()->ClearRichPresence();
-	}
+		return true;
+	} else return false;
 }
 
 #pragma endregion

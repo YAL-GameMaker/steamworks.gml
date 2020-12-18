@@ -1338,6 +1338,37 @@
                     "returnType": 2
                 },
                 {
+                    "id": "78687533-4c42-977a-351f-f84c72db22f5",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        1
+                    ],
+                    "externalName": "steam_set_rich_presence",
+                    "help": "steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https:\/\/partner.steamgames.com\/doc\/api\/ISteamFriends#SetRichPresence",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_set_rich_presence",
+                    "returnType": 2
+                },
+                {
+                    "id": "d7bcdf06-55b8-5210-5623-d8b6f59d4e1f",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_clear_rich_presence",
+                    "help": "steam_clear_rich_presence() : Clears rich text presence.",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_clear_rich_presence",
+                    "returnType": 2
+                },
+                {
                     "id": "83c53554-d2ed-2733-23b7-997e58a1b9ba",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -2784,6 +2815,37 @@
                     "returnType": 2
                 },
                 {
+                    "id": "790f25f4-7f7e-196e-1516-68e1b0cc8123",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        1
+                    ],
+                    "externalName": "steam_set_rich_presence",
+                    "help": "steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https:\/\/partner.steamgames.com\/doc\/api\/ISteamFriends#SetRichPresence",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_set_rich_presence",
+                    "returnType": 2
+                },
+                {
+                    "id": "7e51e5a6-8879-c1db-e3b7-ed7b6f6831a9",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_clear_rich_presence",
+                    "help": "steam_clear_rich_presence() : Clears rich text presence.",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_clear_rich_presence",
+                    "returnType": 2
+                },
+                {
                     "id": "05db20a0-e7af-0b37-523c-fdefbd0ba493",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -4221,6 +4283,37 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "steam_get_friends_game_info_2",
+                    "returnType": 2
+                },
+                {
+                    "id": "c4c80b88-6dcd-487b-e540-7c902f0d6a61",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        1
+                    ],
+                    "externalName": "steam_set_rich_presence",
+                    "help": "steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https:\/\/partner.steamgames.com\/doc\/api\/ISteamFriends#SetRichPresence",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_set_rich_presence",
+                    "returnType": 2
+                },
+                {
+                    "id": "821894c4-73a2-3ac2-8353-9a0a11681936",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_clear_rich_presence",
+                    "help": "steam_clear_rich_presence() : Clears rich text presence.",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_clear_rich_presence",
                     "returnType": 2
                 },
                 {

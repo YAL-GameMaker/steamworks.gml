@@ -845,6 +845,27 @@
           </args>
         </function>
         <function>
+          <name>steam_set_rich_presence</name>
+          <externalName>steam_set_rich_presence</externalName>
+          <kind>1</kind>
+          <help>steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_clear_rich_presence</name>
+          <externalName>steam_clear_rich_presence</externalName>
+          <kind>1</kind>
+          <help>steam_clear_rich_presence() : Clears rich text presence.</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>steam_ugc_delete_item</name>
           <externalName>steam_ugc_delete_item</externalName>
           <kind>1</kind>
@@ -1785,6 +1806,27 @@
           </args>
         </function>
         <function>
+          <name>steam_set_rich_presence</name>
+          <externalName>steam_set_rich_presence</externalName>
+          <kind>1</kind>
+          <help>steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_clear_rich_presence</name>
+          <externalName>steam_clear_rich_presence</externalName>
+          <kind>1</kind>
+          <help>steam_clear_rich_presence() : Clears rich text presence.</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>steam_ugc_delete_item</name>
           <externalName>steam_ugc_delete_item</externalName>
           <kind>1</kind>
@@ -2723,6 +2765,27 @@
           <args>
             <arg>1</arg>
           </args>
+        </function>
+        <function>
+          <name>steam_set_rich_presence</name>
+          <externalName>steam_set_rich_presence</externalName>
+          <kind>1</kind>
+          <help>steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_clear_rich_presence</name>
+          <externalName>steam_clear_rich_presence</externalName>
+          <kind>1</kind>
+          <help>steam_clear_rich_presence() : Clears rich text presence.</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
         </function>
         <function>
           <name>steam_ugc_delete_item</name>

@@ -214,6 +214,11 @@
         {"externalName":"steam_get_friends_game_info_2","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_2","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_set_rich_presence","kind":1,"help":"steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence","hidden":false,"returnType":2,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_set_rich_presence","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_clear_rich_presence","kind":1,"help":"steam_clear_rich_presence() : Clears rich text presence.","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_clear_rich_presence","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_ugc_delete_item","kind":1,"help":"steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.","hidden":false,"returnType":2,"argCount":1,"args":[
             2,
           ],"resourceVersion":"1.0","name":"steam_ugc_delete_item","tags":[],"resourceType":"GMExtensionFunction",},
@@ -320,6 +325,8 @@
         {"name":"steam_activate_overlay_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_1","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_2","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_set_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_clear_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_ugc_delete_item","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_app_ownership_ticket_data_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_user_request_encrypted_app_ticket_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -522,6 +529,11 @@
         {"externalName":"steam_get_friends_game_info_2","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_2","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_set_rich_presence","kind":1,"help":"steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence","hidden":false,"returnType":2,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_set_rich_presence","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_clear_rich_presence","kind":1,"help":"steam_clear_rich_presence() : Clears rich text presence.","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_clear_rich_presence","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_ugc_delete_item","kind":1,"help":"steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.","hidden":false,"returnType":2,"argCount":1,"args":[
             2,
           ],"resourceVersion":"1.0","name":"steam_ugc_delete_item","tags":[],"resourceType":"GMExtensionFunction",},
@@ -628,6 +640,8 @@
         {"name":"steam_activate_overlay_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_1","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_2","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_set_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_clear_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_ugc_delete_item","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_app_ownership_ticket_data_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_user_request_encrypted_app_ticket_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -830,6 +844,11 @@
         {"externalName":"steam_get_friends_game_info_2","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_2","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_set_rich_presence","kind":1,"help":"steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence","hidden":false,"returnType":2,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_set_rich_presence","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_clear_rich_presence","kind":1,"help":"steam_clear_rich_presence() : Clears rich text presence.","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_clear_rich_presence","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_ugc_delete_item","kind":1,"help":"steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.","hidden":false,"returnType":2,"argCount":1,"args":[
             2,
           ],"resourceVersion":"1.0","name":"steam_ugc_delete_item","tags":[],"resourceType":"GMExtensionFunction",},
@@ -936,6 +955,8 @@
         {"name":"steam_activate_overlay_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_1","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_2","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_set_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_clear_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_ugc_delete_item","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_app_ownership_ticket_data_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_user_request_encrypted_app_ticket_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
