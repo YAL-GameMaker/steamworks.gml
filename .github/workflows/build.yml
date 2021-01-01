@@ -11,8 +11,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Get Steamworks SDK
         run: |
-          sudo curl ${{ secrets.STEAMWORKS_SDK_135A }} --output sdk135a.zip
-          sudo apt-get install unzip
+          sudo curl ${{ secrets.STEAMWORKS_SDK_135A }} --output ./sdk135a.zip
           sudo unzip ./sdk135a.zip
           sudo mkdir Steamworks
           sudo mv ./sdk/* ./Steamworks
