@@ -1,0 +1,19 @@
+name: Build
+
+on: [push, workflow_dispatch]
+
+jobs:
+  build-linux:
+    name: Build for linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Get Steamworks SDK
+        run: curl ${{ secrets.STEAMWORKS_SDK_135A }} --output sdk135a.zip
+        run: apt-get install unzip
+        run: unzip sdk135a.zip
+        run: mkdir Steamworks
+        run: mv ./sdk/* ./Steamworks
+      - name: Build
+        run: sh build_linux-gm1.sh
