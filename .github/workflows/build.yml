@@ -13,7 +13,7 @@ jobs:
         run: |
           sudo curl ${{ secrets.STEAMWORKS_SDK_135A }} --output sdk135a.zip
           sudo apt-get install unzip
-          sudo unzip sdk135a.zip
+          sudo unzip ./sdk135a.zip
           sudo mkdir Steamworks
           sudo mv ./sdk/* ./Steamworks
       - name: Build
