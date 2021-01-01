@@ -16,4 +16,9 @@ jobs:
           sudo mkdir Steamworks
           sudo mv ./sdk/* ./Steamworks
       - name: Build
-        run: sudo sh build_linux-gm1.sh
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.x'
+        run: |
+          sudo dotnet msbuild ./Steamworks.gml
+          sudo sh build_linux-gm1.sh
