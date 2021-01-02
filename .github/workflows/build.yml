@@ -44,9 +44,6 @@ jobs:
           sudo mv ./sdk/* ./Steamworks
           sudo mkdir "Steamworks.gmx\extensions\Steamworks.gml"
 
-      - name: Prepare for build
-        run: sudo apt-get install gcc-multilib g++-multilib
-
       - name: Build Linux Libs
         run: sh build_linux_gms1.sh
         
@@ -71,9 +68,6 @@ jobs:
           sudo mkdir Steamworks
           sudo mv ./sdk/* ./Steamworks
           sudo mkdir "Steamworks.gmx\extensions\Steamworks.gml"
-
-      - name: Prepare for build
-        run: sudo apt-get install gcc-multilib g++-multilib
 
       - name: Build Linux Libs
         run: sh build_linux_gms2.sh
