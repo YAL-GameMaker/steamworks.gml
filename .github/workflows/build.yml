@@ -26,12 +26,12 @@ jobs:
         uses: microsoft/setup-msbuild@v1
 
       - name: Build Windows Libs
-        run: msbuild .\Steamworks.gml -r /property:Configuration=Release /property:Platform=Win32
+        run: msbuild .\Steamworks.gml /property:Configuration=Release /property:Platform=Win32
         
       - name: Upload Windows Artifact (GMS1)
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gmx.win
+          name: Steamworks.gms1.win
           path: ./Steamworks.gmx
 
       - name: Upload Windows Artifact (GMS2)
@@ -48,6 +48,7 @@ jobs:
 
   build-linux:
     name: Build for Linux
+    needs: build-windows
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -71,6 +72,7 @@ jobs:
 
   build-macos-gms1:
     name: Build for MacOS (GMS1)
+    needs: build-windows
     runs-on: macos-latest
     steps:
       - name: Checkout code
@@ -94,6 +96,7 @@ jobs:
   
   build-macos-gms2:
     name: Build for MacOS (GMS2)
+    needs: build-windows
     runs-on: macos-latest
     steps:
       - name: Checkout code
