@@ -26,7 +26,26 @@ jobs:
         uses: microsoft/setup-msbuild@v1
 
       - name: Build Windows Libs
-        run: msbuild . /property:Configuration=Release /property:Platform=Win32
+        run: msbuild . /property:Configuration=Release
+
+      - name: Post Build
+        run: |
+          copy /y "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.gml" "Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.gml"
+
+          type "steam_*.h" "steam_*.cpp" > "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp"
+          copy /y "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp" "Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.cpp"
+          copy /y "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp" "Steamworks_23\extensions\Steamworks_gml\Steamworks.gml.cpp"
+
+          copy /y "" "Steamworks.gmx\extensions\Steamworks.gml\"
+          copy /y "" "Steamworks_yy\extensions\Steamworks_gml\"
+
+          copy /y "export\steamworks.gml.html" "Steamworks.gmx\datafiles\steamworks.gml.html"
+          copy /y "export\steamworks.gml.html" "Steamworks_yy\datafiles\steamworks.gml.html"
+          copy /y "export\steamworks.gml.html" "Steamworks_23\datafiles\steamworks.gml.html"
+
+          cmd /c GmxGen "Steamworks.gmx\extensions\Steamworks.gml.extension.gmx"
+          cmd /c GmxGen "Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy"
+          cmd /c GmxGen "Steamworks_23\extensions\Steamworks_gml\Steamworks_gml.yy"
         
       - name: Upload Windows Artifact (GMS1)
         uses: actions/upload-artifact@v2
