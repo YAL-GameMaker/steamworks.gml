@@ -18,4 +18,5 @@ jobs:
       - name: Install MSBuild
         uses: microsoft/setup-msbuild@v1
       - name: Build libs
-        run: msbuild .\Steamworks.gml\Steamworks.gml.vcxproj
+        run: msbuild .\Steamworks.gml\Steamworks.gml.vcxproj -r
+        #Then publish shared libs and do other steps
