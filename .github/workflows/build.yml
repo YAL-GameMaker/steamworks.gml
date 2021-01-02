@@ -54,7 +54,6 @@ jobs:
 
   build-linux:
     name: Build for Linux
-    needs: build-windows
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -66,6 +65,7 @@ jobs:
           sudo unzip sdk135a.zip
           sudo mkdir Steamworks
           sudo mv ./sdk/* ./Steamworks
+          sudo mkdir "Steamworks.gmx\extensions\Steamworks.gml"
 
       - name: Build Linux Libs
         run: sh build_linux_gms1.sh
@@ -78,7 +78,6 @@ jobs:
 
   build-macos-gms1:
     name: Build for MacOS (GMS1)
-    needs: build-windows
     runs-on: macos-latest
     steps:
       - name: Checkout code
@@ -90,6 +89,7 @@ jobs:
           sudo unzip sdk135a.zip
           sudo mkdir Steamworks
           sudo mv ./sdk/* ./Steamworks
+          sudo mkdir "Steamworks.gmx\extensions\Steamworks.gml"
 
       - name: Build MacOS Libs
         run: sudo sh build_osx_gms1.sh
@@ -102,7 +102,6 @@ jobs:
   
   build-macos-gms2:
     name: Build for MacOS (GMS2)
-    needs: build-windows
     runs-on: macos-latest
     steps:
       - name: Checkout code
@@ -114,6 +113,7 @@ jobs:
           sudo unzip sdk142.zip
           sudo mkdir Steamworks
           sudo mv ./sdk/* ./Steamworks
+          sudo mkdir "Steamworks.gmx\extensions\Steamworks.gml"
 
       - name: Build MacOS Libs
         run: sudo sh build_osx_gms2.sh
