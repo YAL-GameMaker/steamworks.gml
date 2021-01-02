@@ -31,9 +31,7 @@ jobs:
       - name: Post Build
         run: |
           .\post_build.bat
-          .\GmxGen.exe "Steamworks.gmx\extensions\Steamworks.gml.extension.gmx"
-          .\GmxGen.exe "Steamworks_23\extensions\Steamworks_gml\Steamworks_gml.yy"
-          .\GmxGen.exe "Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy"
+          ls
         
       - name: Upload Windows Artifact (GMS1)
         uses: actions/upload-artifact@v2
