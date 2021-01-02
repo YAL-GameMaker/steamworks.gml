@@ -30,22 +30,22 @@ jobs:
 
       - name: Post Build
         run: |
-          copy /y "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.gml" "Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.gml"
+          copy "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.gml" "Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.gml" /y 
 
           type "steam_*.h" "steam_*.cpp" > "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp"
-          copy /y "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp" "Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.cpp"
-          copy /y "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp" "Steamworks_23\extensions\Steamworks_gml\Steamworks.gml.cpp"
+          copy "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp" "Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.cpp" /y
+          copy "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp" "Steamworks_23\extensions\Steamworks_gml\Steamworks.gml.cpp" /y
 
-          copy /y "" "Steamworks.gmx\extensions\Steamworks.gml\"
-          copy /y "" "Steamworks_yy\extensions\Steamworks_gml\"
+          copy "Release\Steamworks.gml.dll" "Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.dll" /y
+          copy "Release\Steamworks.gml.dll" "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.dll" /y
 
-          copy /y "export\steamworks.gml.html" "Steamworks.gmx\datafiles\steamworks.gml.html"
-          copy /y "export\steamworks.gml.html" "Steamworks_yy\datafiles\steamworks.gml.html"
-          copy /y "export\steamworks.gml.html" "Steamworks_23\datafiles\steamworks.gml.html"
+          copy "export\steamworks.gml.html" "Steamworks.gmx\datafiles\steamworks.gml.html" /y
+          copy "export\steamworks.gml.html" "Steamworks_yy\datafiles\steamworks.gml.html" /y
+          copy "export\steamworks.gml.html" "Steamworks_23\datafiles\steamworks.gml.html" /y
 
-          cmd /c GmxGen "Steamworks.gmx\extensions\Steamworks.gml.extension.gmx"
-          cmd /c GmxGen "Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy"
-          cmd /c GmxGen "Steamworks_23\extensions\Steamworks_gml\Steamworks_gml.yy"
+          GmxGen "Steamworks.gmx\extensions\Steamworks.gml.extension.gmx"
+          GmxGen "Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy"
+          GmxGen "Steamworks_23\extensions\Steamworks_gml\Steamworks_gml.yy"
         
       - name: Upload Windows Artifact (GMS1)
         uses: actions/upload-artifact@v2
