@@ -30,7 +30,7 @@ jobs:
 
       - name: Post Build
         run: |
-          copy /y "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.gml" "Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.gml"
+          cmd /C "copy /y "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.gml" "Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.gml""
 
           type "steam_*.h" "steam_*.cpp" > "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp"
           copy /y "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp" "Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.cpp" 
