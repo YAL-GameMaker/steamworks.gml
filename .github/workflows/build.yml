@@ -20,7 +20,6 @@ jobs:
       - name: Get GmxGen
         run: |
           curl -o GmxGen.exe "${{ secrets.GMXGEN }}"
-          move GmxGen.exe Steamworks.gml
 
       - name: Install MSBuild
         uses: microsoft/setup-msbuild@v1
@@ -31,7 +30,9 @@ jobs:
       - name: Post Build
         run: |
           .\post_build.bat
-          ls
+          .\GmxGen.exe "Steamworks.gmx\extensions\Steamworks.gml.extension.gmx"
+          .\GmxGen.exe "Steamworks_23\extensions\Steamworks_gml\Steamworks_gml.yy"
+          .\GmxGen.exe "Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy"
         
       - name: Upload Windows Artifact (GMS1)
         uses: actions/upload-artifact@v2
