@@ -52,7 +52,7 @@ jobs:
           name: Steamworks.gml.so
           path: Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.so
 
-  build-macos:
+  build-macos-gms1:
     name: Build for MacOS (GMS1)
     runs-on: macos-latest
     steps:
@@ -75,7 +75,7 @@ jobs:
           name: Steamworks_gms1.gml.dylib
           path: Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.dylib
   
-  build-macos:
+  build-macos-gms2:
     name: Build for MacOS (GMS2)
     runs-on: macos-latest
     steps:
