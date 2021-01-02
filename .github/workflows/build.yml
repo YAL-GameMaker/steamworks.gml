@@ -15,8 +15,7 @@ jobs:
           powershell -command "Expand-Archive -Force '%~dp0sdk135a.zip' '%~dp0'"
           mkdir Steamworks
           move ./sdk/* ./Steamworks
-      - uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '3.1.x'
-      - name: Build
-        run: dotnet build ./Steamworks.gml 
+      - name: Install MSBuild
+        uses: microsoft/setup-msbuild@v1
+      - name: Build libs
+        run: msbuild .\Steamworks.gml\Steamworks.gml.vcxproj
