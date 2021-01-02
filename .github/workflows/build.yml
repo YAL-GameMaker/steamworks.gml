@@ -12,7 +12,7 @@ jobs:
       - name: Get Steamworks SDK
         run: |
           powershell -command "wget --tries=5 --retry-connrefused -output=sdk135a.zip ${{ secrets.STEAMWORKS_SDK_135A }}"
-          powershell -command "Expand-Archive -Force '%~dp0sdk135a.zip' '%~dp0'"
+          powershell -command "Expand-Archive -Force sdk135a.zip ."
           mkdir Steamworks
           move ./sdk/* ./Steamworks
       - name: Install MSBuild
