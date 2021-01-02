@@ -20,19 +20,32 @@ jobs:
       - name: Get GmxGen
         run: |
           curl -o GmxGen.exe "${{ secrets.GMXGEN }}"
-          move GmxGen.exe Steamworks.gmx
+          move GmxGen.exe Steamworks.gml
 
       - name: Install MSBuild
         uses: microsoft/setup-msbuild@v1
 
       - name: Build Windows Libs
-        run: msbuild . -r
+        run: msbuild . -r /property:Configuration=Release
         
-      - name: Upload Windows Artifact
+      - name: Upload Windows Artifact (GMS1)
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gml.dll
-          path: /**/*.dll
+          name: Steamworks.gmx.win
+          path: ./Steamworks.gmx
+
+      - name: Upload Windows Artifact (GMS2)
+        uses: actions/upload-artifact@v2
+        with:
+          name: Steamworks.gms2.win
+          path: ./Steamworks_yy
+
+      - name: Upload Windows Artifact (GMS2.3)
+
+        uses: actions/upload-artifact@v2
+        with:
+          name: Steamworks.gms23.win
+          path: ./Steamworks_23
 
   build-linux:
     name: Build for Linux
@@ -51,11 +64,11 @@ jobs:
       - name: Build Linux Libs
         run: sudo sh build_linux_gms1.sh
         
-      - name: Upload Linux Artifact
+      - name: Upload Linux Artifact (GMS1)
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gml.so
-          path: Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.so
+          name: Steamworks.gms1.linux
+          path: ./Steamworks.gmx
 
   build-macos-gms1:
     name: Build for MacOS (GMS1)
@@ -74,11 +87,11 @@ jobs:
       - name: Build MacOS Libs
         run: sudo sh build_osx_gms1.sh
         
-      - name: Upload MacOS Artifact
+      - name: Upload MacOS Artifact (GMS1)
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks_gms1.gml.dylib
-          path: Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.dylib
+          name: Steamworks.gms1.macos
+          path: ./Steamworks.gmx
   
   build-macos-gms2:
     name: Build for MacOS (GMS2)
@@ -97,8 +110,8 @@ jobs:
       - name: Build MacOS Libs
         run: sudo sh build_osx_gms2.sh
         
-      - name: Upload MacOS Artifact
+      - name: Upload MacOS Artifact (GMS2)
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks_gms2.gml.dylib
-          path: Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.dylib
+          name: Steamworks.gms2.macos
+          path: ./Steamworks_yy
