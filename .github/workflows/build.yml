@@ -26,7 +26,7 @@ jobs:
         uses: microsoft/setup-msbuild@v1
 
       - name: Build Windows Libs
-        run: msbuild . -r /property:Configuration="Release|x64"
+        run: msbuild . -r /property:Configuration=Release /property:Platform=x64
         
       - name: Upload Windows Artifact (GMS1)
         uses: actions/upload-artifact@v2
