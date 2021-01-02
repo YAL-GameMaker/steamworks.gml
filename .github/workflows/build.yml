@@ -17,43 +17,20 @@ jobs:
           mkdir Steamworks
           move ./sdk/* ./Steamworks
 
-      - name: Get GmxGen
-        run: |
-          curl -o GmxGen.exe "${{ secrets.GMXGEN }}"
-
       - name: Install MSBuild
         uses: microsoft/setup-msbuild@v1
 
       - name: Build Windows Libs
         run: msbuild . /property:Configuration=Release
-
-      - name: Post Build
-        run: |
-          .\post_build.bat
-          .\GmxGen.exe "Steamworks.gmx\extensions\Steamworks.gml.extension.gmx"
-          .\GmxGen.exe "Steamworks_23\extensions\Steamworks_gml\Steamworks_gml.yy"
-          .\GmxGen.exe "Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy"
         
-      - name: Upload Windows Artifact (GMS1)
+      - name: Upload Windows Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gms1.win
-          path: ./Steamworks.gmx
+          name: Steamworks.gml.dll
+          path: ./Release\Steamworks.gml.dll
 
-      - name: Upload Windows Artifact (GMS2)
-        uses: actions/upload-artifact@v2
-        with:
-          name: Steamworks.gms2.win
-          path: ./Steamworks_yy
-
-      - name: Upload Windows Artifact (GMS2.3)
-        uses: actions/upload-artifact@v2
-        with:
-          name: Steamworks.gms23.win
-          path: ./Steamworks_23
-
-  build-linux:
-    name: Build for Linux
+  build-linux-x32:
+    name: Build for Linux x32
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -70,38 +47,38 @@ jobs:
       - name: Build Linux Libs
         run: sh build_linux_gms1.sh
         
-      - name: Upload Linux Artifact (GMS1)
+      - name: Upload Linux Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gms1.linux
-          path: ./Steamworks.gmx
+          name: Steamworks_x32.gml.so
+          path: ./Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.so
 
-  build-macos-gms1:
-    name: Build for MacOS (GMS1)
-    runs-on: macos-latest
+  build-linux-x64:
+    name: Build for Linux x64
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Get Steamworks SDK
         run: |
-          sudo curl -o sdk135a.zip "${{ secrets.STEAMWORKS_SDK_135A }}"
-          sudo unzip sdk135a.zip
+          sudo curl -o sdk142.zip "${{ secrets.STEAMWORKS_SDK_142 }}"
+          sudo unzip sdk142.zip
           sudo mkdir Steamworks
           sudo mv ./sdk/* ./Steamworks
           sudo mkdir "Steamworks.gmx\extensions\Steamworks.gml"
 
-      - name: Build MacOS Libs
-        run: sudo sh build_osx_gms1.sh
+      - name: Build Linux Libs
+        run: sh build_linux_gms1.sh
         
-      - name: Upload MacOS Artifact (GMS1)
+      - name: Upload Linux Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gms1.macos
-          path: ./Steamworks.gmx
+          name: Steamworks_x64.gml.so
+          path: ./Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.so
   
-  build-macos-gms2:
-    name: Build for MacOS (GMS2)
+  build-macos:
+    name: Build for MacOS
     runs-on: macos-latest
     steps:
       - name: Checkout code
@@ -118,8 +95,8 @@ jobs:
       - name: Build MacOS Libs
         run: sudo sh build_osx_gms2.sh
         
-      - name: Upload MacOS Artifact (GMS2)
+      - name: Upload MacOS Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gms2.macos
-          path: ./Steamworks_yy
+          name: Steamworks.gml.dylib
+          path: ./Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.dylib
