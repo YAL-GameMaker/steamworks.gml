@@ -31,7 +31,7 @@ jobs:
 
   build-linux:
     name: Build for Linux
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
