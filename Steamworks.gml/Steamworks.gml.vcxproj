@@ -159,7 +159,7 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
       <AdditionalDependencies>steam_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>cmd /C echo Copying GML from GMS2 project to GMS1...
+      <!-- <Command>cmd /C echo Copying GML from GMS2 project to GMS1...
 copy /y "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.gml" "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.gml"
 
 cmd /C echo Combining source files...
@@ -180,7 +180,7 @@ cmd /C echo Running gmxgen to update extensions (https://bitbucket.org/yal_cc/gm
 cmd /c GmxGen "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml.extension.gmx"
 cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy"
 cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_gml.yy"</Command>
-    </PostBuildEvent>
+    </PostBuildEvent> -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>

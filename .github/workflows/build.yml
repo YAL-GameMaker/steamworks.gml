@@ -55,11 +55,10 @@ jobs:
 
       - name: Get Steamworks SDK
         run: |
-          curl -o sdk135a.zip "${{ secrets.STEAMWORKS_SDK_135A }}"
-          apt install unzip
-          unzip sdk135a.zip
-          mkdir Steamworks
-          mv ./sdk/* ./Steamworks
+          sudo curl -o sdk135a.zip "${{ secrets.STEAMWORKS_SDK_135A }}"
+          sudo unzip sdk135a.zip
+          sudo mkdir Steamworks
+          sudo mv ./sdk/* ./Steamworks
 
       - name: Build Linux Libs
         run: sh build_linux_gms1.sh
