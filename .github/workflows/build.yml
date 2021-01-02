@@ -41,7 +41,6 @@ jobs:
           path: ./Steamworks_yy
 
       - name: Upload Windows Artifact (GMS2.3)
-
         uses: actions/upload-artifact@v2
         with:
           name: Steamworks.gms23.win
