@@ -27,7 +27,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Steamworks.gml.dll
-          path: ./Release\Steamworks.gml.dll
+          path: ./Release/Steamworks.gml.dll
 
   build-linux-x32:
     name: Build for Linux x32
@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Steamworks_x32.gml.so
-          path: ./Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.so
+          path: ./Steamworks.gml.so
           if-no-files-found: error
 
   build-linux-x64:
@@ -67,7 +67,6 @@ jobs:
           sudo unzip sdk142.zip
           sudo mkdir Steamworks
           sudo mv ./sdk/* ./Steamworks
-          sudo mkdir "Steamworks.gmx\extensions\Steamworks.gml"
 
       - name: Build Linux Libs
         run: sh build_linux_gms2.sh
@@ -76,7 +75,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Steamworks_x64.gml.so
-          path: ./Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.so
+          path: ./Steamworks.gml.so
           if-no-files-found: error
   
   build-macos:
@@ -101,5 +100,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Steamworks.gml.dylib
-          path: ./Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.dylib
+          path: ./Steamworks.gml.dylib
           if-no-files-found: error
