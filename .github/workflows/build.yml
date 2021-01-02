@@ -76,7 +76,7 @@ jobs:
         run: sudo apt-get install gcc-multilib g++-multilib
 
       - name: Build Linux Libs
-        run: sh build_linux_gms1.sh
+        run: sh build_linux_gms2.sh
         
       - name: Upload Linux Artifact
         uses: actions/upload-artifact@v2
@@ -99,9 +99,6 @@ jobs:
           sudo mkdir Steamworks
           sudo mv ./sdk/* ./Steamworks
           sudo mkdir "Steamworks.gmx\extensions\Steamworks.gml"
-
-      - name: Prepare for build
-        run: sudo apt-get install gcc-multilib g++-multilib
 
       - name: Build MacOS Libs
         run: sudo sh build_osx_gms2.sh
