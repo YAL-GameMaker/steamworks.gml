@@ -3,20 +3,97 @@ name: Build
 on: [push, workflow_dispatch]
 
 jobs:
-  build-linux:
-    name: Build shared libs
+  build-windows:
+    name: Build for Windows
     runs-on: windows-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Get Steamworks SDK
         run: |
-          curl -o sdk135a.zip "${{ secrets.STEAMWORKS_SDK_135A }}"
-          powershell -command "Expand-Archive -Path sdk135a.zip -DestinationPath ."
+          curl -o sdk142.zip "${{ secrets.STEAMWORKS_SDK_142 }}"
+          powershell -command "Expand-Archive -Path sdk142.zip -DestinationPath ."
           mkdir Steamworks
           move ./sdk/* ./Steamworks
+
       - name: Install MSBuild
         uses: microsoft/setup-msbuild@v1
-      - name: Build libs
-        run: msbuild .\Steamworks.gml\Steamworks.gml.vcxproj -r
-        #Then publish shared libs and do other steps
+
+      - name: Build Windows Libs
+        run: msbuild . -r
+        
+      - name: Upload Windows Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Steamworks.gml.dll
+          path: Steamworks.gmx/extensions/Steamworks.gml/*.dll
+
+  build-linux:
+    name: Build for Linux
+    runs-on: ubuntu-lates
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get Steamworks SDK
+        run: |
+          sudo curl -o sdk135a.zip "${{ secrets.STEAMWORKS_SDK_135A }}"
+          sudo unzip sdk135a.zip
+          sudo mkdir Steamworks
+          sudo mv ./sdk/* ./Steamworks
+
+      - name: Build Linux Libs
+        run: sudo sh build_linux_gms1.sh
+        
+      - name: Upload Linux Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Steamworks.gml.so
+          path: Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.so
+
+  build-macos:
+    name: Build for MacOS (GMS1)
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get Steamworks SDK
+        run: |
+          sudo curl -o sdk135a.zip "${{ secrets.STEAMWORKS_SDK_135A }}"
+          sudo unzip sdk135a.zip
+          sudo mkdir Steamworks
+          sudo mv ./sdk/* ./Steamworks
+
+      - name: Build MacOS Libs
+        run: sudo sh build_osx_gms1.sh
+        
+      - name: Upload MacOS Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Steamworks_gms1.gml.dylib
+          path: Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.dylib
+  
+  build-macos:
+    name: Build for MacOS (GMS2)
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get Steamworks SDK
+        run: |
+          sudo curl -o sdk142.zip "${{ secrets.STEAMWORKS_SDK_142 }}"
+          sudo unzip sdk142.zip
+          sudo mkdir Steamworks
+          sudo mv ./sdk/* ./Steamworks
+
+      - name: Build MacOS Libs
+        run: sudo sh build_osx_gms2.sh
+        
+      - name: Upload MacOS Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Steamworks_gms2.gml.dylib
+          path: Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.dylib
