@@ -66,6 +66,9 @@ jobs:
           sudo unzip sdk135a.zip
           sudo mkdir Steamworks
           sudo mv ./sdk/* ./Steamworks
+        
+      - name: Prepare source code
+        run: sudo cat Steamworks.gml\steam_*.h Steamworks.gml\steam_*.cpp > Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp
 
       - name: Build Linux Libs
         run: sh build_linux_gms1.sh
@@ -91,6 +94,9 @@ jobs:
           sudo mkdir Steamworks
           sudo mv ./sdk/* ./Steamworks
 
+      - name: Prepare source code
+        run: sudo cat Steamworks.gml\steam_*.h Steamworks.gml\steam_*.cpp > "Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp
+
       - name: Build MacOS Libs
         run: sudo sh build_osx_gms1.sh
         
@@ -114,6 +120,9 @@ jobs:
           sudo unzip sdk142.zip
           sudo mkdir Steamworks
           sudo mv ./sdk/* ./Steamworks
+
+      - name: Prepare source code
+        run: sudo cat Steamworks.gml\steam_*.h Steamworks.gml\steam_*.cpp > Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp
 
       - name: Build MacOS Libs
         run: sudo sh build_osx_gms2.sh
