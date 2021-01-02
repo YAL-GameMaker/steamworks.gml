@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Get Steamworks SDK
         run: |
-          powershell -command "wget --tries 5 --retry-connrefused -o sdk135a.zip ${{ secrets.STEAMWORKS_SDK_135A }}"
+          powershell -command "wget -t 5 --retry-connrefused -o sdk135a.zip ${{ secrets.STEAMWORKS_SDK_135A }}"
           powershell -command "Expand-Archive -Path sdk135a.zip -DestinationPath ."
           mkdir Steamworks
           move ./sdk/* ./Steamworks
