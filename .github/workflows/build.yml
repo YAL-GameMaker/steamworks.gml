@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Get Steamworks SDK
         run: |
-          powershell -command "curl -o sdk135a.zip ${{ secrets.STEAMWORKS_SDK_135A }}"
+          curl -o sdk135a.zip ${{ secrets.STEAMWORKS_SDK_135A }}
           powershell -command "Expand-Archive -Path sdk135a.zip -DestinationPath ."
           mkdir Steamworks
           move ./sdk/* ./Steamworks
