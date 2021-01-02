@@ -26,7 +26,7 @@ jobs:
         uses: microsoft/setup-msbuild@v1
 
       - name: Build Windows Libs
-        run: msbuild . -r /property:Configuration=Release
+        run: msbuild . -r /property:Configuration=Release /property:Platform=Win32
         
       - name: Upload Windows Artifact (GMS1)
         uses: actions/upload-artifact@v2
@@ -56,13 +56,14 @@ jobs:
 
       - name: Get Steamworks SDK
         run: |
-          sudo curl -o sdk135a.zip "${{ secrets.STEAMWORKS_SDK_135A }}"
-          sudo unzip sdk135a.zip
-          sudo mkdir Steamworks
-          sudo mv ./sdk/* ./Steamworks
+          curl -o sdk135a.zip "${{ secrets.STEAMWORKS_SDK_135A }}"
+          apt install unzip
+          unzip sdk135a.zip
+          mkdir Steamworks
+          mv ./sdk/* ./Steamworks
 
       - name: Build Linux Libs
-        run: sudo sh build_linux_gms1.sh
+        run: sh build_linux_gms1.sh
         
       - name: Upload Linux Artifact (GMS1)
         uses: actions/upload-artifact@v2
