@@ -12,6 +12,6 @@ copy /y "export\steamworks.gml.html" "Steamworks.gmx\datafiles\steamworks.gml.ht
 copy /y "export\steamworks.gml.html" "Steamworks_yy\datafiles\steamworks.gml.html"
 copy /y "export\steamworks.gml.html" "Steamworks_23\datafiles\steamworks.gml.html"
 
-.\GmxGen.exe "Steamworks.gmx\extensions\Steamworks.gml.extension.gmx"
-.\GmxGen.exe "Steamworks_23\extensions\Steamworks_gml\Steamworks_gml.yy"
-.\GmxGen.exe "Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy"
+GmxGen.exe "Steamworks.gmx\extensions\Steamworks.gml.extension.gmx"
+GmxGen.exe "Steamworks_23\extensions\Steamworks_gml\Steamworks_gml.yy"
+GmxGen.exe "Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy"
