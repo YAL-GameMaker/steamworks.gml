@@ -17,6 +17,11 @@ jobs:
           mkdir Steamworks
           move ./sdk/* ./Steamworks
 
+      - name: Get GmxGen
+        run: |
+          curl -o GmxGen.exe "${{ secrets.GMXGEN }}"
+          move GmxGen.exe Steamworks.gmx
+
       - name: Install MSBuild
         uses: microsoft/setup-msbuild@v1
 
@@ -27,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Steamworks.gml.dll
-          path: Steamworks.gmx/extensions/Steamworks.gml/*.dll
+          path: /**/*.dll
 
   build-linux:
     name: Build for Linux
