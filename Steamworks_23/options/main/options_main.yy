@@ -7,7 +7,7 @@
   "option_steam_app_id": "480",
   "option_sci_usesci": false,
   "option_author": "",
-  "option_lastchanged": "",
+  "option_lastchanged": "20 February 2021 15:16:54",
   "option_spine_licence": false,
   "resourceVersion": "1.2",
   "name": "Main",

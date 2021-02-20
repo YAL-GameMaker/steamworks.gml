@@ -257,33 +257,18 @@ steamworks_sdk_142
 Steamworks.gml/Steamworks.gml.o
 
 # Auto-synced files:
-Steamworks.gmx/datafiles/*.html
-Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.cpp
-Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.gml
-Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.dll
-Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.dylib
-Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.vm.dylib
-Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.so
+*/datafiles/*.html
+*/extensions/Steamworks[._]gml/*.dll
+*/extensions/Steamworks[._]gml/*.dylib
+*/extensions/Steamworks[._]gml/*.so
+*/extensions/Steamworks[._]gml/*.cpp
 
-Steamworks_yy/datafiles/*.html
-Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.cpp
-Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.dll
-Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.so
-Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.dylib
-Steamworks_yy/extensions/Steamworks_gml/Steamworks.gml.vm.dylib
-
-Steamworks_23/datafiles/*.html
-Steamworks_23/extensions/Steamworks_gml/Steamworks.gml.cpp
-Steamworks_23/extensions/Steamworks_gml/Steamworks.gml.dll
-Steamworks_23/extensions/Steamworks_gml/Steamworks.gml.so
-Steamworks_23/extensions/Steamworks_gml/Steamworks.gml.dylib
-Steamworks_23/extensions/Steamworks_gml/Steamworks.gml.vm.dylib
+Steamworks.gmx/extensions/Steamworks.gml/*.gml
+Steamworks_yy/extensions/Steamworks_gml/*.gml
 
 
 # GMS1 configs:
 Steamworks.gmx/Configs/*/
 
 # GMEdit backups:
-Steamworks.gmx/#backups/
-Steamworks_yy/#backups/
-Steamworks_23/#backups/
+*/#backups/

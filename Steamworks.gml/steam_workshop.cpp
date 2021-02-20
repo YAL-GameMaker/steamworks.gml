@@ -7,7 +7,7 @@ CCallResult<steam_net_callbacks_t, DeleteItemResult_t> steam_item_deleted;
 /// Deletes an item from Steam Workshop.
 dllx double steam_ugc_delete_item(double published_file_id) {
 	if (SteamUGC()) {
-		SteamAPICall_t call = SteamUGC()->DeleteItem(published_file_id);
+		SteamAPICall_t call = SteamUGC()->DeleteItem((int)published_file_id);
 		steam_item_deleted.Set(call, &steam_net_callbacks, &steam_net_callbacks_t::item_deleted);
 	}
 	return 0;
