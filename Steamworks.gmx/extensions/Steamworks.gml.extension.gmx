@@ -3,7 +3,7 @@
   <name>Steamworks.gml</name>
   <version>1.0.0</version>
   <packageID></packageID>
-  <ProductID>F79C97955FD1AF4686EB4EF4EF90F0DB</ProductID>
+  <ProductID></ProductID>
   <date>20/02/16</date>
   <license>LGPLv3</license>
   <description></description>
@@ -2917,237 +2917,19 @@
       </constants>
     </file>
     <file>
-      <filename>Steamworks.gml.gml</filename>
-      <origname>Steamworks.gml.gml</origname>
-      <init>steam_gml_init_gml</init>
+      <filename>steam_controller.gml</filename>
+      <origname>extensions\steam_controller.gml</origname>
+      <init></init>
       <final></final>
       <kind>2</kind>
       <uncompress>0</uncompress>
       <ConfigOptions>
         <Config name="Default">
-          <CopyToMask>105554172285166</CopyToMask>
+          <CopyToMask>9223372036854775807</CopyToMask>
         </Config>
       </ConfigOptions>
       <ProxyFiles/>
       <functions>
-        <function>
-          <name>steam_id_create</name>
-          <externalName>steam_id_create</externalName>
-          <kind>2</kind>
-          <help>steam_id_create(high, low) : Creates an immutable Steam ID.</help>
-          <returnType>2</returnType>
-          <argCount>2</argCount>
-          <args>
-            <arg>2</arg>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_id_get_high</name>
-          <externalName>steam_id_get_high</externalName>
-          <kind>2</kind>
-          <help>steam_id_get_high(steam_id) : Returns higher 32 bits of a Steam ID</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_id_get_low</name>
-          <externalName>steam_id_get_low</externalName>
-          <kind>2</kind>
-          <help>steam_id_get_low(steam_id) : Returns lower 32 bits of a Steam ID</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_id_equals</name>
-          <externalName>steam_id_equals</externalName>
-          <kind>2</kind>
-          <help>steam_id_equals(id1, id2) : Returns whether two IDs match up.</help>
-          <returnType>2</returnType>
-          <argCount>2</argCount>
-          <args>
-            <arg>2</arg>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_id_from_int64</name>
-          <externalName>steam_id_from_int64</externalName>
-          <kind>2</kind>
-          <help>steam_id_from_int64(value) : Creates a Steam ID from an int64</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_id_to_int64</name>
-          <externalName>steam_id_to_int64</externalName>
-          <kind>2</kind>
-          <help>steam_id_to_int64(steam_id) : Converts a Steam ID to int64</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_gml_check_version</name>
-          <externalName>steam_gml_check_version</externalName>
-          <kind>2</kind>
-          <help>steam_gml_check_version() : Returns whether the DLL matches the extension version.</help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>steam_net_accept_p2p_session</name>
-          <externalName>steam_net_accept_p2p_session</externalName>
-          <kind>2</kind>
-          <help>steam_net_accept_p2p_session(user_id) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_net_close_p2p_session</name>
-          <externalName>steam_net_close_p2p_session</externalName>
-          <kind>2</kind>
-          <help>steam_net_close_p2p_session(user_id) : Closes the P2P session with the given user (if any)</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_net_packet_get_sender_id</name>
-          <externalName>steam_net_packet_get_sender_id</externalName>
-          <kind>2</kind>
-          <help>steam_net_packet_get_sender_id() : Returns the sender ID (int64) of the last received packet.</help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>steam_net_packet_get_data</name>
-          <externalName>steam_net_packet_get_data</externalName>
-          <kind>2</kind>
-          <help>steam_net_packet_get_data(buffer) : Copies the current packet data to the given buffer.</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_net_packet_send</name>
-          <externalName>steam_net_packet_send</externalName>
-          <kind>2</kind>
-          <help>steam_net_packet_send(steam_id, buffer, size, type) : Sends a packet to the given destination.</help>
-          <returnType>2</returnType>
-          <argCount>4</argCount>
-          <args>
-            <arg>2</arg>
-            <arg>2</arg>
-            <arg>2</arg>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_lobby_join_id</name>
-          <externalName>steam_lobby_join_id</externalName>
-          <kind>2</kind>
-          <help>steam_lobby_join_id(lobby_id)-&gt;ok? : Joins the given lobby</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_lobby_get_lobby_id</name>
-          <externalName>steam_lobby_get_lobby_id</externalName>
-          <kind>2</kind>
-          <help>steam_lobby_get_lobby_id()-&gt;lobby_id : Returns the lobby ID of the current lobby</help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>steam_lobby_get_owner_id</name>
-          <externalName>steam_lobby_get_owner_id</externalName>
-          <kind>2</kind>
-          <help>steam_lobby_get_owner_id()-&gt;user_id : Returns the user ID of the authoritative user in the lobby.</help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>steam_lobby_get_member_id</name>
-          <externalName>steam_lobby_get_member_id</externalName>
-          <kind>2</kind>
-          <help>steam_lobby_get_member_id(index)-&gt;user_id : Returns the user ID of the given user in the lobby.</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_lobby_list_get_lobby_id</name>
-          <externalName>steam_lobby_list_get_lobby_id</externalName>
-          <kind>2</kind>
-          <help>steam_lobby_list_get_lobby_id(index)-&gt;lobby_id : Returns the ID of the given lobby.</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_lobby_list_get_lobby_owner_id</name>
-          <externalName>steam_lobby_list_get_lobby_owner_id</externalName>
-          <kind>2</kind>
-          <help>steam_lobby_list_get_lobby_owner_id(index)-&gt;user_id : Returns the user ID of the owner of the given lobby.</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_lobby_list_get_lobby_member_id</name>
-          <externalName>steam_lobby_list_get_lobby_member_id</externalName>
-          <kind>2</kind>
-          <help>steam_lobby_list_get_lobby_owner_id(lobby_index, member_index)-&gt;user_id : Returns the user ID of the given member of the given lobby.</help>
-          <returnType>2</returnType>
-          <argCount>2</argCount>
-          <args>
-            <arg>2</arg>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_gml_prepare_buffer</name>
-          <externalName>steam_gml_prepare_buffer</externalName>
-          <kind>2</kind>
-          <help>steam_gml_prepare_buffer(min_size)-&gt;buffer~</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
         <function>
           <name>steam_controller_get_max_count</name>
           <externalName>steam_controller_get_max_count</externalName>
@@ -3254,33 +3036,23 @@
             <arg>2</arg>
           </args>
         </function>
-        <function>
-          <name>steam_get_friends_game_info</name>
-          <externalName>steam_get_friends_game_info</externalName>
-          <kind>2</kind>
-          <help>steam_get_friends_game_info()-&gt;array&lt;[user_id, game_id, lobby_id]&gt;</help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>steam_get_app_ownership_ticket_data</name>
-          <externalName>steam_get_app_ownership_ticket_data</externalName>
-          <kind>2</kind>
-          <help>steam_get_app_ownership_ticket_data(buffer, ?app_id)-&gt;[size_total, ofs_app_id, ofs_steam_id, ofs_signature, size_signature]</help>
-          <returnType>2</returnType>
-          <argCount>-1</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>steam_user_request_encrypted_app_ticket</name>
-          <externalName>steam_user_request_encrypted_app_ticket</externalName>
-          <kind>2</kind>
-          <help>steam_user_request_encrypted_app_ticket(?bufferOrStringToInclude, ?bufferToIncludeSize)</help>
-          <returnType>2</returnType>
-          <argCount>-1</argCount>
-          <args/>
-        </function>
+      </functions>
+      <constants/>
+    </file>
+    <file>
+      <filename>steam_core.gml</filename>
+      <origname>extensions\steam_core.gml</origname>
+      <init>steam_gml_init_gml</init>
+      <final></final>
+      <kind>2</kind>
+      <uncompress>0</uncompress>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>113497714299118</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <ProxyFiles/>
+      <functions>
         <function>
           <name>steam_gml_init_gml</name>
           <externalName>steam_gml_init_gml</externalName>
@@ -3289,6 +3061,26 @@
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
+        </function>
+        <function>
+          <name>steam_gml_check_version</name>
+          <externalName>steam_gml_check_version</externalName>
+          <kind>2</kind>
+          <help>steam_gml_check_version() : Returns whether the DLL matches the extension version.</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_gml_prepare_buffer</name>
+          <externalName>steam_gml_prepare_buffer</externalName>
+          <kind>2</kind>
+          <help>steam_gml_prepare_buffer(min_size)-&gt;buffer~</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
         </function>
         <function>
           <name>steam_net_is_available</name>
@@ -3318,6 +3110,91 @@
           <args/>
         </function>
       </functions>
+      <constants/>
+    </file>
+    <file>
+      <filename>steam_id.gml</filename>
+      <origname>extensions\steam_id.gml</origname>
+      <init></init>
+      <final></final>
+      <kind>2</kind>
+      <uncompress>0</uncompress>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <ProxyFiles/>
+      <functions>
+        <function>
+          <name>steam_id_create</name>
+          <externalName>steam_id_create</externalName>
+          <kind>2</kind>
+          <help>steam_id_create(high, low) : Creates an immutable Steam ID.</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_id_get_high</name>
+          <externalName>steam_id_get_high</externalName>
+          <kind>2</kind>
+          <help>steam_id_get_high(steam_id) : Returns higher 32 bits of a Steam ID</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_id_get_low</name>
+          <externalName>steam_id_get_low</externalName>
+          <kind>2</kind>
+          <help>steam_id_get_low(steam_id) : Returns lower 32 bits of a Steam ID</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_id_equals</name>
+          <externalName>steam_id_equals</externalName>
+          <kind>2</kind>
+          <help>steam_id_equals(id1, id2) : Returns whether two IDs match up.</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_id_from_int64</name>
+          <externalName>steam_id_from_int64</externalName>
+          <kind>2</kind>
+          <help>steam_id_from_int64(value) : Creates a Steam ID from an int64</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_id_to_int64</name>
+          <externalName>steam_id_to_int64</externalName>
+          <kind>2</kind>
+          <help>steam_id_to_int64(steam_id) : Converts a Steam ID to int64</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+      </functions>
       <constants>
         <constant>
           <name>steam_id_use_int64</name>
@@ -3325,6 +3202,214 @@
           <hidden>0</hidden>
         </constant>
       </constants>
+    </file>
+    <file>
+      <filename>steam_matchmaking.gml</filename>
+      <origname>extensions\steam_matchmaking.gml</origname>
+      <init></init>
+      <final></final>
+      <kind>2</kind>
+      <uncompress>0</uncompress>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <ProxyFiles/>
+      <functions>
+        <function>
+          <name>steam_lobby_join_id</name>
+          <externalName>steam_lobby_join_id</externalName>
+          <kind>2</kind>
+          <help>steam_lobby_join_id(lobby_id)-&gt;ok? : Joins the given lobby</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_get_lobby_id</name>
+          <externalName>steam_lobby_get_lobby_id</externalName>
+          <kind>2</kind>
+          <help>steam_lobby_get_lobby_id()-&gt;lobby_id : Returns the lobby ID of the current lobby</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_get_owner_id</name>
+          <externalName>steam_lobby_get_owner_id</externalName>
+          <kind>2</kind>
+          <help>steam_lobby_get_owner_id()-&gt;user_id : Returns the user ID of the authoritative user in the lobby.</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_get_member_id</name>
+          <externalName>steam_lobby_get_member_id</externalName>
+          <kind>2</kind>
+          <help>steam_lobby_get_member_id(index)-&gt;user_id : Returns the user ID of the given user in the lobby.</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_id</name>
+          <externalName>steam_lobby_list_get_lobby_id</externalName>
+          <kind>2</kind>
+          <help>steam_lobby_list_get_lobby_id(index)-&gt;lobby_id : Returns the ID of the given lobby.</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_owner_id</name>
+          <externalName>steam_lobby_list_get_lobby_owner_id</externalName>
+          <kind>2</kind>
+          <help>steam_lobby_list_get_lobby_owner_id(index)-&gt;user_id : Returns the user ID of the owner of the given lobby.</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_list_get_lobby_member_id</name>
+          <externalName>steam_lobby_list_get_lobby_member_id</externalName>
+          <kind>2</kind>
+          <help>steam_lobby_list_get_lobby_owner_id(lobby_index, member_index)-&gt;user_id : Returns the user ID of the given member of the given lobby.</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+      </functions>
+      <constants/>
+    </file>
+    <file>
+      <filename>steam_misc.gml</filename>
+      <origname>extensions\steam_misc.gml</origname>
+      <init></init>
+      <final></final>
+      <kind>2</kind>
+      <uncompress>0</uncompress>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <ProxyFiles/>
+      <functions>
+        <function>
+          <name>steam_get_friends_game_info</name>
+          <externalName>steam_get_friends_game_info</externalName>
+          <kind>2</kind>
+          <help>steam_get_friends_game_info()-&gt;array&lt;[user_id, game_id, lobby_id]&gt;</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_get_app_ownership_ticket_data</name>
+          <externalName>steam_get_app_ownership_ticket_data</externalName>
+          <kind>2</kind>
+          <help>steam_get_app_ownership_ticket_data(buffer, ?app_id)-&gt;[size_total, ofs_app_id, ofs_steam_id, ofs_signature, size_signature]</help>
+          <returnType>2</returnType>
+          <argCount>-1</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_user_request_encrypted_app_ticket</name>
+          <externalName>steam_user_request_encrypted_app_ticket</externalName>
+          <kind>2</kind>
+          <help>steam_user_request_encrypted_app_ticket(?bufferOrStringToInclude, ?bufferToIncludeSize)</help>
+          <returnType>2</returnType>
+          <argCount>-1</argCount>
+          <args/>
+        </function>
+      </functions>
+      <constants/>
+    </file>
+    <file>
+      <filename>steam_networking.gml</filename>
+      <origname>extensions\steam_networking.gml</origname>
+      <init></init>
+      <final></final>
+      <kind>2</kind>
+      <uncompress>0</uncompress>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <ProxyFiles/>
+      <functions>
+        <function>
+          <name>steam_net_accept_p2p_session</name>
+          <externalName>steam_net_accept_p2p_session</externalName>
+          <kind>2</kind>
+          <help>steam_net_accept_p2p_session(user_id) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_close_p2p_session</name>
+          <externalName>steam_net_close_p2p_session</externalName>
+          <kind>2</kind>
+          <help>steam_net_close_p2p_session(user_id) : Closes the P2P session with the given user (if any)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_packet_get_sender_id</name>
+          <externalName>steam_net_packet_get_sender_id</externalName>
+          <kind>2</kind>
+          <help>steam_net_packet_get_sender_id() : Returns the sender ID (int64) of the last received packet.</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_net_packet_get_data</name>
+          <externalName>steam_net_packet_get_data</externalName>
+          <kind>2</kind>
+          <help>steam_net_packet_get_data(buffer) : Copies the current packet data to the given buffer.</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_net_packet_send</name>
+          <externalName>steam_net_packet_send</externalName>
+          <kind>2</kind>
+          <help>steam_net_packet_send(steam_id, buffer, size, type) : Sends a packet to the given destination.</help>
+          <returnType>2</returnType>
+          <argCount>4</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+      </functions>
+      <constants/>
     </file>
   </files>
 </extension>

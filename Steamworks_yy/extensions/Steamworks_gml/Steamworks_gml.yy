@@ -4443,135 +4443,21 @@
             "uncompress": false
         },
         {
-            "id": "289e7f16-e055-4db2-bdfa-8c659f8ecacb",
+            "id": "a3cffd59-2e11-4b28-82d5-95dc67ced2eb",
             "modelName": "GMExtensionFile",
             "mvc": "1.0",
             "ProxyFiles": [
                 
             ],
             "constants": [
-                {
-                    "id": "67f5e856-e854-4056-8421-aca40234b39d",
-                    "modelName": "GMExtensionConstant",
-                    "mvc": "1.0",
-                    "constantName": "steam_id_use_int64",
-                    "hidden": false,
-                    "value": "true"
-                }
+                
             ],
-            "copyToTargets": 105554172285166,
-            "filename": "Steamworks.gml.gml",
+            "copyToTargets": -1,
+            "filename": "steam_networking.gml",
             "final": "",
             "functions": [
                 {
-                    "id": "a4815b7d-146f-42dd-9139-189430fc50d8",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        2,
-                        2
-                    ],
-                    "externalName": "steam_id_create",
-                    "help": "steam_id_create(high, low) : Creates an immutable Steam ID.",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_id_create",
-                    "returnType": 2
-                },
-                {
-                    "id": "efda7de2-5fa2-4506-9135-3d9fe254c358",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        2
-                    ],
-                    "externalName": "steam_id_get_high",
-                    "help": "steam_id_get_high(steam_id) : Returns higher 32 bits of a Steam ID",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_id_get_high",
-                    "returnType": 2
-                },
-                {
-                    "id": "29e05b37-8802-4ff6-bb9b-09612f101e06",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        2
-                    ],
-                    "externalName": "steam_id_get_low",
-                    "help": "steam_id_get_low(steam_id) : Returns lower 32 bits of a Steam ID",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_id_get_low",
-                    "returnType": 2
-                },
-                {
-                    "id": "015066d9-86c9-44f9-a472-969667267ea6",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        2,
-                        2
-                    ],
-                    "externalName": "steam_id_equals",
-                    "help": "steam_id_equals(id1, id2) : Returns whether two IDs match up.",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_id_equals",
-                    "returnType": 2
-                },
-                {
-                    "id": "b548cdba-918a-43a2-bbb5-62152b280cc8",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        2
-                    ],
-                    "externalName": "steam_id_from_int64",
-                    "help": "steam_id_from_int64(value) : Creates a Steam ID from an int64",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_id_from_int64",
-                    "returnType": 2
-                },
-                {
-                    "id": "e7954caf-d513-41f9-b081-0ed83d610827",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        2
-                    ],
-                    "externalName": "steam_id_to_int64",
-                    "help": "steam_id_to_int64(steam_id) : Converts a Steam ID to int64",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_id_to_int64",
-                    "returnType": 2
-                },
-                {
-                    "id": "d3416a56-a029-4654-960f-a75f7dded634",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 0,
-                    "args": [
-                        
-                    ],
-                    "externalName": "steam_gml_check_version",
-                    "help": "steam_gml_check_version() : Returns whether the DLL matches the extension version.",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_gml_check_version",
-                    "returnType": 2
-                },
-                {
-                    "id": "6a098289-5aca-42ba-b894-e8dfa9be1990",
+                    "id": "984279c8-ca10-4cc8-b197-aa1b27b311fd",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 1,
@@ -4586,7 +4472,7 @@
                     "returnType": 2
                 },
                 {
-                    "id": "0650f0ae-5337-40cc-bcda-4009fdeffc1b",
+                    "id": "957427cb-d6fe-44d1-80d3-24e9bc106025",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 1,
@@ -4601,7 +4487,7 @@
                     "returnType": 2
                 },
                 {
-                    "id": "e37c19e5-2145-4ea4-b264-8252548a734c",
+                    "id": "7705a3f8-b729-4b84-bbff-14e6ca0e1021",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 0,
@@ -4616,7 +4502,7 @@
                     "returnType": 2
                 },
                 {
-                    "id": "3b2570b1-32c2-4c18-88d2-4a703479cea5",
+                    "id": "ef9120e9-98cb-4ed3-abbb-fd5a83c1b59e",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 1,
@@ -4631,7 +4517,7 @@
                     "returnType": 2
                 },
                 {
-                    "id": "fda35f99-434d-4c41-b82f-ef0ed9cb08b5",
+                    "id": "4efd29b4-da43-436e-b8ce-1aabe23c25c6",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 4,
@@ -4647,286 +4533,36 @@
                     "kind": 2,
                     "name": "steam_net_packet_send",
                     "returnType": 2
-                },
+                }
+            ],
+            "init": "",
+            "kind": 2,
+            "order": [
+                "984279c8-ca10-4cc8-b197-aa1b27b311fd",
+                "957427cb-d6fe-44d1-80d3-24e9bc106025",
+                "7705a3f8-b729-4b84-bbff-14e6ca0e1021",
+                "ef9120e9-98cb-4ed3-abbb-fd5a83c1b59e",
+                "4efd29b4-da43-436e-b8ce-1aabe23c25c6"
+            ],
+            "origname": "",
+            "uncompress": false
+        },
+        {
+            "id": "4c7eeb73-a714-41ee-b696-f2861b184c90",
+            "modelName": "GMExtensionFile",
+            "mvc": "1.0",
+            "ProxyFiles": [
+                
+            ],
+            "constants": [
+                
+            ],
+            "copyToTargets": -1,
+            "filename": "steam_misc.gml",
+            "final": "",
+            "functions": [
                 {
-                    "id": "56c35fe0-3050-4d3b-9089-94ee9f39dbb2",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        2
-                    ],
-                    "externalName": "steam_lobby_join_id",
-                    "help": "steam_lobby_join_id(lobby_id)->ok? : Joins the given lobby",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_lobby_join_id",
-                    "returnType": 2
-                },
-                {
-                    "id": "268f6e1c-5f26-9ed2-f706-d9655c1e794e",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 0,
-                    "args": [
-                        
-                    ],
-                    "externalName": "steam_lobby_get_lobby_id",
-                    "help": "steam_lobby_get_lobby_id()->lobby_id : Returns the lobby ID of the current lobby",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_lobby_get_lobby_id",
-                    "returnType": 2
-                },
-                {
-                    "id": "3bb2420c-9e94-45be-930a-ac2e06c35bb0",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 0,
-                    "args": [
-                        
-                    ],
-                    "externalName": "steam_lobby_get_owner_id",
-                    "help": "steam_lobby_get_owner_id()->user_id : Returns the user ID of the authoritative user in the lobby.",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_lobby_get_owner_id",
-                    "returnType": 2
-                },
-                {
-                    "id": "76aaedc4-98bd-4fef-af12-ff15274cba11",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        2
-                    ],
-                    "externalName": "steam_lobby_get_member_id",
-                    "help": "steam_lobby_get_member_id(index)->user_id : Returns the user ID of the given user in the lobby.",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_lobby_get_member_id",
-                    "returnType": 2
-                },
-                {
-                    "id": "2fff70de-e6a2-44a4-86ed-86783794bbec",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        2
-                    ],
-                    "externalName": "steam_lobby_list_get_lobby_id",
-                    "help": "steam_lobby_list_get_lobby_id(index)->lobby_id : Returns the ID of the given lobby.",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_lobby_list_get_lobby_id",
-                    "returnType": 2
-                },
-                {
-                    "id": "4e9ed466-624b-4c21-a13e-6ff843ac2a8a",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        2
-                    ],
-                    "externalName": "steam_lobby_list_get_lobby_owner_id",
-                    "help": "steam_lobby_list_get_lobby_owner_id(index)->user_id : Returns the user ID of the owner of the given lobby.",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_lobby_list_get_lobby_owner_id",
-                    "returnType": 2
-                },
-                {
-                    "id": "69796422-6e60-b56b-351f-cb7f4953bb64",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        2,
-                        2
-                    ],
-                    "externalName": "steam_lobby_list_get_lobby_member_id",
-                    "help": "steam_lobby_list_get_lobby_owner_id(lobby_index, member_index)->user_id : Returns the user ID of the given member of the given lobby.",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_lobby_list_get_lobby_member_id",
-                    "returnType": 2
-                },
-                {
-                    "id": "57960a57-f84f-4fd5-83bb-12d5a121b3b5",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        2
-                    ],
-                    "externalName": "steam_gml_prepare_buffer",
-                    "help": "steam_gml_prepare_buffer(min_size)->buffer~",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_gml_prepare_buffer",
-                    "returnType": 2
-                },
-                {
-                    "id": "ebb45175-94a3-4af7-9095-de5319219405",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 0,
-                    "args": [
-                        
-                    ],
-                    "externalName": "steam_controller_get_max_count",
-                    "help": "steam_controller_get_max_count()->int: Returns the maximum number of controllers",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_controller_get_max_count",
-                    "returnType": 2
-                },
-                {
-                    "id": "f14f0172-d9d1-4ee9-ad69-5f875e219e19",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": -1,
-                    "args": [
-                        
-                    ],
-                    "externalName": "steam_controller_get_ids",
-                    "help": "steam_controller_get_ids(?out:array<index>)->array",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_controller_get_ids",
-                    "returnType": 2
-                },
-                {
-                    "id": "d8d10a43-df76-4819-ba69-48e957f6fede",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 0,
-                    "args": [
-                        
-                    ],
-                    "externalName": "steam_controller_get_max_origins",
-                    "help": "steam_controller_get_max_origins()->int",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_controller_get_max_origins",
-                    "returnType": 2
-                },
-                {
-                    "id": "a6b8c868-4762-4955-a963-e09759ff330c",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 3,
-                    "args": [
-                        2,
-                        2,
-                        2
-                    ],
-                    "externalName": "steam_controller_get_origins_raw",
-                    "help": "steam_controller_get_origins_raw(found, buffer, out)->array",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_controller_get_origins_raw",
-                    "returnType": 2
-                },
-                {
-                    "id": "f3c68ab6-e8ae-4c48-b125-51e0c950cd75",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": -1,
-                    "args": [
-                        
-                    ],
-                    "externalName": "steam_controller_get_digital_origins",
-                    "help": "steam_controller_get_digital_origins(controller, actionset_id, digital_id, ?out:array<origin>): as per GetDigitalActionOrigins",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_controller_get_digital_origins",
-                    "returnType": 2
-                },
-                {
-                    "id": "f2e98a60-268b-5214-1a10-fed82fbb2886",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": -1,
-                    "args": [
-                        
-                    ],
-                    "externalName": "steam_controller_get_analog_origins",
-                    "help": "steam_controller_get_digital_origins(controller, actionset_id, analog_id, ?out:array<origin>): as per GetDigitalActionOrigins",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_controller_get_analog_origins",
-                    "returnType": 2
-                },
-                {
-                    "id": "aa7064d5-20fa-4b24-882f-c4d463fee4c9",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        2,
-                        2
-                    ],
-                    "externalName": "steam_controller_get_analog_x",
-                    "help": "steam_controller_get_analog_x(controller, analog_id)->number: (-1..1) for sticks, delta for mouse",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_controller_get_analog_x",
-                    "returnType": 2
-                },
-                {
-                    "id": "125ced35-eac7-4a94-bc0a-bbae45006cde",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        2,
-                        2
-                    ],
-                    "externalName": "steam_controller_get_analog_y",
-                    "help": "steam_controller_get_analog_y(controller, analog_id)->number: (-1..1) for sticks, delta for mouse",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_controller_get_analog_y",
-                    "returnType": 2
-                },
-                {
-                    "id": "21886ac9-ddfe-4de8-ba61-c8aa5add0429",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        2,
-                        2
-                    ],
-                    "externalName": "steam_controller_get_analog_mode",
-                    "help": "steam_controller_get_analog_mode(controller, analog_id)->EControllerSourceMode",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_controller_get_analog_mode",
-                    "returnType": 2
-                },
-                {
-                    "id": "51e57118-c598-41b1-b5cb-a56c5edb21dd",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        2,
-                        2
-                    ],
-                    "externalName": "steam_controller_get_analog_status",
-                    "help": "steam_controller_get_analog_status(controller, analog_id)->bool",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_controller_get_analog_status",
-                    "returnType": 2
-                },
-                {
-                    "id": "b4a4b9ff-7f71-a4b6-bd97-8f3b0ddb66b9",
+                    "id": "a27e036d-c4af-4bfa-8687-9ea60d9dee41",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 0,
@@ -4941,7 +4577,7 @@
                     "returnType": 2
                 },
                 {
-                    "id": "e6ed14b3-64a6-2f01-c14d-c822e64a2f52",
+                    "id": "b1990112-8a39-41fe-9860-13675c323130",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": -1,
@@ -4956,7 +4592,7 @@
                     "returnType": 2
                 },
                 {
-                    "id": "0122bc3c-66ce-2fb9-e370-528401c2ffdd",
+                    "id": "eec828f9-dea3-4536-89de-77e737245ff7",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": -1,
@@ -4969,9 +4605,296 @@
                     "kind": 2,
                     "name": "steam_user_request_encrypted_app_ticket",
                     "returnType": 2
+                }
+            ],
+            "init": "",
+            "kind": 2,
+            "order": [
+                "a27e036d-c4af-4bfa-8687-9ea60d9dee41",
+                "b1990112-8a39-41fe-9860-13675c323130",
+                "eec828f9-dea3-4536-89de-77e737245ff7"
+            ],
+            "origname": "",
+            "uncompress": false
+        },
+        {
+            "id": "3f49524c-bc90-42e4-8b66-739b86609a81",
+            "modelName": "GMExtensionFile",
+            "mvc": "1.0",
+            "ProxyFiles": [
+                
+            ],
+            "constants": [
+                
+            ],
+            "copyToTargets": -1,
+            "filename": "steam_matchmaking.gml",
+            "final": "",
+            "functions": [
+                {
+                    "id": "0378d13f-e816-464a-932b-5dbb28c922df",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_lobby_join_id",
+                    "help": "steam_lobby_join_id(lobby_id)->ok? : Joins the given lobby",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_lobby_join_id",
+                    "returnType": 2
                 },
                 {
-                    "id": "d9fd7ec9-f985-4627-9127-2522921c9abc",
+                    "id": "c7572147-3c1c-4859-9a8b-1af4412be05e",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_lobby_get_lobby_id",
+                    "help": "steam_lobby_get_lobby_id()->lobby_id : Returns the lobby ID of the current lobby",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_lobby_get_lobby_id",
+                    "returnType": 2
+                },
+                {
+                    "id": "e4108867-7ea2-4ab9-9080-c2aa5ba4df65",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_lobby_get_owner_id",
+                    "help": "steam_lobby_get_owner_id()->user_id : Returns the user ID of the authoritative user in the lobby.",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_lobby_get_owner_id",
+                    "returnType": 2
+                },
+                {
+                    "id": "47a60c8d-e353-4313-85e4-c8cf9bf1cf76",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_lobby_get_member_id",
+                    "help": "steam_lobby_get_member_id(index)->user_id : Returns the user ID of the given user in the lobby.",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_lobby_get_member_id",
+                    "returnType": 2
+                },
+                {
+                    "id": "2a05f9f2-171a-45c0-8914-bc3dcfa8f6b9",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_lobby_list_get_lobby_id",
+                    "help": "steam_lobby_list_get_lobby_id(index)->lobby_id : Returns the ID of the given lobby.",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_lobby_list_get_lobby_id",
+                    "returnType": 2
+                },
+                {
+                    "id": "3015a249-3e5a-4afc-a6bc-1f8cce7afce6",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_lobby_list_get_lobby_owner_id",
+                    "help": "steam_lobby_list_get_lobby_owner_id(index)->user_id : Returns the user ID of the owner of the given lobby.",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_lobby_list_get_lobby_owner_id",
+                    "returnType": 2
+                },
+                {
+                    "id": "f2bdfa0f-925c-42a7-8521-715a042e14ba",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_lobby_list_get_lobby_member_id",
+                    "help": "steam_lobby_list_get_lobby_owner_id(lobby_index, member_index)->user_id : Returns the user ID of the given member of the given lobby.",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_lobby_list_get_lobby_member_id",
+                    "returnType": 2
+                }
+            ],
+            "init": "",
+            "kind": 2,
+            "order": [
+                "0378d13f-e816-464a-932b-5dbb28c922df",
+                "c7572147-3c1c-4859-9a8b-1af4412be05e",
+                "e4108867-7ea2-4ab9-9080-c2aa5ba4df65",
+                "47a60c8d-e353-4313-85e4-c8cf9bf1cf76",
+                "2a05f9f2-171a-45c0-8914-bc3dcfa8f6b9",
+                "3015a249-3e5a-4afc-a6bc-1f8cce7afce6",
+                "f2bdfa0f-925c-42a7-8521-715a042e14ba"
+            ],
+            "origname": "",
+            "uncompress": false
+        },
+        {
+            "id": "809200cd-45fc-4e00-b59b-1c202cd38eba",
+            "modelName": "GMExtensionFile",
+            "mvc": "1.0",
+            "ProxyFiles": [
+                
+            ],
+            "constants": [
+                {
+                    "id": "2d3d2066-0806-d32f-cae0-16a29c2477a0",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_id_use_int64",
+                    "hidden": false,
+                    "value": "true"
+                }
+            ],
+            "copyToTargets": -1,
+            "filename": "steam_id.gml",
+            "final": "",
+            "functions": [
+                {
+                    "id": "e29553ed-8aac-4ebe-93e0-734d79ff7c92",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_id_create",
+                    "help": "steam_id_create(high, low) : Creates an immutable Steam ID.",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_id_create",
+                    "returnType": 2
+                },
+                {
+                    "id": "cae3216c-dcb4-4cb6-86ad-2053cba205b3",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_id_get_high",
+                    "help": "steam_id_get_high(steam_id) : Returns higher 32 bits of a Steam ID",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_id_get_high",
+                    "returnType": 2
+                },
+                {
+                    "id": "c3e0cd13-1be1-4368-b410-04902ed0ced7",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_id_get_low",
+                    "help": "steam_id_get_low(steam_id) : Returns lower 32 bits of a Steam ID",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_id_get_low",
+                    "returnType": 2
+                },
+                {
+                    "id": "224f400c-b2fd-45a6-8905-1e17036c7941",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_id_equals",
+                    "help": "steam_id_equals(id1, id2) : Returns whether two IDs match up.",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_id_equals",
+                    "returnType": 2
+                },
+                {
+                    "id": "15b178d6-8bf8-44f1-8a88-2cc814b58f63",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_id_from_int64",
+                    "help": "steam_id_from_int64(value) : Creates a Steam ID from an int64",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_id_from_int64",
+                    "returnType": 2
+                },
+                {
+                    "id": "5074e0c1-337d-4432-845a-0f76be896210",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_id_to_int64",
+                    "help": "steam_id_to_int64(steam_id) : Converts a Steam ID to int64",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_id_to_int64",
+                    "returnType": 2
+                }
+            ],
+            "init": "",
+            "kind": 2,
+            "order": [
+                "e29553ed-8aac-4ebe-93e0-734d79ff7c92",
+                "cae3216c-dcb4-4cb6-86ad-2053cba205b3",
+                "c3e0cd13-1be1-4368-b410-04902ed0ced7",
+                "224f400c-b2fd-45a6-8905-1e17036c7941",
+                "15b178d6-8bf8-44f1-8a88-2cc814b58f63",
+                "5074e0c1-337d-4432-845a-0f76be896210"
+            ],
+            "origname": "",
+            "uncompress": false
+        },
+        {
+            "id": "91c5831c-d9c1-449d-ab69-50aebbf5ea0e",
+            "modelName": "GMExtensionFile",
+            "mvc": "1.0",
+            "ProxyFiles": [
+                
+            ],
+            "constants": [
+                
+            ],
+            "copyToTargets": -1,
+            "filename": "steam_core.gml",
+            "final": "",
+            "functions": [
+                {
+                    "id": "a3a1c4d4-ec61-491d-acdd-ae09a7ce98cf",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 0,
@@ -4986,7 +4909,37 @@
                     "returnType": 2
                 },
                 {
-                    "id": "d5e7e2d5-fc04-4cee-94c7-0b40f998da14",
+                    "id": "40e9e5b3-3597-4b30-80c7-4a8c172fd5bb",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_gml_check_version",
+                    "help": "steam_gml_check_version() : Returns whether the DLL matches the extension version.",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_gml_check_version",
+                    "returnType": 2
+                },
+                {
+                    "id": "ad71b105-f28f-4b9a-856d-b25aef639d0b",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_gml_prepare_buffer",
+                    "help": "steam_gml_prepare_buffer(min_size)->buffer~",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_gml_prepare_buffer",
+                    "returnType": 2
+                },
+                {
+                    "id": "ab6e66ea-0857-4875-8fde-c3270ecd670d",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 0,
@@ -5001,7 +4954,7 @@
                     "returnType": 2
                 },
                 {
-                    "id": "70dc344d-2b72-4d28-b642-86f86392dfae",
+                    "id": "922cc180-00cd-4ac5-8fd1-60b907c59238",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 0,
@@ -5016,7 +4969,7 @@
                     "returnType": 2
                 },
                 {
-                    "id": "791e07d6-55ea-4c33-f15e-e057c3f8fb81",
+                    "id": "9f4bfebb-6f2b-4185-913c-09ca98c2196a",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 0,
@@ -5034,41 +4987,202 @@
             "init": "steam_gml_init_gml",
             "kind": 2,
             "order": [
-                "a4815b7d-146f-42dd-9139-189430fc50d8",
-                "efda7de2-5fa2-4506-9135-3d9fe254c358",
-                "29e05b37-8802-4ff6-bb9b-09612f101e06",
-                "015066d9-86c9-44f9-a472-969667267ea6",
-                "b548cdba-918a-43a2-bbb5-62152b280cc8",
-                "e7954caf-d513-41f9-b081-0ed83d610827",
-                "d3416a56-a029-4654-960f-a75f7dded634",
-                "6a098289-5aca-42ba-b894-e8dfa9be1990",
-                "0650f0ae-5337-40cc-bcda-4009fdeffc1b",
-                "e37c19e5-2145-4ea4-b264-8252548a734c",
-                "3b2570b1-32c2-4c18-88d2-4a703479cea5",
-                "fda35f99-434d-4c41-b82f-ef0ed9cb08b5",
-                "56c35fe0-3050-4d3b-9089-94ee9f39dbb2",
-                "3bb2420c-9e94-45be-930a-ac2e06c35bb0",
-                "76aaedc4-98bd-4fef-af12-ff15274cba11",
-                "2fff70de-e6a2-44a4-86ed-86783794bbec",
-                "4e9ed466-624b-4c21-a13e-6ff843ac2a8a",
-                "69796422-6e60-b56b-351f-cb7f4953bb64",
-                "57960a57-f84f-4fd5-83bb-12d5a121b3b5",
-                "ebb45175-94a3-4af7-9095-de5319219405",
-                "f14f0172-d9d1-4ee9-ad69-5f875e219e19",
-                "d8d10a43-df76-4819-ba69-48e957f6fede",
-                "a6b8c868-4762-4955-a963-e09759ff330c",
-                "f3c68ab6-e8ae-4c48-b125-51e0c950cd75",
-                "f2e98a60-268b-5214-1a10-fed82fbb2886",
-                "aa7064d5-20fa-4b24-882f-c4d463fee4c9",
-                "125ced35-eac7-4a94-bc0a-bbae45006cde",
-                "21886ac9-ddfe-4de8-ba61-c8aa5add0429",
-                "51e57118-c598-41b1-b5cb-a56c5edb21dd",
-                "d9fd7ec9-f985-4627-9127-2522921c9abc",
-                "d5e7e2d5-fc04-4cee-94c7-0b40f998da14",
-                "70dc344d-2b72-4d28-b642-86f86392dfae",
-                "791e07d6-55ea-4c33-f15e-e057c3f8fb81"
+                "a3a1c4d4-ec61-491d-acdd-ae09a7ce98cf",
+                "40e9e5b3-3597-4b30-80c7-4a8c172fd5bb",
+                "ad71b105-f28f-4b9a-856d-b25aef639d0b",
+                "ab6e66ea-0857-4875-8fde-c3270ecd670d",
+                "922cc180-00cd-4ac5-8fd1-60b907c59238",
+                "9f4bfebb-6f2b-4185-913c-09ca98c2196a"
             ],
-            "origname": "Steamworks.gml.gml",
+            "origname": "",
+            "uncompress": false
+        },
+        {
+            "id": "e2dea66b-d9c0-4289-8be4-ffdbdfb3b587",
+            "modelName": "GMExtensionFile",
+            "mvc": "1.0",
+            "ProxyFiles": [
+                
+            ],
+            "constants": [
+                
+            ],
+            "copyToTargets": -1,
+            "filename": "steam_controller.gml",
+            "final": "",
+            "functions": [
+                {
+                    "id": "59c99d79-9c2b-49d8-a63c-845932f8fa14",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_controller_get_max_count",
+                    "help": "steam_controller_get_max_count()->int: Returns the maximum number of controllers",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_controller_get_max_count",
+                    "returnType": 2
+                },
+                {
+                    "id": "1bdc5952-42dc-405d-9f15-a15cf231b6cd",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": -1,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_controller_get_ids",
+                    "help": "steam_controller_get_ids(?out:array<index>)->array",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_controller_get_ids",
+                    "returnType": 2
+                },
+                {
+                    "id": "a3d75c91-bbce-4f89-af11-7599cfd42a69",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_controller_get_max_origins",
+                    "help": "steam_controller_get_max_origins()->int",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_controller_get_max_origins",
+                    "returnType": 2
+                },
+                {
+                    "id": "cec48756-40d6-4c3a-8209-2286da751cc3",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 3,
+                    "args": [
+                        2,
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_controller_get_origins_raw",
+                    "help": "steam_controller_get_origins_raw(found, buffer, out)->array",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_controller_get_origins_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "2add9503-feea-4519-b502-5bf4ce24b1c8",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": -1,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_controller_get_digital_origins",
+                    "help": "steam_controller_get_digital_origins(controller, actionset_id, digital_id, ?out:array<origin>): as per GetDigitalActionOrigins",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_controller_get_digital_origins",
+                    "returnType": 2
+                },
+                {
+                    "id": "0cb9bada-1699-4358-8124-c402fef6b5e1",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": -1,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_controller_get_analog_origins",
+                    "help": "steam_controller_get_digital_origins(controller, actionset_id, analog_id, ?out:array<origin>): as per GetDigitalActionOrigins",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_controller_get_analog_origins",
+                    "returnType": 2
+                },
+                {
+                    "id": "52539508-2f28-4678-ae7f-0754e148a1cf",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_controller_get_analog_x",
+                    "help": "steam_controller_get_analog_x(controller, analog_id)->number: (-1..1) for sticks, delta for mouse",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_controller_get_analog_x",
+                    "returnType": 2
+                },
+                {
+                    "id": "25e760a9-9f40-498e-a762-35ccf92261f5",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_controller_get_analog_y",
+                    "help": "steam_controller_get_analog_y(controller, analog_id)->number: (-1..1) for sticks, delta for mouse",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_controller_get_analog_y",
+                    "returnType": 2
+                },
+                {
+                    "id": "2568912d-608a-4a37-8f28-79007eec25b9",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_controller_get_analog_mode",
+                    "help": "steam_controller_get_analog_mode(controller, analog_id)->EControllerSourceMode",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_controller_get_analog_mode",
+                    "returnType": 2
+                },
+                {
+                    "id": "4bab174f-4b8a-4bd8-a8fd-36159a5daf9f",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_controller_get_analog_status",
+                    "help": "steam_controller_get_analog_status(controller, analog_id)->bool",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_controller_get_analog_status",
+                    "returnType": 2
+                }
+            ],
+            "init": "",
+            "kind": 2,
+            "order": [
+                "59c99d79-9c2b-49d8-a63c-845932f8fa14",
+                "1bdc5952-42dc-405d-9f15-a15cf231b6cd",
+                "a3d75c91-bbce-4f89-af11-7599cfd42a69",
+                "cec48756-40d6-4c3a-8209-2286da751cc3",
+                "2add9503-feea-4519-b502-5bf4ce24b1c8",
+                "0cb9bada-1699-4358-8124-c402fef6b5e1",
+                "52539508-2f28-4678-ae7f-0754e148a1cf",
+                "25e760a9-9f40-498e-a762-35ccf92261f5",
+                "2568912d-608a-4a37-8f28-79007eec25b9",
+                "4bab174f-4b8a-4bd8-a8fd-36159a5daf9f"
+            ],
+            "origname": "",
             "uncompress": false
         }
     ],

@@ -1,6 +1,7 @@
 /// steam_workshop.cpp
 #include "steam_glue.h"
 
+#if STEAMWORKS >= 142
 CCallResult<steam_net_callbacks_t, DeleteItemResult_t> steam_item_deleted;
 
 /// Deletes an item from Steam Workshop.
@@ -19,6 +20,7 @@ void steam_net_callbacks_t::item_deleted(DeleteItemResult_t* r, bool failed) {
 	x.set("published_file_id_low", uint64_low(r->m_nPublishedFileId));
 	x.dispatch();
 }
+#endif
 
 #pragma endregion
 

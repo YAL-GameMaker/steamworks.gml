@@ -87,6 +87,14 @@
             }
         },
         {
+            "Key": "3a5af38c-757d-41ae-98c0-5d4b09e14e6a",
+            "Value": {
+                "id": "cd053fed-7d9f-4e95-81dc-6ea709bd90b6",
+                "resourcePath": "options\\switch\\options_switch.yy",
+                "resourceType": "GMSwitchOptions"
+            }
+        },
+        {
             "Key": "48555775-f8a1-4ac5-863f-edd4892a6b86",
             "Value": {
                 "id": "c12c3fe0-1a52-4af6-a62a-7d2915af9114",

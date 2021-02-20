@@ -13,7 +13,9 @@ public:
 	void lobby_list_received(LobbyMatchList_t* e, bool failed);
 	void lobby_created(LobbyCreated_t* e, bool failed);
 	void lobby_joined(LobbyEnter_t* e, bool failed);
+	#if STEAMWORKS >= 142
 	void item_deleted(DeleteItemResult_t* r, bool failed);
+	#endif
 	void encrypted_app_ticket_response_received(EncryptedAppTicketResponse_t* pEncryptedAppTicketResponse, bool bIOFailure);
 };
 extern steam_net_callbacks_t steam_net_callbacks;
