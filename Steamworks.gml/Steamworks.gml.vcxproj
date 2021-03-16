@@ -104,6 +104,14 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='GMS1 Debug|x64'">
+    <PlatformToolset>v142</PlatformToolset>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='GMS1 Release|x64'">
+    <PlatformToolset>v142</PlatformToolset>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -285,20 +293,7 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
       <AdditionalDependencies>steam_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>cmd /C echo Copying documentation from export/ to projects
-copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks_yy\datafiles\$(AssemblyName).html"
-copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks_23\datafiles\$(AssemblyName).html"
-
-cmd /C echo Combining the source files...
-type "$(ProjectDir)steam_*.h" "$(ProjectDir)steam_*.cpp" &gt; "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks.gml.cpp"
-copy /y "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks.gml.cpp" "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp"
-
-cmd /C echo Running gmxgen to update extensions (https://github.com/YAL-GameMaker-Tools/GmxGen)
-cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_gml.yy" $(
-) --copy "$(TargetPath)" "$(TargetFileName):$(PlatformTarget)"
-cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy" $(
-) --copy "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\*.gml" "*.gml" $(
-) --copy "$(TargetPath)" "$(TargetFileName):$(PlatformTarget)"</Command>
+      <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GMS2 Debug|Win32'">
@@ -308,7 +303,7 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_
       </PrecompiledHeader>
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;STEAMWORKS=142%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;STEAMWORKS=142;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>./../steamworks_sdk_142/public</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
@@ -321,20 +316,7 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_
       <AdditionalDependencies>steam_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>cmd /C echo Copying documentation from export/ to projects
-copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks_yy\datafiles\$(AssemblyName).html"
-copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks_23\datafiles\$(AssemblyName).html"
-
-cmd /C echo Combining the source files...
-type "$(ProjectDir)steam_*.h" "$(ProjectDir)steam_*.cpp" &gt; "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks.gml.cpp"
-copy /y "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks.gml.cpp" "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp"
-
-cmd /C echo Running gmxgen to update extensions (https://github.com/YAL-GameMaker-Tools/GmxGen)
-cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_gml.yy" $(
-) --copy "$(TargetPath)" "$(TargetFileName):$(PlatformTarget)"
-cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy" $(
-) --copy "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\*.gml" "*.gml" $(
-) --copy "$(TargetPath)" "$(TargetFileName):$(PlatformTarget)"</Command>
+      <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -363,7 +345,7 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;GMSSTEAMNET_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;STEAMWORKS=142;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>./../steamworks_sdk_142/public</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -377,20 +359,7 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_
       <AdditionalDependencies>steam_api64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>cmd /C echo Copying documentation from export/ to projects
-copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks_yy\datafiles\$(AssemblyName).html"
-copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks_23\datafiles\$(AssemblyName).html"
-
-cmd /C echo Combining the source files...
-type "$(ProjectDir)steam_*.h" "$(ProjectDir)steam_*.cpp" &gt; "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks.gml.cpp"
-copy /y "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks.gml.cpp" "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp"
-
-cmd /C echo Running gmxgen to update extensions (https://github.com/YAL-GameMaker-Tools/GmxGen)
-cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_gml.yy" $(
-) --copy "$(TargetPath)" "$(TargetFileName):$(PlatformTarget)"
-cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy" $(
-) --copy "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\*.gml" "*.gml" $(
-) --copy "$(TargetPath)" "$(TargetFileName):$(PlatformTarget)"</Command>
+      <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GMS2 Debug|x64'">
@@ -401,7 +370,7 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;GMSSTEAMNET_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;STEAMWORKS=142;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>./../steamworks_sdk_142/public</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -415,20 +384,7 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_
       <AdditionalDependencies>steam_api64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>cmd /C echo Copying documentation from export/ to projects
-copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks_yy\datafiles\$(AssemblyName).html"
-copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks_23\datafiles\$(AssemblyName).html"
-
-cmd /C echo Combining the source files...
-type "$(ProjectDir)steam_*.h" "$(ProjectDir)steam_*.cpp" &gt; "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks.gml.cpp"
-copy /y "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks.gml.cpp" "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks.gml.cpp"
-
-cmd /C echo Running gmxgen to update extensions (https://github.com/YAL-GameMaker-Tools/GmxGen)
-cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_gml.yy" $(
-) --copy "$(TargetPath)" "$(TargetFileName):$(PlatformTarget)"
-cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_gml.yy" $(
-) --copy "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\*.gml" "*.gml" $(
-) --copy "$(TargetPath)" "$(TargetFileName):$(PlatformTarget)"</Command>
+      <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GMS1 Debug|Win32'">
@@ -447,16 +403,7 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_yy\extensions\Steamworks_gml\Steamworks_
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>cmd /C echo Copying documentation from export/ to projects
-copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks.gmx\datafiles\$(AssemblyName).html"
-
-cmd /C echo Combining the source files...
-type "$(ProjectDir)steam_*.h" "$(ProjectDir)steam_*.cpp" &gt; "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.cpp"
-
-cmd /C echo Running gmxgen to update extensions (https://github.com/YAL-GameMaker-Tools/GmxGen)
-cmd /c GmxGen "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml.extension.gmx" $(
-) --copy "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\*.gml" "*.gml" $(
-) --copy "$(TargetPath)" "$(TargetFileName):$(PlatformTarget)"</Command>
+      <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GMS1 Release|Win32'">
@@ -477,17 +424,40 @@ cmd /c GmxGen "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml.extension.
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>cmd /C echo Copying documentation from export/ to projects
-copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)Steamworks.gmx\datafiles\$(AssemblyName).html"
-
-cmd /C echo Combining the source files...
-type "$(ProjectDir)steam_*.h" "$(ProjectDir)steam_*.cpp" &gt; "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml\Steamworks.gml.cpp"
-
-cmd /C echo Running gmxgen to update extensions (https://github.com/YAL-GameMaker-Tools/GmxGen)
-cmd /c GmxGen "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml.extension.gmx" $(
-) --copy "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\*.gml" "*.gml" $(
-) --copy "$(TargetPath)" "$(TargetFileName):$(PlatformTarget)"</Command>
+      <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
     </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GMS1 Debug|x64'">
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>./../steamworks_sdk_135a/public</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>./../steamworks_sdk_135a/redistributable_bin;./../steamworks_sdk_135a/public/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>steam_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>cmd /C warnGMS1_x64.bat</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GMS1 Release|x64'">
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>./../steamworks_sdk_135a/public</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>./../steamworks_sdk_135a/redistributable_bin;./../steamworks_sdk_135a/public/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>steam_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>cmd /C warnGMS1_x64.bat</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

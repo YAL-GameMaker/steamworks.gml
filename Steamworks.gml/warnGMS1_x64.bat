@@ -1,0 +1,1 @@
+echo warnGMS1_x64.bat: Error N/A: GMS1 did not have an x64 runtime, you are most likely making a mistake (see README)
