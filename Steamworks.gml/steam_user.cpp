@@ -51,7 +51,7 @@ dllx double steam_get_friends_game_info_1() {
 		if (!SteamFriends()->GetFriendGamePlayed(tmp.friendId, &tmp.gameInfo)) continue;
 		steam_get_friends_game_info_vec.push_back(tmp);
 	}
-	return steam_get_friends_game_info_vec.size();
+	return (double)steam_get_friends_game_info_vec.size();
 }
 struct steam_get_friends_game_info_r {
 	int64 friendId;

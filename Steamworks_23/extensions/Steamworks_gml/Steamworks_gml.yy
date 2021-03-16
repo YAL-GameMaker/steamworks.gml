@@ -219,6 +219,13 @@
             1,
           ],"resourceVersion":"1.0","name":"steam_set_rich_presence","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_clear_rich_presence","kind":1,"help":"steam_clear_rich_presence() : Clears rich text presence.","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_clear_rich_presence","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_set_overlay_notification_position","kind":1,"help":"steam_set_overlay_notification_position(position)","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"steam_set_overlay_notification_position","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_set_overlay_notification_inset","kind":1,"help":"steam_set_overlay_notification_inset(hor_inset, vert_inset)","hidden":false,"returnType":2,"argCount":2,"args":[
+            2,
+            2,
+          ],"resourceVersion":"1.0","name":"steam_set_overlay_notification_inset","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_ugc_delete_item","kind":1,"help":"steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.","hidden":false,"returnType":2,"argCount":1,"args":[
             2,
           ],"resourceVersion":"1.0","name":"steam_ugc_delete_item","tags":[],"resourceType":"GMExtensionFunction",},
@@ -249,6 +256,10 @@
         {"value":"1","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_unreliable_nodelay","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_reliable","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"3","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_reliable_buffer","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"0","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_top_left","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"1","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_top_right","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_left","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"3","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_right","tags":[],"resourceType":"GMExtensionConstant",},
       ],"ProxyFiles":[],"copyToTargets":105553658380352,"order":[
         {"name":"steam_controller_reset","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_init","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -327,6 +338,8 @@
         {"name":"steam_get_friends_game_info_2","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_set_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_clear_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_set_overlay_notification_position","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_set_overlay_notification_inset","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_ugc_delete_item","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_app_ownership_ticket_data_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_user_request_encrypted_app_ticket_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -534,6 +547,13 @@
             1,
           ],"resourceVersion":"1.0","name":"steam_set_rich_presence","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_clear_rich_presence","kind":1,"help":"steam_clear_rich_presence() : Clears rich text presence.","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_clear_rich_presence","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_set_overlay_notification_position","kind":1,"help":"steam_set_overlay_notification_position(position)","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"steam_set_overlay_notification_position","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_set_overlay_notification_inset","kind":1,"help":"steam_set_overlay_notification_inset(hor_inset, vert_inset)","hidden":false,"returnType":2,"argCount":2,"args":[
+            2,
+            2,
+          ],"resourceVersion":"1.0","name":"steam_set_overlay_notification_inset","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_ugc_delete_item","kind":1,"help":"steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.","hidden":false,"returnType":2,"argCount":1,"args":[
             2,
           ],"resourceVersion":"1.0","name":"steam_ugc_delete_item","tags":[],"resourceType":"GMExtensionFunction",},
@@ -564,6 +584,10 @@
         {"value":"1","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_unreliable_nodelay","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_reliable","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"3","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_reliable_buffer","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"0","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_top_left","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"1","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_top_right","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_left","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"3","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_right","tags":[],"resourceType":"GMExtensionConstant",},
       ],"ProxyFiles":[],"copyToTargets":17592320262272,"order":[
         {"name":"steam_controller_reset","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_init","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -642,6 +666,8 @@
         {"name":"steam_get_friends_game_info_2","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_set_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_clear_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_set_overlay_notification_position","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_set_overlay_notification_inset","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_ugc_delete_item","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_app_ownership_ticket_data_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_user_request_encrypted_app_ticket_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -849,6 +875,13 @@
             1,
           ],"resourceVersion":"1.0","name":"steam_set_rich_presence","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_clear_rich_presence","kind":1,"help":"steam_clear_rich_presence() : Clears rich text presence.","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_clear_rich_presence","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_set_overlay_notification_position","kind":1,"help":"steam_set_overlay_notification_position(position)","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"steam_set_overlay_notification_position","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_set_overlay_notification_inset","kind":1,"help":"steam_set_overlay_notification_inset(hor_inset, vert_inset)","hidden":false,"returnType":2,"argCount":2,"args":[
+            2,
+            2,
+          ],"resourceVersion":"1.0","name":"steam_set_overlay_notification_inset","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_ugc_delete_item","kind":1,"help":"steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.","hidden":false,"returnType":2,"argCount":1,"args":[
             2,
           ],"resourceVersion":"1.0","name":"steam_ugc_delete_item","tags":[],"resourceType":"GMExtensionFunction",},
@@ -879,6 +912,10 @@
         {"value":"1","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_unreliable_nodelay","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_reliable","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"3","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_reliable_buffer","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"0","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_top_left","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"1","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_top_right","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_left","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"3","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_right","tags":[],"resourceType":"GMExtensionConstant",},
       ],"ProxyFiles":[],"copyToTargets":67108866,"order":[
         {"name":"steam_controller_reset","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_init","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -957,6 +994,8 @@
         {"name":"steam_get_friends_game_info_2","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_set_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_clear_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_set_overlay_notification_position","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_set_overlay_notification_inset","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_ugc_delete_item","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_app_ownership_ticket_data_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_user_request_encrypted_app_ticket_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -978,7 +1017,9 @@
             2,
             2,
           ],"resourceVersion":"1.0","name":"steam_net_packet_send","tags":[],"resourceType":"GMExtensionFunction",},
-      ],"constants":[],"ProxyFiles":[],"copyToTargets":-1,"order":[
+      ],"constants":[
+        
+      ],"ProxyFiles":[],"copyToTargets":-1,"order":[
         {"name":"steam_net_accept_p2p_session","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_net_close_p2p_session","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_net_packet_get_sender_id","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -989,7 +1030,9 @@
         {"externalName":"steam_get_friends_game_info","kind":2,"help":"steam_get_friends_game_info()->array<[user_id, game_id, lobby_id]>","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_get_friends_game_info","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_get_app_ownership_ticket_data","kind":2,"help":"steam_get_app_ownership_ticket_data(buffer, ?app_id)->[size_total, ofs_app_id, ofs_steam_id, ofs_signature, size_signature]","hidden":false,"returnType":2,"argCount":-1,"args":[],"resourceVersion":"1.0","name":"steam_get_app_ownership_ticket_data","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_user_request_encrypted_app_ticket","kind":2,"help":"steam_user_request_encrypted_app_ticket(?bufferOrStringToInclude, ?bufferToIncludeSize)","hidden":false,"returnType":2,"argCount":-1,"args":[],"resourceVersion":"1.0","name":"steam_user_request_encrypted_app_ticket","tags":[],"resourceType":"GMExtensionFunction",},
-      ],"constants":[],"ProxyFiles":[],"copyToTargets":-1,"order":[
+      ],"constants":[
+        
+      ],"ProxyFiles":[],"copyToTargets":-1,"order":[
         {"name":"steam_get_friends_game_info","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_app_ownership_ticket_data","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_user_request_encrypted_app_ticket","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -1013,7 +1056,9 @@
             2,
             2,
           ],"resourceVersion":"1.0","name":"steam_lobby_list_get_lobby_member_id","tags":[],"resourceType":"GMExtensionFunction",},
-      ],"constants":[],"ProxyFiles":[],"copyToTargets":-1,"order":[
+      ],"constants":[
+        
+      ],"ProxyFiles":[],"copyToTargets":-1,"order":[
         {"name":"steam_lobby_join_id","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_get_lobby_id","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_get_owner_id","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -1062,7 +1107,9 @@
         {"externalName":"steam_net_is_available","kind":2,"help":"steam_net_is_available()->bool","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_net_is_available","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_net_update","kind":2,"help":"steam_net_update()->bool","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_net_update","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_net_check_version","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_net_check_version","tags":[],"resourceType":"GMExtensionFunction",},
-      ],"constants":[],"ProxyFiles":[],"copyToTargets":-1,"order":[
+      ],"constants":[
+        
+      ],"ProxyFiles":[],"copyToTargets":-1,"order":[
         {"name":"steam_gml_init_gml","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_gml_check_version","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_gml_prepare_buffer","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -1097,7 +1144,9 @@
             2,
             2,
           ],"resourceVersion":"1.0","name":"steam_controller_get_analog_status","tags":[],"resourceType":"GMExtensionFunction",},
-      ],"constants":[],"ProxyFiles":[],"copyToTargets":-1,"order":[
+      ],"constants":[
+        
+      ],"ProxyFiles":[],"copyToTargets":-1,"order":[
         {"name":"steam_controller_get_max_count","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_get_ids","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_get_max_origins","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},

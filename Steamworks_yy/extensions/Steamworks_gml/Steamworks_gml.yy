@@ -174,6 +174,38 @@
                     "constantName": "steam_net_packet_type_reliable_buffer",
                     "hidden": false,
                     "value": "3"
+                },
+                {
+                    "id": "3c2c3177-e6e8-3d3e-8ea4-ad192abdbb61",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_overlay_notification_position_top_left",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "759efdca-64a9-aded-86fe-f8bbce53a02c",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_overlay_notification_position_top_right",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "c2c307d6-5060-0872-304b-b5dd81d7db83",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_overlay_notification_position_bottom_left",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "79f46f01-16ea-a76f-2f53-4826e079f686",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_overlay_notification_position_bottom_right",
+                    "hidden": false,
+                    "value": "3"
                 }
             ],
             "copyToTargets": 105553658380352,
@@ -1369,6 +1401,37 @@
                     "returnType": 2
                 },
                 {
+                    "id": "dd5a23ee-f676-15a4-17b7-f61594c384d2",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_set_overlay_notification_position",
+                    "help": "steam_set_overlay_notification_position(position)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_set_overlay_notification_position",
+                    "returnType": 2
+                },
+                {
+                    "id": "39f61408-b25a-4d9c-8ca4-eb726413c35f",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_set_overlay_notification_inset",
+                    "help": "steam_set_overlay_notification_inset(hor_inset, vert_inset)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_set_overlay_notification_inset",
+                    "returnType": 2
+                },
+                {
                     "id": "83c53554-d2ed-2733-23b7-997e58a1b9ba",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -1649,6 +1712,38 @@
                     "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_packet_type_reliable_buffer",
+                    "hidden": false,
+                    "value": "3"
+                },
+                {
+                    "id": "7edd99d7-b76e-3427-f786-5b1871fd962d",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_overlay_notification_position_top_left",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "c858a8b8-3f0d-d45f-b5da-c6d50dd9c51c",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_overlay_notification_position_top_right",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "bc140cbe-0506-3c2c-31da-e3b3f87c7d9e",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_overlay_notification_position_bottom_left",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "bc3e27ff-deff-c32f-0497-1ae6fefe8243",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_overlay_notification_position_bottom_right",
                     "hidden": false,
                     "value": "3"
                 }
@@ -2846,6 +2941,37 @@
                     "returnType": 2
                 },
                 {
+                    "id": "4995d2af-9692-996a-6bc9-694e36285758",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_set_overlay_notification_position",
+                    "help": "steam_set_overlay_notification_position(position)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_set_overlay_notification_position",
+                    "returnType": 2
+                },
+                {
+                    "id": "ff2d5800-97de-e075-6655-89506e585296",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_set_overlay_notification_inset",
+                    "help": "steam_set_overlay_notification_inset(hor_inset, vert_inset)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_set_overlay_notification_inset",
+                    "returnType": 2
+                },
+                {
                     "id": "05db20a0-e7af-0b37-523c-fdefbd0ba493",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -3120,6 +3246,38 @@
                     "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
                     "constantName": "steam_net_packet_type_reliable_buffer",
+                    "hidden": false,
+                    "value": "3"
+                },
+                {
+                    "id": "aad7f322-3ac4-1903-51c1-0b8eef6b3bfd",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_overlay_notification_position_top_left",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "b7dea754-d7bd-0c07-a7a3-50603d3dee5f",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_overlay_notification_position_top_right",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "ed06f9a2-c0be-be45-7675-e2312285b0b3",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_overlay_notification_position_bottom_left",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "28b7043b-42f6-e96f-fbe6-91c4bc0e8967",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_overlay_notification_position_bottom_right",
                     "hidden": false,
                     "value": "3"
                 }
@@ -4314,6 +4472,37 @@
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_clear_rich_presence",
+                    "returnType": 2
+                },
+                {
+                    "id": "e10d4cf7-7764-6a46-b8c2-201088858673",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_set_overlay_notification_position",
+                    "help": "steam_set_overlay_notification_position(position)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_set_overlay_notification_position",
+                    "returnType": 2
+                },
+                {
+                    "id": "d4c3b615-7d0b-5de4-f264-d5539f5d0c92",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_set_overlay_notification_inset",
+                    "help": "steam_set_overlay_notification_inset(hor_inset, vert_inset)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_set_overlay_notification_inset",
                     "returnType": 2
                 },
                 {

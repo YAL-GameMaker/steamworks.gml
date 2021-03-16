@@ -529,6 +529,7 @@ cmd /c GmxGen "$(SolutionDir)Steamworks.gmx\extensions\Steamworks.gml.extension.
     <ClCompile Include="steam_networking.cpp" />
     <ClCompile Include="steam_unsorted.cpp" />
     <ClCompile Include="steam_user.cpp" />
+    <ClCompile Include="steam_utils.cpp" />
     <ClCompile Include="steam_workshop.cpp" />
   </ItemGroup>
   <ItemGroup>
