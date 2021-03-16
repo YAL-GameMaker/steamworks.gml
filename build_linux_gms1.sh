@@ -1,3 +1,4 @@
 #!/bin/sh
-g++ -m32 -O3 -fPIC -g -c -o Steamworks.gml/Steamworks.gml.o Steamworks.gml/Steamworks.gml.cpp
-g++ -m32 Steamworks.gml/Steamworks.gml.o -shared -o Steamworks.gmx/extensions/Steamworks.gml/Steamworks.gml.so -Wl,-rpath,assets/ -LSteamworks/redistributable_bin/linux32 -lsteam_api
+g++ -m32 Steamworks.gml/steam_*.cpp \
+    -std=c++11 -shared -o Steamworks.gml.so \
+    -Wl,-rpath,assets/ -Lsteamworks_sdk_135a/redistributable_bin/linux32 -lsteam_api
