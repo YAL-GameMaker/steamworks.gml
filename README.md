@@ -25,18 +25,26 @@ If all is well, upon running the game you'll see `Steamworks.gml initialized suc
 
 Download or clone the repository.
 
-Create a "Steamworks" directory and place [Steamworks SDK](https://partner.steamgames.com/) there.  
-You must pick a Steamworks version that matches the recommended version for your version of GameMaker (e.g. 1.42 for GMS2.3 - see [helpdesk](https://help.yoyogames.com/hc/en-us/articles/227860547-GMS2-Required-SDKs)).  
-Steamworks' `Readme.txt` should be located at `Steamworks/Readme.txt` as result.
+Create a `steamworks_sdk_135a` directory and place [Steamworks SDK 1.35a](https://partner.steamgames.com/downloads/steamworks_sdk_135a.zip) there (for GMS1).
 
-**Windows:** Open the included Visual Studio solution and order it to make a x86 build.
+Create a `steamworks_sdk_142` directory and place [Steamworks SDK 1.42](https://partner.steamgames.com/downloads/steamworks_sdk_142.zip) there (for GMS2).
 
-**Linux:** Run build_linux_gms#.sh. You'll need cpp:i386, gcc:i386, and g++:i386 installed.
+For both directories, `Readme.txt` should be directly inside the directory (`steamworks_sdk_135a/Readme.txt`) - no subdirectories!
 
-**Mac OSX:** Run build_osx_gms#.sh. You'll need XCode command line tools installed.
-
-The extension is automatically updated to reflect the functions/macros from the source code as a post-build step in the Visual Studio project (via [gmxgen](https://github.com/YAL-GameMaker-Tools/GmxGen)).
-Copy `GmxGen.exe` (build it yourself or get one from Downloads) into `Steamworks.gml` directory or add it to your PATH.
+* **Windows:**
+  * **GMS1:** Open the included Visual Studio solution, switch the solution platform (in toolbar) to `x86`, switch configuration (also in toolbar) to `GMS1 Release`, and pick menu:Build➜Build Solution.
+  * **GMS2:** Same as above, but with `GMS2 Release` configuration.
+  * **GMS2.3 with x64 runtime:** Same as above, but with `GMS2 Release` configuration and `x64` platform.
+  
+  **Note:** If you are adding new functions, you'll generally want to set up [GmxGen](https://github.com/YAL-GameMaker-Tools/GmxGen) to avoid adding them to extensions by hand. Once set up (extract `GmxGen.exe` next to `vcxproj` file), GmxGen will be ran automatically in post-build step.
+* **Linux:**
+  * **GMS1:** Run `build_linux_gms1.sh`. You'll need cpp:i386, gcc:i386, and g++:i386 installed.
+  * **GMS2:** Run `build_linux_gms2.sh`.
+* **Mac:**
+  * **GMS1:** Apple dropped support for x86 binaries that GMS1 exports! My condolences.
+  * **GMS2:** Run `build_mac_gms2.sh`.
+  
+  **Note:** Due to Apple's recent notarization changes, native extensions will no longer load when running from IDE on VM, as both application and all of its dependencies must be signed with same certificate.
 
 ## Meta
 Author: Vadim "YellowAfterlife" Dyachenko
