@@ -40,7 +40,7 @@
     </datafile>
   </datafiles>
   <NewExtensions>
-    <extension index="0">extensions\Steamworks.gml</extension>
+    <extension index="0">extensions\Steamworks_gml</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
