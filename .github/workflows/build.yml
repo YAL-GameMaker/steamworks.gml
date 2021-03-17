@@ -15,7 +15,7 @@ jobs:
           curl -o sdk142.zip "${{ secrets.STEAMWORKS_SDK_142 }}"
           powershell -command "Expand-Archive -Path sdk142.zip -DestinationPath ."
           mkdir Steamworks
-          move ./sdk/* ./Steamworks
+          move ./sdk/* ./steamworks_sdk_142
       - name: Install MSBuild
         uses: microsoft/setup-msbuild@v1
 
@@ -40,7 +40,7 @@ jobs:
           sudo curl -o sdk135a.zip "${{ secrets.STEAMWORKS_SDK_135A }}"
           sudo unzip sdk135a.zip
           sudo mkdir Steamworks
-          sudo mv ./sdk/* ./Steamworks
+          sudo mv ./sdk/* ./steamworks_sdk_135a
           sudo mkdir "Steamworks.gmx\extensions\Steamworks_gml"
       - name: Build Linux Libs
         run: sh build_linux_gms1.sh
@@ -64,7 +64,7 @@ jobs:
           sudo curl -o sdk142.zip "${{ secrets.STEAMWORKS_SDK_142 }}"
           sudo unzip sdk142.zip
           sudo mkdir Steamworks
-          sudo mv ./sdk/* ./Steamworks
+          sudo mv ./sdk/* ./steamworks_sdk_142
       - name: Build Linux Libs
         run: sh build_linux_gms2.sh
 
@@ -87,7 +87,7 @@ jobs:
           sudo curl -o sdk142.zip "${{ secrets.STEAMWORKS_SDK_142 }}"
           sudo unzip sdk142.zip
           sudo mkdir Steamworks
-          sudo mv ./sdk/* ./Steamworks
+          sudo mv ./sdk/* ./steamworks_sdk_142
           sudo mkdir "Steamworks.gmx\extensions\Steamworks_gml"
       - name: Build MacOS Libs
         run: sudo sh build_osx_gms2.sh
