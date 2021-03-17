@@ -66,7 +66,7 @@ jobs:
           sudo mkdir steamworks_sdk_142
           sudo mv ./sdk/* ./steamworks_sdk_142
       - name: Install GCC
-        run: sudo apt-get install gcc-4.8-multilib g++-4.8-multilib
+        run: sudo apt-get install gcc-multilib g++-multilib
       - name: Build Linux Libs
         run: sh build_linux_gms2.sh
 
