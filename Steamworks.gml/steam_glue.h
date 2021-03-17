@@ -9,10 +9,6 @@
 #include <stdlib.h>
 // I know, and great, but that's what GMS runtime uses
 #pragma GCC diagnostic ignored "-Wwrite-strings"
-// For what reasons this is not done automatically anyway?
-#define offsetof(type, field) __builtin_offsetof(type, field)
-// (I guess because it's bad, but tell that to Valve)
-#pragma GCC diagnostic ignored "-Winvalid-offsetof"
 // This one is not funny.
 #define nullptr NULL
 #endif
