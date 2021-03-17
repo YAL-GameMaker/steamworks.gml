@@ -11,8 +11,6 @@
 #pragma GCC diagnostic ignored "-Wwrite-strings"
 // (I guess because it's bad, but tell that to Valve)
 #pragma GCC diagnostic ignored "-Winvalid-offsetof"
-// This one is not funny.
-#define nullptr NULL
 #endif
 
 // For unidentifiable reason Steam API doesn't init unless using "safe" interfaces.
