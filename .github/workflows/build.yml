@@ -20,37 +20,37 @@ jobs:
         uses: microsoft/setup-msbuild@v1
 
       - name: Build Windows Libs
-        run: msbuild . "/property:Configuration=GMS2 Release"
+        run: msbuild . "/property:Configuration=GMS2 Release" /p:Platform=x86
 
       - name: Upload Windows Artifact
         uses: actions/upload-artifact@v2
         with:
           name: Steamworks.gml.dll
-          path: ./Release/Steamworks.gml.dll
+          path: ./GMS2 Release/Steamworks.gml.dll
 
-  build-linux-x32:
-    name: Build for GMS1 Linux
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Get Steamworks SDK
-        run: |
-          sudo curl -o sdk135a.zip "${{ secrets.STEAMWORKS_SDK_135A }}"
-          sudo unzip sdk135a.zip
-          sudo mkdir steamworks_sdk_135a
-          sudo mv ./sdk/* ./steamworks_sdk_135a
-          sudo mkdir "Steamworks.gmx\extensions\Steamworks_gml"
-      - name: Build Linux Libs
-        run: sh build_linux_gms1.sh
-
-      - name: Upload Linux Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: Steamworks_x32.gml.so
-          path: ./Steamworks.gml.so
-          if-no-files-found: error
+#  build-linux-x32:
+#    name: Build for GMS1 Linux
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: Get Steamworks SDK
+#        run: |
+#          sudo curl -o sdk135a.zip "${{ secrets.STEAMWORKS_SDK_135A }}"
+#          sudo unzip sdk135a.zip
+#          sudo mkdir steamworks_sdk_135a
+#          sudo mv ./sdk/* ./steamworks_sdk_135a
+#          sudo mkdir "Steamworks.gmx\extensions\Steamworks_gml"
+#      - name: Build Linux Libs
+#        run: sh build_linux_gms1.sh
+#
+#      - name: Upload Linux Artifact
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: Steamworks_x32.gml.so
+#          path: ./Steamworks.gml.so
+#          if-no-files-found: error
 
   build-linux-x64:
     name: Build for GMS2 Linux
@@ -65,6 +65,8 @@ jobs:
           sudo unzip sdk142.zip
           sudo mkdir steamworks_sdk_142
           sudo mv ./sdk/* ./steamworks_sdk_142
+      - name: Install GCC
+        run: sudo apt-get install gcc-4.8-multilib g++-4.8-multilib
       - name: Build Linux Libs
         run: sh build_linux_gms2.sh
 
