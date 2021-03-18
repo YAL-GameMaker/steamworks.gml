@@ -3,8 +3,8 @@ name: Build
 on: [workflow_dispatch]
 
 jobs:
-  build-windows-gms2:
-    name: Build for GMS2 Windows
+  build-windows:
+    name: Build for Windows
     runs-on: windows-latest
     steps:
       - name: Checkout code
@@ -12,6 +12,11 @@ jobs:
 
       - name: Get Steamworks SDK
         run: |
+          curl -o sdk135a.zip "${{ secrets.STEAMWORKS_SDK_135A }}"
+          powershell -command "Expand-Archive -Path sdk135a.zip -DestinationPath ."
+          mkdir steamworks_sdk_135a
+          move ./sdk/* ./steamworks_sdk_135a
+          
           curl -o sdk142.zip "${{ secrets.STEAMWORKS_SDK_142 }}"
           powershell -command "Expand-Archive -Path sdk142.zip -DestinationPath ."
           mkdir steamworks_sdk_142
@@ -19,66 +24,74 @@ jobs:
       - name: Install MSBuild
         uses: microsoft/setup-msbuild@v1
 
-      - name: Build Windows Libs
-        run: msbuild . "/property:Configuration=GMS2 Release" /p:Platform=x86
-
-      - name: Upload Windows Artifact
+      - name: Build for GMS1
+        run: msbuild . "/property:Configuration=GMS1 Release" /p:Platform=x86
+      - name: Upload GMS1 artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gml.dll
+          name: Steamworks.gml (GMS1, Windows)
+          path: ./GMS1 Release/Steamworks.gml.dll
+      
+      - name: Build for GMS2
+        run: msbuild . "/property:Configuration=GMS2 Release" /p:Platform=x86
+      - name: Upload GMS2 artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Steamworks.gml (GMS2, Windows)
+          path: ./GMS2 Release/Steamworks.gml.dll
+      
+      - name: Build for GMS2.3 x64 runtime
+        run: msbuild . "/property:Configuration=GMS2 Release" /p:Platform=x64
+      - name: Upload GMS2.3 x64 artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Steamworks.gml (GMS2.3 x64, Windows)
           path: ./GMS2 Release/Steamworks.gml.dll
 
-#  build-linux-x32:
-#    name: Build for GMS1 Linux
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v2
-#
-#      - name: Get Steamworks SDK
-#        run: |
-#          sudo curl -o sdk135a.zip "${{ secrets.STEAMWORKS_SDK_135A }}"
-#          sudo unzip sdk135a.zip
-#          sudo mkdir steamworks_sdk_135a
-#          sudo mv ./sdk/* ./steamworks_sdk_135a
-#          sudo mkdir "Steamworks.gmx\extensions\Steamworks_gml"
-#      - name: Build Linux Libs
-#        run: sh build_linux_gms1.sh
-#
-#      - name: Upload Linux Artifact
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: Steamworks_x32.gml.so
-#          path: ./Steamworks.gml.so
-#          if-no-files-found: error
-
-  build-linux-x64:
-    name: Build for GMS2 Linux
+  build-linux:
+    name: Build for Linux
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+        
+      - name: Install GCC
+        run: sudo apt-get install gcc-multilib g++-multilib
+        
       - name: Get Steamworks SDK
         run: |
+          sudo curl -o sdk135a.zip "${{ secrets.STEAMWORKS_SDK_135A }}"
+          sudo unzip sdk135a.zip
+          sudo mkdir steamworks_sdk_135a
+          sudo mv ./sdk/* ./steamworks_sdk_135a
+          
           sudo curl -o sdk142.zip "${{ secrets.STEAMWORKS_SDK_142 }}"
           sudo unzip sdk142.zip
           sudo mkdir steamworks_sdk_142
           sudo mv ./sdk/* ./steamworks_sdk_142
-      - name: Install GCC
-        run: sudo apt-get install gcc-multilib g++-multilib
-      - name: Build Linux Libs
-        run: sh build_linux_gms2.sh
+          
+      - name: Build Linux x86/GMS1
+        run: sh build_linux_gms1.sh
 
-      - name: Upload Linux Artifact
+      - name: Upload Linux x86/GMS1
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks_x64.gml.so
+          name: Steamworks.gml (GMS1, Linux)
+          path: ./Steamworks.gml.so
+          if-no-files-found: error
+          
+      - name: Build Linux x64/GMS2
+        run: sh build_linux_gms2.sh
+
+      - name: Upload Linux x64/GMS2
+        uses: actions/upload-artifact@v2
+        with:
+          name: Steamworks.gml (GMS2, Linux)
           path: ./Steamworks.gml.so
           if-no-files-found: error
 
   build-macos:
-    name: Build for GMS2 MacOS
+    name: Build for MacOS
     runs-on: macos-latest
     steps:
       - name: Checkout code
