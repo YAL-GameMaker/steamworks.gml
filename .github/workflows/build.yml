@@ -47,7 +47,7 @@ jobs:
         with:
           name: |
             Steamworks.gml.dll (GMS2.3, Windows x64)
-            NB! Only use this if you enabled "Use x64 Windows runtime"
+            NB! Only use this if you enabled 'Use x64 Windows runtime'
           path: ./x64/GMS2 Release/Steamworks.gml.dll
 
   build-linux:
