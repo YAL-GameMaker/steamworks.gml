@@ -2,6 +2,8 @@
 g++ -m64 \
     -std=c++11 \
     Steamworks.gml/steam_*.cpp \
+    Steamworks.gml/gml_*.cpp \
+    Steamworks.gml/base64_encode.cpp \
     -Wl,-rpath,assets/ -fPIC \
     -Lsteamworks_sdk_142/redistributable_bin/linux64 \
     -lsteam_api \
