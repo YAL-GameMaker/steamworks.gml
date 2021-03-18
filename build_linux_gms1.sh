@@ -5,7 +5,7 @@ g++ -m32 \
     Steamworks.gml/gml_*.cpp \
     Steamworks.gml/base64_encode.cpp \
     -Wl,-rpath,assets/ -fPIC \
-    -LLsteamworks_sdk_135a/redistributable_bin/linux64 \
+    -Lsteamworks_sdk_135a/redistributable_bin/linux64 \
     -lsteam_api \
-    -ILsteamworks_sdk_135a/public \
+    -Isteamworks_sdk_135a/public \
     -shared -o Steamworks.gml.so
