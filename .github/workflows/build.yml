@@ -29,7 +29,7 @@ jobs:
       - name: Upload GMS1 artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gml.dll (GMS1, Windows)
+          name: GMS1
           path: ./GMS1 Release/Steamworks.gml.dll
       
       - name: Build for GMS2
@@ -37,7 +37,7 @@ jobs:
       - name: Upload GMS2 artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gml.dll (GMS2, Windows)
+          name: GMS2
           path: ./GMS2 Release/Steamworks.gml.dll
       
       - name: Build for GMS2.3 x64 runtime
@@ -45,9 +45,7 @@ jobs:
       - name: Upload GMS2.3 x64 artifact
         uses: actions/upload-artifact@v2
         with:
-          name: |
-            Steamworks.gml.dll (GMS2.3, Windows x64)
-            NB! Only use this if you enabled 'Use x64 Windows runtime'
+          name: GMS2.3 with 'Use x64 Windows runtime'
           path: ./x64/GMS2 Release/Steamworks.gml.dll
 
   build-linux:
@@ -78,7 +76,7 @@ jobs:
       - name: Upload Linux x86/GMS1
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gml.so (GMS1, Linux)
+          name: GMS1
           path: ./Steamworks.gml.so
           if-no-files-found: error
           
@@ -88,7 +86,7 @@ jobs:
       - name: Upload Linux x64/GMS2
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gml.so (GMS2, Linux)
+          name: GMS2
           path: ./Steamworks.gml.so
           if-no-files-found: error
 
@@ -112,6 +110,6 @@ jobs:
       - name: Upload MacOS Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gml.dylib (GMS2, MacOS)
+          name: GMS2
           path: ./Steamworks.gml.dylib
           if-no-files-found: error 
