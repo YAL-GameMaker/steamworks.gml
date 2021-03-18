@@ -29,7 +29,7 @@ jobs:
       - name: Upload GMS1 artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gml (GMS1, Windows)
+          name: Steamworks.gml.dll (GMS1, Windows)
           path: ./GMS1 Release/Steamworks.gml.dll
       
       - name: Build for GMS2
@@ -37,7 +37,7 @@ jobs:
       - name: Upload GMS2 artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gml (GMS2, Windows)
+          name: Steamworks.gml.dll (GMS2, Windows)
           path: ./GMS2 Release/Steamworks.gml.dll
       
       - name: Build for GMS2.3 x64 runtime
@@ -45,8 +45,10 @@ jobs:
       - name: Upload GMS2.3 x64 artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gml (GMS2.3 x64, Windows)
-          path: ./GMS2 Release/Steamworks.gml.dll
+          name: |
+            Steamworks.gml.dll (GMS2.3, Windows x64)
+            NB! Only use this if you enabled "Use x64 Windows runtime"
+          path: ./x64/GMS2 Release/Steamworks.gml.dll
 
   build-linux:
     name: Build for Linux
@@ -76,7 +78,7 @@ jobs:
       - name: Upload Linux x86/GMS1
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gml (GMS1, Linux)
+          name: Steamworks.gml.so (GMS1, Linux)
           path: ./Steamworks.gml.so
           if-no-files-found: error
           
@@ -86,7 +88,7 @@ jobs:
       - name: Upload Linux x64/GMS2
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gml (GMS2, Linux)
+          name: Steamworks.gml.so (GMS2, Linux)
           path: ./Steamworks.gml.so
           if-no-files-found: error
 
@@ -104,12 +106,12 @@ jobs:
           sudo mkdir steamworks_sdk_142
           sudo mv ./sdk/* ./steamworks_sdk_142
           sudo mkdir "Steamworks.gmx\extensions\Steamworks_gml"
-      - name: Build MacOS Libs
+      
+      - name: Build for MacOS x64/GMS2
         run: sudo sh build_osx_gms2.sh
-
       - name: Upload MacOS Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Steamworks.gml.dylib
+          name: Steamworks.gml.dylib (GMS2, MacOS)
           path: ./Steamworks.gml.dylib
           if-no-files-found: error 
