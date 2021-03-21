@@ -6,7 +6,8 @@ function test_create_controller() {
 	    trace("No controllers found.");
 	    exit;
 	} else controller = controllers[0];
-	trace("Controller ID:", controller);
+	trace("Controller ID:", controller)
+    trace("Controller type:", test_controller_type_to_name(steam_controller_get_type(controller)), "(=", steam_controller_get_type(controller), ")");
 	//
 	aset_menu = steam_controller_get_actionset_id("MenuControls");
 	trace("Menu ActionSet ID:", aset_menu);
