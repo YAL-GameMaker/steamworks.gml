@@ -48,6 +48,10 @@ ControllerHandle_t steam_controller_find(double id) {
 	if (id == -3/* all */) return STEAM_CONTROLLER_HANDLE_ALL_CONTROLLERS;
 	ControllerHandle_t q; return steam_controller_controllers.get(id, &q) ? q : 0;
 }
+dllx double steam_controller_get_type(double id) {
+	ControllerHandle_t ctl = steam_controller_find(id);
+	return SteamController()->GetInputTypeForHandle(ctl);
+}
 #pragma endregion
 
 #pragma region ActionSet

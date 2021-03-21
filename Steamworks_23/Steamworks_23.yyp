@@ -5,6 +5,7 @@
     {"id":{"name":"trace","path":"scripts/trace/trace.yy",},"order":1,},
     {"id":{"name":"trace_log_draw","path":"scripts/trace_log_draw/trace_log_draw.yy",},"order":2,},
     {"id":{"name":"sfmt","path":"scripts/sfmt/sfmt.yy",},"order":3,},
+    {"id":{"name":"test_controller_type_to_name","path":"scripts/test_controller_type_to_name/test_controller_type_to_name.yy",},"order":2,},
     {"id":{"name":"test_params","path":"scripts/test_params/test_params.yy",},"order":4,},
     {"id":{"name":"test_create","path":"scripts/test_create/test_create.yy",},"order":5,},
     {"id":{"name":"test_update","path":"scripts/test_update/test_update.yy",},"order":6,},
