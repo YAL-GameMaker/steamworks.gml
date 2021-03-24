@@ -272,3 +272,9 @@ Steamworks.gmx/Configs/*/
 
 # GMEdit backups:
 */#backups/
+
+export/*.gmez
+export/*.gmz
+export/*.yyz
+export/*.yymp
+export/*.yymps
