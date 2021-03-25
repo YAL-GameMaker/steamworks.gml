@@ -601,6 +601,21 @@
                     "returnType": 2
                 },
                 {
+                    "id": "b4a4b9ff-0806-d3b6-4268-07b386175589",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_inventory_trigger_item_drop",
+                    "help": "steam_inventory_trigger_item_drop(item_def) ->bool",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_inventory_trigger_item_drop",
+                    "returnType": 2
+                },
+                {
                     "id": "a5b5a8ee-a2ac-79a7-715b-8f3b06accc18",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -688,6 +703,22 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "steam_lobby_get_owner_id_low",
+                    "returnType": 2
+                },
+                {
+                    "id": "9a610253-bc21-4306-3b10-574230de7dc2",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_lobby_set_owner_id_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_set_owner_id_raw",
                     "returnType": 2
                 },
                 {
@@ -2261,6 +2292,21 @@
                     "returnType": 2
                 },
                 {
+                    "id": "0ed270a1-2117-3b47-0260-0e001d17bde9",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_inventory_trigger_item_drop",
+                    "help": "steam_inventory_trigger_item_drop(item_def) ->bool",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_inventory_trigger_item_drop",
+                    "returnType": 2
+                },
+                {
                     "id": "3de1f829-a1ad-b3c7-bd94-4afed6a9e9a1",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -2348,6 +2394,22 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "steam_lobby_get_owner_id_low",
+                    "returnType": 2
+                },
+                {
+                    "id": "d9c71d25-35b3-3ec5-a70a-a6c19dc20680",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_lobby_set_owner_id_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_set_owner_id_raw",
                     "returnType": 2
                 },
                 {
@@ -3915,6 +3977,21 @@
                     "returnType": 2
                 },
                 {
+                    "id": "cd55d7cc-9545-4783-6692-e220a1f5e208",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_inventory_trigger_item_drop",
+                    "help": "steam_inventory_trigger_item_drop(item_def) ->bool",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_inventory_trigger_item_drop",
+                    "returnType": 2
+                },
+                {
                     "id": "73ba2eee-9232-8695-0853-d6a0126b0cc9",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -4002,6 +4079,22 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "steam_lobby_get_owner_id_low",
+                    "returnType": 2
+                },
+                {
+                    "id": "b1d4df2a-967f-5cf4-6425-f20443176e13",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_lobby_set_owner_id_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_set_owner_id_raw",
                     "returnType": 2
                 },
                 {
@@ -5238,6 +5331,21 @@
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_lobby_get_owner_id",
+                    "returnType": 2
+                },
+                {
+                    "id": "b001103f-0ad9-43ec-f720-c5ff1d5099ab",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_lobby_set_owner_id",
+                    "help": "steam_lobby_set_owner_id(user_id)->bool : Transfers lobby ownership",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_lobby_set_owner_id",
                     "returnType": 2
                 },
                 {

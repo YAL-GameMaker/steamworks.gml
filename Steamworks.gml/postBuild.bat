@@ -44,8 +44,7 @@ if %ERRORLEVEL% EQU 0 (
 	echo Running GmxGen...
 	if %isGMS2% EQU 1 (
 		gmxgen "%ext23%\%extName%.yy" ^
-		--copy "%dllPath%" "%dllRel%:%arch%" ^
-		--copy "%cppPath%" "%cppRel%"
+		--copy "%dllPath%" "%dllRel%:%arch%"
 
 		gmxgen "%ext22%\%extName%.yy" ^
 		--copy "%dllPath%" "%dllRel%:%arch%" ^

@@ -29,6 +29,7 @@ extern CSteamAPIContext SteamAPI;
 #define SteamFriends SteamAPI.SteamFriends
 #define SteamNetworking SteamAPI.SteamNetworking
 #define SteamMatchmaking SteamAPI.SteamMatchmaking
+#define SteamInventory SteamAPI.SteamInventory
 #define SteamUtils SteamAPI.SteamUtils
 #define SteamController SteamAPI.SteamController
 #define SteamUGC SteamAPI.SteamUGC

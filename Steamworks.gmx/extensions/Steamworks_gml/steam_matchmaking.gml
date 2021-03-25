@@ -13,6 +13,10 @@ return steam_id_create(steam_lobby_get_lobby_id_high(), steam_lobby_get_lobby_id
 /// steam_lobby_get_owner_id()->user_id : Returns the user ID of the authoritative user in the lobby.
 return steam_id_create(steam_lobby_get_owner_id_high(), steam_lobby_get_owner_id_low());
 
+#define steam_lobby_set_owner_id
+/// (user_id)->bool : Transfers lobby ownership
+return steam_lobby_set_owner_id_raw(steam_id_get_high(argument0), steam_id_get_low(argument0));
+
 #define steam_lobby_get_member_id
 /// steam_lobby_get_member_id(index)->user_id : Returns the user ID of the given user in the lobby.
 var i = argument0;

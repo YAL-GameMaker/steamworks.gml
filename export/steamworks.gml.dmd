@@ -341,6 +341,15 @@ A most up-to-date version of the manual is always [available online](https://yal
 		
 		If the lobby is not valid, returns ID 0.
 	}
+	#[steam_lobby_set_owner_id(user_id)->bool]() {
+		If you are a lobby owner, transfers the lobby ownership to the specified player,
+		which must be in this same lobby.
+		
+		Returns whether successful.
+		
+		See remarks in [SetLobbyOwner](https://partner.steamgames.com/doc/api/ISteamMatchmaking#SetLobbyOwner)
+	}
+	---
 	#[steam_lobby_get_member_count()->int]() {
 		Returns the number of users in the current lobby (including you).
 		
@@ -353,6 +362,7 @@ A most up-to-date version of the manual is always [available online](https://yal
 		
 		If the index (or lobby) is not valid, returns ID 0.
 	}
+	---
 	#[steam_lobby_get_lobby_id()->lobby_id]() {
 		Returns the Steam ID of the current lobby.
 	}
@@ -690,6 +700,14 @@ A most up-to-date version of the manual is always [available online](https://yal
 		Equivalent of [ClearRichPresence](https://partner.steamgames.com/doc/api/ISteamFriends#ClearRichPresence)
 	}
 }
+#[Steam Inventory](steam_inventory) {
+	#[steam_inventory_trigger_item_drop(item_def)->bool]() {
+		A wrapper around [TriggerItemDrop](https://partner.steamgames.com/doc/api/ISteamInventory#TriggerItemDrop).
+		
+		Note that this simply indicates whether the async request was sent off - the item may not 
+		drop if calling the function more often that the max drop rate that you have configured.
+	}
+}
 #[Steam ID functions](steam_id) {
 	Functions for handling 64-bit Steam IDs
 	#[steam_id_use_int64:bool]() {
@@ -729,7 +747,7 @@ A most up-to-date version of the manual is always [available online](https://yal
 	}
 }
 #[Uncommon functions](steam_uncommon) {
-	Anything not fitting into the above category.
+	Anything not fitting into the above categories.
 	#[steam_ugc_delete_item(published_file_id)]() {
 		Attempts deletion of a previously published UGC item.
 		

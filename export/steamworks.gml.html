@@ -641,7 +641,14 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		Returns the lobby's owner's Steam ID.
 		</p><p>
 		If the lobby is not valid, returns ID 0.
-	</p></article></section><section><header id="steam_lobby_get_member_count"><a href="#steam_lobby_get_member_count" title="(permalink)">steam_lobby_get_member_count()<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+	</p></article></section><section><header id="steam_lobby_set_owner_id"><a href="#steam_lobby_set_owner_id" title="(permalink)">steam_lobby_set_owner_id(user_id)<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		If you are a lobby owner, transfers the lobby ownership to the specified player,
+		which must be in this same lobby.
+		</p><p>
+		Returns whether successful.
+		</p><p>
+		See remarks in <a href="https://partner.steamgames.com/doc/api/ISteamMatchmaking#SetLobbyOwner">SetLobbyOwner</a>
+	</p></article></section><hr/><section><header id="steam_lobby_get_member_count"><a href="#steam_lobby_get_member_count" title="(permalink)">steam_lobby_get_member_count()<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
 		Returns the number of users in the current lobby (including you).
 		</p><p>
 		If the lobby is not valid, returns 0.
@@ -651,7 +658,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		Index should be between 0 (incl.) and result of <a href="#steam_lobby_get_member_count">steam_lobby_get_member_count</a> (excl.). Results will include the local user.
 		</p><p>
 		If the index (or lobby) is not valid, returns ID 0.
-	</p></article></section><section><header id="steam_lobby_get_lobby_id"><a href="#steam_lobby_get_lobby_id" title="(permalink)">steam_lobby_get_lobby_id()<span class="ret-arrow">&#10140;</span>lobby_id</a></header><article><p>
+	</p></article></section><hr/><section><header id="steam_lobby_get_lobby_id"><a href="#steam_lobby_get_lobby_id" title="(permalink)">steam_lobby_get_lobby_id()<span class="ret-arrow">&#10140;</span>lobby_id</a></header><article><p>
 		Returns the Steam ID of the current lobby.
 	</p></article></section><section><header id="steam_lobby_activate_invite_overlay"><a href="#steam_lobby_activate_invite_overlay" title="(permalink)">steam_lobby_activate_invite_overlay()</a></header><article><p>
 		Displays an invitation overlay if currently in a lobby.
@@ -927,6 +934,11 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		for a comprehensive explanation of things to do with this function.
 	</p></article></section><section><header id="steam_clear_rich_presence"><a href="#steam_clear_rich_presence" title="(permalink)">steam_clear_rich_presence()</a></header><article><p>
 		Equivalent of <a href="https://partner.steamgames.com/doc/api/ISteamFriends#ClearRichPresence">ClearRichPresence</a>
+	</p></article></section></article></section><section><header id="steam_inventory"><a href="#steam_inventory" title="(permalink)">Steam Inventory</a></header><article><section><header id="steam_inventory_trigger_item_drop"><a href="#steam_inventory_trigger_item_drop" title="(permalink)">steam_inventory_trigger_item_drop(item_def)<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		A wrapper around <a href="https://partner.steamgames.com/doc/api/ISteamInventory#TriggerItemDrop">TriggerItemDrop</a>.
+		</p><p>
+		Note that this simply indicates whether the async request was sent off - the item may not 
+		drop if calling the function more often that the max drop rate that you have configured.
 	</p></article></section></article></section><section><header id="steam_id"><a href="#steam_id" title="(permalink)">Steam ID functions</a></header><article><p>
 	Functions for handling 64-bit Steam IDs
 	</p><section><header id="steam_id_use_int64"><a href="#steam_id_use_int64" title="(permalink)">steam_id_use_int64:bool</a></header><article><p>
@@ -958,7 +970,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</p><p>
 		(only useful with <a href="#steam_id_use_int64">steam_id_use_int64</a> disabled)
 	</p></article></section></article></section><section><header id="steam_uncommon"><a href="#steam_uncommon" title="(permalink)">Uncommon functions</a></header><article><p>
-	Anything not fitting into the above category.
+	Anything not fitting into the above categories.
 	</p><section><header id="steam_ugc_delete_item"><a href="#steam_ugc_delete_item" title="(permalink)">steam_ugc_delete_item(published_file_id)</a></header><article><p>
 		Attempts deletion of a previously published UGC item.
 		</p><p>

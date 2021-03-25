@@ -494,6 +494,7 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
     <ClCompile Include="steam_callbacks.cpp" />
     <ClCompile Include="steam_controller.cpp" />
     <ClCompile Include="steam_glue.cpp" />
+    <ClCompile Include="steam_inventory.cpp" />
     <ClCompile Include="steam_matchmaking.cpp" />
     <ClCompile Include="steam_misc.cpp" />
     <ClCompile Include="steam_networking.cpp" />

@@ -37,6 +37,13 @@ dllx double steam_lobby_get_owner_id_high() {
 dllx double steam_lobby_get_owner_id_low() {
 	return uint64_low(steam_lobby_get_owner_id());
 }
+
+dllx double steam_lobby_set_owner_id_raw(double user_id_high, double user_id_low) {
+	if (steam_lobby_current.IsValid()) {
+		return SteamMatchmaking()->SetLobbyOwner(steam_lobby_current, uint64_make(user_id_high, user_id_low));
+	} else return false;
+}
+
 /// Returns the number of users in the lobby.
 dllx double steam_lobby_get_member_count() {
 	if (SteamMatchmaking()) {

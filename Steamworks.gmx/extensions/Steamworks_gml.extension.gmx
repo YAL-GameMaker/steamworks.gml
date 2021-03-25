@@ -250,6 +250,17 @@
           </args>
         </function>
         <function>
+          <name>steam_inventory_trigger_item_drop</name>
+          <externalName>steam_inventory_trigger_item_drop</externalName>
+          <kind>1</kind>
+          <help>steam_inventory_trigger_item_drop(item_def) -&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_lobby_get_lobby_id_high</name>
           <externalName>steam_lobby_get_lobby_id_high</externalName>
           <kind>11</kind>
@@ -302,6 +313,18 @@
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
+        </function>
+        <function>
+          <name>steam_lobby_set_owner_id_raw</name>
+          <externalName>steam_lobby_set_owner_id_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
         </function>
         <function>
           <name>steam_lobby_get_member_count</name>
@@ -1331,6 +1354,17 @@
           </args>
         </function>
         <function>
+          <name>steam_inventory_trigger_item_drop</name>
+          <externalName>steam_inventory_trigger_item_drop</externalName>
+          <kind>1</kind>
+          <help>steam_inventory_trigger_item_drop(item_def) -&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_lobby_get_lobby_id_high</name>
           <externalName>steam_lobby_get_lobby_id_high</externalName>
           <kind>11</kind>
@@ -1383,6 +1417,18 @@
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
+        </function>
+        <function>
+          <name>steam_lobby_set_owner_id_raw</name>
+          <externalName>steam_lobby_set_owner_id_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
         </function>
         <function>
           <name>steam_lobby_get_member_count</name>
@@ -2412,6 +2458,17 @@
           </args>
         </function>
         <function>
+          <name>steam_inventory_trigger_item_drop</name>
+          <externalName>steam_inventory_trigger_item_drop</externalName>
+          <kind>1</kind>
+          <help>steam_inventory_trigger_item_drop(item_def) -&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_lobby_get_lobby_id_high</name>
           <externalName>steam_lobby_get_lobby_id_high</externalName>
           <kind>11</kind>
@@ -2464,6 +2521,18 @@
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
+        </function>
+        <function>
+          <name>steam_lobby_set_owner_id_raw</name>
+          <externalName>steam_lobby_set_owner_id_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
         </function>
         <function>
           <name>steam_lobby_get_member_count</name>
@@ -3605,6 +3674,17 @@
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
+        </function>
+        <function>
+          <name>steam_lobby_set_owner_id</name>
+          <externalName>steam_lobby_set_owner_id</externalName>
+          <kind>2</kind>
+          <help>steam_lobby_set_owner_id(user_id)-&gt;bool : Transfers lobby ownership</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
         </function>
         <function>
           <name>steam_lobby_get_member_id</name>
