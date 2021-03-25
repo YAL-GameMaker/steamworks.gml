@@ -20,7 +20,9 @@ set gmlDir23=%solutionDir%Steamworks_23
 set ext14=%gmlDir14%\extensions\%extName%
 set ext22=%gmlDir22%\extensions\%extName%
 set ext23=%gmlDir23%\extensions\%extName%
-set cppPath=%ext23%\%extName%.cpp
+set dllRel=Steamworks.gml.dll
+set cppRel=Steamworks.gml.cpp
+set cppPath=%ext23%\%cppRel%
 set gmlPath=%ext23%\*.gml
 set docName=Steamworks.gml.html
 set docPath=%solutionDir%export\%docName%
@@ -42,17 +44,17 @@ if %ERRORLEVEL% EQU 0 (
 	echo Running GmxGen...
 	if %isGMS2% EQU 1 (
 		gmxgen "%ext23%\%extName%.yy" ^
-		--copy "%dllPath%" "%extName%.dll:%arch%" ^
-		--copy "%cppPath%" "%extName%.cpp"
+		--copy "%dllPath%" "%dllRel%:%arch%" ^
+		--copy "%cppPath%" "%cppRel%"
 
 		gmxgen "%ext22%\%extName%.yy" ^
-		--copy "%dllPath%" "%extName%.dll:%arch%" ^
-		--copy "%cppPath%" "%extName%.cpp" ^
+		--copy "%dllPath%" "%dllRel%:%arch%" ^
+		--copy "%cppPath%" "%cppRel%" ^
 		--copy "%gmlPath%" "*.gml"
 	) else (
 		gmxgen "%ext14%.extension.gmx" ^
-		--copy "%dllPath%" "%extName%.dll:%arch%" ^
-		--copy "%cppPath%" "%extName%.cpp" ^
+		--copy "%dllPath%" "%dllRel%:%arch%" ^
+		--copy "%cppPath%" "%cppRel%" ^
 		--copy "%gmlPath%" "*.gml"
 	)
 
@@ -60,13 +62,13 @@ if %ERRORLEVEL% EQU 0 (
 
 	echo Copying DLLs...
 	if "%arch%" EQU "x64" (
-		copy /Y "%dllPath%" "%ext23%\%extName%_x64.dll"
+		copy /Y "%dllPath%" "%ext23%\Steamworks.gml_x64.dll"
 	) else (
 		if %isGMS2% EQU 1 (
-			copy /Y "%dllPath%" "%ext22%\%extName%.dll"
-			copy /Y "%dllPath%" "%ext23%\%extName%.dll"
+			copy /Y "%dllPath%" "%ext22%\%dllRel%"
+			copy /Y "%dllPath%" "%ext23%\%dllRel%"
 		) else (
-			copy /Y "%dllPath%" "%ext14%\%extName%.dll"
+			copy /Y "%dllPath%" "%ext14%\%dllRel%"
 		)
 	)
 	
