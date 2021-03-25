@@ -30,13 +30,11 @@ void steam_net_callbacks_t::p2p_session_request(P2PSessionRequest_t* e) {
 	}
 }
 
-/// Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.
 dllx double steam_net_accept_p2p_session_raw(double user_id_high, double user_id_low) {
 	CSteamID user(uint64_make(user_id_high, user_id_low));
 	return SteamNetworking() && SteamNetworking()->AcceptP2PSessionWithUser(user);
 }
 
-///
 dllx double steam_net_close_p2p_session_raw(double user_id_high, double user_id_low) {
 	CSteamID user(uint64_make(user_id_high, user_id_low));
 	return SteamNetworking() && SteamNetworking()->CloseP2PSessionWithUser(user);

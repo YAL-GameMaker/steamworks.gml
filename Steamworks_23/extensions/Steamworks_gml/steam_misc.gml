@@ -14,6 +14,10 @@ for (var i = 0; i < n; i++) {
 }
 return r;
 
+#define steam_ugc_delete_item
+/// (published_file_id) 
+steam_ugc_delete_item_raw(steam_id_get_high(argument0), steam_id_get_low(argument0));
+
 #define steam_get_app_ownership_ticket_data
 /// (buffer, ?app_id)->[size_total, ofs_app_id, ofs_steam_id, ofs_signature, size_signature]
 var l_buf = argument[0];

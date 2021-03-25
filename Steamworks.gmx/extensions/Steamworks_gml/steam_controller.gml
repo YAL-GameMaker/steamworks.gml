@@ -34,7 +34,7 @@ if (n < 0) {
 return n;
 
 #define steam_controller_get_origins_raw
-/// steam_controller_get_origins_raw(found, buffer, out)->array
+/// steam_controller_get_origins_raw(found, buffer, out)->array~
 var n = argument0;
 var b = argument1;
 var w = argument2;
@@ -54,7 +54,7 @@ var w; if (argument_count > 3) w = argument[3]; else w = undefined;
 return steam_controller_get_origins_raw(n, b, w);
 
 #define steam_controller_get_analog_origins
-/// steam_controller_get_digital_origins(controller, actionset_id, analog_id, ?out:array<origin>): as per GetDigitalActionOrigins
+/// steam_controller_get_digital_origins(controller, actionset_id, analog_id, ?out:array<origin>): as per GetAnalogActionOrigins
 var b = steam_gml_prepare_buffer(steam_controller_get_max_origins() * 4);
 var n = steam_controller_get_analog_origins_raw(argument[0], argument[1], argument[2], buffer_get_address(b));
 var w; if (argument_count > 3) w = argument[3]; else w = undefined;
