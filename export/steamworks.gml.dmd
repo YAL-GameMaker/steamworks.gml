@@ -73,25 +73,684 @@ A most up-to-date version of the manual is always [available online](https://yal
 	}
 }
 #[General functions](steam_general) {
-	#[steam_net_check_version()]() {
+	#[steam_gml_is_available()->bool]() {
+		Returns whether the native extension loaded at all.
+	}
+	#[steam_gml_is_ready()->bool]() {
+		Returns whether the native extension had been loaded and initialized.
+		
+		*NB!* in GMS2.3, "global" code in scripts runs before extension init does.
+	}
+	#[steam_gml_check_version()->bool]() {
 		Returns whether the native extension is loaded correctly and has it's version matching the one that the game had been built with.
 		
 		Can be used to timely inform the player that their copy might be broken instead of having them wonder why things are not working.
 		```
-		if (!steam_net_check_version()) {
+		if (!steam_gml_check_version()) {
 		    show_message("oh no");
 		}
 		```
 	}
-	#[steam_net_update()]() {
+	#[steam_gml_update()]() {
 		Polls Steam API and dispatches any new events since the last call to the function.
 		
 		As outlined above, you generally want to call this function every now and then.
 	}
+}
+#[Async events](steam_async) {
+	As result of a number of function calls, the extension dispatches asynchronous events.
+	
+	All of these events have `async_load[?"success"]` indicating whether the async action succeeded (true or false) and `async_load[?"result"]` containing the status code (descriptions can be found in Steam API documentation);
+	
+	These can be caught by adding a Async - Steam event, and checking whether `async_load[?"event_type"]` is one of following names (as strings):
+	#[lobby_list]() {
+		Triggers after requesting a list of public lobbies via [steam_lobby_list_request].
+		
+		It is not required to do anything in response to this event.
+		
+		`async_load[?"lobby_count"]` contains the number of matching lobbies (0 in case of network failure).
+		
+		Use [matchmaking functions](steam_lobby_list) to retrieve other information.
+	}
+	#[lobby_joined]() {
+		Triggers after requesting to join a lobby. This can fail if:
+		--{
+		--	There's no connection to Steam
+		--	Lobby is full (no available player slots left)
+		--	Lobby was destroyed before you requested to join it
+		}
+		When successful, this is a good place to establish connection to lobby's members.
+	}
+	#[lobby_created]() {
+		Fires after requesting to create a lobby. This can fail if:
+		--{
+		--	There's no connection to Steam
+		--	You are trying to create a public lobby for a game that does not have matchmaking API enabled
+		(is off by default for free games - request permissions via support forum).
+		}
+		When successful, this is a good place to [set up lobby data](steam_lobby_set_data).
+	}
+	#[lobby_join_requested]() {
+		Triggers when the local player accepts an invitation via Steam overlay.
+		
+		This event has several fields:
+		--{
+		--	`async_load[?"lobby_id_high"]`, `async_load[?"lobby_id_low"]` (combine via [steam_id_create]) indicate the ID of the lobby to join (via [steam_lobby_join_id]).
+		--	`async_load[?"friend_id_high"]`, `async_load[?"friend_id_low"]` (combine via [steam_id_create]) indicate the ID of the user that the invitation was from (in case you want to display "joining X's lobby" while loading).
+		}
+		Is commonly used as following:
+		```
+		if (async_load[?"event_type"] == "lobby_join_requested") {
+		    steam_lobby_join_id(steam_id_create(
+		        async_load[?"lobby_id_high"],
+		        async_load[?"lobby_id_low"]
+		    ));
+		}
+		```
+	}
+	#[p2p_session_request]() {
+		If you have opted to handle P2P sessions yourself
+		(by calling [steam_net_set_auto_accept_p2p_sessions]\(false)),
+		you will want to handle this event for anyone to be able to connect to you.
+		```
+		if (async_load[?"event_type"] == "lobby_join_requested") {
+			steam_net_accept_p2p_session(steam_id_create(
+				async_load[?"user_id_high"],
+				async_load[?"user_id_low"]
+			));
+		}
+		```
+	}
+}
+#[Networking functions](steam_net) {
+	#[Packet I/O](steam_net_packet) {
+		#[steam_net_packet_receive()]() {
+			Attempts to get the next packet from Steam API and returns whether successfully done so.
+			
+			Other `steam_net_` functions can then be used to get packet information/contents.
+			
+			At most times you would utilize this as following:
+			```
+			while (steam_net_packet_receive()) {
+			    // process the received packet
+			}
+			```
+			(every step while in lobby, less frequently otherwise)
+		}
+		#[steam_net_packet_get_sender_id()]() {
+			Returns Steam ID of the user that sent the last received packet.
+			
+			Can be used in conjunction with [steam_net_packet_send] to send something back and for just telling the senders apart.
+		}
+		#[steam_net_packet_get_size()]() {
+			Returns the size of last received packet, in bytes.
+			
+			So, for instance, if you wanted to just display the size of each incoming packet, you could use a snippet of code like the following:
+			```
+			while (steam_net_packet_receive()) {
+			    show_debug_message("Received " + string(steam_net_packet_size()) + " bytes.");
+			}
+			```
+		}
+		#[steam_net_packet_get_data(buffer)]() {
+			Copies the contents of last received packet to the given buffer.
+			
+			Data is copied to the start of the buffer (position remains unaffected),
+			meaning that if you reuse the same buffer, you should "rewind" it prior to reading.
+			
+			If the buffer is not big enough to fit data, it will be resized automatically.
+			```
+			while (steam_net_packet_receive()) {
+			    steam_net_packet_get_data(inbuf);
+			    buffer_seek(inbuf, buffer_seek_start, 0);
+			    switch (buffer_read(inbuf, buffer_u8)) {
+			        case 1: show_debug_message("packet ID 1"); break;
+			        case 2: show_debug_message("packet ID 2"); break;
+			        default: show_debug_message("unknown packet"); break;
+			    }
+			}
+			```
+			Whether `inbuf` is a "fixed" or "growing" buffer created on game start for the controller object.
+		}
+		#[steam_net_packet_send(steam_id, buffer, size, type)]() {
+			Sends a packet to the given endpoint, returns whether successful (as opposed to incorrect arguments/invalid ID).
+			
+			Much as with the built-in `network_send_` functions, this function takes data from the start of the buffer and until the point identified by `size` parameter.
+			
+			`type` parameter can be one of the following:
+			--{
+			--	`steam_net_packet_type_unreliable`: roughly equivalent to UDP. May or may not be delivered, will not be resent automatically.
+			--	`steam_net_packet_type_unreliable_nodelay`: much like the regular "unreliable" type, but always sent instantly (as soon as function is called). Intended for things like streaming voice data, where you want lowest latency possible and only care about the current data.
+			--	`steam_net_packet_type_reliable`: roughly equivalent to TCP. Warranted to be delivered in order and intact.
+			--	`steam_net_packet_type_reliable_buffer`: much like the regular "reliable" type, but utilizes [Nagle's algorithm](https://en.wikipedia.org/wiki/Nagle%27s_algorithm) to reduce the number of packets at cost of potential delay while the data accumulates until the sending threshold.
+			}
+			So you could use it like so:
+			```
+			var b = buffer_create(16, buffer_grow, 1);
+			buffer_write(b, buffer_string, "Hello!");
+			steam_net_packet_send(steam_id, b, buffer_tell(b), steam_net_packet_type_reliable);
+			buffer_delete(b);
+			```
+			
+			Where `steam_id` would hold the user ID to send the packet to.
+		}
+	}
+	#[P2P sessions](steam_net_p2p) {
+		#[steam_net_set_auto_accept_p2p_sessions(enable)]() {
+			Sets whether to auto-accept session requests coming from players in the same lobby.
+			
+			This is enabled by default for convenience.
+			
+			If you disable it, you will need to handle [p2p_session_request] async event.
+		}
+		#[steam_net_accept_p2p_session(user_id)]() {
+			Accepts a P2P session request from the specified user.
+			
+			Returns whether successful.
+		}
+		#[steam_net_close_p2p_session(user_id)]() {
+			Closes a P2P session with the specified user.
+			
+			Steam will automatically close sessions after a period of inactivity,
+			but you could also do it manually if you so desired.
+			
+			Returns whether successful.
+		}
+	}
+}
+#[Lobby functions](steam_lobby) {
+	The following functions deal with the current lobby.
+	#[steam_lobby_join_id(lobby_id)]() {
+		Starts joining a lobby with the given ID.
+		
+		The operation is carried out asynchronously;
+		
+		A [lobby_joined] event is dispatched on completion.
+		
+		See [lobby_join_requested] for a code example.
+	}
+	#[steam_lobby_create(type, max_members)]() {
+		Starts creating a lobby.
+		
+		The operation is carried out asynchronously;
+		
+		A [lobby_created] event is dispatched on completion.
+		
+		`max_members` indicates the maximum allowed number of users in the lobby
+		(including the lobby's creator).
+		
+		`type` can be one of the following:
+		--{
+		--	`steam_lobby_type_private`: Can only be joined by invitation.
+			
+			You would usually [change](steam_lobby_set_type) the lobby type to this on match start.
+		--	`steam_lobby_type_friends_only`: Can be joined by invitation or via friends-list
+		(by opening the user's menu and picking "Join game").
+		--	`steam_lobby_type_public`: Can be joined by invitation, via friends-list,
+		and shows up in the public lobby list (see [matchmaking](steam_lobby_list) functions).
+		}
+		Can be used as following:
+		```
+		steam_lobby_create(steam_lobby_type_public, 4);
+		```
+		(which would create a 4-player public lobby)
+	}
+	#[steam_lobby_leave()]() {
+		Leaves the current lobby (if any).
+		
+		Does not raise any errors if currently not in a lobby.
+		
+		Note that if you are the lobby owner and leave the lobby, Steam transfers lobby ownership to any other available user, so you may need to detect lobby owner changes if any particular logic is handled by them.
+	}
+	---
+	#[steam_lobby_set_type(newtype)]() {
+		Changes the lobby's type. You must be the lobby's owner to do this.
+		
+		Types are the same as per [steam_lobby_create].
+		
+		So, for example, if you don't allow mid-session joining, you could have the game make lobbies private on session start:
+		```
+		steam_lobby_set_type(steam_lobby_type_private);
+		```
+	}
+	---
+	#[steam_lobby_get_data(key:string)->string]() {
+		Returns a lobby field value, as set by [steam_lobby_set_data].
+		
+		```
+		var title = steam_lobby_get_data("title");
+		```
+	}
+	#[steam_lobby_set_data(key:string, value:string)]() {
+		Changes a lobby's field. You must be the lobby's owner to do this.
+		
+		Fields can then be used to filter lobbies via [matchmaking](steam_lobby_list) functions.
+		
+		*Note*: if your value is numeric, convert it to string prior to passing it to the function.
+		
+		Otherwise GM will assume your numeric value to be a pointer to a string, which can hard crash your game and/or Steam client.
+	}
+	---
+	#[steam_lobby_is_owner()->bool]() {
+		Returns whether the local player is the lobby's owner.
+		
+		If the lobby is not valid, returns false.
+	}
+	#[steam_lobby_get_owner_id()->user_id]() {
+		Returns the lobby's owner's Steam ID.
+		
+		If the lobby is not valid, returns ID 0.
+	}
+	#[steam_lobby_get_member_count()->int]() {
+		Returns the number of users in the current lobby (including you).
+		
+		If the lobby is not valid, returns 0.
+	}
+	#[steam_lobby_get_member_id(index)->user_id]() {
+		Returns the user ID of the member at the given index in the current lobby.
+		
+		Index should be between 0 (incl.) and result of [steam_lobby_get_member_count] (excl.). Results will include the local user.
+		
+		If the index (or lobby) is not valid, returns ID 0.
+	}
+	#[steam_lobby_get_lobby_id()->lobby_id]() {
+		Returns the Steam ID of the current lobby.
+	}
+	#[steam_lobby_activate_invite_overlay()]() {
+		Displays an invitation overlay if currently in a lobby.
+		
+		The invitation overlay is much akin to friends-list overlay, but only shows online friends, and spots "invite" buttons on each row.
+	}
+}
+#[Matchmaking functions](steam_lobby_list) {
+	The following functions allow retrieving lists of public lobbies.
+	#[steam_lobby_list_request()]() {
+		Starts loading the list of lobbies matching the current filters.
+		
+		Filters are reset afterwards and have to be set again for subsequent request(s).
+		
+		Existing results are kept up until the event is dispatched.
+		
+		The operation is carried out asynchronously;
+		
+		A [lobby_list] event is dispatched on completion.
+	}
+	#[steam_lobby_list_is_loading()]() {
+		Returns whether a lobby list request is currently underway.
+		
+		Is a convenience function - you may as well set a global variable prior to calling [steam_lobby_list_request] and reset in the [lobby_list] event.
+	}
+	#[Lobby list functions](steam_lobby_list_get) {
+		These can be used after receiving a [lobby_list] async event.
+		#[steam_lobby_list_get_count()]() {
+			Returns the number of lobbies received in the last lobby list request.
+			
+			For subsequent functions in this section,
+			`list_index` should be between 0 (incl.) and the number returned by this function (excl.)
+		}
+		---
+		#[steam_lobby_list_join(list_index)]() {
+			Starts joining the lobby at the given index in the list.
+			
+			See [steam_lobby_join_id] for more information on the process.
+		}
+		---
+		#[steam_lobby_list_get_data(list_index, key:string)->string]() {
+			Returns the value of the given field of a lobby at the given index in the current list.
+			
+			Fields can be set via [steam_lobby_set_data].
+			
+			*NB!* Value is always returned as a string.
+			
+			Returns `""` if the lobby does not have the given field set.
+		}
+		#[steam_lobby_list_get_lobby_id(list_index)->lobby_id]() {
+			Returns the Steam ID of the lobby at the given index in the list.
+			
+			Returns `0` if the index is out of bounds.
+		}
+		#[steam_lobby_list_get_lobby_owner_id(list_index)->user_id]() {
+			Returns the Steam ID of the owner of the lobby at the given index in the list.
+			
+			Returns `0` if the index is out of bounds.
+		}
+		#[steam_lobby_list_get_lobby_member_count(list_index)->int]() {
+			Returns the number of users in the lobby at the given index in the list.
+			
+			Returns `0` if the index is out of bounds.
+		}
+	}
+	Requesting:
+	#[steam_lobby_list_add_string_filter(key, value, comparison_type)]() {
+		Sets up a string filter for the next lobby list request.
+		
+		That is, lobbies not matching the condition will be excluded from results.
+		
+		Lobbies without the given field (`key`) will be assumed to have it as "".
+		
+		The following values can be passed as `comparison_type`:
+		--{
+		--	`steam_lobby_list_filter_eq`: Equal (`==`).
+		--	`steam_lobby_list_filter_ne`: Not-equal (`!=`).
+		}
+	}
+	#[steam_lobby_list_add_numerical_filter(key, value, comparison_type)]() {
+		Sets up a numeric filter for the next lobby list request.
+		
+		That is, lobbies not matching the condition will be excluded from results.
+		
+		Lobbies without the given field (`key`) will be excluded.
+		
+		The following values can be passed as `comparison_type`:
+		--{
+		--	`steam_lobby_list_filter_eq`: Equal (`==`).
+		--	`steam_lobby_list_filter_ne`: Not-equal (`!=`).
+		--	`steam_lobby_list_filter_lt`: Less-than (`<`).
+		--	`steam_lobby_list_filter_gt`: Greater-than (`>`).
+		--	`steam_lobby_list_filter_le`: Less-than-or-equal (`<=`).
+		--	`steam_lobby_list_filter_ge`: Greater-than-or-equal (`>=`).
+		}
+	}
+	#[steam_lobby_list_add_near_filter(key, value:number)]() {
+		Sorts the results based on how close their field's (`key`)'s value is to the provided one.
+		
+		If multiple near-filters are specified, the earlier-set ones take precedence.
+	}
+	#[steam_lobby_list_add_distance_filter(mode)]() {
+		Restricts results by region and sorts them based on geographical proximity.
+		
+		The following values can be passed as `mode`:
+		--{
+		--	`steam_lobby_list_distance_filter_close`: Only allows lobbies in same immediate region.
+		--	`steam_lobby_list_distance_filter_default`: Allows lobbies in same or nearby regions (same continent)
+		--	`steam_lobby_list_distance_filter_far`: Allows lobbies from up to half-way around the globe (nearby continents).
+		--	`steam_lobby_list_distance_filter_worldwide`: Allows any lobbies. May result in very high latencies, so use with care.
+		}
+	}
+}
+#[Steam Controller/Input functions](steam_controller_) {
+	These have been since renamed to Steam Input in SDK documentation to avoid confusion with Steam Controller device.
+	#[General](steam_controller_general) {
+		#[steam_controller_init()->success]() {
+			Should be called on game start if you intend to use Steam Controller API.
+			
+			Returns whether successful.
+		}
+		#[steam_controller_update()]() {
+			Is automatically called by [steam_gml_update],
+			but can also be called manually to poll data more often.
+		}
+	}
+	#[Controller functions](steam_controller_controller) {
+		#[steam_controller_get_ids()->array<controller_id>]() {
+			Returns an array of IDs for the connected Steam Controllers.
+			
+			Such IDs are used for the rest of the functions.
+			
+			*Note:* You can also use `all` (`-3`) in most controller functions to apply to any/all
+			of the connected controllers.
+		}
+		#[steam_controller_get_ids(arr)->count]() {
+			The above function can also be called with an existing array as an argument,
+			in which case it will store the IDs in the provided array and return how many it 
+			had filled out.
+		}
+		#[steam_controller_get_type(controller_id)]() {
+			Returns Steam-reported type for the given controller.
+			
+			Values can be: --{
+			-- `steam_controller_unknown`
+			-- `steam_controller_steam_controller`
+			-- `steam_controller_xbox360`
+			-- `steam_controller_xboxone`
+			-- `steam_controller_generic_xinput`
+			-- `steam_controller_ps4`
+			-- `steam_controller_apple_mfi`
+			-- `steam_controller_android`
+			-- `steam_controller_switch_joycon_pair`
+			-- `steam_controller_switch_joycon_single`
+			-- `steam_controller_switch_pro`
+			-- `steam_controller_mobile_touch`
+			-- `steam_controller_ps3`
+			}
+			
+			Note that GMS1 / Steamworks1.35a does not support getting controller types and will always return `steam_controller_unknown`.
+		}
+		#[steam_controller_get_max_count()->int]() {
+			Returns how many Steam Input devices can be detected at most.
+			
+			This is constant per SDK version;
+			
+			As of writing this in 2021, this is 16.
+		}
+	}
+	#[Action sets](steam_controller_actionset) {
+		See [documentation](https://partner.steamgames.com/doc/features/steam_controller/action_set_layers);
+		
+		#[steam_controller_get_actionset_id(actionset_name)->actionset_id]() {
+			Finds an action set ID with given name.
+			
+			Returns a negative number if such an action set does not exist!
+		}
+		#[steam_controller_set_actionset(controller_id, actionset_id)->success]() {
+			Activates an action set.
+			
+			*Note:* As of GMS2.3, GameMaker uses Steamworks 1.42, which is not new enough to support action set layers.
+			
+			`actionset_id` comes from [steam_controller_get_actionset_id].
+			
+			See [ActivateActionSetLayer](https://partner.steamgames.com/doc/api/ISteamInput#ActivateActionSetLayer).
+		}
+		#[steam_controller_get_actionset(controller_id)->actionset_id]() {
+			Returns the current action set id for a controller, or -1 if it fails (e.g. wrong controller ID).
+		}
+	}
+	#[In-game actions](steam_controller_ingame) {
+		See [documentation](https://partner.steamgames.com/doc/features/steam_controller/iga_file);
+		
+		Digital actions:
+		#[steam_controller_get_digital_id(action_name)->digital_id]() {
+			Finds a Digital Action ID by its name.
+			
+			Returns a `>=0` action ID on success, or a negative value on failure.
+		}
+		#[steam_controller_get_digital_value(controller_id, digital_id)->bool]() {
+			Retrieves the current state of a digital action for a controller.
+			
+			Returns `false` if controller is missing or action ID is invalid.
+		}
+		#[steam_controller_get_digital_status(controller_id, digital_id)->bool]() {
+			Returns whether the given digital action is currently active.
+			
+			Similarly, returns `false` if controller is missing or action ID is invalid.
+		}
+		#[steam_controller_get_digital_origins(controller_id, actionset_id, digital_id, ?out:array<origin>)->array<origin>]() {
+			Fetches the origins for the specified digital action of an action set for a controller.
+			
+			The result is an array of origin IDs (see values [here](https://partner.steamgames.com/doc/api/ISteamInput#EInputActionOrigin)) that can then be used to display the correct input prompt.
+			
+			See [GetDigitalActionOrigins](https://partner.steamgames.com/doc/api/ISteamInput#GetDigitalActionOrigins)
+		}
+		Analog actions:
+		#[steam_controller_get_analog_id(action_name)->analog_id]() {
+			Find an Analog Action ID by its name.
+			
+			Returns a `>=0` action ID on success, or a negative value on failure.
+			
+			*NB!* Digital and analog action names and IDs can overlap. Don't mix them up!
+		}
+		#[steam_controller_get_analog_status(controller_id, analog_id)->bool]() {
+			Returns whether the given analog action is currently active.
+			
+			Returns `false` if controller is missing or action ID is invalid.
+		}
+		#[steam_controller_get_analog_mode(controller_id, analog_id)->mode_id]() {
+			Returns the virtual input mode used by an analog action.
+			
+			See the returned values [here](https://partner.steamgames.com/doc/api/ISteamInput#EControllerSourceMode).
+			
+			Returns `-1` if controller is missing or action ID is invalid.
+		}
+		#[steam_controller_get_analog_x(controller_id, analog_id)->number]() {
+			Returns the state of an action's horizontal axis.
+			
+			As per [documentation](https://partner.steamgames.com/doc/api/ISteamInput#InputAnalogActionData_t),
+			values depend on configuration - e.g. traditional actions return normalized values in -1..+1 range
+			while mouse-like actions provide updates in pixels since the last frame.
+			
+			Returns `0` if controller is missing or action ID is invalid.
+		}
+		#[steam_controller_get_analog_y(controller_id, analog_id)->number]() {
+			Same as above, but for vertical axis.
+			
+			Returns `0` if controller is missing or action ID is invalid.
+		}
+		#[steam_controller_get_analog_origins(controller_id, actionset_id, analog_id, ?out:array<origin>)->array<origin>] {
+			Fetches the origins for the specified analog action of an action set for a controller.
+			
+			The result is an array of origin IDs (see values [here](https://partner.steamgames.com/doc/api/ISteamInput#EInputActionOrigin)) that can then be used to display the correct input prompt.
+			
+			See [GetAnalogActionOrigins](https://partner.steamgames.com/doc/api/ISteamInput#GetAnalogActionOrigins)
+		}
+		Misc.:
+		#[steam_controller_get_max_origins()->int]() {
+			Returns the maximum number of input origins that can be attached to a single action.
+			
+			This value is constant per SDK version and is set to 8 as of writing this in 2021.
+		}
+	}
+}
+#[User/friend functions](steam_user) {
 	#[steam_user_set_played_with(user_id)]() {
 		Adds the given user to the "recently played with" list (accessed via "Players" - "Recent games") menu in Steam overlay.
 		
 		This is usually something to do on session start for all remote users.
+	}
+	#[steam_get_friends_game_info()->array]() {
+		Returns an array of information about what the current user's Steam friends are playing,
+		roughly equivalent to what can be seen in Steam Friends UI.
+		
+		The array contains nested 3-element arrays with the following fields: --{
+		--	Steam User ID
+		--	Steam Game ID
+		--	Steam Lobby ID\
+			(if hosting a lobby that is open for friends to join - otherwise `0`)
+		}
+		This can be used to display an in-game join dialog.
+		```
+		var info_arr = steam_get_friends_game_info();
+		var info_num = array_length(info_arr);
+		var _steam_app_id = steam_get_app_id();
+		for (var i = 0; i < info_num; i++) {
+		    var info = info_arr[i];
+		    if (info[1] == _steam_app_id) { // same game!
+		        var lobby_id = info[2];
+		        if (lobby_id != 0) { // has an open lobby!
+		            var user_id = info[0];
+		            // use steam_get_user_persona_name(user_id) to grab the name,
+		            // store and use steam_lobby_join_id(lobby_id) to join the lobby when asked
+		        }
+		    }
+		}
+		```
+	}
+}
+#[Steam Overlay](steam_overlay) {
+	#[steam_activate_overlay_raw(raw_name)]() {
+		Like GameMaker's `steam_activate_overlay`, but allows to specify any raw names
+		from [Steamworks documentation](https://partner.steamgames.com/doc/api/ISteamFriends#ActivateGameOverlay)
+		that may not be covered by `ov_` constants.
+	}
+	#[steam_set_overlay_notification_position(position)]() {
+		Changes the corner in which overlay notifications will appear.
+		
+		Position can be: --{
+		--	`steam_overlay_notification_position_top_left`
+		--	`steam_overlay_notification_position_top_right`
+		--	`steam_overlay_notification_position_bottom_left`
+		--	`steam_overlay_notification_position_bottom_right`
+		}
+		
+		This position is per-game and is reset each launch.
+	}
+	#[steam_set_overlay_notification_inset(hor_inset, vert_inset)]() {
+		Sets the inset of the overlay notification from the corner specified by [steam_set_overlay_notification_position].
+		
+		A value of (0, 0) resets the position into the corner.
+		
+		This position is per-game and is reset each launch.
+	}
+}
+#[Rich Presence](steam_rich_presence) {
+	#[steam_set_rich_presence(key:string, value:string)->bool]() {
+		See [SetRichPresence](https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence)
+		for a comprehensive explanation of things to do with this function.
+	}
+	#[steam_clear_rich_presence()]() {
+		Equivalent of [ClearRichPresence](https://partner.steamgames.com/doc/api/ISteamFriends#ClearRichPresence)
+	}
+}
+#[Steam ID functions](steam_id) {
+	Functions for handling 64-bit Steam IDs
+	#[steam_id_use_int64:bool]() {
+		This macro can be flipped to `false` on the `steam_id.gml` file,
+		which will cause Steamworks.gml to store Steam IDs as two 32-bit integers
+		in a tiny array instead.
+		
+		This was only useful in REALLY old (1.4.1757 and earlier) versions of GameMaker: Studio
+		where 64-bit integer support was occasionally buggy.
+	}
+	#[steam_id_create(high, low)->steam_id]() {
+		Creates a 64-bit ID from two 32-bit halves.
+		
+		You can see it occasionally used in [async events](steam_async) since GameMaker lacks support
+		for dispatching async events with 64-bit integer fields in them.
+	}
+	#[steam_id_get_high(steam_id)->int]() {
+		Returns the higher 32-bit half of a Steam ID.
+	}
+	#[steam_id_get_high(steam_id)->int]() {
+		Returns the lower 32-bit half of a Steam ID.
+	}
+	#[steam_id_equals(steam_id1, steam_id2)->bool]() {
+		Returns whether the two Steam IDs are identical.
+		
+		(with [steam_id_use_int64] enabled, this is just `steam_id1 == steam_id2`)
+	}
+	#[steam_id_from_int64(int64)->steam_id]() {
+		Converts an int64 to a Steam ID.
+		
+		(only useful with [steam_id_use_int64] disabled)
+	}
+	#[steam_id_to_int64(steam_id)->int64]() {
+		Converts a Steam ID to an int64.
+		
+		(only useful with [steam_id_use_int64] disabled)
+	}
+}
+#[Uncommon functions](steam_uncommon) {
+	Anything not fitting into the above category.
+	#[steam_ugc_delete_item(published_file_id)]() {
+		Attempts deletion of a previously published UGC item.
+		
+		This will dispatch an async event with: --{
+		--	`"event_type"`: `"ugc_delete_item"`
+		--	`"success"`: whether deletion succeeded
+		--	`"result"`: can offer a more detailed status code if deletion fails
+		--	`"published_file_id_high"`
+		--	`"published_file_id_low"`
+		}
+		```
+		if (async_load[?"event_type"] == "ugc_delete_item") {
+			var file_id = steam_id_create(async_load[?"published_file_id_high"], async_load[?"published_file_id_low"]);
+			if (async_load[?"success"]) {
+				show_debug_message("Deleted " + string(file_id));
+			} else {
+				show_debug_message("Failed to delete " + string(file_id)
+					+ " - EResult " + string(async_load[?"result"]));
+			}
+		}
+		```
 	}
 	---
 	#[steam_get_app_ownership_ticket_data(buffer, ?app_id)]() {
@@ -134,7 +793,7 @@ A most up-to-date version of the manual is always [available online](https://yal
 		If not specified, this will be set to byte count in a string (not including the final NUL),
 		or buffer size.
 		
-		This function is async.
+		This function is async.\
 		Once ready, it will dispatch the following Async - Steam event: --{
 		--	`"event_type"`: will be `"user_encrypted_app_ticket_response_received"`.
 		--	`"success"`: will be `true` or `false` depending on whether the operation succeeded.
@@ -164,321 +823,5 @@ A most up-to-date version of the manual is always [available online](https://yal
 		See: [RequestEncryptedAppTicket](https://partner.steamgames.com/doc/api/ISteamUser#RequestEncryptedAppTicket)
 		
 		Not to be confused with [steam_get_app_ownership_ticket_data]!
-	}
-}
-#[Async events](steam_async) {
-	As result of a number of function calls, the extension dispatches asynchronous events.
-	
-	All of these events have `async_load[?"success"]` indicating whether the async action succeeded (true or false) and `async_load[?"result"]` containing the status code (descriptions can be found in Steam API documentation);
-	
-	These can be caught by adding a Async - Steam event, and checking whether `async_load[?"event_type"]` is one of following names:
-	#[lobby_list]() {
-		Triggers after requesting a list of public lobbies via [steam_lobby_list_request].
-		
-		It is not required to do anything in response to this event.
-		
-		`async_load[?"lobby_count"]` contains the number of matching lobbies (0 in case of network failure).
-		
-		Use [matchmaking functions](steam_lobby_list) to retrieve other information.
-	}
-	#[lobby_joined]() {
-		Triggers after requesting to join a lobby. This can fail if:
-		--{
-		--	There's no connection to Steam
-		--	Lobby is full (no available player slots left)
-		--	Lobby was destroyed before you requested to join it
-		}
-		When successful, this is a good place to establish connection to lobby' members.
-	}
-	#[lobby_created]() {
-		Fires after requesting to create a lobby. This can fail if:
-		--{
-		--	There's no connection to Steam
-		--	You are trying to create a public lobby for a game that does not have matchmaking API enabled
-		(is off by default for free games - request permissions via support forum).
-		}
-		When successful, this is a good place to [set up lobby data](steam_lobby_set_data).
-	}
-	#[lobby_join_requested]() {
-		Triggers when the local player accepts an invitation via Steam overlay.
-		
-		This event has several fields:
-		--{
-		--	`async_load[?"lobby_id_high"]`, `async_load[?"lobby_id_low"]` (combine via [steam_id_create]) indicate the ID of the lobby to join (via [steam_lobby_join_id]).
-		--	`async_load[?"friend_id_high"]`, `async_load[?"friend_id_low"]` (combine via [steam_id_create]) indicate the ID of the user that the invitation was from (in case you want to display "joining X's lobby" while loading).
-		}
-		Is commonly used as following:
-		```
-		if (async_load[?"event_type"] == "lobby_join_requested") {
-		    steam_lobby_join_id(steam_id_create(
-		        async_load[?"lobby_id_high"],
-		        async_load[?"lobby_id_low"]
-		    ));
-		}
-		```
-	}
-}
-#[Networking functions](steam_net) {
-	The following functions allow to send and receive Steam P2P packets.
-	#[steam_net_packet_receive()]() {
-		Attempts to get the next packet from Steam API and returns whether successfully done so.
-		
-		Other `steam_net_` functions can then be used to get packet information/contents.
-		
-		At most times you would utilize this as following:
-		```
-		while (steam_net_packet_receive()) {
-		    // process the received packet
-		}
-		```
-		(every step while in lobby, less frequently otherwise)
-	}
-	#[steam_net_packet_get_sender_id()]() {
-		Returns Steam ID of the user that sent the last received packet.
-		
-		Can be used in conjunction with [steam_net_packet_send] to send something back and for just telling the senders apart.
-	}
-	#[steam_net_packet_get_size()]() {
-		Returns the size of last received packet, in bytes.
-		
-		So, for instance, if you wanted to just display the size of each incoming packet, you could use a snippet of code like the following:
-		```
-		while (steam_net_packet_receive()) {
-		    show_debug_message("Received " + string(steam_net_packet_size()) + " bytes.");
-		}
-		```
-	}
-	#[steam_net_packet_get_data(buffer)]() {
-		Copies the contents of last received packet to the given buffer.
-		
-		Data is copied to the start of the buffer (position remains unaffected),
-		meaning that if you reuse the same buffer, you should "rewind" it prior to reading.
-		
-		If the buffer is not big enough to fit data, it will be resized automatically.
-		```
-		while (steam_net_packet_receive()) {
-		    steam_net_packet_get_data(inbuf);
-		    buffer_seek(inbuf, buffer_seek_start, 0);
-		    switch (buffer_read(inbuf, buffer_u8)) {
-		        case 1: show_debug_message("packet ID 1"); break;
-		        case 2: show_debug_message("packet ID 2"); break;
-		        default: show_debug_message("unknown packet"); break;
-		    }
-		}
-		```
-		Whether `inbuf` is a "fixed" or "growing" buffer created on game start for the controller object.
-	}
-	#[steam_net_packet_send(steam_id, buffer, size, type)]() {
-		Sends a packet to the given endpoint, returns whether successful (as opposed to incorrect arguments/invalid ID).
-		
-		Much as with the built-in `network_send_` functions, this function takes data from the start of the buffer and until the point identified by `size` parameter.
-		
-		`type` parameter can be one of the following:
-		--{
-		--	`steam_net_packet_type_unreliable`: roughly equivalent to UDP. May or may not be delivered, will not be resent automatically.
-		--	`steam_net_packet_type_unreliable_nodelay`: much like the regular "unreliable" type, but always sent instantly (as soon as function is called). Intended for things like streaming voice data, where you want lowest latency possible and only care about the current data.
-		--	`steam_net_packet_type_reliable`: roughly equivalent to TCP. Warranted to be delivered in order and intact.
-		--	`steam_net_packet_type_reliable_buffer`: much like the regular "reliable" type, but utilizes [Nagle's algorithm](https://en.wikipedia.org/wiki/Nagle%27s_algorithm) to reduce the number of packets at cost of potential delay while the data accumulates until the sending threshold.
-		}
-		So you could use it like so:
-		```
-		var b = buffer_create(16, buffer_grow, 1);
-		buffer_write(b, buffer_string, "Hello!");
-		steam_net_packet_send(steam_id, b, buffer_tell(b), steam_net_packet_type_reliable);
-		buffer_delete(b);
-		```
-		
-		Where `steam_id` would hold the user ID to send the packet to.
-	}
-}
-#[Lobby functions](steam_lobby) {
-	The following functions deal with the current lobby.
-	#[steam_lobby_join_id(lobby_id)]() {
-		Starts joining a lobby with the given ID.
-		
-		The operation is carried out asynchronously;
-		
-		A [lobby_joined] event is dispatched on completion.
-		
-		See [lobby_join_requested] for a code example.
-	}
-	#[steam_lobby_create(type, max_members)]() {
-		Starts creating a lobby.
-		
-		The operation is carried out asynchronously;
-		
-		A [lobby_created] event is dispatched on completion.
-		
-		`max_members` indicates the maximum allowed number of users in the lobby
-		(including the lobby' creator).
-		
-		`type` can be one of the following:
-		--{
-		--	`steam_lobby_type_private`: Can only be joined by invitation.
-			
-			You would usually [change](steam_lobby_set_type) the lobby type to this on match start.
-		--	`steam_lobby_type_friends_only`: Can be joined by invitation or via friends-list
-		(by opening the user' menu and picking "Join game").
-		--	`steam_lobby_type_public`: Can be joined by invitation, via friends-list,
-		and shows up in the public lobby list (see [matchmaking](steam_lobby_list) functions).
-		}
-		Can be used as following:
-		```
-		steam_lobby_create(steam_lobby_type_public, 4);
-		```
-		(which would create a 4-player public lobby)
-	}
-	#[steam_lobby_leave()]() {
-		Leaves the current lobby (if any).
-		
-		Does not raise any errors if currently not in a lobby.
-		
-		Note that if you are the lobby owner and leave the lobby, Steam transfers lobby ownership to any other available user, so you may need to detect lobby owner changes if any particular logic is handled by them.
-	}
-	#[steam_lobby_set_type(newtype)]() {
-		Changes the lobby' type. You must be the lobby' owner to do this.
-		
-		Types are the same as per [steam_lobby_create].
-		
-		So, for example, if you don't allow mid-session joining, you could have the game make lobbies private on session start:
-		```
-		steam_lobby_set_type(steam_lobby_type_private);
-		```
-	}
-	#[steam_lobby_get_data(key:string)]() {
-		Returns a lobby field value, as set by [steam_lobby_set_data].
-		
-		```
-		var title = steam_lobby_get_data("title");
-		```
-	}
-	#[steam_lobby_set_data(key:string, value:string)]() {
-		Changes a lobby' field. You must be the lobby' owner to do this.
-		
-		Fields can then be used to filter lobbies via [matchmaking](steam_lobby_list) functions.
-		
-		*Note*: if your value is numeric, convert it to string prior to passing it to the function.
-		
-		Otherwise GM will assume your numeric value to be a pointer to a string, which can hard crash your game and/or Steam client.
-	}
-	#[steam_lobby_is_owner()]() {
-		Returns whether the local player is the lobby' owner.
-		
-		If the lobby is not valid, returns false.
-	}
-	#[steam_lobby_get_owner_id()]() {
-		Returns the lobby' owner' Steam ID.
-		
-		If the lobby is not valid, returns ID 0.
-	}
-	#[steam_lobby_get_member_count()]() {
-		Returns the number of users in the current lobby (including you).
-		
-		If the lobby is not valid, returns 0.
-	}
-	#[steam_lobby_get_member_id(index)]() {
-		Returns the user ID of the member at the given index in the current lobby.
-		
-		Index should be between 0 (incl.) and result of [steam_lobby_get_member_count] (excl.). Results will include the local user.
-		
-		If the index (or lobby) is not valid, returns ID 0.
-	}
-	#[steam_lobby_activate_invite_overlay()]() {
-		Displays an invitation overlay if in lobby.
-		
-		The invitation overlay is much akin to friends-list overlay, but only shows online friends, and spots "invite" buttons on each row.
-	}
-}
-#[Matchmaking functions](steam_lobby_list) {
-	The following functions allow retrieving lists of public lobbies.
-	#[steam_lobby_list_request()]() {
-		Starts loading the list of lobbies matching the current filters.
-		
-		Filters are reset afterwards and have to be set again for subsequent request(s).
-		
-		Existing results are kept up until the event is dispatched.
-		
-		The operation is carried out asynchronously;
-		
-		A [lobby_list] event is dispatched on completion.
-	}
-	#[steam_lobby_list_is_loading()]() {
-		Returns whether a lobby list request is currently underway.
-		
-		Is a convenience function - you may as well set a global variable prior to calling [steam_lobby_list_request] and reset in the [lobby_list] event.
-	}
-	#[steam_lobby_list_get_count()]() {
-		Returns the number of lobbies received in the last lobby list request.
-	}
-	#[steam_lobby_list_get_data(index, key:string)]() {
-		Returns the value of the given field of a lobby at the given index in the current list.
-		
-		Fields can be set via [steam_lobby_set_data].
-		
-		Index is between 0 (incl.) and [steam_lobby_list_get_count()](steam_lobby_list_get_count)' (excl.).
-		
-		Value is always returned as a string.
-		
-		Returns "" if the lobby does not have the given field set.
-	}
-	#[steam_lobby_list_get_lobby_id(index)]() {
-		Returns the Steam ID of the lobby at the given index in the list.
-		
-		Index is between 0 (incl.) and [steam_lobby_list_get_count()](steam_lobby_list_get_count)' (excl.).
-		
-		Returns ID 0 if the index is out of bounds.
-	}
-	#[steam_lobby_list_join(index)]() {
-		Starts joining the lobby at the given index in the list.
-		
-		Index is between 0 (incl.) and [steam_lobby_list_get_count()](steam_lobby_list_get_count)' (excl.).
-		
-		See [steam_lobby_join_id] for more information on process.
-	}
-	#[steam_lobby_list_add_string_filter(key, value, comparison_type)]() {
-		Sets up a string filter for the next lobby list request.
-		
-		That is, lobbies not matching the condition will be excluded from results.
-		
-		Lobbies without the given field (`key`) will be assumed to have it as "".
-		
-		The following values can be passed as `comparison_type`:
-		--{
-		--	`steam_lobby_list_filter_eq`: Equal (`==`).
-		--	`steam_lobby_list_filter_ne`: Not-equal (`!=`).
-		}
-	}
-	#[steam_lobby_list_add_numerical_filter(key, value, comparison_type)]() {
-		Sets up a numeric filter for the next lobby list request.
-		
-		That is, lobbies not matching the condition will be excluded from results.
-		
-		Lobbies without the given field (`key`) will be excluded.
-		
-		The following values can be passed as `comparison_type`:
-		--{
-		--	`steam_lobby_list_filter_eq`: Equal (`==`).
-		--	`steam_lobby_list_filter_ne`: Not-equal (`!=`).
-		--	`steam_lobby_list_filter_lt`: Less-than (`<`).
-		--	`steam_lobby_list_filter_gt`: Greater-than (`>`).
-		--	`steam_lobby_list_filter_le`: Less-than-or-equal (`<=`).
-		--	`steam_lobby_list_filter_ge`: Greater-than-or-equal (`>=`).
-		}
-	}
-	#[steam_lobby_list_add_near_filter(key, value:number)]() {
-		Sorts the results based on how close their field' (`key`)' value is to the provided one.
-		
-		If multiple near-filters are specified, the earlier-set ones take precedence.
-	}
-	#[steam_lobby_list_add_distance_filter(mode)]() {
-		Restricts results by region and sorts them based on geographical proximity.
-		
-		The following values can be passed as `mode`:
-		--{
-		--	`steam_lobby_list_distance_filter_close`: Only allows lobbies in same immediate region.
-		--	`steam_lobby_list_distance_filter_default`: Allows lobbies in same or nearby regions (same continent)
-		--	`steam_lobby_list_distance_filter_far`: Allows lobbies from up to half-way around the globe (nearby continents).
-		--	`steam_lobby_list_distance_filter_worldwide`: Allows any lobbies. May result in very high latencies, so use with care.
-		}
 	}
 }
