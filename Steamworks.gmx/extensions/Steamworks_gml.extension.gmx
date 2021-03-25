@@ -95,10 +95,21 @@
           </args>
         </function>
         <function>
+          <name>steam_controller_get_type</name>
+          <externalName>steam_controller_get_type</externalName>
+          <kind>1</kind>
+          <help>steam_controller_get_type(id)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_controller_get_actionset_id</name>
           <externalName>steam_controller_get_actionset_id</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_actionset_id(actionSetName) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found</help>
+          <help>steam_controller_get_actionset_id(actionset_name) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -571,8 +582,8 @@
         <function>
           <name>int64_from_string_high</name>
           <externalName>int64_from_string_high</externalName>
-          <kind>1</kind>
-          <help>int64_from_string_high(cstring)</help>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -582,8 +593,8 @@
         <function>
           <name>int64_from_string_low</name>
           <externalName>int64_from_string_low</externalName>
-          <kind>1</kind>
-          <help>int64_from_string_low(cstring)</help>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -593,8 +604,8 @@
         <function>
           <name>int64_combine_string</name>
           <externalName>int64_combine_string</externalName>
-          <kind>1</kind>
-          <help>int64_combine_string(high, low)</help>
+          <kind>11</kind>
+          <help></help>
           <returnType>1</returnType>
           <argCount>2</argCount>
           <args>
@@ -690,8 +701,8 @@
         <function>
           <name>steam_net_accept_p2p_session_raw</name>
           <externalName>steam_net_accept_p2p_session_raw</externalName>
-          <kind>1</kind>
-          <help>steam_net_accept_p2p_session_raw(user_id_high, user_id_low) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.</help>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -702,8 +713,8 @@
         <function>
           <name>steam_net_close_p2p_session_raw</name>
           <externalName>steam_net_close_p2p_session_raw</externalName>
-          <kind>1</kind>
-          <help>steam_net_close_p2p_session_raw(user_id_high, user_id_low)</help>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -866,13 +877,37 @@
           <args/>
         </function>
         <function>
-          <name>steam_ugc_delete_item</name>
-          <externalName>steam_ugc_delete_item</externalName>
+          <name>steam_set_overlay_notification_position</name>
+          <externalName>steam_set_overlay_notification_position</externalName>
           <kind>1</kind>
-          <help>steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.</help>
+          <help>steam_set_overlay_notification_position(position)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_set_overlay_notification_inset</name>
+          <externalName>steam_set_overlay_notification_inset</externalName>
+          <kind>1</kind>
+          <help>steam_set_overlay_notification_inset(hor_inset, vert_inset)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_ugc_delete_item_raw</name>
+          <externalName>steam_ugc_delete_item_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
             <arg>2</arg>
           </args>
         </function>
@@ -904,7 +939,72 @@
       <constants>
         <constant>
           <name>steam_net_version</name>
-          <value>100</value>
+          <value>1300</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_unknown</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_steam_controller</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_xbox360</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_xboxone</name>
+          <value>3</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_generic_xinput</name>
+          <value>4</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_ps4</name>
+          <value>5</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_apple_mfi</name>
+          <value>6</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_android</name>
+          <value>7</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_switch_joycon_pair</name>
+          <value>8</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_switch_joycon_single</name>
+          <value>9</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_switch_pro</name>
+          <value>10</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_mobile_touch</name>
+          <value>11</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_ps3</name>
+          <value>12</value>
           <hidden>0</hidden>
         </constant>
         <constant>
@@ -989,6 +1089,26 @@
         </constant>
         <constant>
           <name>steam_net_packet_type_reliable_buffer</name>
+          <value>3</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_overlay_notification_position_top_left</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_overlay_notification_position_top_right</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_overlay_notification_position_bottom_left</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_overlay_notification_position_bottom_right</name>
           <value>3</value>
           <hidden>0</hidden>
         </constant>
@@ -1056,10 +1176,21 @@
           </args>
         </function>
         <function>
+          <name>steam_controller_get_type</name>
+          <externalName>steam_controller_get_type</externalName>
+          <kind>1</kind>
+          <help>steam_controller_get_type(id)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_controller_get_actionset_id</name>
           <externalName>steam_controller_get_actionset_id</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_actionset_id(actionSetName) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found</help>
+          <help>steam_controller_get_actionset_id(actionset_name) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1532,8 +1663,8 @@
         <function>
           <name>int64_from_string_high</name>
           <externalName>int64_from_string_high</externalName>
-          <kind>1</kind>
-          <help>int64_from_string_high(cstring)</help>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1543,8 +1674,8 @@
         <function>
           <name>int64_from_string_low</name>
           <externalName>int64_from_string_low</externalName>
-          <kind>1</kind>
-          <help>int64_from_string_low(cstring)</help>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1554,8 +1685,8 @@
         <function>
           <name>int64_combine_string</name>
           <externalName>int64_combine_string</externalName>
-          <kind>1</kind>
-          <help>int64_combine_string(high, low)</help>
+          <kind>11</kind>
+          <help></help>
           <returnType>1</returnType>
           <argCount>2</argCount>
           <args>
@@ -1651,8 +1782,8 @@
         <function>
           <name>steam_net_accept_p2p_session_raw</name>
           <externalName>steam_net_accept_p2p_session_raw</externalName>
-          <kind>1</kind>
-          <help>steam_net_accept_p2p_session_raw(user_id_high, user_id_low) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.</help>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1663,8 +1794,8 @@
         <function>
           <name>steam_net_close_p2p_session_raw</name>
           <externalName>steam_net_close_p2p_session_raw</externalName>
-          <kind>1</kind>
-          <help>steam_net_close_p2p_session_raw(user_id_high, user_id_low)</help>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1827,13 +1958,37 @@
           <args/>
         </function>
         <function>
-          <name>steam_ugc_delete_item</name>
-          <externalName>steam_ugc_delete_item</externalName>
+          <name>steam_set_overlay_notification_position</name>
+          <externalName>steam_set_overlay_notification_position</externalName>
           <kind>1</kind>
-          <help>steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.</help>
+          <help>steam_set_overlay_notification_position(position)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_set_overlay_notification_inset</name>
+          <externalName>steam_set_overlay_notification_inset</externalName>
+          <kind>1</kind>
+          <help>steam_set_overlay_notification_inset(hor_inset, vert_inset)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_ugc_delete_item_raw</name>
+          <externalName>steam_ugc_delete_item_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
             <arg>2</arg>
           </args>
         </function>
@@ -1865,7 +2020,72 @@
       <constants>
         <constant>
           <name>steam_net_version</name>
-          <value>100</value>
+          <value>1300</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_unknown</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_steam_controller</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_xbox360</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_xboxone</name>
+          <value>3</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_generic_xinput</name>
+          <value>4</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_ps4</name>
+          <value>5</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_apple_mfi</name>
+          <value>6</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_android</name>
+          <value>7</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_switch_joycon_pair</name>
+          <value>8</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_switch_joycon_single</name>
+          <value>9</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_switch_pro</name>
+          <value>10</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_mobile_touch</name>
+          <value>11</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_ps3</name>
+          <value>12</value>
           <hidden>0</hidden>
         </constant>
         <constant>
@@ -1950,6 +2170,26 @@
         </constant>
         <constant>
           <name>steam_net_packet_type_reliable_buffer</name>
+          <value>3</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_overlay_notification_position_top_left</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_overlay_notification_position_top_right</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_overlay_notification_position_bottom_left</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_overlay_notification_position_bottom_right</name>
           <value>3</value>
           <hidden>0</hidden>
         </constant>
@@ -2017,10 +2257,21 @@
           </args>
         </function>
         <function>
+          <name>steam_controller_get_type</name>
+          <externalName>steam_controller_get_type</externalName>
+          <kind>1</kind>
+          <help>steam_controller_get_type(id)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_controller_get_actionset_id</name>
           <externalName>steam_controller_get_actionset_id</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_actionset_id(actionSetName) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found</help>
+          <help>steam_controller_get_actionset_id(actionset_name) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2493,8 +2744,8 @@
         <function>
           <name>int64_from_string_high</name>
           <externalName>int64_from_string_high</externalName>
-          <kind>1</kind>
-          <help>int64_from_string_high(cstring)</help>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2504,8 +2755,8 @@
         <function>
           <name>int64_from_string_low</name>
           <externalName>int64_from_string_low</externalName>
-          <kind>1</kind>
-          <help>int64_from_string_low(cstring)</help>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2515,8 +2766,8 @@
         <function>
           <name>int64_combine_string</name>
           <externalName>int64_combine_string</externalName>
-          <kind>1</kind>
-          <help>int64_combine_string(high, low)</help>
+          <kind>11</kind>
+          <help></help>
           <returnType>1</returnType>
           <argCount>2</argCount>
           <args>
@@ -2612,8 +2863,8 @@
         <function>
           <name>steam_net_accept_p2p_session_raw</name>
           <externalName>steam_net_accept_p2p_session_raw</externalName>
-          <kind>1</kind>
-          <help>steam_net_accept_p2p_session_raw(user_id_high, user_id_low) : Accepts a P2P session with the given user. Should only be called in the "p2p_session_request" event.</help>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2624,8 +2875,8 @@
         <function>
           <name>steam_net_close_p2p_session_raw</name>
           <externalName>steam_net_close_p2p_session_raw</externalName>
-          <kind>1</kind>
-          <help>steam_net_close_p2p_session_raw(user_id_high, user_id_low)</help>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2788,13 +3039,37 @@
           <args/>
         </function>
         <function>
-          <name>steam_ugc_delete_item</name>
-          <externalName>steam_ugc_delete_item</externalName>
+          <name>steam_set_overlay_notification_position</name>
+          <externalName>steam_set_overlay_notification_position</externalName>
           <kind>1</kind>
-          <help>steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.</help>
+          <help>steam_set_overlay_notification_position(position)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_set_overlay_notification_inset</name>
+          <externalName>steam_set_overlay_notification_inset</externalName>
+          <kind>1</kind>
+          <help>steam_set_overlay_notification_inset(hor_inset, vert_inset)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_ugc_delete_item_raw</name>
+          <externalName>steam_ugc_delete_item_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
             <arg>2</arg>
           </args>
         </function>
@@ -2826,7 +3101,72 @@
       <constants>
         <constant>
           <name>steam_net_version</name>
-          <value>100</value>
+          <value>1300</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_unknown</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_steam_controller</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_xbox360</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_xboxone</name>
+          <value>3</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_generic_xinput</name>
+          <value>4</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_ps4</name>
+          <value>5</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_apple_mfi</name>
+          <value>6</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_android</name>
+          <value>7</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_switch_joycon_pair</name>
+          <value>8</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_switch_joycon_single</name>
+          <value>9</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_switch_pro</name>
+          <value>10</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_mobile_touch</name>
+          <value>11</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_controller_ps3</name>
+          <value>12</value>
           <hidden>0</hidden>
         </constant>
         <constant>
@@ -2914,6 +3254,26 @@
           <value>3</value>
           <hidden>0</hidden>
         </constant>
+        <constant>
+          <name>steam_overlay_notification_position_top_left</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_overlay_notification_position_top_right</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_overlay_notification_position_bottom_left</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_overlay_notification_position_bottom_right</name>
+          <value>3</value>
+          <hidden>0</hidden>
+        </constant>
       </constants>
     </file>
     <file>
@@ -2961,7 +3321,7 @@
           <name>steam_controller_get_origins_raw</name>
           <externalName>steam_controller_get_origins_raw</externalName>
           <kind>2</kind>
-          <help>steam_controller_get_origins_raw(found, buffer, out)-&gt;array</help>
+          <help>steam_controller_get_origins_raw(found, buffer, out)-&gt;array~</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -2983,7 +3343,7 @@
           <name>steam_controller_get_analog_origins</name>
           <externalName>steam_controller_get_analog_origins</externalName>
           <kind>2</kind>
-          <help>steam_controller_get_digital_origins(controller, actionset_id, analog_id, ?out:array&lt;origin&gt;): as per GetDigitalActionOrigins</help>
+          <help>steam_controller_get_digital_origins(controller, actionset_id, analog_id, ?out:array&lt;origin&gt;): as per GetAnalogActionOrigins</help>
           <returnType>2</returnType>
           <argCount>-1</argCount>
           <args/>
@@ -3130,7 +3490,7 @@
           <name>steam_id_create</name>
           <externalName>steam_id_create</externalName>
           <kind>2</kind>
-          <help>steam_id_create(high, low) : Creates an immutable Steam ID.</help>
+          <help>steam_id_create(high, low)-&gt;steam_id</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -3142,7 +3502,7 @@
           <name>steam_id_get_high</name>
           <externalName>steam_id_get_high</externalName>
           <kind>2</kind>
-          <help>steam_id_get_high(steam_id) : Returns higher 32 bits of a Steam ID</help>
+          <help>steam_id_get_high(steam_id)-&gt;int</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -3153,7 +3513,7 @@
           <name>steam_id_get_low</name>
           <externalName>steam_id_get_low</externalName>
           <kind>2</kind>
-          <help>steam_id_get_low(steam_id) : Returns lower 32 bits of a Steam ID</help>
+          <help>steam_id_get_low(steam_id)-&gt;int</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -3164,7 +3524,7 @@
           <name>steam_id_equals</name>
           <externalName>steam_id_equals</externalName>
           <kind>2</kind>
-          <help>steam_id_equals(id1, id2) : Returns whether two IDs match up.</help>
+          <help>steam_id_equals(steam_id1, steam_id2)-&gt;bool</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -3176,7 +3536,7 @@
           <name>steam_id_from_int64</name>
           <externalName>steam_id_from_int64</externalName>
           <kind>2</kind>
-          <help>steam_id_from_int64(value) : Creates a Steam ID from an int64</help>
+          <help>steam_id_from_int64(int64)-&gt;steam_id</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -3187,7 +3547,7 @@
           <name>steam_id_to_int64</name>
           <externalName>steam_id_to_int64</externalName>
           <kind>2</kind>
-          <help>steam_id_to_int64(steam_id) : Converts a Steam ID to int64</help>
+          <help>steam_id_to_int64(steam_id)-&gt;int64</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -3315,6 +3675,15 @@
           <help>steam_get_friends_game_info()-&gt;array&lt;[user_id, game_id, lobby_id]&gt;</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_ugc_delete_item</name>
+          <externalName>steam_ugc_delete_item</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
           <args/>
         </function>
         <function>

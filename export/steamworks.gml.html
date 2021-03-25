@@ -1,4 +1,4 @@
-<html><head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <title>steamworks.gml cheat sheet</title>
 <meta name="viewport" content="width=device-width" />
@@ -13,8 +13,7 @@ if (document.location.host == "yal.cc" && location.protocol == "http:") {
 	document.location.protocol = "https:";
 }
 </script>
-<style type="text/css">
-body, #doc tt {
+<style type="text/css">body, #doc tt {
 	font: 15px 'Open Sans', sans-serif;
 	line-height: 1.35;
 }
@@ -44,18 +43,15 @@ body {
 	padding-left: 0;
 	margin: 0;
 }
-#doc div ul, #doc div ol {
+#doc article > ul, #doc article > ol {
 	padding-left: 20px;
 }
-#doc div ul li {
+#doc article ul li {
 	list-style: disc;
 	list-style-image: url('data:image/svg+xml;base256,<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="1em" viewBox="0 0 20px 1em"><circle cx="17px" cy="0.675em" r="2px"/></svg>'); 
 }
 
-#doc .header {
-	display: block;
-	outline: none;
-	text-decoration: none;
+#doc header {
 	margin: 0;
 	font-weight: 700;
 	font-size: 100%;
@@ -66,7 +62,12 @@ body {
 	padding-bottom: 1px;
 	cursor: pointer;
 }
-#doc .header::before {
+#doc header a {
+	outline: none;
+	text-decoration: none;
+	color: #458;
+}
+#doc header::before {
 	display: inline-block;
 	content: "+";
 	font: 12px monospace;
@@ -81,17 +82,17 @@ body {
 	position: relative;
 	top: -1px;
 }
-#doc .item.open > .header::before {
+#doc section.open > header::before {
 	content: "-";
 }
-#doc .item.empty > .header::before {
+#doc section.empty > header::before {
 	content: " "; /*"·"*/
 }
-#doc .header:hover {
+#doc header:hover {
 	border-left-color: #f3f3f3;
 	background: #f3f3f3;
 }
-#doc .header .ret-arrow {
+#doc header .ret-arrow {
 	font-weight: normal;
 	margin: 0 0.1em;
 }
@@ -115,16 +116,26 @@ body {
 	border-bottom: 1px solid #ccc;
 }
 
-#doc .content, #doc ul {
+#doc article, #doc ul {
 	padding-left: 20px;
 	border-left: 2px solid #f3f3f3;
 }
-#doc .content {
+#doc article {
 	padding-top: 0.25em;
 	padding-bottom: 0.5em;
 }
 #doc tt {
 	font-weight: bold;
+}
+#doc table {
+	border-spacing: 0;
+	color: currentColor;
+}
+#doc table, #doc table td, #doc table th {
+	border: 1px solid #f3f3f3;
+}
+#doc table td, #doc table th {
+	padding: 0.1em 0.5em;
 }
 #doc pre {
 	font-family: Consolas, Dejavu Sans Mono, Segoe UI Mono, Ubuntu Mono, Lucida Console, monospace;
@@ -133,6 +144,7 @@ body {
 	background: white;
 	padding: 4px 2px 4px 10px;
 	margin: 0;
+	-moz-tab-size: 4;
 	tab-size: 4;
 	overflow-x: auto;
 	white-space: pre-wrap;
@@ -155,7 +167,9 @@ body {
 }
 #doc abbr[title] {
 	text-decoration: underline;
+	-webkit-text-decoration-color: #bbb;
 	text-decoration-color: #bbb;
+	-webkit-text-decoration-style: double;
 	text-decoration-style: double;
 }
 #doc hr {
@@ -164,37 +178,35 @@ body {
 	border: 0;
 	border-top: 2px dashed #f3f3f3;
 }
-#doc .item + hr {
+#doc section + hr {
 	margin: 0;
 	height: 1em;
 	border: 1px solid #f3f3f3;
 	border-width: 1px 0 1px 0;
 }
-#doc .item {
+#doc section {
 	border-top: 1px solid #f3f3f3;
 	margin-top: 0.3em;
 }
-#doc .item:first-child {
+#doc section:first-child {
 	margin-top: 0em;
 }
-#doc .item:last-child {
+#doc section:last-child {
 	border-bottom: 1px solid #f3f3f3;
 }
-#doc .item + .item, #doc hr + .item {
+#doc section + section, #doc hr + section {
 	border-top: 0;
 	margin-top: 0;
 }
-#doc .item + p {
+#doc section + p {
 	border-top: 1px solid #f3f3f3;
 	padding-top: 0.3em;
 }
 /* delay display until load */
-#doc[ready] .item:not(.open) > .content {
+#doc[ready] section:not(.open) > article {
 	display: none;
-}
-</style>
-<style type="text/css" id="md_gml">
-/* GameMakerLanguage */
+}</style>
+<style type="text/css" id="lang_gml">/* GameMakerLanguage */
 pre.gmlmd .md { color: #7A81A9 } /* #define */
 pre.gmlmd .kw { color: #008; font-weight: bold } /* keyword */
 pre.gmlmd .co { color: #080 } /* comment */
@@ -211,53 +223,7 @@ pre.gmlmd .uf { color: #808 } /* user func */
 pre.gmlmd .uv { color: #000 } /* user var */
 pre.gmlmd .lv { color: #648 } /* local var */
 pre.gmlmd .fd { color: #804 } /* field */
-</style>
-<style type="text/css" id="night_css">
-#night { display: none }
-label[for="night"] {
-	color: blue;
-	text-decoration: underline;
-	cursor: pointer;
-}
-#night:checked + .main {
-	background-color: #405070;
-}
-#night:checked + .main .page {
-	background-color: #1A202D;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-	color: white;
-}
-#night:checked + .main a,
-#night:checked + .main a:visited,
-#night:checked + .main #doc .header,
-#night:checked + .main label[for="night"] {
-	color: #9DEC76;
-}
-#night:checked + .main #doc .header:before,
-#night:checked + .main #doc h3 {
-	border-color: #9DEC76
-}
-#night:checked + .main #doc .header,
-#night:checked + .main #doc .header:hover,
-#night:checked + .main #doc .content,
-#night:checked + .main #doc .item,
-#night:checked + .main #doc .item + p,
-#night:checked + .main #doc hr,
-#night:checked + .main #doc ul {
-	border-color: rgba(205,225,255,0.1);
-}
-#night:checked + .main #doc .header:hover,
-#night:checked + .main #doc .asset:hover {
-	background: rgba(205,225,255,0.1);
-}
-#night:checked + .main div ul li {
-	list-style-image: url('data:image/svg+xml;base256,<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="1em" viewBox="0 0 20px 1em"><circle cx="17px" cy="0.675em" r="2px" fill="white"/></svg>'); 
-}
-#night:checked + .main pre {
-	color: #cccccc;
-	background: #000000;
-	border: 1px solid #3E4757;
-}
+
 #night:checked + .main pre.gmlmd .op { color: #CCCCCC }
 #night:checked + .main pre.gmlmd .co { color: #5B995B }
 #night:checked + .main pre.gmlmd .kw { color: #FFB871 }
@@ -275,17 +241,63 @@ label[for="night"] {
 #night:checked + .main pre.gmlmd .uv { color: #B2B1FF }
 #night:checked + .main pre.gmlmd .fd { color: #B2B1FF }
 
-#night:checked + .main pre.gmlmd a.uf {
+#night:checked + .main pre.gmlmd a.uf,
+#night:checked + .main pre.gmlmd a.kw,
+#night:checked + .main pre.gmlmd a.sf {
 	background-color: #431;
 }
-#night:checked + .main pre.gmlmd a.kw {
-	background-color: #431;
-}
-#night:checked + .main pre.gmlmd a.sf,
 #night:checked + .main pre.gmlmd a.sv {
-	background-color: #431;
+	background-color: #422;
+}</style>
+<style type="text/css" id="night_css">#night { display: none }
+label[for="night"] {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
 }
-</style>
+#night:checked + .main {
+	background-color: #405070;
+}
+#night:checked + .main .page {
+	background-color: #1A202D;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	color: white;
+}
+#night:checked + .main a,
+#night:checked + .main a:visited,
+#night:checked + .main #doc header,
+#night:checked + .main label[for="night"] {
+	color: #9DEC76;
+}
+#night:checked + .main #doc header:before,
+#night:checked + .main #doc h3 {
+	border-color: #9DEC76
+}
+#night:checked + .main #doc header,
+#night:checked + .main #doc header:hover,
+#night:checked + .main #doc article,
+#night:checked + .main #doc section,
+#night:checked + .main #doc section + p,
+#night:checked + .main #doc hr,
+#night:checked + .main #doc ul,
+#night:checked + .main #doc table,
+#night:checked + .main #doc table td,
+#night:checked + .main #doc table th
+{
+	border-color: rgba(205,225,255,0.1);
+}
+#night:checked + .main #doc header:hover,
+#night:checked + .main #doc .asset:hover {
+	background: rgba(205,225,255,0.1);
+}
+#night:checked + .main article ul li {
+	list-style-image: url('data:image/svg+xml;base256,<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="1em" viewBox="0 0 20px 1em"><circle cx="17px" cy="0.675em" r="2px" fill="white"/></svg>'); 
+}
+#night:checked + .main pre {
+	color: #cccccc;
+	background: #000000;
+	border: 1px solid #3E4757;
+}</style>
 <style>
 .main.boxtt #doc tt {
 	display: inline-block;
@@ -306,40 +318,35 @@ label[for="night"] {
 	color: white;
 }
 </style>
-<style type="text/css" id="print_css">
-@media print {
+<style type="text/css" id="print_css">@media print {
 	.main { background-color: transparent }
 	.display-controls { display: none; }
 	.page { width: 100%; box-shadow: none; }
-	#doc .header::before,
-	#doc .item.open .header::before	{
+	#doc header::before,
+	#doc section.open header::before	{
 		content: "~";
 	}
 	#doc { display: inherit }
-	#doc .item:not(.open) > .content,
-	#doc[ready] .item:not(.open) > .content	{
+	#doc section:not(.open) > article,
+	#doc[ready] section:not(.open) > article {
 		display: inherit;
 	}
-}
-</style>
-<noscript><style>
-#doc .header::before {
+}</style>
+<noscript><style>#doc header::before {
 	content: "~";
 }
-#doc .header:hover {
+#doc header:hover {
 	border-left-color: #f3f3f3;
 	background: inherit;
 }
 #doc { display: inherit }
-#doc .item:not(.open) > .content {
+#doc section:not(.open) > article {
 	display: inherit;
-}
-</style></noscript>
+}</style></noscript>
 </head><body>
 <input type="checkbox" id="night" checked/>
 <div class="main boxtt">
-<script type="text/javascript">
-(function() {
+<script type="text/javascript">(function() {
 	var night = document.getElementById("night");
 	var path = "docmd night mode";
 	var ls = window.localStorage;
@@ -349,9 +356,8 @@ label[for="night"] {
 			ls.setItem(path, "" + night.checked);
 		};
 	}
-})();
-</script>
-<div class="page">
+})();</script>
+<main class="page">
 <p>This is a function "cheat sheet" for Steamworks.gml extension by YellowAfterlife.  <br/>
 The extension is available <a href="https://github.com/YellowAfterlife/steamworks.gml">on GitHub</a>.  <br/>
 Example files are available via <a href="https://yellowafterlife.itch.io/steamworks-gml-example">itch.io</a>.  <br/>
@@ -361,12 +367,12 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 &middot; <a href="#" onclick="opt_list(); return false">Sections</a>
 &middot; <a href="#" onclick="opt_all(); return false">Everything</a>
 &middot; <label for="night">Toggle night mode</label><br/>
-</p><div id="doc">
-<!--<doc--><div class="item"><a class="header" id="General" href="#General" title="(permalink)">General</a><div class="content"><div class="item"><a class="header" id="setting-up-steam" href="#setting-up-steam" title="(permalink)">Setting up Steam</a><div class="content"><p>
+</p><section id="doc">
+<!--<doc--><section><header id="General"><a href="#General" title="(permalink)">General</a></header><article><section><header id="setting-up-steam"><a href="#setting-up-steam" title="(permalink)">Setting up Steam</a></header><article><p>
 		See the <a href="https://help.yoyogames.com/hc/en-us/articles/216754138-Using-The-Steamworks-SDK-With-GameMaker-Studio">official documentation.</a>
 		</p><p>
 		Additional note: you can use the test application ID (480) prior to being granted your own application ID, but generally it shouldn't be used for public builds.
-	</p></div></div><div class="item"><a class="header" id="testing" href="#testing" title="(permalink)">Testing games with Steam networking</a><div class="content"><p>
+	</p></article></section><section><header id="testing"><a href="#testing" title="(permalink)">Testing games with Steam networking</a></header><article><p>
 		There are a few things to note about how Steam API works:
 		</p><ul>
 		<li>	If multiple instances of the same game are ran at once, Steam does not tell them apart, and will send events to whichever happens to ask for them first.
@@ -381,23 +387,23 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		To make the process even more straightforward, you can also run multiple game instances straight from the editor. To do so, you would add a small script to return the combined parameter string for the program,
 		</p><pre class="gmlmd">
 <span class="co">/// parameter_string_all()</span>
-<span class="kw">var</span> <span class="sv">r</span> <span class="op">=</span> <span class="st">""</span><span class="op">;</span>
-<span class="kw">var</span> <span class="sv">n</span> <span class="op">=</span> <span class="sf">parameter_count</span><span class="op">(</span><span class="op">)</span><span class="op">;</span>
-<span class="kw">for</span> <span class="op">(</span><span class="kw">var</span> <span class="lv">i</span> <span class="op">=</span> <span class="nu">0</span><span class="op">;</span> <span class="lv">i</span> <span class="op">&lt;</span> <span class="sv">n</span><span class="op">;</span> <span class="lv">i</span><span class="op">++</span><span class="op">)</span> <span class="cb">{</span>
-    <span class="kw">if</span> <span class="op">(</span><span class="lv">i</span> <span class="op">&gt;</span> <span class="nu">0</span><span class="op">)</span> <span class="sv">r</span> <span class="op">+=</span> <span class="st">" "</span><span class="op">;</span>
+<span class="kw">var</span> <span class="lv">r</span> <span class="op">=</span> <span class="st">""</span><span class="op">;</span>
+<span class="kw">var</span> <span class="lv">n</span> <span class="op">=</span> <span class="sf">parameter_count</span><span class="op">(</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">for</span> <span class="op">(</span><span class="kw">var</span> <span class="lv">i</span> <span class="op">=</span> <span class="nu">0</span><span class="op">;</span> <span class="lv">i</span> <span class="op">&lt;</span> <span class="lv">n</span><span class="op">;</span> <span class="lv">i</span><span class="op">++</span><span class="op">)</span> <span class="cb">{</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="lv">i</span> <span class="op">&gt;</span> <span class="nu">0</span><span class="op">)</span> <span class="lv">r</span> <span class="op">+=</span> <span class="st">" "</span><span class="op">;</span>
     <span class="kw">var</span> <span class="lv">s</span> <span class="op">=</span> <span class="sf">parameter_string</span><span class="op">(</span><span class="lv">i</span><span class="op">)</span><span class="op">;</span>
     <span class="kw">if</span> <span class="op">(</span><span class="sf">string_pos</span><span class="op">(</span><span class="st">" "</span><span class="op">,</span> <span class="lv">s</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
-        <span class="sv">r</span> <span class="op">+=</span> <span class="st">'"'</span> <span class="op">+</span> <span class="lv">s</span> <span class="op">+</span> <span class="st">'"'</span><span class="op">;</span>
-    <span class="cb">}</span> <span class="kw">else</span> <span class="sv">r</span> <span class="op">+=</span> <span class="lv">s</span><span class="op">;</span>
+        <span class="lv">r</span> <span class="op">+=</span> <span class="st">'"'</span> <span class="op">+</span> <span class="lv">s</span> <span class="op">+</span> <span class="st">'"'</span><span class="op">;</span>
+    <span class="cb">}</span> <span class="kw">else</span> <span class="lv">r</span> <span class="op">+=</span> <span class="lv">s</span><span class="op">;</span>
 <span class="cb">}</span>
-<span class="kw">return</span> <span class="sv">r</span><span class="op">;</span>
+<span class="kw">return</span> <span class="lv">r</span><span class="op">;</span>
 </pre><p>and then copy that string to clipboard,
 		</p><pre class="gmlmd">
 <span class="sf">clipboard_set_text</span><span class="op">(</span><span class="uf">parameter_string_all</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
 </pre><p>on game start (or when other debug condition is met).
 		</p><p>
 		Then you would be able to use the copied parameter string to start up additional copies of the game in sandboxed environment(s).
-	</p></div></div><div class="item"><a class="header" id="summary" href="#summary" title="(permalink)">Brief summary on Steam networking</a><div class="content"><p>
+	</p></article></section><section><header id="summary"><a href="#summary" title="(permalink)">Brief summary on Steam networking</a></header><article><p>
 		There is a number of things to note about Steam networking compared to regular:
 		</p><ul>
 		<li>	System is P2P; user IDs are used as endpoints instead of IP+port.
@@ -414,23 +420,565 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</li><li>	Related to above, it may take up to 10 seconds to establish connection.
 			</p><p>
 			Afterwards, the connection is kept active for as long as anything is sent at least once every 30 seconds or so.
-		</li></ul></div></div></div></div><div class="item"><a class="header" id="steam_general" href="#steam_general" title="(permalink)">General functions</a><div class="content"><div class="item"><a class="header" id="steam_net_check_version" href="#steam_net_check_version" title="(permalink)">steam_net_check_version()</a><div class="content"><p>
+		</li></ul></article></section></article></section><section><header id="steam_general"><a href="#steam_general" title="(permalink)">General functions</a></header><article><section><header id="steam_gml_is_available"><a href="#steam_gml_is_available" title="(permalink)">steam_gml_is_available()<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		Returns whether the native extension loaded at all.
+	</p></article></section><section><header id="steam_gml_is_ready"><a href="#steam_gml_is_ready" title="(permalink)">steam_gml_is_ready()<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		Returns whether the native extension had been loaded and initialized.
+		</p><p>
+		<strong>NB!</strong> in GMS2.3, "global" code in scripts runs before extension init does.
+	</p></article></section><section><header id="steam_gml_check_version"><a href="#steam_gml_check_version" title="(permalink)">steam_gml_check_version()<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
 		Returns whether the native extension is loaded correctly and has it's version matching the one that the game had been built with.
 		</p><p>
 		Can be used to timely inform the player that their copy might be broken instead of having them wonder why things are not working.
 		</p><pre class="gmlmd">
-<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="sf">steam_net_check_version</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
+<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><a class="sf" href="#steam_gml_check_version">steam_gml_check_version</a><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
     <span class="sf">show_message</span><span class="op">(</span><span class="st">"oh no"</span><span class="op">)</span><span class="op">;</span>
 <span class="cb">}</span>
-</pre></div></div><div class="item"><a class="header" id="steam_net_update" href="#steam_net_update" title="(permalink)">steam_net_update()</a><div class="content"><p>
+</pre></article></section><section><header id="steam_gml_update"><a href="#steam_gml_update" title="(permalink)">steam_gml_update()</a></header><article><p>
 		Polls Steam API and dispatches any new events since the last call to the function.
 		</p><p>
 		As outlined above, you generally want to call this function every now and then.
-	</p></div></div><div class="item"><a class="header" id="steam_user_set_played_with" href="#steam_user_set_played_with" title="(permalink)">steam_user_set_played_with(user_id)</a><div class="content"><p>
+	</p></article></section></article></section><section><header id="steam_async"><a href="#steam_async" title="(permalink)">Async events</a></header><article><p>
+	As result of a number of function calls, the extension dispatches asynchronous events.
+	</p><p>
+	All of these events have <tt>async_load[?"success"]</tt> indicating whether the async action succeeded (true or false) and <tt>async_load[?"result"]</tt> containing the status code (descriptions can be found in Steam API documentation);
+	</p><p>
+	These can be caught by adding a Async - Steam event, and checking whether <tt>async_load[?"event_type"]</tt> is one of following names (as strings):
+	</p><section><header id="lobby_list"><a href="#lobby_list" title="(permalink)">lobby_list</a></header><article><p>
+		Triggers after requesting a list of public lobbies via <a href="#steam_lobby_list_request">steam_lobby_list_request</a>.
+		</p><p>
+		It is not required to do anything in response to this event.
+		</p><p>
+		<tt>async_load[?"lobby_count"]</tt> contains the number of matching lobbies (0 in case of network failure).
+		</p><p>
+		Use <a href="#steam_lobby_list">matchmaking functions</a> to retrieve other information.
+	</p></article></section><section><header id="lobby_joined"><a href="#lobby_joined" title="(permalink)">lobby_joined</a></header><article><p>
+		Triggers after requesting to join a lobby. This can fail if:
+		</p><ul>
+		<li>	There's no connection to Steam
+		</li><li>	Lobby is full (no available player slots left)
+		</li><li>	Lobby was destroyed before you requested to join it
+		</li></ul><p>
+		When successful, this is a good place to establish connection to lobby's members.
+	</p></article></section><section><header id="lobby_created"><a href="#lobby_created" title="(permalink)">lobby_created</a></header><article><p>
+		Fires after requesting to create a lobby. This can fail if:
+		</p><ul>
+		<li>	There's no connection to Steam
+		</li><li>	You are trying to create a public lobby for a game that does not have matchmaking API enabled
+		(is off by default for free games - request permissions via support forum).
+		</li></ul><p>
+		When successful, this is a good place to <a href="#steam_lobby_set_data">set up lobby data</a>.
+	</p></article></section><section><header id="lobby_join_requested"><a href="#lobby_join_requested" title="(permalink)">lobby_join_requested</a></header><article><p>
+		Triggers when the local player accepts an invitation via Steam overlay.
+		</p><p>
+		This event has several fields:
+		</p><ul>
+		<li>	<tt>async_load[?"lobby_id_high"]</tt>, <tt>async_load[?"lobby_id_low"]</tt> (combine via <a href="#steam_id_create">steam_id_create</a>) indicate the ID of the lobby to join (via <a href="#steam_lobby_join_id">steam_lobby_join_id</a>).
+		</li><li>	<tt>async_load[?"friend_id_high"]</tt>, <tt>async_load[?"friend_id_low"]</tt> (combine via <a href="#steam_id_create">steam_id_create</a>) indicate the ID of the user that the invitation was from (in case you want to display "joining X's lobby" while loading).
+		</li></ul><p>
+		Is commonly used as following:
+		</p><pre class="gmlmd">
+<span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"lobby_join_requested"</span><span class="op">)</span> <span class="cb">{</span>
+    <a class="sf" href="#steam_lobby_join_id">steam_lobby_join_id</a><span class="op">(</span><a class="sf" href="#steam_id_create">steam_id_create</a><span class="op">(</span>
+        <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"lobby_id_high"</span><span class="op">]</span><span class="op">,</span>
+        <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"lobby_id_low"</span><span class="op">]</span>
+    <span class="op">)</span><span class="op">)</span><span class="op">;</span>
+<span class="cb">}</span>
+</pre></article></section><section><header id="p2p_session_request"><a href="#p2p_session_request" title="(permalink)">p2p_session_request</a></header><article><p>
+		If you have opted to handle P2P sessions yourself
+		(by calling <a href="#steam_net_set_auto_accept_p2p_sessions">steam_net_set_auto_accept_p2p_sessions</a>(false)),
+		you will want to handle this event for anyone to be able to connect to you.
+		</p><pre class="gmlmd">
+<span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"lobby_join_requested"</span><span class="op">)</span> <span class="cb">{</span>
+    <a class="sf" href="#steam_net_accept_p2p_session">steam_net_accept_p2p_session</a><span class="op">(</span><a class="sf" href="#steam_id_create">steam_id_create</a><span class="op">(</span>
+        <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"user_id_high"</span><span class="op">]</span><span class="op">,</span>
+        <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"user_id_low"</span><span class="op">]</span>
+    <span class="op">)</span><span class="op">)</span><span class="op">;</span>
+<span class="cb">}</span>
+</pre></article></section></article></section><section><header id="steam_net"><a href="#steam_net" title="(permalink)">Networking functions</a></header><article><section><header id="steam_net_packet"><a href="#steam_net_packet" title="(permalink)">Packet I/O</a></header><article><section><header id="steam_net_packet_receive"><a href="#steam_net_packet_receive" title="(permalink)">steam_net_packet_receive()</a></header><article><p>
+			Attempts to get the next packet from Steam API and returns whether successfully done so.
+			</p><p>
+			Other <tt>steam_net_</tt> functions can then be used to get packet information/contents.
+			</p><p>
+			At most times you would utilize this as following:
+			</p><pre class="gmlmd">
+<span class="kw">while</span> <span class="op">(</span><a class="sf" href="#steam_net_packet_receive">steam_net_packet_receive</a><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
+    <span class="co">// process the received packet</span>
+<span class="cb">}</span>
+</pre><p>(every step while in lobby, less frequently otherwise)
+		</p></article></section><section><header id="steam_net_packet_get_sender_id"><a href="#steam_net_packet_get_sender_id" title="(permalink)">steam_net_packet_get_sender_id()</a></header><article><p>
+			Returns Steam ID of the user that sent the last received packet.
+			</p><p>
+			Can be used in conjunction with <a href="#steam_net_packet_send">steam_net_packet_send</a> to send something back and for just telling the senders apart.
+		</p></article></section><section><header id="steam_net_packet_get_size"><a href="#steam_net_packet_get_size" title="(permalink)">steam_net_packet_get_size()</a></header><article><p>
+			Returns the size of last received packet, in bytes.
+			</p><p>
+			So, for instance, if you wanted to just display the size of each incoming packet, you could use a snippet of code like the following:
+			</p><pre class="gmlmd">
+<span class="kw">while</span> <span class="op">(</span><a class="sf" href="#steam_net_packet_receive">steam_net_packet_receive</a><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
+    <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"Received "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="uf">steam_net_packet_size</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="st">" bytes."</span><span class="op">)</span><span class="op">;</span>
+<span class="cb">}</span>
+</pre></article></section><section><header id="steam_net_packet_get_data"><a href="#steam_net_packet_get_data" title="(permalink)">steam_net_packet_get_data(buffer)</a></header><article><p>
+			Copies the contents of last received packet to the given buffer.
+			</p><p>
+			Data is copied to the start of the buffer (position remains unaffected),
+			meaning that if you reuse the same buffer, you should "rewind" it prior to reading.
+			</p><p>
+			If the buffer is not big enough to fit data, it will be resized automatically.
+			</p><pre class="gmlmd">
+<span class="kw">while</span> <span class="op">(</span><a class="sf" href="#steam_net_packet_receive">steam_net_packet_receive</a><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
+    <a class="sf" href="#steam_net_packet_get_data">steam_net_packet_get_data</a><span class="op">(</span><span class="uv">inbuf</span><span class="op">)</span><span class="op">;</span>
+    <span class="sf">buffer_seek</span><span class="op">(</span><span class="uv">inbuf</span><span class="op">,</span> <span class="sv">buffer_seek_start</span><span class="op">,</span> <span class="nu">0</span><span class="op">)</span><span class="op">;</span>
+    <span class="kw">switch</span> <span class="op">(</span><span class="sf">buffer_read</span><span class="op">(</span><span class="uv">inbuf</span><span class="op">,</span> <span class="sv">buffer_u8</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
+        <span class="kw">case</span> <span class="nu">1</span><span class="op">:</span> <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"packet ID 1"</span><span class="op">)</span><span class="op">;</span> <span class="kw">break</span><span class="op">;</span>
+        <span class="kw">case</span> <span class="nu">2</span><span class="op">:</span> <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"packet ID 2"</span><span class="op">)</span><span class="op">;</span> <span class="kw">break</span><span class="op">;</span>
+        <span class="kw">default</span><span class="op">:</span> <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"unknown packet"</span><span class="op">)</span><span class="op">;</span> <span class="kw">break</span><span class="op">;</span>
+    <span class="cb">}</span>
+<span class="cb">}</span>
+</pre><p>Whether <tt>inbuf</tt> is a "fixed" or "growing" buffer created on game start for the controller object.
+		</p></article></section><section><header id="steam_net_packet_send"><a href="#steam_net_packet_send" title="(permalink)">steam_net_packet_send(steam_id, buffer, size, type)</a></header><article><p>
+			Sends a packet to the given endpoint, returns whether successful (as opposed to incorrect arguments/invalid ID).
+			</p><p>
+			Much as with the built-in <tt>network_send_</tt> functions, this function takes data from the start of the buffer and until the point identified by <tt>size</tt> parameter.
+			</p><p>
+			<tt>type</tt> parameter can be one of the following:
+			</p><ul>
+			<li>	<tt>steam_net_packet_type_unreliable</tt>: roughly equivalent to UDP. May or may not be delivered, will not be resent automatically.
+			</li><li>	<tt>steam_net_packet_type_unreliable_nodelay</tt>: much like the regular "unreliable" type, but always sent instantly (as soon as function is called). Intended for things like streaming voice data, where you want lowest latency possible and only care about the current data.
+			</li><li>	<tt>steam_net_packet_type_reliable</tt>: roughly equivalent to TCP. Warranted to be delivered in order and intact.
+			</li><li>	<tt>steam_net_packet_type_reliable_buffer</tt>: much like the regular "reliable" type, but utilizes <a href="https://en.wikipedia.org/wiki/Nagle%27s_algorithm">Nagle's algorithm</a> to reduce the number of packets at cost of potential delay while the data accumulates until the sending threshold.
+			</li></ul><p>
+			So you could use it like so:
+			</p><pre class="gmlmd">
+<span class="kw">var</span> <span class="lv">b</span> <span class="op">=</span> <span class="sf">buffer_create</span><span class="op">(</span><span class="nu">16</span><span class="op">,</span> <span class="sv">buffer_grow</span><span class="op">,</span> <span class="nu">1</span><span class="op">)</span><span class="op">;</span>
+<span class="sf">buffer_write</span><span class="op">(</span><span class="lv">b</span><span class="op">,</span> <span class="sv">buffer_string</span><span class="op">,</span> <span class="st">"Hello!"</span><span class="op">)</span><span class="op">;</span>
+<a class="sf" href="#steam_net_packet_send">steam_net_packet_send</a><span class="op">(</span><a class="sv" href="#steam_id">steam_id</a><span class="op">,</span> <span class="lv">b</span><span class="op">,</span> <span class="sf">buffer_tell</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">,</span> <span class="uv">steam_net_packet_type_reliable</span><span class="op">)</span><span class="op">;</span>
+<span class="sf">buffer_delete</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">;</span>
+</pre><p>Where <tt>steam_id</tt> would hold the user ID to send the packet to.
+		</p></article></section></article></section><section><header id="steam_net_p2p"><a href="#steam_net_p2p" title="(permalink)">P2P sessions</a></header><article><section><header id="steam_net_set_auto_accept_p2p_sessions"><a href="#steam_net_set_auto_accept_p2p_sessions" title="(permalink)">steam_net_set_auto_accept_p2p_sessions(enable)</a></header><article><p>
+			Sets whether to auto-accept session requests coming from players in the same lobby.
+			</p><p>
+			This is enabled by default for convenience.
+			</p><p>
+			If you disable it, you will need to handle <a href="#p2p_session_request">p2p_session_request</a> async event.
+		</p></article></section><section><header id="steam_net_accept_p2p_session"><a href="#steam_net_accept_p2p_session" title="(permalink)">steam_net_accept_p2p_session(user_id)</a></header><article><p>
+			Accepts a P2P session request from the specified user.
+			</p><p>
+			Returns whether successful.
+		</p></article></section><section><header id="steam_net_close_p2p_session"><a href="#steam_net_close_p2p_session" title="(permalink)">steam_net_close_p2p_session(user_id)</a></header><article><p>
+			Closes a P2P session with the specified user.
+			</p><p>
+			Steam will automatically close sessions after a period of inactivity,
+			but you could also do it manually if you so desired.
+			</p><p>
+			Returns whether successful.
+		</p></article></section></article></section></article></section><section><header id="steam_lobby"><a href="#steam_lobby" title="(permalink)">Lobby functions</a></header><article><p>
+	The following functions deal with the current lobby.
+	</p><section><header id="steam_lobby_join_id"><a href="#steam_lobby_join_id" title="(permalink)">steam_lobby_join_id(lobby_id)</a></header><article><p>
+		Starts joining a lobby with the given ID.
+		</p><p>
+		The operation is carried out asynchronously;
+		</p><p>
+		A <a href="#lobby_joined">lobby_joined</a> event is dispatched on completion.
+		</p><p>
+		See <a href="#lobby_join_requested">lobby_join_requested</a> for a code example.
+	</p></article></section><section><header id="steam_lobby_create"><a href="#steam_lobby_create" title="(permalink)">steam_lobby_create(type, max_members)</a></header><article><p>
+		Starts creating a lobby.
+		</p><p>
+		The operation is carried out asynchronously;
+		</p><p>
+		A <a href="#lobby_created">lobby_created</a> event is dispatched on completion.
+		</p><p>
+		<tt>max_members</tt> indicates the maximum allowed number of users in the lobby
+		(including the lobby's creator).
+		</p><p>
+		<tt>type</tt> can be one of the following:
+		</p><ul>
+		<li>	<tt>steam_lobby_type_private</tt>: Can only be joined by invitation.
+			</p><p>
+			You would usually <a href="#steam_lobby_set_type">change</a> the lobby type to this on match start.
+		</li><li>	<tt>steam_lobby_type_friends_only</tt>: Can be joined by invitation or via friends-list
+		(by opening the user's menu and picking "Join game").
+		</li><li>	<tt>steam_lobby_type_public</tt>: Can be joined by invitation, via friends-list,
+		and shows up in the public lobby list (see <a href="#steam_lobby_list">matchmaking</a> functions).
+		</li></ul><p>
+		Can be used as following:
+		</p><pre class="gmlmd">
+<a class="sf" href="#steam_lobby_create">steam_lobby_create</a><span class="op">(</span><span class="uv">steam_lobby_type_public</span><span class="op">,</span> <span class="nu">4</span><span class="op">)</span><span class="op">;</span>
+</pre><p>(which would create a 4-player public lobby)
+	</p></article></section><section><header id="steam_lobby_leave"><a href="#steam_lobby_leave" title="(permalink)">steam_lobby_leave()</a></header><article><p>
+		Leaves the current lobby (if any).
+		</p><p>
+		Does not raise any errors if currently not in a lobby.
+		</p><p>
+		Note that if you are the lobby owner and leave the lobby, Steam transfers lobby ownership to any other available user, so you may need to detect lobby owner changes if any particular logic is handled by them.
+	</p></article></section><hr/><section><header id="steam_lobby_set_type"><a href="#steam_lobby_set_type" title="(permalink)">steam_lobby_set_type(newtype)</a></header><article><p>
+		Changes the lobby's type. You must be the lobby's owner to do this.
+		</p><p>
+		Types are the same as per <a href="#steam_lobby_create">steam_lobby_create</a>.
+		</p><p>
+		So, for example, if you don't allow mid-session joining, you could have the game make lobbies private on session start:
+		</p><pre class="gmlmd">
+<a class="sf" href="#steam_lobby_set_type">steam_lobby_set_type</a><span class="op">(</span><span class="uv">steam_lobby_type_private</span><span class="op">)</span><span class="op">;</span>
+</pre></article></section><hr/><section><header id="steam_lobby_get_data"><a href="#steam_lobby_get_data" title="(permalink)">steam_lobby_get_data(key:string)<span class="ret-arrow">&#10140;</span>string</a></header><article><p>
+		Returns a lobby field value, as set by <a href="#steam_lobby_set_data">steam_lobby_set_data</a>.
+		
+</p><pre class="gmlmd">
+<span class="kw">var</span> <span class="lv">title</span> <span class="op">=</span> <a class="sf" href="#steam_lobby_get_data">steam_lobby_get_data</a><span class="op">(</span><span class="st">"title"</span><span class="op">)</span><span class="op">;</span>
+</pre></article></section><section><header id="steam_lobby_set_data"><a href="#steam_lobby_set_data" title="(permalink)">steam_lobby_set_data(key:string, value:string)</a></header><article><p>
+		Changes a lobby's field. You must be the lobby's owner to do this.
+		</p><p>
+		Fields can then be used to filter lobbies via <a href="#steam_lobby_list">matchmaking</a> functions.
+		</p><p>
+		<strong>Note</strong>: if your value is numeric, convert it to string prior to passing it to the function.
+		</p><p>
+		Otherwise GM will assume your numeric value to be a pointer to a string, which can hard crash your game and/or Steam client.
+	</p></article></section><hr/><section><header id="steam_lobby_is_owner"><a href="#steam_lobby_is_owner" title="(permalink)">steam_lobby_is_owner()<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		Returns whether the local player is the lobby's owner.
+		</p><p>
+		If the lobby is not valid, returns false.
+	</p></article></section><section><header id="steam_lobby_get_owner_id"><a href="#steam_lobby_get_owner_id" title="(permalink)">steam_lobby_get_owner_id()<span class="ret-arrow">&#10140;</span>user_id</a></header><article><p>
+		Returns the lobby's owner's Steam ID.
+		</p><p>
+		If the lobby is not valid, returns ID 0.
+	</p></article></section><section><header id="steam_lobby_get_member_count"><a href="#steam_lobby_get_member_count" title="(permalink)">steam_lobby_get_member_count()<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+		Returns the number of users in the current lobby (including you).
+		</p><p>
+		If the lobby is not valid, returns 0.
+	</p></article></section><section><header id="steam_lobby_get_member_id"><a href="#steam_lobby_get_member_id" title="(permalink)">steam_lobby_get_member_id(index)<span class="ret-arrow">&#10140;</span>user_id</a></header><article><p>
+		Returns the user ID of the member at the given index in the current lobby.
+		</p><p>
+		Index should be between 0 (incl.) and result of <a href="#steam_lobby_get_member_count">steam_lobby_get_member_count</a> (excl.). Results will include the local user.
+		</p><p>
+		If the index (or lobby) is not valid, returns ID 0.
+	</p></article></section><section><header id="steam_lobby_get_lobby_id"><a href="#steam_lobby_get_lobby_id" title="(permalink)">steam_lobby_get_lobby_id()<span class="ret-arrow">&#10140;</span>lobby_id</a></header><article><p>
+		Returns the Steam ID of the current lobby.
+	</p></article></section><section><header id="steam_lobby_activate_invite_overlay"><a href="#steam_lobby_activate_invite_overlay" title="(permalink)">steam_lobby_activate_invite_overlay()</a></header><article><p>
+		Displays an invitation overlay if currently in a lobby.
+		</p><p>
+		The invitation overlay is much akin to friends-list overlay, but only shows online friends, and spots "invite" buttons on each row.
+	</p></article></section></article></section><section><header id="steam_lobby_list"><a href="#steam_lobby_list" title="(permalink)">Matchmaking functions</a></header><article><p>
+	The following functions allow retrieving lists of public lobbies.
+	</p><section><header id="steam_lobby_list_request"><a href="#steam_lobby_list_request" title="(permalink)">steam_lobby_list_request()</a></header><article><p>
+		Starts loading the list of lobbies matching the current filters.
+		</p><p>
+		Filters are reset afterwards and have to be set again for subsequent request(s).
+		</p><p>
+		Existing results are kept up until the event is dispatched.
+		</p><p>
+		The operation is carried out asynchronously;
+		</p><p>
+		A <a href="#lobby_list">lobby_list</a> event is dispatched on completion.
+	</p></article></section><section><header id="steam_lobby_list_is_loading"><a href="#steam_lobby_list_is_loading" title="(permalink)">steam_lobby_list_is_loading()</a></header><article><p>
+		Returns whether a lobby list request is currently underway.
+		</p><p>
+		Is a convenience function - you may as well set a global variable prior to calling <a href="#steam_lobby_list_request">steam_lobby_list_request</a> and reset in the <a href="#lobby_list">lobby_list</a> event.
+	</p></article></section><section><header id="steam_lobby_list_get"><a href="#steam_lobby_list_get" title="(permalink)">Lobby list functions</a></header><article><p>
+		These can be used after receiving a <a href="#lobby_list">lobby_list</a> async event.
+		</p><section><header id="steam_lobby_list_get_count"><a href="#steam_lobby_list_get_count" title="(permalink)">steam_lobby_list_get_count()</a></header><article><p>
+			Returns the number of lobbies received in the last lobby list request.
+			</p><p>
+			For subsequent functions in this section,
+			<tt>list_index</tt> should be between 0 (incl.) and the number returned by this function (excl.)
+		</p></article></section><hr/><section><header id="steam_lobby_list_join"><a href="#steam_lobby_list_join" title="(permalink)">steam_lobby_list_join(list_index)</a></header><article><p>
+			Starts joining the lobby at the given index in the list.
+			</p><p>
+			See <a href="#steam_lobby_join_id">steam_lobby_join_id</a> for more information on the process.
+		</p></article></section><hr/><section><header id="steam_lobby_list_get_data"><a href="#steam_lobby_list_get_data" title="(permalink)">steam_lobby_list_get_data(list_index, key:string)<span class="ret-arrow">&#10140;</span>string</a></header><article><p>
+			Returns the value of the given field of a lobby at the given index in the current list.
+			</p><p>
+			Fields can be set via <a href="#steam_lobby_set_data">steam_lobby_set_data</a>.
+			</p><p>
+			<strong>NB!</strong> Value is always returned as a string.
+			</p><p>
+			Returns <tt>""</tt> if the lobby does not have the given field set.
+		</p></article></section><section><header id="steam_lobby_list_get_lobby_id"><a href="#steam_lobby_list_get_lobby_id" title="(permalink)">steam_lobby_list_get_lobby_id(list_index)<span class="ret-arrow">&#10140;</span>lobby_id</a></header><article><p>
+			Returns the Steam ID of the lobby at the given index in the list.
+			</p><p>
+			Returns <tt>0</tt> if the index is out of bounds.
+		</p></article></section><section><header id="steam_lobby_list_get_lobby_owner_id"><a href="#steam_lobby_list_get_lobby_owner_id" title="(permalink)">steam_lobby_list_get_lobby_owner_id(list_index)<span class="ret-arrow">&#10140;</span>user_id</a></header><article><p>
+			Returns the Steam ID of the owner of the lobby at the given index in the list.
+			</p><p>
+			Returns <tt>0</tt> if the index is out of bounds.
+		</p></article></section><section><header id="steam_lobby_list_get_lobby_member_count"><a href="#steam_lobby_list_get_lobby_member_count" title="(permalink)">steam_lobby_list_get_lobby_member_count(list_index)<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+			Returns the number of users in the lobby at the given index in the list.
+			</p><p>
+			Returns <tt>0</tt> if the index is out of bounds.
+		</p></article></section></article></section><p>
+	Requesting:
+	</p><section><header id="steam_lobby_list_add_string_filter"><a href="#steam_lobby_list_add_string_filter" title="(permalink)">steam_lobby_list_add_string_filter(key, value, comparison_type)</a></header><article><p>
+		Sets up a string filter for the next lobby list request.
+		</p><p>
+		That is, lobbies not matching the condition will be excluded from results.
+		</p><p>
+		Lobbies without the given field (<tt>key</tt>) will be assumed to have it as "".
+		</p><p>
+		The following values can be passed as <tt>comparison_type</tt>:
+		</p><ul>
+		<li>	<tt>steam_lobby_list_filter_eq</tt>: Equal (<tt>==</tt>).
+		</li><li>	<tt>steam_lobby_list_filter_ne</tt>: Not-equal (<tt>!=</tt>).
+		</li></ul></article></section><section><header id="steam_lobby_list_add_numerical_filter"><a href="#steam_lobby_list_add_numerical_filter" title="(permalink)">steam_lobby_list_add_numerical_filter(key, value, comparison_type)</a></header><article><p>
+		Sets up a numeric filter for the next lobby list request.
+		</p><p>
+		That is, lobbies not matching the condition will be excluded from results.
+		</p><p>
+		Lobbies without the given field (<tt>key</tt>) will be excluded.
+		</p><p>
+		The following values can be passed as <tt>comparison_type</tt>:
+		</p><ul>
+		<li>	<tt>steam_lobby_list_filter_eq</tt>: Equal (<tt>==</tt>).
+		</li><li>	<tt>steam_lobby_list_filter_ne</tt>: Not-equal (<tt>!=</tt>).
+		</li><li>	<tt>steam_lobby_list_filter_lt</tt>: Less-than (<tt>&lt;</tt>).
+		</li><li>	<tt>steam_lobby_list_filter_gt</tt>: Greater-than (<tt>&gt;</tt>).
+		</li><li>	<tt>steam_lobby_list_filter_le</tt>: Less-than-or-equal (<tt>&lt;=</tt>).
+		</li><li>	<tt>steam_lobby_list_filter_ge</tt>: Greater-than-or-equal (<tt>&gt;=</tt>).
+		</li></ul></article></section><section><header id="steam_lobby_list_add_near_filter"><a href="#steam_lobby_list_add_near_filter" title="(permalink)">steam_lobby_list_add_near_filter(key, value:number)</a></header><article><p>
+		Sorts the results based on how close their field's (<tt>key</tt>)'s value is to the provided one.
+		</p><p>
+		If multiple near-filters are specified, the earlier-set ones take precedence.
+	</p></article></section><section><header id="steam_lobby_list_add_distance_filter"><a href="#steam_lobby_list_add_distance_filter" title="(permalink)">steam_lobby_list_add_distance_filter(mode)</a></header><article><p>
+		Restricts results by region and sorts them based on geographical proximity.
+		</p><p>
+		The following values can be passed as <tt>mode</tt>:
+		</p><ul>
+		<li>	<tt>steam_lobby_list_distance_filter_close</tt>: Only allows lobbies in same immediate region.
+		</li><li>	<tt>steam_lobby_list_distance_filter_default</tt>: Allows lobbies in same or nearby regions (same continent)
+		</li><li>	<tt>steam_lobby_list_distance_filter_far</tt>: Allows lobbies from up to half-way around the globe (nearby continents).
+		</li><li>	<tt>steam_lobby_list_distance_filter_worldwide</tt>: Allows any lobbies. May result in very high latencies, so use with care.
+		</li></ul></article></section></article></section><section><header id="steam_controller_"><a href="#steam_controller_" title="(permalink)">Steam Controller/Input functions</a></header><article><p>
+	These have been since renamed to Steam Input in SDK documentation to avoid confusion with Steam Controller device.
+	</p><section><header id="steam_controller_general"><a href="#steam_controller_general" title="(permalink)">General</a></header><article><section><header id="steam_controller_init"><a href="#steam_controller_init" title="(permalink)">steam_controller_init()<span class="ret-arrow">&#10140;</span>success</a></header><article><p>
+			Should be called on game start if you intend to use Steam Controller API.
+			</p><p>
+			Returns whether successful.
+		</p></article></section><section><header id="steam_controller_update"><a href="#steam_controller_update" title="(permalink)">steam_controller_update()</a></header><article><p>
+			Is automatically called by <a href="#steam_gml_update">steam_gml_update</a>,
+			but can also be called manually to poll data more often.
+		</p></article></section></article></section><section><header id="steam_controller_controller"><a href="#steam_controller_controller" title="(permalink)">Controller functions</a></header><article><section><header id="steam_controller_get_ids"><a href="#steam_controller_get_ids" title="(permalink)">steam_controller_get_ids()<span class="ret-arrow">&#10140;</span>array&lt;controller_id&gt;</a></header><article><p>
+			Returns an array of IDs for the connected Steam Controllers.
+			</p><p>
+			Such IDs are used for the rest of the functions.
+			</p><p>
+			<strong>Note:</strong> You can also use <tt>all</tt> (<tt>-3</tt>) in most controller functions to apply to any/all
+			of the connected controllers.
+		</p></article></section><section><header id="steam_controller_get_ids"><a href="#steam_controller_get_ids" title="(permalink)">steam_controller_get_ids(arr)<span class="ret-arrow">&#10140;</span>count</a></header><article><p>
+			The above function can also be called with an existing array as an argument,
+			in which case it will store the IDs in the provided array and return how many it 
+			had filled out.
+		</p></article></section><section><header id="steam_controller_get_type"><a href="#steam_controller_get_type" title="(permalink)">steam_controller_get_type(controller_id)</a></header><article><p>
+			Returns Steam-reported type for the given controller.
+			</p><p>
+			Values can be: </p><ul>
+			<li> <tt>steam_controller_unknown</tt>
+			</li><li> <tt>steam_controller_steam_controller</tt>
+			</li><li> <tt>steam_controller_xbox360</tt>
+			</li><li> <tt>steam_controller_xboxone</tt>
+			</li><li> <tt>steam_controller_generic_xinput</tt>
+			</li><li> <tt>steam_controller_ps4</tt>
+			</li><li> <tt>steam_controller_apple_mfi</tt>
+			</li><li> <tt>steam_controller_android</tt>
+			</li><li> <tt>steam_controller_switch_joycon_pair</tt>
+			</li><li> <tt>steam_controller_switch_joycon_single</tt>
+			</li><li> <tt>steam_controller_switch_pro</tt>
+			</li><li> <tt>steam_controller_mobile_touch</tt>
+			</li><li> <tt>steam_controller_ps3</tt>
+			</li></ul><p class="pad">
+			
+			Note that GMS1 / Steamworks1.35a does not support getting controller types and will always return <tt>steam_controller_unknown</tt>.
+		</p></article></section><section><header id="steam_controller_get_max_count"><a href="#steam_controller_get_max_count" title="(permalink)">steam_controller_get_max_count()<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+			Returns how many Steam Input devices can be detected at most.
+			</p><p>
+			This is constant per SDK version;
+			</p><p>
+			As of writing this in 2021, this is 16.
+		</p></article></section></article></section><section><header id="steam_controller_actionset"><a href="#steam_controller_actionset" title="(permalink)">Action sets</a></header><article><p>
+		See <a href="https://partner.steamgames.com/doc/features/steam_controller/action_set_layers">documentation</a>;
+		
+		</p><section><header id="steam_controller_get_actionset_id"><a href="#steam_controller_get_actionset_id" title="(permalink)">steam_controller_get_actionset_id(actionset_name)<span class="ret-arrow">&#10140;</span>actionset_id</a></header><article><p>
+			Finds an action set ID with given name.
+			</p><p>
+			Returns a negative number if such an action set does not exist!
+		</p></article></section><section><header id="steam_controller_set_actionset"><a href="#steam_controller_set_actionset" title="(permalink)">steam_controller_set_actionset(controller_id, actionset_id)<span class="ret-arrow">&#10140;</span>success</a></header><article><p>
+			Activates an action set.
+			</p><p>
+			<strong>Note:</strong> As of GMS2.3, GameMaker uses Steamworks 1.42, which is not new enough to support action set layers.
+			</p><p>
+			<tt>actionset_id</tt> comes from <a href="#steam_controller_get_actionset_id">steam_controller_get_actionset_id</a>.
+			</p><p>
+			See <a href="https://partner.steamgames.com/doc/api/ISteamInput#ActivateActionSetLayer">ActivateActionSetLayer</a>.
+		</p></article></section><section><header id="steam_controller_get_actionset"><a href="#steam_controller_get_actionset" title="(permalink)">steam_controller_get_actionset(controller_id)<span class="ret-arrow">&#10140;</span>actionset_id</a></header><article><p>
+			Returns the current action set id for a controller, or -1 if it fails (e.g. wrong controller ID).
+		</p></article></section></article></section><section><header id="steam_controller_ingame"><a href="#steam_controller_ingame" title="(permalink)">In-game actions</a></header><article><p>
+		See <a href="https://partner.steamgames.com/doc/features/steam_controller/iga_file">documentation</a>;
+		</p><p>
+		Digital actions:
+		</p><section><header id="steam_controller_get_digital_id"><a href="#steam_controller_get_digital_id" title="(permalink)">steam_controller_get_digital_id(action_name)<span class="ret-arrow">&#10140;</span>digital_id</a></header><article><p>
+			Finds a Digital Action ID by its name.
+			</p><p>
+			Returns a <tt>&gt;=0</tt> action ID on success, or a negative value on failure.
+		</p></article></section><section><header id="steam_controller_get_digital_value"><a href="#steam_controller_get_digital_value" title="(permalink)">steam_controller_get_digital_value(controller_id, digital_id)<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+			Retrieves the current state of a digital action for a controller.
+			</p><p>
+			Returns <tt>false</tt> if controller is missing or action ID is invalid.
+		</p></article></section><section><header id="steam_controller_get_digital_status"><a href="#steam_controller_get_digital_status" title="(permalink)">steam_controller_get_digital_status(controller_id, digital_id)<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+			Returns whether the given digital action is currently active.
+			</p><p>
+			Similarly, returns <tt>false</tt> if controller is missing or action ID is invalid.
+		</p></article></section><section><header id="steam_controller_get_digital_origins"><a href="#steam_controller_get_digital_origins" title="(permalink)">steam_controller_get_digital_origins(controller_id, actionset_id, digital_id, ?out:array&lt;origin&gt;)<span class="ret-arrow">&#10140;</span>array&lt;origin&gt;</a></header><article><p>
+			Fetches the origins for the specified digital action of an action set for a controller.
+			</p><p>
+			The result is an array of origin IDs (see values <a href="https://partner.steamgames.com/doc/api/ISteamInput#EInputActionOrigin">here</a>) that can then be used to display the correct input prompt.
+			</p><p>
+			See <a href="https://partner.steamgames.com/doc/api/ISteamInput#GetDigitalActionOrigins">GetDigitalActionOrigins</a>
+		</p></article></section><p>
+		Analog actions:
+		</p><section><header id="steam_controller_get_analog_id"><a href="#steam_controller_get_analog_id" title="(permalink)">steam_controller_get_analog_id(action_name)<span class="ret-arrow">&#10140;</span>analog_id</a></header><article><p>
+			Find an Analog Action ID by its name.
+			</p><p>
+			Returns a <tt>&gt;=0</tt> action ID on success, or a negative value on failure.
+			</p><p>
+			<strong>NB!</strong> Digital and analog action names and IDs can overlap. Don't mix them up!
+		</p></article></section><section><header id="steam_controller_get_analog_status"><a href="#steam_controller_get_analog_status" title="(permalink)">steam_controller_get_analog_status(controller_id, analog_id)<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+			Returns whether the given analog action is currently active.
+			</p><p>
+			Returns <tt>false</tt> if controller is missing or action ID is invalid.
+		</p></article></section><section><header id="steam_controller_get_analog_mode"><a href="#steam_controller_get_analog_mode" title="(permalink)">steam_controller_get_analog_mode(controller_id, analog_id)<span class="ret-arrow">&#10140;</span>mode_id</a></header><article><p>
+			Returns the virtual input mode used by an analog action.
+			</p><p>
+			See the returned values <a href="https://partner.steamgames.com/doc/api/ISteamInput#EControllerSourceMode">here</a>.
+			</p><p>
+			Returns <tt>-1</tt> if controller is missing or action ID is invalid.
+		</p></article></section><section><header id="steam_controller_get_analog_x"><a href="#steam_controller_get_analog_x" title="(permalink)">steam_controller_get_analog_x(controller_id, analog_id)<span class="ret-arrow">&#10140;</span>number</a></header><article><p>
+			Returns the state of an action's horizontal axis.
+			</p><p>
+			As per <a href="https://partner.steamgames.com/doc/api/ISteamInput#InputAnalogActionData_t">documentation</a>,
+			values depend on configuration - e.g. traditional actions return normalized values in -1..+1 range
+			while mouse-like actions provide updates in pixels since the last frame.
+			</p><p>
+			Returns <tt>0</tt> if controller is missing or action ID is invalid.
+		</p></article></section><section><header id="steam_controller_get_analog_y"><a href="#steam_controller_get_analog_y" title="(permalink)">steam_controller_get_analog_y(controller_id, analog_id)<span class="ret-arrow">&#10140;</span>number</a></header><article><p>
+			Same as above, but for vertical axis.
+			</p><p>
+			Returns <tt>0</tt> if controller is missing or action ID is invalid.
+		</p></article></section><section><header>steam_controller_get_analog_origins(controller_id, actionset_id, analog_id, ?out:array&lt;origin&gt;)<span class="ret-arrow">&#10140;</span>array&lt;origin&gt;</header><article><p>
+			Fetches the origins for the specified analog action of an action set for a controller.
+			</p><p>
+			The result is an array of origin IDs (see values <a href="https://partner.steamgames.com/doc/api/ISteamInput#EInputActionOrigin">here</a>) that can then be used to display the correct input prompt.
+			</p><p>
+			See <a href="https://partner.steamgames.com/doc/api/ISteamInput#GetAnalogActionOrigins">GetAnalogActionOrigins</a>
+		</p></article></section><p>
+		Misc.:
+		</p><section><header id="steam_controller_get_max_origins"><a href="#steam_controller_get_max_origins" title="(permalink)">steam_controller_get_max_origins()<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+			Returns the maximum number of input origins that can be attached to a single action.
+			</p><p>
+			This value is constant per SDK version and is set to 8 as of writing this in 2021.
+		</p></article></section></article></section></article></section><section><header id="steam_user"><a href="#steam_user" title="(permalink)">User/friend functions</a></header><article><section><header id="steam_user_set_played_with"><a href="#steam_user_set_played_with" title="(permalink)">steam_user_set_played_with(user_id)</a></header><article><p>
 		Adds the given user to the "recently played with" list (accessed via "Players" - "Recent games") menu in Steam overlay.
 		</p><p>
 		This is usually something to do on session start for all remote users.
-	</p></div></div><hr/><div class="item"><a class="header" id="steam_get_app_ownership_ticket_data" href="#steam_get_app_ownership_ticket_data" title="(permalink)">steam_get_app_ownership_ticket_data(buffer, ?app_id)</a><div class="content"><p>
+	</p></article></section><section><header id="steam_get_friends_game_info"><a href="#steam_get_friends_game_info" title="(permalink)">steam_get_friends_game_info()<span class="ret-arrow">&#10140;</span>array</a></header><article><p>
+		Returns an array of information about what the current user's Steam friends are playing,
+		roughly equivalent to what can be seen in Steam Friends UI.
+		</p><p>
+		The array contains nested 3-element arrays with the following fields: </p><ul>
+		<li>	Steam User ID
+		</li><li>	Steam Game ID
+		</li><li>	Steam Lobby ID<br/>(if hosting a lobby that is open for friends to join - otherwise <tt>0</tt>)
+		</li></ul><p>
+		This can be used to display an in-game join dialog.
+		</p><pre class="gmlmd">
+<span class="kw">var</span> <span class="lv">info_arr</span> <span class="op">=</span> <a class="sf" href="#steam_get_friends_game_info">steam_get_friends_game_info</a><span class="op">(</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">var</span> <span class="lv">info_num</span> <span class="op">=</span> <span class="uf">array_length</span><span class="op">(</span><span class="lv">info_arr</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">var</span> <span class="lv">_steam_app_id</span> <span class="op">=</span> <span class="sf">steam_get_app_id</span><span class="op">(</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">for</span> <span class="op">(</span><span class="kw">var</span> <span class="lv">i</span> <span class="op">=</span> <span class="nu">0</span><span class="op">;</span> <span class="lv">i</span> <span class="op">&lt;</span> <span class="lv">info_num</span><span class="op">;</span> <span class="lv">i</span><span class="op">++</span><span class="op">)</span> <span class="cb">{</span>
+    <span class="kw">var</span> <span class="lv">info</span> <span class="op">=</span> <span class="lv">info_arr</span><span class="op">[</span><span class="lv">i</span><span class="op">]</span><span class="op">;</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="lv">info</span><span class="op">[</span><span class="nu">1</span><span class="op">]</span> <span class="op">==</span> <span class="lv">_steam_app_id</span><span class="op">)</span> <span class="cb">{</span> <span class="co">// same game!</span>
+        <span class="kw">var</span> <span class="lv">lobby_id</span> <span class="op">=</span> <span class="lv">info</span><span class="op">[</span><span class="nu">2</span><span class="op">]</span><span class="op">;</span>
+        <span class="kw">if</span> <span class="op">(</span><span class="lv">lobby_id</span> <span class="op">!=</span> <span class="nu">0</span><span class="op">)</span> <span class="cb">{</span> <span class="co">// has an open lobby!</span>
+            <span class="kw">var</span> <span class="lv">user_id</span> <span class="op">=</span> <span class="lv">info</span><span class="op">[</span><span class="nu">0</span><span class="op">]</span><span class="op">;</span>
+            <span class="co">// use steam_get_user_persona_name(user_id) to grab the name,</span>
+            <span class="co">// store and use steam_lobby_join_id(lobby_id) to join the lobby when asked</span>
+        <span class="cb">}</span>
+    <span class="cb">}</span>
+<span class="cb">}</span>
+</pre></article></section></article></section><section><header id="steam_overlay"><a href="#steam_overlay" title="(permalink)">Steam Overlay</a></header><article><section><header id="steam_activate_overlay_raw"><a href="#steam_activate_overlay_raw" title="(permalink)">steam_activate_overlay_raw(raw_name)</a></header><article><p>
+		Like GameMaker's <tt>steam_activate_overlay</tt>, but allows to specify any raw names
+		from <a href="https://partner.steamgames.com/doc/api/ISteamFriends#ActivateGameOverlay">Steamworks documentation</a>
+		that may not be covered by <tt>ov_</tt> constants.
+	</p></article></section><section><header id="steam_set_overlay_notification_position"><a href="#steam_set_overlay_notification_position" title="(permalink)">steam_set_overlay_notification_position(position)</a></header><article><p>
+		Changes the corner in which overlay notifications will appear.
+		</p><p>
+		Position can be: </p><ul>
+		<li>	<tt>steam_overlay_notification_position_top_left</tt>
+		</li><li>	<tt>steam_overlay_notification_position_top_right</tt>
+		</li><li>	<tt>steam_overlay_notification_position_bottom_left</tt>
+		</li><li>	<tt>steam_overlay_notification_position_bottom_right</tt>
+		</li></ul><p class="pad">
+		
+		This position is per-game and is reset each launch.
+	</p></article></section><section><header id="steam_set_overlay_notification_inset"><a href="#steam_set_overlay_notification_inset" title="(permalink)">steam_set_overlay_notification_inset(hor_inset, vert_inset)</a></header><article><p>
+		Sets the inset of the overlay notification from the corner specified by <a href="#steam_set_overlay_notification_position">steam_set_overlay_notification_position</a>.
+		</p><p>
+		A value of (0, 0) resets the position into the corner.
+		</p><p>
+		This position is per-game and is reset each launch.
+	</p></article></section></article></section><section><header id="steam_rich_presence"><a href="#steam_rich_presence" title="(permalink)">Rich Presence</a></header><article><section><header id="steam_set_rich_presence"><a href="#steam_set_rich_presence" title="(permalink)">steam_set_rich_presence(key:string, value:string)<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		See <a href="https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence">SetRichPresence</a>
+		for a comprehensive explanation of things to do with this function.
+	</p></article></section><section><header id="steam_clear_rich_presence"><a href="#steam_clear_rich_presence" title="(permalink)">steam_clear_rich_presence()</a></header><article><p>
+		Equivalent of <a href="https://partner.steamgames.com/doc/api/ISteamFriends#ClearRichPresence">ClearRichPresence</a>
+	</p></article></section></article></section><section><header id="steam_id"><a href="#steam_id" title="(permalink)">Steam ID functions</a></header><article><p>
+	Functions for handling 64-bit Steam IDs
+	</p><section><header id="steam_id_use_int64"><a href="#steam_id_use_int64" title="(permalink)">steam_id_use_int64:bool</a></header><article><p>
+		This macro can be flipped to <tt>false</tt> on the <tt>steam_id.gml</tt> file,
+		which will cause Steamworks.gml to store Steam IDs as two 32-bit integers
+		in a tiny array instead.
+		</p><p>
+		This was only useful in REALLY old (1.4.1757 and earlier) versions of GameMaker: Studio
+		where 64-bit integer support was occasionally buggy.
+	</p></article></section><section><header id="steam_id_create"><a href="#steam_id_create" title="(permalink)">steam_id_create(high, low)<span class="ret-arrow">&#10140;</span>steam_id</a></header><article><p>
+		Creates a 64-bit ID from two 32-bit halves.
+		</p><p>
+		You can see it occasionally used in <a href="#steam_async">async events</a> since GameMaker lacks support
+		for dispatching async events with 64-bit integer fields in them.
+	</p></article></section><section><header id="steam_id_get_high"><a href="#steam_id_get_high" title="(permalink)">steam_id_get_high(steam_id)<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+		Returns the higher 32-bit half of a Steam ID.
+	</p></article></section><section><header id="steam_id_get_high"><a href="#steam_id_get_high" title="(permalink)">steam_id_get_high(steam_id)<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+		Returns the lower 32-bit half of a Steam ID.
+	</p></article></section><section><header id="steam_id_equals"><a href="#steam_id_equals" title="(permalink)">steam_id_equals(steam_id1, steam_id2)<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		Returns whether the two Steam IDs are identical.
+		</p><p>
+		(with <a href="#steam_id_use_int64">steam_id_use_int64</a> enabled, this is just <tt>steam_id1 == steam_id2</tt>)
+	</p></article></section><section><header id="steam_id_from_int64"><a href="#steam_id_from_int64" title="(permalink)">steam_id_from_int64(int64)<span class="ret-arrow">&#10140;</span>steam_id</a></header><article><p>
+		Converts an int64 to a Steam ID.
+		</p><p>
+		(only useful with <a href="#steam_id_use_int64">steam_id_use_int64</a> disabled)
+	</p></article></section><section><header id="steam_id_to_int64"><a href="#steam_id_to_int64" title="(permalink)">steam_id_to_int64(steam_id)<span class="ret-arrow">&#10140;</span>int64</a></header><article><p>
+		Converts a Steam ID to an int64.
+		</p><p>
+		(only useful with <a href="#steam_id_use_int64">steam_id_use_int64</a> disabled)
+	</p></article></section></article></section><section><header id="steam_uncommon"><a href="#steam_uncommon" title="(permalink)">Uncommon functions</a></header><article><p>
+	Anything not fitting into the above category.
+	</p><section><header id="steam_ugc_delete_item"><a href="#steam_ugc_delete_item" title="(permalink)">steam_ugc_delete_item(published_file_id)</a></header><article><p>
+		Attempts deletion of a previously published UGC item.
+		</p><p>
+		This will dispatch an async event with: </p><ul>
+		<li>	<tt>"event_type"</tt>: <tt>"ugc_delete_item"</tt>
+		</li><li>	<tt>"success"</tt>: whether deletion succeeded
+		</li><li>	<tt>"result"</tt>: can offer a more detailed status code if deletion fails
+		</li><li>	<tt>"published_file_id_high"</tt>
+		</li><li>	<tt>"published_file_id_low"</tt>
+		</li></ul><pre class="gmlmd">
+<span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"ugc_delete_item"</span><span class="op">)</span> <span class="cb">{</span>
+    <span class="kw">var</span> <span class="lv">file_id</span> <span class="op">=</span> <a class="sf" href="#steam_id_create">steam_id_create</a><span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"published_file_id_high"</span><span class="op">]</span><span class="op">,</span> <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"published_file_id_low"</span><span class="op">]</span><span class="op">)</span><span class="op">;</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"success"</span><span class="op">]</span><span class="op">)</span> <span class="cb">{</span>
+        <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"Deleted "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="lv">file_id</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
+    <span class="cb">}</span> <span class="kw">else</span> <span class="cb">{</span>
+        <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"Failed to delete "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="lv">file_id</span><span class="op">)</span>
+            <span class="op">+</span> <span class="st">" - EResult "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"result"</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
+    <span class="cb">}</span>
+<span class="cb">}</span>
+</pre></article></section><hr/><section><header id="steam_get_app_ownership_ticket_data"><a href="#steam_get_app_ownership_ticket_data" title="(permalink)">steam_get_app_ownership_ticket_data(buffer, ?app_id)</a></header><article><p>
 		Takes a buffer and fills it up with a reasonable "future proof" view of an app ownership ticket for a given app ID.
 		</p><p>
 		<tt>buffer</tt> is a buffer to fill up.
@@ -450,7 +998,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		For example,
 		</p><pre class="gmlmd">
 <span class="kw">var</span> <span class="lv">b</span> <span class="op">=</span> <span class="sf">buffer_create</span><span class="op">(</span><span class="nu">256</span><span class="op">,</span> <span class="sv">buffer_fixed</span><span class="op">,</span> <span class="nu">1</span><span class="op">)</span><span class="op">;</span>
-<span class="kw">var</span> <span class="lv">d</span> <span class="op">=</span> <span class="sf">steam_get_app_ownership_ticket_data</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">var</span> <span class="lv">d</span> <span class="op">=</span> <a class="sf" href="#steam_get_app_ownership_ticket_data">steam_get_app_ownership_ticket_data</a><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">;</span>
 <span class="kw">if</span> <span class="op">(</span><span class="lv">d</span><span class="op">[</span><span class="nu">0</span><span class="op">]</span> <span class="op">&gt;</span> <span class="nu">0</span><span class="op">)</span> <span class="cb">{</span>
     <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"App ID: "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="sf">buffer_peek</span><span class="op">(</span><span class="lv">b</span><span class="op">,</span> <span class="lv">d</span><span class="op">[</span><span class="nu">1</span><span class="op">]</span><span class="op">,</span> <span class="sv">buffer_u32</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
     <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"User ID: "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="sf">buffer_peek</span><span class="op">(</span><span class="lv">b</span><span class="op">,</span> <span class="lv">d</span><span class="op">[</span><span class="nu">2</span><span class="op">]</span><span class="op">,</span> <span class="sv">buffer_u64</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
@@ -459,14 +1007,13 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
     <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"Failed to retrieve app ownership data."</span><span class="op">)</span><span class="op">;</span>
 <span class="cb">}</span>
 </pre><p>See: <a href="https://partner.steamgames.com/doc/api/ISteamAppTicket">ISteamAppTicket</a>
-	</p></div></div><div class="item"><a class="header" id="steam_user_request_encrypted_app_ticket" href="#steam_user_request_encrypted_app_ticket" title="(permalink)">steam_user_request_encrypted_app_ticket(?data, ?data_size)</a><div class="content"><p>
+	</p></article></section><section><header id="steam_user_request_encrypted_app_ticket"><a href="#steam_user_request_encrypted_app_ticket" title="(permalink)">steam_user_request_encrypted_app_ticket(?data, ?data_size)</a></header><article><p>
 		<tt>data</tt> (optional) is a string or a buffer to include in the resulting buffer.<br/>If not specified, defaults to NULL and includes no additional data.
 		</p><p>
 		<tt>data_size</tt> (optional) is the number of bytes in <tt>data</tt>.<br/>If not specified, this will be set to byte count in a string (not including the final NUL),
 		or buffer size.
 		</p><p>
-		This function is async.
-		Once ready, it will dispatch the following Async - Steam event: </p><ul>
+		This function is async.<br/>Once ready, it will dispatch the following Async - Steam event: </p><ul>
 		<li>	<tt>"event_type"</tt>: will be <tt>"user_encrypted_app_ticket_response_received"</tt>.
 		</li><li>	<tt>"success"</tt>: will be <tt>true</tt> or <tt>false</tt> depending on whether the operation succeeded.
 		</li><li>	<tt>"result"</tt>: will hold the extended EResult ID if you need that.
@@ -475,7 +1022,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		
 		For example:
 		</p><pre class="gmlmd">
-<span class="sf">steam_user_request_encrypted_app_ticket</span><span class="op">(</span><span class="op">)</span><span class="op">;</span>
+<a class="sf" href="#steam_user_request_encrypted_app_ticket">steam_user_request_encrypted_app_ticket</a><span class="op">(</span><span class="op">)</span><span class="op">;</span>
 </pre><p>and in Async - Steam:
 		</p><pre class="gmlmd">
 <span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"user_encrypted_app_ticket_response_received"</span><span class="op">)</span> <span class="cb">{</span>
@@ -491,385 +1038,114 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 </pre><p>See: <a href="https://partner.steamgames.com/doc/api/ISteamUser#RequestEncryptedAppTicket">RequestEncryptedAppTicket</a>
 		</p><p>
 		Not to be confused with <a href="#steam_get_app_ownership_ticket_data">steam_get_app_ownership_ticket_data</a>!
-	</p></div></div></div></div><div class="item"><a class="header" id="steam_async" href="#steam_async" title="(permalink)">Async events</a><div class="content"><p>
-	As result of a number of function calls, the extension dispatches asynchronous events.
-	</p><p>
-	All of these events have <tt>async_load[?"success"]</tt> indicating whether the async action succeeded (true or false) and <tt>async_load[?"result"]</tt> containing the status code (descriptions can be found in Steam API documentation);
-	</p><p>
-	These can be caught by adding a Async - Steam event, and checking whether <tt>async_load[?"event_type"]</tt> is one of following names:
-	</p><div class="item"><a class="header" id="lobby_list" href="#lobby_list" title="(permalink)">lobby_list</a><div class="content"><p>
-		Triggers after requesting a list of public lobbies via <a href="#steam_lobby_list_request">steam_lobby_list_request</a>.
-		</p><p>
-		It is not required to do anything in response to this event.
-		</p><p>
-		<tt>async_load[?"lobby_count"]</tt> contains the number of matching lobbies (0 in case of network failure).
-		</p><p>
-		Use <a href="#steam_lobby_list">matchmaking functions</a> to retrieve other information.
-	</p></div></div><div class="item"><a class="header" id="lobby_joined" href="#lobby_joined" title="(permalink)">lobby_joined</a><div class="content"><p>
-		Triggers after requesting to join a lobby. This can fail if:
-		</p><ul>
-		<li>	There's no connection to Steam
-		</li><li>	Lobby is full (no available player slots left)
-		</li><li>	Lobby was destroyed before you requested to join it
-		</li></ul><p>
-		When successful, this is a good place to establish connection to lobby' members.
-	</p></div></div><div class="item"><a class="header" id="lobby_created" href="#lobby_created" title="(permalink)">lobby_created</a><div class="content"><p>
-		Fires after requesting to create a lobby. This can fail if:
-		</p><ul>
-		<li>	There's no connection to Steam
-		</li><li>	You are trying to create a public lobby for a game that does not have matchmaking API enabled
-		(is off by default for free games - request permissions via support forum).
-		</li></ul><p>
-		When successful, this is a good place to <a href="#steam_lobby_set_data">set up lobby data</a>.
-	</p></div></div><div class="item"><a class="header" id="lobby_join_requested" href="#lobby_join_requested" title="(permalink)">lobby_join_requested</a><div class="content"><p>
-		Triggers when the local player accepts an invitation via Steam overlay.
-		</p><p>
-		This event has several fields:
-		</p><ul>
-		<li>	<tt>async_load[?"lobby_id_high"]</tt>, <tt>async_load[?"lobby_id_low"]</tt> (combine via <a href="#steam_id_create">steam_id_create</a>) indicate the ID of the lobby to join (via <a href="#steam_lobby_join_id">steam_lobby_join_id</a>).
-		</li><li>	<tt>async_load[?"friend_id_high"]</tt>, <tt>async_load[?"friend_id_low"]</tt> (combine via <a href="#steam_id_create">steam_id_create</a>) indicate the ID of the user that the invitation was from (in case you want to display "joining X's lobby" while loading).
-		</li></ul><p>
-		Is commonly used as following:
-		</p><pre class="gmlmd">
-<span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"lobby_join_requested"</span><span class="op">)</span> <span class="cb">{</span>
-    <a class="sf" href="#steam_lobby_join_id">steam_lobby_join_id</a><span class="op">(</span><span class="uf">steam_id_create</span><span class="op">(</span>
-        <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"lobby_id_high"</span><span class="op">]</span><span class="op">,</span>
-        <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"lobby_id_low"</span><span class="op">]</span>
-    <span class="op">)</span><span class="op">)</span><span class="op">;</span>
-<span class="cb">}</span>
-</pre></div></div></div></div><div class="item"><a class="header" id="steam_net" href="#steam_net" title="(permalink)">Networking functions</a><div class="content"><p>
-	The following functions allow to send and receive Steam P2P packets.
-	</p><div class="item"><a class="header" id="steam_net_packet_receive" href="#steam_net_packet_receive" title="(permalink)">steam_net_packet_receive()</a><div class="content"><p>
-		Attempts to get the next packet from Steam API and returns whether successfully done so.
-		</p><p>
-		Other <tt>steam_net_</tt> functions can then be used to get packet information/contents.
-		</p><p>
-		At most times you would utilize this as following:
-		</p><pre class="gmlmd">
-<span class="kw">while</span> <span class="op">(</span><span class="sf">steam_net_packet_receive</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
-    <span class="co">// process the received packet</span>
-<span class="cb">}</span>
-</pre><p>(every step while in lobby, less frequently otherwise)
-	</p></div></div><div class="item"><a class="header" id="steam_net_packet_get_sender_id" href="#steam_net_packet_get_sender_id" title="(permalink)">steam_net_packet_get_sender_id()</a><div class="content"><p>
-		Returns Steam ID of the user that sent the last received packet.
-		</p><p>
-		Can be used in conjunction with <a href="#steam_net_packet_send">steam_net_packet_send</a> to send something back and for just telling the senders apart.
-	</p></div></div><div class="item"><a class="header" id="steam_net_packet_get_size" href="#steam_net_packet_get_size" title="(permalink)">steam_net_packet_get_size()</a><div class="content"><p>
-		Returns the size of last received packet, in bytes.
-		</p><p>
-		So, for instance, if you wanted to just display the size of each incoming packet, you could use a snippet of code like the following:
-		</p><pre class="gmlmd">
-<span class="kw">while</span> <span class="op">(</span><a class="sf" href="#steam_net_packet_receive">steam_net_packet_receive</a><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
-    <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"Received "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="uf">steam_net_packet_size</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="st">" bytes."</span><span class="op">)</span><span class="op">;</span>
-<span class="cb">}</span>
-</pre></div></div><div class="item"><a class="header" id="steam_net_packet_get_data" href="#steam_net_packet_get_data" title="(permalink)">steam_net_packet_get_data(buffer)</a><div class="content"><p>
-		Copies the contents of last received packet to the given buffer.
-		</p><p>
-		Data is copied to the start of the buffer (position remains unaffected),
-		meaning that if you reuse the same buffer, you should "rewind" it prior to reading.
-		</p><p>
-		If the buffer is not big enough to fit data, it will be resized automatically.
-		</p><pre class="gmlmd">
-<span class="kw">while</span> <span class="op">(</span><a class="sf" href="#steam_net_packet_receive">steam_net_packet_receive</a><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
-    <span class="sf">steam_net_packet_get_data</span><span class="op">(</span><span class="uv">inbuf</span><span class="op">)</span><span class="op">;</span>
-    <span class="sf">buffer_seek</span><span class="op">(</span><span class="uv">inbuf</span><span class="op">,</span> <span class="sv">buffer_seek_start</span><span class="op">,</span> <span class="nu">0</span><span class="op">)</span><span class="op">;</span>
-    <span class="kw">switch</span> <span class="op">(</span><span class="sf">buffer_read</span><span class="op">(</span><span class="uv">inbuf</span><span class="op">,</span> <span class="sv">buffer_u8</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
-        <span class="kw">case</span> <span class="nu">1</span><span class="op">:</span> <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"packet ID 1"</span><span class="op">)</span><span class="op">;</span> <span class="kw">break</span><span class="op">;</span>
-        <span class="kw">case</span> <span class="nu">2</span><span class="op">:</span> <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"packet ID 2"</span><span class="op">)</span><span class="op">;</span> <span class="kw">break</span><span class="op">;</span>
-        <span class="kw">default</span><span class="op">:</span> <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"unknown packet"</span><span class="op">)</span><span class="op">;</span> <span class="kw">break</span><span class="op">;</span>
-    <span class="cb">}</span>
-<span class="cb">}</span>
-</pre><p>Whether <tt>inbuf</tt> is a "fixed" or "growing" buffer created on game start for the controller object.
-	</p></div></div><div class="item"><a class="header" id="steam_net_packet_send" href="#steam_net_packet_send" title="(permalink)">steam_net_packet_send(steam_id, buffer, size, type)</a><div class="content"><p>
-		Sends a packet to the given endpoint, returns whether successful (as opposed to incorrect arguments/invalid ID).
-		</p><p>
-		Much as with the built-in <tt>network_send_</tt> functions, this function takes data from the start of the buffer and until the point identified by <tt>size</tt> parameter.
-		</p><p>
-		<tt>type</tt> parameter can be one of the following:
-		</p><ul>
-		<li>	<tt>steam_net_packet_type_unreliable</tt>: roughly equivalent to UDP. May or may not be delivered, will not be resent automatically.
-		</li><li>	<tt>steam_net_packet_type_unreliable_nodelay</tt>: much like the regular "unreliable" type, but always sent instantly (as soon as function is called). Intended for things like streaming voice data, where you want lowest latency possible and only care about the current data.
-		</li><li>	<tt>steam_net_packet_type_reliable</tt>: roughly equivalent to TCP. Warranted to be delivered in order and intact.
-		</li><li>	<tt>steam_net_packet_type_reliable_buffer</tt>: much like the regular "reliable" type, but utilizes <a href="https://en.wikipedia.org/wiki/Nagle%27s_algorithm">Nagle's algorithm</a> to reduce the number of packets at cost of potential delay while the data accumulates until the sending threshold.
-		</li></ul><p>
-		So you could use it like so:
-		</p><pre class="gmlmd">
-<span class="kw">var</span> <span class="lv">b</span> <span class="op">=</span> <span class="sf">buffer_create</span><span class="op">(</span><span class="nu">16</span><span class="op">,</span> <span class="sv">buffer_grow</span><span class="op">,</span> <span class="nu">1</span><span class="op">)</span><span class="op">;</span>
-<span class="sf">buffer_write</span><span class="op">(</span><span class="lv">b</span><span class="op">,</span> <span class="sv">buffer_string</span><span class="op">,</span> <span class="st">"Hello!"</span><span class="op">)</span><span class="op">;</span>
-<span class="sf">steam_net_packet_send</span><span class="op">(</span><span class="sv">steam_id</span><span class="op">,</span> <span class="lv">b</span><span class="op">,</span> <span class="sf">buffer_tell</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">,</span> <span class="uv">steam_net_packet_type_reliable</span><span class="op">)</span><span class="op">;</span>
-<span class="sf">buffer_delete</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">;</span>
-</pre><p>Where <tt>steam_id</tt> would hold the user ID to send the packet to.
-	</p></div></div></div></div><div class="item"><a class="header" id="steam_lobby" href="#steam_lobby" title="(permalink)">Lobby functions</a><div class="content"><p>
-	The following functions deal with the current lobby.
-	</p><div class="item"><a class="header" id="steam_lobby_join_id" href="#steam_lobby_join_id" title="(permalink)">steam_lobby_join_id(lobby_id)</a><div class="content"><p>
-		Starts joining a lobby with the given ID.
-		</p><p>
-		The operation is carried out asynchronously;
-		</p><p>
-		A <a href="#lobby_joined">lobby_joined</a> event is dispatched on completion.
-		</p><p>
-		See <a href="#lobby_join_requested">lobby_join_requested</a> for a code example.
-	</p></div></div><div class="item"><a class="header" id="steam_lobby_create" href="#steam_lobby_create" title="(permalink)">steam_lobby_create(type, max_members)</a><div class="content"><p>
-		Starts creating a lobby.
-		</p><p>
-		The operation is carried out asynchronously;
-		</p><p>
-		A <a href="#lobby_created">lobby_created</a> event is dispatched on completion.
-		</p><p>
-		<tt>max_members</tt> indicates the maximum allowed number of users in the lobby
-		(including the lobby' creator).
-		</p><p>
-		<tt>type</tt> can be one of the following:
-		</p><ul>
-		<li>	<tt>steam_lobby_type_private</tt>: Can only be joined by invitation.
-			</p><p>
-			You would usually <a href="#steam_lobby_set_type">change</a> the lobby type to this on match start.
-		</li><li>	<tt>steam_lobby_type_friends_only</tt>: Can be joined by invitation or via friends-list
-		(by opening the user' menu and picking "Join game").
-		</li><li>	<tt>steam_lobby_type_public</tt>: Can be joined by invitation, via friends-list,
-		and shows up in the public lobby list (see <a href="#steam_lobby_list">matchmaking</a> functions).
-		</li></ul><p>
-		Can be used as following:
-		</p><pre class="gmlmd">
-<span class="sf">steam_lobby_create</span><span class="op">(</span><span class="uv">steam_lobby_type_public</span><span class="op">,</span> <span class="nu">4</span><span class="op">)</span><span class="op">;</span>
-</pre><p>(which would create a 4-player public lobby)
-	</p></div></div><div class="item"><a class="header" id="steam_lobby_leave" href="#steam_lobby_leave" title="(permalink)">steam_lobby_leave()</a><div class="content"><p>
-		Leaves the current lobby (if any).
-		</p><p>
-		Does not raise any errors if currently not in a lobby.
-		</p><p>
-		Note that if you are the lobby owner and leave the lobby, Steam transfers lobby ownership to any other available user, so you may need to detect lobby owner changes if any particular logic is handled by them.
-	</p></div></div><div class="item"><a class="header" id="steam_lobby_set_type" href="#steam_lobby_set_type" title="(permalink)">steam_lobby_set_type(newtype)</a><div class="content"><p>
-		Changes the lobby' type. You must be the lobby' owner to do this.
-		</p><p>
-		Types are the same as per <a href="#steam_lobby_create">steam_lobby_create</a>.
-		</p><p>
-		So, for example, if you don't allow mid-session joining, you could have the game make lobbies private on session start:
-		</p><pre class="gmlmd">
-<span class="sf">steam_lobby_set_type</span><span class="op">(</span><span class="uv">steam_lobby_type_private</span><span class="op">)</span><span class="op">;</span>
-</pre></div></div><div class="item"><a class="header" id="steam_lobby_get_data" href="#steam_lobby_get_data" title="(permalink)">steam_lobby_get_data(key:string)</a><div class="content"><p>
-		Returns a lobby field value, as set by <a href="#steam_lobby_set_data">steam_lobby_set_data</a>.
-		
-</p><pre class="gmlmd">
-<span class="kw">var</span> <span class="sv">title</span> <span class="op">=</span> <span class="sf">steam_lobby_get_data</span><span class="op">(</span><span class="st">"title"</span><span class="op">)</span><span class="op">;</span>
-</pre></div></div><div class="item"><a class="header" id="steam_lobby_set_data" href="#steam_lobby_set_data" title="(permalink)">steam_lobby_set_data(key:string, value:string)</a><div class="content"><p>
-		Changes a lobby' field. You must be the lobby' owner to do this.
-		</p><p>
-		Fields can then be used to filter lobbies via <a href="#steam_lobby_list">matchmaking</a> functions.
-		</p><p>
-		<strong>Note</strong>: if your value is numeric, convert it to string prior to passing it to the function.
-		</p><p>
-		Otherwise GM will assume your numeric value to be a pointer to a string, which can hard crash your game and/or Steam client.
-	</p></div></div><div class="item"><a class="header" id="steam_lobby_is_owner" href="#steam_lobby_is_owner" title="(permalink)">steam_lobby_is_owner()</a><div class="content"><p>
-		Returns whether the local player is the lobby' owner.
-		</p><p>
-		If the lobby is not valid, returns false.
-	</p></div></div><div class="item"><a class="header" id="steam_lobby_get_owner_id" href="#steam_lobby_get_owner_id" title="(permalink)">steam_lobby_get_owner_id()</a><div class="content"><p>
-		Returns the lobby' owner' Steam ID.
-		</p><p>
-		If the lobby is not valid, returns ID 0.
-	</p></div></div><div class="item"><a class="header" id="steam_lobby_get_member_count" href="#steam_lobby_get_member_count" title="(permalink)">steam_lobby_get_member_count()</a><div class="content"><p>
-		Returns the number of users in the current lobby (including you).
-		</p><p>
-		If the lobby is not valid, returns 0.
-	</p></div></div><div class="item"><a class="header" id="steam_lobby_get_member_id" href="#steam_lobby_get_member_id" title="(permalink)">steam_lobby_get_member_id(index)</a><div class="content"><p>
-		Returns the user ID of the member at the given index in the current lobby.
-		</p><p>
-		Index should be between 0 (incl.) and result of <a href="#steam_lobby_get_member_count">steam_lobby_get_member_count</a> (excl.). Results will include the local user.
-		</p><p>
-		If the index (or lobby) is not valid, returns ID 0.
-	</p></div></div><div class="item"><a class="header" id="steam_lobby_activate_invite_overlay" href="#steam_lobby_activate_invite_overlay" title="(permalink)">steam_lobby_activate_invite_overlay()</a><div class="content"><p>
-		Displays an invitation overlay if in lobby.
-		</p><p>
-		The invitation overlay is much akin to friends-list overlay, but only shows online friends, and spots "invite" buttons on each row.
-	</p></div></div></div></div><div class="item"><a class="header" id="steam_lobby_list" href="#steam_lobby_list" title="(permalink)">Matchmaking functions</a><div class="content"><p>
-	The following functions allow retrieving lists of public lobbies.
-	</p><div class="item"><a class="header" id="steam_lobby_list_request" href="#steam_lobby_list_request" title="(permalink)">steam_lobby_list_request()</a><div class="content"><p>
-		Starts loading the list of lobbies matching the current filters.
-		</p><p>
-		Filters are reset afterwards and have to be set again for subsequent request(s).
-		</p><p>
-		Existing results are kept up until the event is dispatched.
-		</p><p>
-		The operation is carried out asynchronously;
-		</p><p>
-		A <a href="#lobby_list">lobby_list</a> event is dispatched on completion.
-	</p></div></div><div class="item"><a class="header" id="steam_lobby_list_is_loading" href="#steam_lobby_list_is_loading" title="(permalink)">steam_lobby_list_is_loading()</a><div class="content"><p>
-		Returns whether a lobby list request is currently underway.
-		</p><p>
-		Is a convenience function - you may as well set a global variable prior to calling <a href="#steam_lobby_list_request">steam_lobby_list_request</a> and reset in the <a href="#lobby_list">lobby_list</a> event.
-	</p></div></div><div class="item"><a class="header" id="steam_lobby_list_get_count" href="#steam_lobby_list_get_count" title="(permalink)">steam_lobby_list_get_count()</a><div class="content"><p>
-		Returns the number of lobbies received in the last lobby list request.
-	</p></div></div><div class="item"><a class="header" id="steam_lobby_list_get_data" href="#steam_lobby_list_get_data" title="(permalink)">steam_lobby_list_get_data(index, key:string)</a><div class="content"><p>
-		Returns the value of the given field of a lobby at the given index in the current list.
-		</p><p>
-		Fields can be set via <a href="#steam_lobby_set_data">steam_lobby_set_data</a>.
-		</p><p>
-		Index is between 0 (incl.) and <a href="#steam_lobby_list_get_count">steam_lobby_list_get_count()</a>' (excl.).
-		</p><p>
-		Value is always returned as a string.
-		</p><p>
-		Returns "" if the lobby does not have the given field set.
-	</p></div></div><div class="item"><a class="header" id="steam_lobby_list_get_lobby_id" href="#steam_lobby_list_get_lobby_id" title="(permalink)">steam_lobby_list_get_lobby_id(index)</a><div class="content"><p>
-		Returns the Steam ID of the lobby at the given index in the list.
-		</p><p>
-		Index is between 0 (incl.) and <a href="#steam_lobby_list_get_count">steam_lobby_list_get_count()</a>' (excl.).
-		</p><p>
-		Returns ID 0 if the index is out of bounds.
-	</p></div></div><div class="item"><a class="header" id="steam_lobby_list_join" href="#steam_lobby_list_join" title="(permalink)">steam_lobby_list_join(index)</a><div class="content"><p>
-		Starts joining the lobby at the given index in the list.
-		</p><p>
-		Index is between 0 (incl.) and <a href="#steam_lobby_list_get_count">steam_lobby_list_get_count()</a>' (excl.).
-		</p><p>
-		See <a href="#steam_lobby_join_id">steam_lobby_join_id</a> for more information on process.
-	</p></div></div><div class="item"><a class="header" id="steam_lobby_list_add_string_filter" href="#steam_lobby_list_add_string_filter" title="(permalink)">steam_lobby_list_add_string_filter(key, value, comparison_type)</a><div class="content"><p>
-		Sets up a string filter for the next lobby list request.
-		</p><p>
-		That is, lobbies not matching the condition will be excluded from results.
-		</p><p>
-		Lobbies without the given field (<tt>key</tt>) will be assumed to have it as "".
-		</p><p>
-		The following values can be passed as <tt>comparison_type</tt>:
-		</p><ul>
-		<li>	<tt>steam_lobby_list_filter_eq</tt>: Equal (<tt>==</tt>).
-		</li><li>	<tt>steam_lobby_list_filter_ne</tt>: Not-equal (<tt>!=</tt>).
-		</li></ul></div></div><div class="item"><a class="header" id="steam_lobby_list_add_numerical_filter" href="#steam_lobby_list_add_numerical_filter" title="(permalink)">steam_lobby_list_add_numerical_filter(key, value, comparison_type)</a><div class="content"><p>
-		Sets up a numeric filter for the next lobby list request.
-		</p><p>
-		That is, lobbies not matching the condition will be excluded from results.
-		</p><p>
-		Lobbies without the given field (<tt>key</tt>) will be excluded.
-		</p><p>
-		The following values can be passed as <tt>comparison_type</tt>:
-		</p><ul>
-		<li>	<tt>steam_lobby_list_filter_eq</tt>: Equal (<tt>==</tt>).
-		</li><li>	<tt>steam_lobby_list_filter_ne</tt>: Not-equal (<tt>!=</tt>).
-		</li><li>	<tt>steam_lobby_list_filter_lt</tt>: Less-than (<tt>&lt;</tt>).
-		</li><li>	<tt>steam_lobby_list_filter_gt</tt>: Greater-than (<tt>&gt;</tt>).
-		</li><li>	<tt>steam_lobby_list_filter_le</tt>: Less-than-or-equal (<tt>&lt;=</tt>).
-		</li><li>	<tt>steam_lobby_list_filter_ge</tt>: Greater-than-or-equal (<tt>&gt;=</tt>).
-		</li></ul></div></div><div class="item"><a class="header" id="steam_lobby_list_add_near_filter" href="#steam_lobby_list_add_near_filter" title="(permalink)">steam_lobby_list_add_near_filter(key, value:number)</a><div class="content"><p>
-		Sorts the results based on how close their field' (<tt>key</tt>)' value is to the provided one.
-		</p><p>
-		If multiple near-filters are specified, the earlier-set ones take precedence.
-	</p></div></div><div class="item"><a class="header" id="steam_lobby_list_add_distance_filter" href="#steam_lobby_list_add_distance_filter" title="(permalink)">steam_lobby_list_add_distance_filter(mode)</a><div class="content"><p>
-		Restricts results by region and sorts them based on geographical proximity.
-		</p><p>
-		The following values can be passed as <tt>mode</tt>:
-		</p><ul>
-		<li>	<tt>steam_lobby_list_distance_filter_close</tt>: Only allows lobbies in same immediate region.
-		</li><li>	<tt>steam_lobby_list_distance_filter_default</tt>: Allows lobbies in same or nearby regions (same continent)
-		</li><li>	<tt>steam_lobby_list_distance_filter_far</tt>: Allows lobbies from up to half-way around the globe (nearby continents).
-		</li><li>	<tt>steam_lobby_list_distance_filter_worldwide</tt>: Allows any lobbies. May result in very high latencies, so use with care.
-		</li></ul></div></div></div></div><!--doc>-->
-</div></div></div>
-<script>(function() {
-var doc, headers;
-//
-var path = "steamworks.gml cheat sheet";
-var state = null;
-if (window.localStorage && JSON.parse) {
-	state = window.localStorage.getItem(path);
-	state = state ? JSON.parse(state) : { };
-	if (state == null) state = { };
-}
-var isLocal = (location.host.indexOf("localhost") == 0);
-//
-function h3bind(h3) {
-	var node = h3.parentNode;
-	var snip = node.children[1];
-	var id = h3.id || h3.textContent;
-	h3.snip = snip;
-	h3.doc_set = function(z) {
-		if (z) node.classList.add("open"); else node.classList.remove("open");
-		if (state) {
-			state[id] = z;
-			window.localStorage.setItem(path, JSON.stringify(state));
-		}
+	</p></article></section></article></section><!--doc>-->
+</section></main></div>
+<script type="text/javascript">(function() {
+	var doc, headers;
+	//
+	var path = "steamworks.gml cheat sheet";
+	var state = null;
+	if (window.localStorage && JSON.parse) {
+		state = window.localStorage.getItem(path);
+		state = state ? JSON.parse(state) : { };
+		if (state == null) state = { };
 	}
-	h3.doc_hide = function() {
-		this.doc_set(false);
-	}
-	h3.doc_show = function() {
-		this.doc_set(true);
-	}
-	h3.onclick = function(_) {
-		var seen = !node.classList.contains("open");
-		h3.doc_set(seen);
-		return false;
-	};
-}
-function getHashFunc(id) {
-	var node = document.getElementById(id);
-	if (node == null) return null;
-	return function(e) {
-		while (node && node != doc) {
-			if (node.classList.contains("item")) {
-				node.classList.add("open");
+	var isLocal = (location.host.indexOf("localhost") == 0);
+	//
+	function h3bind(h3) {
+		var node = h3.parentNode;
+		var snip = node.children[1];
+		var id = h3.id || h3.textContent;
+		h3.snip = snip;
+		h3.doc_set = function(z) {
+			if (z) node.classList.add("open"); else node.classList.remove("open");
+			if (state) {
+				state[id] = z;
+				window.localStorage.setItem(path, JSON.stringify(state));
 			}
-			node = node.parentElement;
+		}
+		h3.doc_hide = function() {
+			this.doc_set(false);
+		}
+		h3.doc_show = function() {
+			this.doc_set(true);
+		}
+		h3.onclick = function(_) {
+			var seen = !node.classList.contains("open");
+			h3.doc_set(seen);
+			return false;
+		};
+	}
+	function getHashFunc(id) {
+		var node = document.getElementById(id);
+		if (node == null) return null;
+		return function(e) {
+			while (node && node != doc) {
+				if (node.classList.contains("item")) {
+					node.classList.add("open");
+				}
+				node = node.parentElement;
+			}
+		};
+	}
+	// Display helpers:
+	window.opt_none = function() {
+		for (var li = 0; li < headers.length; li++) headers[li].doc_hide();
+	};
+	window.opt_list = function() {
+		for (var li = 0; li < headers.length; li++) {
+			var h3 = headers[li];
+			if (h3.parentNode.parentNode != doc) {
+				h3.doc_hide();
+			} else h3.doc_show();
 		}
 	};
-}
-// Display helpers:
-window.opt_none = function() {
-	for (var li = 0; li < headers.length; li++) headers[li].doc_hide();
-};
-window.opt_list = function() {
-	for (var li = 0; li < headers.length; li++) {
-		var h3 = headers[li];
-		if (h3.parentNode.parentNode != doc) {
-			h3.doc_hide();
-		} else h3.doc_show();
-	}
-};
-window.opt_all = function() {
-	for (var li = 0; li < headers.length; li++) headers[li].doc_show();
-};
-window.live_post = function() {
-	doc = document.getElementById("doc");
-	headers = doc.getElementsByClassName("header");
-	//
-	for (var i = 0; i < headers.length; i++) h3bind(headers[i]);
-	// Clicks in document expand the related section:
-	var anchors = doc.getElementsByTagName("a");
-	for (var i = 0; i < anchors.length; i++) {
-		var anchor = anchors[i];
-		if (anchor.classList.contains("header")) continue;
-		var href = anchor.getAttribute("href");
-		if (href[0] == "#") {
-			var fn = getHashFunc(href.substr(1));
-			if (!fn) {
-				anchor.classList.add("broken");
-				anchor.title = "(section missing)";
-			} else anchor.addEventListener("click", fn);
+	window.opt_all = function() {
+		for (var li = 0; li < headers.length; li++) headers[li].doc_show();
+	};
+	window.live_post = function() {
+		doc = document.getElementById("doc");
+		headers = doc.getElementsByTagName("header");
+		//
+		for (var i = 0; i < headers.length; i++) h3bind(headers[i]);
+		// Clicks in document expand the related section:
+		var anchors = doc.getElementsByTagName("a");
+		for (var i = 0; i < anchors.length; i++) {
+			var anchor = anchors[i];
+			if (anchor.classList.contains("header")) continue;
+			var href = anchor.getAttribute("href");
+			if (href[0] == "#") {
+				var fn = getHashFunc(href.substr(1));
+				if (!fn) {
+					anchor.classList.add("broken");
+					anchor.title = "(section missing)";
+				} else anchor.addEventListener("click", fn);
+			}
 		}
-	}
+		//
+		for (var li = 0; li < headers.length; li++) {
+			var h3 = headers[li];
+			var val = state ? state[h3.id || h3.textContent] : null;
+			if (val == null) val = isLocal || h3.parentNode.parentNode == doc;
+			if (val) h3.doc_show(); else h3.doc_hide();
+		}
+	};
+	window.live_post();
 	//
-	for (var li = 0; li < headers.length; li++) {
-		var h3 = headers[li];
-		var val = state ? state[h3.id || h3.textContent] : null;
-		if (val == null) val = isLocal || h3.parentNode.parentNode == doc;
-		if (val) h3.doc_show(); else h3.doc_hide();
-	}
-};
-window.live_post();
-//
-(function() {
-	var hash = document.location.hash;
-	if (hash) {
-		var _hash = hash.substr(1);
-		getHashFunc(_hash)();
-		setTimeout(function() {
-			document.location.hash = hash + " ";
+	(function() {
+		var hash = document.location.hash;
+		if (hash) {
+			var _hash = hash.substr(1);
+			getHashFunc(_hash)();
 			setTimeout(function() {
-				document.location.hash = hash;
+				document.location.hash = hash + " ";
+				setTimeout(function() {
+					document.location.hash = hash;
+				}, 100);
 			}, 100);
-		}, 100);
-	}
-})();
-//
-doc.setAttribute("ready", "");
-})();
-</script>
+		}
+	})();
+	//
+	doc.setAttribute("ready", "");
+	})();</script>
 </body></html>

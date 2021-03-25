@@ -37,7 +37,111 @@
                     "mvc": "1.0",
                     "constantName": "steam_net_version",
                     "hidden": false,
-                    "value": "100"
+                    "value": "1300"
+                },
+                {
+                    "id": "c3d3ce88-808e-5bc1-bd97-07b387f933ee",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_unknown",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "1d1675db-bf12-8fc9-c545-89ad3f009397",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_steam_controller",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "f1c39e4f-ce17-b3ce-6bf0-0eff6957421c",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_xbox360",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "897c5a53-a3fd-f2b2-7a1f-95fb10e0de2b",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_xboxone",
+                    "hidden": false,
+                    "value": "3"
+                },
+                {
+                    "id": "1f72a377-a545-b87f-abf4-0fa9c84d6a2a",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_generic_xinput",
+                    "hidden": false,
+                    "value": "4"
+                },
+                {
+                    "id": "39e70219-a4a2-09f0-d068-2a62ae9e198f",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_ps4",
+                    "hidden": false,
+                    "value": "5"
+                },
+                {
+                    "id": "7c76942f-505b-4346-2a60-b2b2c527c9d8",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_apple_mfi",
+                    "hidden": false,
+                    "value": "6"
+                },
+                {
+                    "id": "8c52347c-f855-5ce9-e667-9e565f9bd840",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_android",
+                    "hidden": false,
+                    "value": "7"
+                },
+                {
+                    "id": "f56f2efa-9b53-a5b2-4849-d01992d139d6",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_switch_joycon_pair",
+                    "hidden": false,
+                    "value": "8"
+                },
+                {
+                    "id": "3bcda3b3-89c0-87e3-4a6f-e51386854ea5",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_switch_joycon_single",
+                    "hidden": false,
+                    "value": "9"
+                },
+                {
+                    "id": "5aa67250-65ac-e788-4e1f-c96400004628",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_switch_pro",
+                    "hidden": false,
+                    "value": "10"
+                },
+                {
+                    "id": "7b77936a-3a80-a825-9cf3-7948ec50dbd9",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_mobile_touch",
+                    "hidden": false,
+                    "value": "11"
+                },
+                {
+                    "id": "57f092e1-620e-0f73-e0e4-b77b68e83b34",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_ps3",
+                    "hidden": false,
+                    "value": "12"
                 },
                 {
                     "id": "a2363bf1-780a-47d1-8035-52df62586ba5",
@@ -288,6 +392,21 @@
                     "returnType": 2
                 },
                 {
+                    "id": "44a9b15c-1ce8-469f-d412-c8204e627bf3",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_controller_get_type",
+                    "help": "steam_controller_get_type(id)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_controller_get_type",
+                    "returnType": 2
+                },
+                {
                     "id": "758f834d-abcf-4702-80eb-99d77a7ad698",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -296,7 +415,7 @@
                         1
                     ],
                     "externalName": "steam_controller_get_actionset_id",
-                    "help": "steam_controller_get_actionset_id(actionSetName) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found",
+                    "help": "steam_controller_get_actionset_id(actionset_name) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_actionset_id",
@@ -318,7 +437,7 @@
                     "returnType": 2
                 },
                 {
-                    "id": "9d0ad139-3cb0-48a0-a418-f14a98af4112",
+                    "id": "a5b5a8ee-5d53-86a7-715b-70c4fde88858",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 2,
@@ -966,9 +1085,9 @@
                         1
                     ],
                     "externalName": "int64_from_string_high",
-                    "help": "int64_from_string_high(cstring)",
-                    "hidden": false,
-                    "kind": 1,
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
                     "name": "int64_from_string_high",
                     "returnType": 2
                 },
@@ -981,9 +1100,9 @@
                         1
                     ],
                     "externalName": "int64_from_string_low",
-                    "help": "int64_from_string_low(cstring)",
-                    "hidden": false,
-                    "kind": 1,
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
                     "name": "int64_from_string_low",
                     "returnType": 2
                 },
@@ -997,9 +1116,9 @@
                         2
                     ],
                     "externalName": "int64_combine_string",
-                    "help": "int64_combine_string(high, low)",
-                    "hidden": false,
-                    "kind": 1,
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
                     "name": "int64_combine_string",
                     "returnType": 1
                 },
@@ -1148,9 +1267,9 @@
                         2
                     ],
                     "externalName": "steam_net_accept_p2p_session_raw",
-                    "help": "steam_net_accept_p2p_session_raw(user_id_high, user_id_low) : Accepts a P2P session with the given user. Should only be called in the \"p2p_session_request\" event.",
-                    "hidden": false,
-                    "kind": 1,
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
                     "name": "steam_net_accept_p2p_session_raw",
                     "returnType": 2
                 },
@@ -1164,9 +1283,9 @@
                         2
                     ],
                     "externalName": "steam_net_close_p2p_session_raw",
-                    "help": "steam_net_close_p2p_session_raw(user_id_high, user_id_low)",
-                    "hidden": false,
-                    "kind": 1,
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
                     "name": "steam_net_close_p2p_session_raw",
                     "returnType": 2
                 },
@@ -1432,18 +1551,19 @@
                     "returnType": 2
                 },
                 {
-                    "id": "83c53554-d2ed-2733-23b7-997e58a1b9ba",
+                    "id": "2d3d2066-919f-4a2f-dbf1-9e2a143577a0",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
+                        2,
                         2
                     ],
-                    "externalName": "steam_ugc_delete_item",
-                    "help": "steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.",
-                    "hidden": false,
-                    "kind": 1,
-                    "name": "steam_ugc_delete_item",
+                    "externalName": "steam_ugc_delete_item_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_ugc_delete_item_raw",
                     "returnType": 2
                 },
                 {
@@ -1577,7 +1697,111 @@
                     "mvc": "1.0",
                     "constantName": "steam_net_version",
                     "hidden": false,
-                    "value": "100"
+                    "value": "1300"
+                },
+                {
+                    "id": "aec9e78a-5c8e-18c5-cf73-d3a03539f237",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_unknown",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "a0ce8aeb-c3ad-b611-eeb6-52f1cbbc7cc7",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_steam_controller",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "ab50582c-6231-6915-40c1-d6532bf49ffc",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_xbox360",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "a3ad5fea-8d95-7f6e-c8df-e307119c1a94",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_xboxone",
+                    "hidden": false,
+                    "value": "3"
+                },
+                {
+                    "id": "f5ddc6ab-a57b-d1f5-5db9-3b59d7c2ae7b",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_generic_xinput",
+                    "hidden": false,
+                    "value": "4"
+                },
+                {
+                    "id": "91a9c61a-0c78-4e41-57c6-d9ca0fd4ceaf",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_ps4",
+                    "hidden": false,
+                    "value": "5"
+                },
+                {
+                    "id": "4bf4a1f6-1211-983b-91de-63a39396546a",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_apple_mfi",
+                    "hidden": false,
+                    "value": "6"
+                },
+                {
+                    "id": "70696e29-208b-dbf6-929f-56d6408bbb6f",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_android",
+                    "hidden": false,
+                    "value": "7"
+                },
+                {
+                    "id": "f45216d9-b5d7-1295-f858-618019256c9f",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_switch_joycon_pair",
+                    "hidden": false,
+                    "value": "8"
+                },
+                {
+                    "id": "a882e744-6f23-c9f1-96b1-3a5dc8c3001a",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_switch_joycon_single",
+                    "hidden": false,
+                    "value": "9"
+                },
+                {
+                    "id": "98bffc0e-ecdc-e994-e351-547212222833",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_switch_pro",
+                    "hidden": false,
+                    "value": "10"
+                },
+                {
+                    "id": "d7845814-6166-017c-892d-969711c646f5",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_mobile_touch",
+                    "hidden": false,
+                    "value": "11"
+                },
+                {
+                    "id": "85725991-f89a-532b-605f-06425d11b478",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_ps3",
+                    "hidden": false,
+                    "value": "12"
                 },
                 {
                     "id": "0b66689d-8f4c-407d-ae8c-138541c0fe0e",
@@ -1828,6 +2052,21 @@
                     "returnType": 2
                 },
                 {
+                    "id": "36d9c5b5-80bf-aeab-53cc-7ad922ebcc82",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_controller_get_type",
+                    "help": "steam_controller_get_type(id)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_controller_get_type",
+                    "returnType": 2
+                },
+                {
                     "id": "fc06d414-6c0e-4f0b-bfc5-87555e16b936",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -1836,7 +2075,7 @@
                         1
                     ],
                     "externalName": "steam_controller_get_actionset_id",
-                    "help": "steam_controller_get_actionset_id(actionSetName) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found",
+                    "help": "steam_controller_get_actionset_id(actionset_name) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_actionset_id",
@@ -1858,7 +2097,7 @@
                     "returnType": 2
                 },
                 {
-                    "id": "e2f617e9-542d-4512-8108-e233fef73869",
+                    "id": "c9523124-ed30-1657-2610-7128d8cb284a",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 2,
@@ -2506,9 +2745,9 @@
                         1
                     ],
                     "externalName": "int64_from_string_high",
-                    "help": "int64_from_string_high(cstring)",
-                    "hidden": false,
-                    "kind": 1,
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
                     "name": "int64_from_string_high",
                     "returnType": 2
                 },
@@ -2521,9 +2760,9 @@
                         1
                     ],
                     "externalName": "int64_from_string_low",
-                    "help": "int64_from_string_low(cstring)",
-                    "hidden": false,
-                    "kind": 1,
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
                     "name": "int64_from_string_low",
                     "returnType": 2
                 },
@@ -2537,9 +2776,9 @@
                         2
                     ],
                     "externalName": "int64_combine_string",
-                    "help": "int64_combine_string(high, low)",
-                    "hidden": false,
-                    "kind": 1,
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
                     "name": "int64_combine_string",
                     "returnType": 1
                 },
@@ -2688,9 +2927,9 @@
                         2
                     ],
                     "externalName": "steam_net_accept_p2p_session_raw",
-                    "help": "steam_net_accept_p2p_session_raw(user_id_high, user_id_low) : Accepts a P2P session with the given user. Should only be called in the \"p2p_session_request\" event.",
-                    "hidden": false,
-                    "kind": 1,
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
                     "name": "steam_net_accept_p2p_session_raw",
                     "returnType": 2
                 },
@@ -2704,9 +2943,9 @@
                         2
                     ],
                     "externalName": "steam_net_close_p2p_session_raw",
-                    "help": "steam_net_close_p2p_session_raw(user_id_high, user_id_low)",
-                    "hidden": false,
-                    "kind": 1,
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
                     "name": "steam_net_close_p2p_session_raw",
                     "returnType": 2
                 },
@@ -2972,18 +3211,19 @@
                     "returnType": 2
                 },
                 {
-                    "id": "05db20a0-e7af-0b37-523c-fdefbd0ba493",
+                    "id": "03f89bca-25b8-da9f-a923-647ab865c668",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
+                        2,
                         2
                     ],
-                    "externalName": "steam_ugc_delete_item",
-                    "help": "steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.",
-                    "hidden": false,
-                    "kind": 1,
-                    "name": "steam_ugc_delete_item",
+                    "externalName": "steam_ugc_delete_item_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_ugc_delete_item_raw",
                     "returnType": 2
                 },
                 {
@@ -3111,7 +3351,111 @@
                     "mvc": "1.0",
                     "constantName": "steam_net_version",
                     "hidden": false,
-                    "value": "100"
+                    "value": "1300"
+                },
+                {
+                    "id": "07f12032-bbd3-8dd5-3346-3a4586a0d130",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_unknown",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "58f08bc8-203b-c2a2-d001-e05eb26261c1",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_steam_controller",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "b9939729-e3a0-068c-759c-19782c02bb4e",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_xbox360",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "3937c3ac-69f7-839c-de71-544d6af7fd15",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_xboxone",
+                    "hidden": false,
+                    "value": "3"
+                },
+                {
+                    "id": "145614d0-1274-f6a2-6a78-fdab6340288e",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_generic_xinput",
+                    "hidden": false,
+                    "value": "4"
+                },
+                {
+                    "id": "ea830629-228a-b5e1-995f-43e824cc006c",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_ps4",
+                    "hidden": false,
+                    "value": "5"
+                },
+                {
+                    "id": "43429f19-d7ac-5b6b-1bda-a0ff99024521",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_apple_mfi",
+                    "hidden": false,
+                    "value": "6"
+                },
+                {
+                    "id": "665abd6a-4a7d-039e-ea61-798d6524daec",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_android",
+                    "hidden": false,
+                    "value": "7"
+                },
+                {
+                    "id": "f5393d42-1149-1bde-6ec9-f76c73ff2c23",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_switch_joycon_pair",
+                    "hidden": false,
+                    "value": "8"
+                },
+                {
+                    "id": "20ad6b82-7c45-9489-28db-0e223a1e3763",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_switch_joycon_single",
+                    "hidden": false,
+                    "value": "9"
+                },
+                {
+                    "id": "1acc838b-ed63-7786-baff-a36502bcb09e",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_switch_pro",
+                    "hidden": false,
+                    "value": "10"
+                },
+                {
+                    "id": "1050065d-4bf7-6e59-0f02-887d67e0025f",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_mobile_touch",
+                    "hidden": false,
+                    "value": "11"
+                },
+                {
+                    "id": "7bb87019-0d71-8c4b-b96d-1f8183b6982c",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_controller_ps3",
+                    "hidden": false,
+                    "value": "12"
                 },
                 {
                     "id": "704c5309-9091-4536-ad49-4c083f3e324b",
@@ -3362,6 +3706,21 @@
                     "returnType": 2
                 },
                 {
+                    "id": "36293c51-4d2a-3cf6-9834-cc1e12da46ee",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_controller_get_type",
+                    "help": "steam_controller_get_type(id)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_controller_get_type",
+                    "returnType": 2
+                },
+                {
                     "id": "6d425447-b978-4c17-812d-825ced214a1c",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -3370,7 +3729,7 @@
                         1
                     ],
                     "externalName": "steam_controller_get_actionset_id",
-                    "help": "steam_controller_get_actionset_id(actionSetName) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found",
+                    "help": "steam_controller_get_actionset_id(actionset_name) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_actionset_id",
@@ -3392,7 +3751,7 @@
                     "returnType": 2
                 },
                 {
-                    "id": "9a6f59a8-0fa8-483e-81fe-6fa2d4f7ba4a",
+                    "id": "3db45283-0fbc-a2d2-1405-5b103b77f8bb",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 2,
@@ -4040,9 +4399,9 @@
                         1
                     ],
                     "externalName": "int64_from_string_high",
-                    "help": "int64_from_string_high(cstring)",
-                    "hidden": false,
-                    "kind": 1,
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
                     "name": "int64_from_string_high",
                     "returnType": 2
                 },
@@ -4055,9 +4414,9 @@
                         1
                     ],
                     "externalName": "int64_from_string_low",
-                    "help": "int64_from_string_low(cstring)",
-                    "hidden": false,
-                    "kind": 1,
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
                     "name": "int64_from_string_low",
                     "returnType": 2
                 },
@@ -4071,9 +4430,9 @@
                         2
                     ],
                     "externalName": "int64_combine_string",
-                    "help": "int64_combine_string(high, low)",
-                    "hidden": false,
-                    "kind": 1,
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
                     "name": "int64_combine_string",
                     "returnType": 1
                 },
@@ -4222,9 +4581,9 @@
                         2
                     ],
                     "externalName": "steam_net_accept_p2p_session_raw",
-                    "help": "steam_net_accept_p2p_session_raw(user_id_high, user_id_low) : Accepts a P2P session with the given user. Should only be called in the \"p2p_session_request\" event.",
-                    "hidden": false,
-                    "kind": 1,
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
                     "name": "steam_net_accept_p2p_session_raw",
                     "returnType": 2
                 },
@@ -4238,9 +4597,9 @@
                         2
                     ],
                     "externalName": "steam_net_close_p2p_session_raw",
-                    "help": "steam_net_close_p2p_session_raw(user_id_high, user_id_low)",
-                    "hidden": false,
-                    "kind": 1,
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
                     "name": "steam_net_close_p2p_session_raw",
                     "returnType": 2
                 },
@@ -4506,18 +4865,19 @@
                     "returnType": 2
                 },
                 {
-                    "id": "64dd9812-9b91-e8e9-42b8-5fa36d040e59",
+                    "id": "9769cb1a-9117-3b4c-b9d4-4a4459559fc4",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
+                        2,
                         2
                     ],
-                    "externalName": "steam_ugc_delete_item",
-                    "help": "steam_ugc_delete_item(published_file_id) : Deletes an item from Steam Workshop.",
-                    "hidden": false,
-                    "kind": 1,
-                    "name": "steam_ugc_delete_item",
+                    "externalName": "steam_ugc_delete_item_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_ugc_delete_item_raw",
                     "returnType": 2
                 },
                 {
@@ -4766,6 +5126,21 @@
                     "returnType": 2
                 },
                 {
+                    "id": "09d6b784-249e-e309-58d1-7b13b23d4865",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_ugc_delete_item",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_ugc_delete_item",
+                    "returnType": 2
+                },
+                {
                     "id": "b1990112-8a39-41fe-9860-13675c323130",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -4972,7 +5347,7 @@
                         2
                     ],
                     "externalName": "steam_id_create",
-                    "help": "steam_id_create(high, low) : Creates an immutable Steam ID.",
+                    "help": "steam_id_create(high, low)->steam_id",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_id_create",
@@ -4987,7 +5362,7 @@
                         2
                     ],
                     "externalName": "steam_id_get_high",
-                    "help": "steam_id_get_high(steam_id) : Returns higher 32 bits of a Steam ID",
+                    "help": "steam_id_get_high(steam_id)->int",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_id_get_high",
@@ -5002,7 +5377,7 @@
                         2
                     ],
                     "externalName": "steam_id_get_low",
-                    "help": "steam_id_get_low(steam_id) : Returns lower 32 bits of a Steam ID",
+                    "help": "steam_id_get_low(steam_id)->int",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_id_get_low",
@@ -5018,7 +5393,7 @@
                         2
                     ],
                     "externalName": "steam_id_equals",
-                    "help": "steam_id_equals(id1, id2) : Returns whether two IDs match up.",
+                    "help": "steam_id_equals(steam_id1, steam_id2)->bool",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_id_equals",
@@ -5033,7 +5408,7 @@
                         2
                     ],
                     "externalName": "steam_id_from_int64",
-                    "help": "steam_id_from_int64(value) : Creates a Steam ID from an int64",
+                    "help": "steam_id_from_int64(int64)->steam_id",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_id_from_int64",
@@ -5048,7 +5423,7 @@
                         2
                     ],
                     "externalName": "steam_id_to_int64",
-                    "help": "steam_id_to_int64(steam_id) : Converts a Steam ID to int64",
+                    "help": "steam_id_to_int64(steam_id)->int64",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_id_to_int64",
@@ -5256,7 +5631,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_origins_raw",
-                    "help": "steam_controller_get_origins_raw(found, buffer, out)->array",
+                    "help": "steam_controller_get_origins_raw(found, buffer, out)->array~",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_controller_get_origins_raw",
@@ -5286,7 +5661,7 @@
                         
                     ],
                     "externalName": "steam_controller_get_analog_origins",
-                    "help": "steam_controller_get_digital_origins(controller, actionset_id, analog_id, ?out:array<origin>): as per GetDigitalActionOrigins",
+                    "help": "steam_controller_get_digital_origins(controller, actionset_id, analog_id, ?out:array<origin>): as per GetAnalogActionOrigins",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_controller_get_analog_origins",
