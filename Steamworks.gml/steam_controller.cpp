@@ -48,9 +48,32 @@ ControllerHandle_t steam_controller_find(double id) {
 	if (id == -3/* all */) return STEAM_CONTROLLER_HANDLE_ALL_CONTROLLERS;
 	ControllerHandle_t q; return steam_controller_controllers.get(id, &q) ? q : 0;
 }
+
+///
+enum steam_controller_type_t {
+	steam_controller_unknown = 0,
+	steam_controller_steam_controller,
+	steam_controller_xbox360,
+	steam_controller_xboxone,
+	steam_controller_generic_xinput,
+	steam_controller_ps4,
+	steam_controller_apple_mfi,
+	steam_controller_android,
+	steam_controller_switch_joycon_pair,
+	steam_controller_switch_joycon_single,
+	steam_controller_switch_pro,
+	steam_controller_mobile_touch,
+	steam_controller_ps3,
+};
+
+///
 dllx double steam_controller_get_type(double id) {
 	ControllerHandle_t ctl = steam_controller_find(id);
+	#if (STEAMWORKS >= 142)
 	return SteamController()->GetInputTypeForHandle(ctl);
+	#else
+	return steam_controller_unknown;
+	#endif
 }
 #pragma endregion
 
