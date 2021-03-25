@@ -2,7 +2,7 @@
 #pragma once
 
 ///
-#define steam_net_version 100
+#define steam_net_version 1300
 
 // GCC glue:
 #ifdef __GNUC__
@@ -12,6 +12,9 @@
 // (I guess because it's bad, but tell that to Valve)
 #pragma GCC diagnostic ignored "-Winvalid-offsetof"
 #endif
+
+// All of the Steam API enums are unscoped
+#pragma warning (disable: 26812)
 
 // For unidentifiable reason Steam API doesn't init unless using "safe" interfaces.
 // Might be a conflict with GM runtime.
