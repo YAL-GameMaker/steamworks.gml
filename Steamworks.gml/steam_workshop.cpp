@@ -4,10 +4,9 @@
 #if STEAMWORKS >= 142
 CCallResult<steam_net_callbacks_t, DeleteItemResult_t> steam_item_deleted;
 
-/// Deletes an item from Steam Workshop.
-dllx double steam_ugc_delete_item(double published_file_id) {
+dllx double steam_ugc_delete_item_raw(double file_high, double file_low) {
 	if (SteamUGC()) {
-		SteamAPICall_t call = SteamUGC()->DeleteItem((int)published_file_id);
+		SteamAPICall_t call = SteamUGC()->DeleteItem(uint64_make(file_high, file_low));
 		steam_item_deleted.Set(call, &steam_net_callbacks, &steam_net_callbacks_t::item_deleted);
 	}
 	return 0;
