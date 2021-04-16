@@ -263,10 +263,6 @@ Steamworks.gml/Steamworks.gml.o
 */extensions/Steamworks[._]gml/*.so
 */extensions/Steamworks[._]gml/*.cpp
 
-Steamworks.gmx/extensions/Steamworks.gml/*.gml
-Steamworks_yy/extensions/Steamworks_gml/*.gml
-
-
 # GMS1 configs:
 Steamworks.gmx/Configs/*/
 
