@@ -10,6 +10,11 @@ Example files are available via [itch.io](https://yellowafterlife.itch.io/steamw
 Donations are accepted via itch.io.  
 A most up-to-date version of the manual is always [available online](https://yal.cc/r/17/steamworks-gml/).
 ```
+```set og:url https://yal.cc/r/17/steamworks-gml/```
+```set og:desc A Steamworks SDK wrapper for GameMaker!```
+```set og:image https://yal.cc/r/17/steamworks-gml/og.png```
+```set og:image:width 640```
+```set og:image:height 240```
 #[General]() {
 	#[Setting up Steam](setting-up-steam) {
 		See the [official documentation.](https://help.yoyogames.com/hc/en-us/articles/216754138-Using-The-Steamworks-SDK-With-GameMaker-Studio)
