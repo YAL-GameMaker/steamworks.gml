@@ -38,7 +38,7 @@ dllx double steam_controller_get_ids_raw(char* cbuf) {
 	SteamController()->RunFrame();
 	int found = SteamController()->GetConnectedControllers(steam_controller_handles);
 	if (found <= 0) return found;
-	buffer buf(cbuf);
+	gml_buffer buf(cbuf);
 	for (int i = 0; i < found; i++) {
 		buf.write<int32>(steam_controller_controllers.add(steam_controller_handles[i]));
 	}
@@ -140,7 +140,7 @@ dllx double steam_controller_get_digital_origins_raw(
 	ControllerDigitalActionHandle_t act = 4;
 	if (!steam_controller_digital.get(digital_id, &act)) return 0;
 	int found = SteamController()->GetDigitalActionOrigins(ctl, set, act, steam_controller_origins);
-	buffer buf(out);
+	gml_buffer buf(out);
 	for (int i = 0; i < found; i++) {
 		buf.write<int32>(steam_controller_origins[i]);
 	}
@@ -183,7 +183,7 @@ dllx double steam_controller_get_analog_origins_raw(
 	ControllerDigitalActionHandle_t act = 4;
 	if (!steam_controller_analog.get(digital_id, &act)) return 0;
 	int found = SteamController()->GetAnalogActionOrigins(ctl, set, act, steam_controller_origins);
-	buffer buf(out);
+	gml_buffer buf(out);
 	for (int i = 0; i < found; i++) {
 		buf.write<int32>(steam_controller_origins[i]);
 	}

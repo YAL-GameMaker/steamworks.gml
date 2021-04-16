@@ -295,6 +295,9 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
     <PostBuildEvent>
       <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>cmd /C preBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GMS2 Debug|Win32'">
     <ClCompile>
@@ -318,6 +321,9 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
     <PostBuildEvent>
       <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>cmd /C preBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -361,6 +367,9 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
     <PostBuildEvent>
       <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>cmd /C preBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GMS2 Debug|x64'">
     <ClCompile>
@@ -386,6 +395,9 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
     <PostBuildEvent>
       <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>cmd /C preBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GMS1 Debug|Win32'">
     <ClCompile>
@@ -405,6 +417,9 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
     <PostBuildEvent>
       <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>cmd /C preBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GMS1 Release|Win32'">
     <ClCompile>
@@ -426,6 +441,9 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
     <PostBuildEvent>
       <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>cmd /C preBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GMS1 Debug|x64'">
     <PostBuildEvent>
@@ -491,6 +509,7 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="gml_glue.cpp" />
+    <ClCompile Include="steam_autogen.cpp" />
     <ClCompile Include="steam_callbacks.cpp" />
     <ClCompile Include="steam_controller.cpp" />
     <ClCompile Include="steam_glue.cpp" />
@@ -504,6 +523,7 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
     <ClCompile Include="steam_workshop.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="gml_ext.h" />
     <ClInclude Include="gml_glue.h" />
     <ClInclude Include="gml_glue_map.h" />
     <ClInclude Include="steam_callbacks.h" />

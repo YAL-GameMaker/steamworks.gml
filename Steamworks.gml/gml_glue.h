@@ -1,6 +1,7 @@
 /// gml_glue.h
 #pragma once
 #include "steam_glue.h"
+#include "gml_ext.h"
 
 // Debug output macro, { printf(...); printf("\n"); fflush(stdout); }
 #define trace(...) { printf(__VA_ARGS__); printf("\n"); fflush(stdout); }
@@ -15,33 +16,6 @@
 
 // GameMaker has an unusual way of detecting if a value is "true".
 #define gml_bool(value) ((value) > 0.5)
-
-// Allows to sequentially write data to given memory address (of a GML-side preallocated buffer)
-class buffer {
-	char* pos;
-public:
-	buffer(char* origin) : pos(origin) {}
-	template<class T> T read() {
-		T r = *(T*)pos;
-		pos += sizeof(T);
-		return r;
-	}
-	template<class T> void write(T val) {
-		*(T*)pos = val;
-		pos += sizeof(T);
-	}
-	//
-	char* read_string() {
-		char* r = pos;
-		while (*pos != 0) pos++;
-		pos++;
-		return r;
-	}
-	void write_string(const char* s) {
-		for (int i = 0; s[i] != 0; i++) write<char>(s[i]);
-		write<char>(0);
-	}
-};
 
 char* gml_string(const char* s);
 

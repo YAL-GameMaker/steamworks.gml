@@ -60,6 +60,9 @@
     <ClCompile Include="steam_inventory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="steam_autogen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="steam_glue.h">
@@ -75,6 +78,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="steam_a_note.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gml_ext.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -48,14 +48,5 @@ using std::map;
 using std::vector;
 using std::string;
 
-// Different platforms, different syntax.
-#if defined(WIN32)
-#define dllx extern "C" __declspec(dllexport)
-#elif defined(GNUC)
-#define dllx extern "C" __attribute__ ((visibility("default"))) 
-#else
-#define dllx extern "C"
-#endif
-
 #include "gml_glue.h"
 #include "gml_glue_map.h"

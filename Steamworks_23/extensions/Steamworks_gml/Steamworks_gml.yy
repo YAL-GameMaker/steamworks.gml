@@ -1245,6 +1245,13 @@
         {"name":"steam_controller_get_analog_mode","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_get_analog_status","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
+    {"filename":"steam_autogen.gml","origname":"","init":"","final":"","kind":2,"uncompress":false,"functions":[
+        
+      ],"constants":[
+        
+      ],"ProxyFiles":[],"copyToTargets":-1,"order":[
+        
+      ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
   ],
   "classname": "",
   "tvosclassname": "",

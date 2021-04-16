@@ -5856,6 +5856,30 @@
             ],
             "origname": "",
             "uncompress": false
+        },
+        {
+            "id": "6409c883-7a4d-4d45-9286-5c80cba5519c",
+            "modelName": "GMExtensionFile",
+            "mvc": "1.0",
+            "ProxyFiles": [
+                
+            ],
+            "constants": [
+                
+            ],
+            "copyToTargets": -1,
+            "filename": "steam_autogen.gml",
+            "final": "",
+            "functions": [
+                
+            ],
+            "init": "",
+            "kind": 2,
+            "order": [
+                
+            ],
+            "origname": "",
+            "uncompress": false
         }
     ],
     "gradleinject": "",
