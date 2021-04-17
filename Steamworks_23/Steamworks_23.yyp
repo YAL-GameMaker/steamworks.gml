@@ -64,11 +64,11 @@
     {"isScaled":false,"autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Default","resourceType":"GMTextureGroup",},
   ],
   "IncludedFiles": [
-    {"CopyToMask":9223372036854775807,"filePath":"datafiles","resourceVersion":"1.0","name":"steam_appid.txt","resourceType":"GMIncludedFile",},
+    {"CopyToMask":153157610357391598,"filePath":"datafiles","resourceVersion":"1.0","name":"steam_appid.txt","resourceType":"GMIncludedFile",},
     {"CopyToMask":0,"filePath":"datafiles","resourceVersion":"1.0","name":"steamworks.gml.html","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "23.1.1.250",
+    "IDEVersion": "2.3.2.556",
   },
   "resourceVersion": "1.4",
   "name": "Steamworks_23",
