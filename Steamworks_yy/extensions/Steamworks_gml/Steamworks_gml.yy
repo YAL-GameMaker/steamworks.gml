@@ -317,6 +317,36 @@
             "final": "",
             "functions": [
                 {
+                    "id": "3c2c3177-6e60-b53e-8ea4-2591a81711c1",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_get_friends_game_info_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_friends_game_info_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "f7bcdf60-c68b-074f-ae89-874e19a4d7a4",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_get_friends_game_info_raw_post",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_friends_game_info_raw_post",
+                    "returnType": 2
+                },
+                {
                     "id": "e95bdddc-7d4e-4d2a-902e-c7efebde1882",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -1490,36 +1520,6 @@
                     "returnType": 2
                 },
                 {
-                    "id": "5a4a5711-808e-5b58-351f-16a29ef922f7",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 0,
-                    "args": [
-                        
-                    ],
-                    "externalName": "steam_get_friends_game_info_1",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "steam_get_friends_game_info_1",
-                    "returnType": 2
-                },
-                {
-                    "id": "16adcef9-82cf-cb83-6701-d21e9e681b79",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        1
-                    ],
-                    "externalName": "steam_get_friends_game_info_2",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "steam_get_friends_game_info_2",
-                    "returnType": 2
-                },
-                {
                     "id": "78687533-4c42-977a-351f-f84c72db22f5",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -2007,6 +2007,36 @@
             "filename": "Steamworks.gml.so",
             "final": "",
             "functions": [
+                {
+                    "id": "c24b07d6-5a45-5d2d-4ae8-8661459fdcf5",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_get_friends_game_info_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_friends_game_info_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "190c23c7-f550-5868-d07d-928580f1b926",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_get_friends_game_info_raw_post",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_friends_game_info_raw_post",
+                    "returnType": 2
+                },
                 {
                     "id": "dcdc1990-dc8a-42d3-af9a-52c49a282e59",
                     "modelName": "GMExtensionFunction",
@@ -3181,36 +3211,6 @@
                     "returnType": 2
                 },
                 {
-                    "id": "7969ad7c-f533-e693-2261-1f71984c665e",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 0,
-                    "args": [
-                        
-                    ],
-                    "externalName": "steam_get_friends_game_info_1",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "steam_get_friends_game_info_1",
-                    "returnType": 2
-                },
-                {
-                    "id": "a91c6786-629d-e3c3-0d51-b1b7cf8687ab",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        1
-                    ],
-                    "externalName": "steam_get_friends_game_info_2",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "steam_get_friends_game_info_2",
-                    "returnType": 2
-                },
-                {
                     "id": "790f25f4-7f7e-196e-1516-68e1b0cc8123",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -3692,6 +3692,36 @@
             "filename": "Steamworks.gml.dylib",
             "final": "",
             "functions": [
+                {
+                    "id": "e4c80500-1010-fc35-0cf4-cd1fbbbc7be6",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_get_friends_game_info_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_friends_game_info_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "f509574c-fc3c-2b40-c243-97037d362dca",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_get_friends_game_info_raw_post",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_friends_game_info_raw_post",
+                    "returnType": 2
+                },
                 {
                     "id": "f333b4c8-f60e-4cba-8883-c9c6d1dae52e",
                     "modelName": "GMExtensionFunction",
@@ -4866,36 +4896,6 @@
                     "returnType": 2
                 },
                 {
-                    "id": "d8091e33-fefe-9960-5ce6-321a6a16d16d",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 0,
-                    "args": [
-                        
-                    ],
-                    "externalName": "steam_get_friends_game_info_1",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "steam_get_friends_game_info_1",
-                    "returnType": 2
-                },
-                {
-                    "id": "28b254e6-5349-a338-cf9f-51dc5fef0d5c",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        1
-                    ],
-                    "externalName": "steam_get_friends_game_info_2",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "steam_get_friends_game_info_2",
-                    "returnType": 2
-                },
-                {
                     "id": "c4c80b88-6dcd-487b-e540-7c902f0d6a61",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -5204,21 +5204,6 @@
             "final": "",
             "functions": [
                 {
-                    "id": "a27e036d-c4af-4bfa-8687-9ea60d9dee41",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 0,
-                    "args": [
-                        
-                    ],
-                    "externalName": "steam_get_friends_game_info",
-                    "help": "steam_get_friends_game_info()->array<[user_id, game_id, lobby_id]>",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_get_friends_game_info",
-                    "returnType": 2
-                },
-                {
                     "id": "09d6b784-249e-e309-58d1-7b13b23d4865",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -5269,7 +5254,8 @@
             "order": [
                 "a27e036d-c4af-4bfa-8687-9ea60d9dee41",
                 "b1990112-8a39-41fe-9860-13675c323130",
-                "eec828f9-dea3-4536-89de-77e737245ff7"
+                "eec828f9-dea3-4536-89de-77e737245ff7",
+                "09d6b784-249e-e309-58d1-7b13b23d4865"
             ],
             "origname": "",
             "uncompress": false
@@ -5419,7 +5405,8 @@
                 "47a60c8d-e353-4313-85e4-c8cf9bf1cf76",
                 "2a05f9f2-171a-45c0-8914-bc3dcfa8f6b9",
                 "3015a249-3e5a-4afc-a6bc-1f8cce7afce6",
-                "f2bdfa0f-925c-42a7-8521-715a042e14ba"
+                "f2bdfa0f-925c-42a7-8521-715a042e14ba",
+                "b001103f-0ad9-43ec-f720-c5ff1d5099ab"
             ],
             "origname": "",
             "uncompress": false
@@ -5608,6 +5595,39 @@
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_gml_prepare_buffer",
+                    "returnType": 2
+                },
+                {
+                    "id": "96869bdd-6e60-b594-ac86-ad1929ac22fb",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_gml_read_chars",
+                    "help": "steam_gml_read_chars(buffer:buffer, len:int)->string~",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_gml_read_chars",
+                    "returnType": 2
+                },
+                {
+                    "id": "f9523124-0d30-1659-c145-c474174d4e0e",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 3,
+                    "args": [
+                        2,
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_gml_write_chars",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_gml_write_chars",
                     "returnType": 2
                 },
                 {
@@ -5871,7 +5891,21 @@
             "filename": "steam_autogen.gml",
             "final": "",
             "functions": [
-                
+                {
+                    "id": "26ac41ee-ca3a-25fa-809b-869900639d79",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_get_friends_game_info",
+                    "help": "steam_get_friends_game_info()->array<any>",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_get_friends_game_info",
+                    "returnType": 2
+                }
             ],
             "init": "",
             "kind": 2,
@@ -5917,4 +5951,3 @@
     "tvosmaclinkerflags": "",
     "tvosplistinject": "",
     "version": "1.0.0"
-}

@@ -5,6 +5,7 @@
 /// steam_gml_initialized = global.g_steam_gml_initialized : Whether the extension is initialized.
 /// steam_net_initialized = global.g_steam_gml_initialized
 global.g_steam_net_buffer = noone; /// @is {buffer}
+global.g_steam_str_buffer = noone; /// @is {buffer}
 global.g_steam_controller_get_max_count = -1;
 global.g_steam_controller_get_max_origins = -1;
 var _app_id = steam_get_app_id();
@@ -47,6 +48,36 @@ if (b == noone) {
 }
 buffer_seek(b, buffer_seek_start, 0);
 return b;
+
+#define steam_gml_read_chars
+/// (buffer:buffer, len:int)->string~
+var _buf = argument0, _len = argument1;
+var _tmp = global.g_steam_str_buffer;
+if (_tmp == noone) {
+    _tmp = buffer_create(_len + 1, buffer_grow, 1);
+    global.g_steam_str_buffer = _tmp;
+} else if (buffer_get_size(_tmp) <= _len) {
+    buffer_resize(_tmp, _len + 1);
+}
+buffer_copy(_buf, buffer_tell(_buf), _len, _tmp, 0);
+buffer_seek(_buf, buffer_seek_relative, _len);
+buffer_poke(_tmp, _len, buffer_u8, 0);
+buffer_seek(_tmp, buffer_seek_start, 0);
+return buffer_read(_tmp, buffer_string);
+
+#define steam_gml_write_chars
+/// (buffer:buffer, str:string, len:int)~
+var _buf = argument0, _str = argument1, _len = argument2;
+var _tmp = global.g_steam_str_buffer;
+if (_tmp == noone) {
+    _tmp = buffer_create(_len + 1, buffer_grow, 1);
+}
+buffer_seek(_tmp, buffer_seek_start, 0);
+buffer_write(_tmp, buffer_text, _str);
+var _pos = buffer_tell(_tmp);
+if (_pos < _len) buffer_fill(_tmp, _pos, buffer_u8, 0, _len - _pos);
+buffer_copy(_tmp, 0, _len, _buf, buffer_tell(_buf));
+buffer_seek(_buf, buffer_seek_start, _len);
 
 // Legacy scripts:
 #define steam_net_is_available

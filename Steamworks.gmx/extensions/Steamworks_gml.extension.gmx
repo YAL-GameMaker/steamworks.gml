@@ -48,6 +48,28 @@
       <ProxyFiles/>
       <functions>
         <function>
+          <name>steam_get_friends_game_info_raw</name>
+          <externalName>steam_get_friends_game_info_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_get_friends_game_info_raw_post</name>
+          <externalName>steam_get_friends_game_info_raw_post</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_controller_reset</name>
           <externalName>steam_controller_reset</externalName>
           <kind>11</kind>
@@ -852,26 +874,6 @@
           <externalName>steam_activate_overlay_raw</externalName>
           <kind>1</kind>
           <help>steam_activate_overlay_raw(overlay_code) : Activates an overlay by it's raw Steam API name.</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>1</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_get_friends_game_info_1</name>
-          <externalName>steam_get_friends_game_info_1</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>steam_get_friends_game_info_2</name>
-          <externalName>steam_get_friends_game_info_2</externalName>
-          <kind>11</kind>
-          <help></help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1152,6 +1154,28 @@
       <ProxyFiles/>
       <functions>
         <function>
+          <name>steam_get_friends_game_info_raw</name>
+          <externalName>steam_get_friends_game_info_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_get_friends_game_info_raw_post</name>
+          <externalName>steam_get_friends_game_info_raw_post</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_controller_reset</name>
           <externalName>steam_controller_reset</externalName>
           <kind>11</kind>
@@ -1956,26 +1980,6 @@
           <externalName>steam_activate_overlay_raw</externalName>
           <kind>1</kind>
           <help>steam_activate_overlay_raw(overlay_code) : Activates an overlay by it's raw Steam API name.</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>1</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_get_friends_game_info_1</name>
-          <externalName>steam_get_friends_game_info_1</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>steam_get_friends_game_info_2</name>
-          <externalName>steam_get_friends_game_info_2</externalName>
-          <kind>11</kind>
-          <help></help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2256,6 +2260,28 @@
       <ProxyFiles/>
       <functions>
         <function>
+          <name>steam_get_friends_game_info_raw</name>
+          <externalName>steam_get_friends_game_info_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_get_friends_game_info_raw_post</name>
+          <externalName>steam_get_friends_game_info_raw_post</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_controller_reset</name>
           <externalName>steam_controller_reset</externalName>
           <kind>11</kind>
@@ -3060,26 +3086,6 @@
           <externalName>steam_activate_overlay_raw</externalName>
           <kind>1</kind>
           <help>steam_activate_overlay_raw(overlay_code) : Activates an overlay by it's raw Steam API name.</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>1</arg>
-          </args>
-        </function>
-        <function>
-          <name>steam_get_friends_game_info_1</name>
-          <externalName>steam_get_friends_game_info_1</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>steam_get_friends_game_info_2</name>
-          <externalName>steam_get_friends_game_info_2</externalName>
-          <kind>11</kind>
-          <help></help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -3512,6 +3518,31 @@
           </args>
         </function>
         <function>
+          <name>steam_gml_read_chars</name>
+          <externalName>steam_gml_read_chars</externalName>
+          <kind>2</kind>
+          <help>steam_gml_read_chars(buffer:buffer, len:int)-&gt;string~</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_gml_write_chars</name>
+          <externalName>steam_gml_write_chars</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_net_is_available</name>
           <externalName>steam_net_is_available</externalName>
           <kind>2</kind>
@@ -3749,24 +3780,13 @@
       <ProxyFiles/>
       <functions>
         <function>
-          <name>steam_get_friends_game_info</name>
-          <externalName>steam_get_friends_game_info</externalName>
-          <kind>2</kind>
-          <help>steam_get_friends_game_info()-&gt;array&lt;[user_id, game_id, lobby_id]&gt;</help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
           <name>steam_ugc_delete_item</name>
           <externalName>steam_ugc_delete_item</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
           <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
+          <args/>
         </function>
         <function>
           <name>steam_get_app_ownership_ticket_data</name>
@@ -3875,7 +3895,17 @@
         </Config>
       </ConfigOptions>
       <ProxyFiles/>
-      <functions/>
+      <functions>
+        <function>
+          <name>steam_get_friends_game_info</name>
+          <externalName>steam_get_friends_game_info</externalName>
+          <kind>2</kind>
+          <help>steam_get_friends_game_info()-&gt;array&lt;any&gt;</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+      </functions>
       <constants/>
     </file>
   </files>

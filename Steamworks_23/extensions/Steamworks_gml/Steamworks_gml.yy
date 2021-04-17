@@ -17,6 +17,12 @@
   "installdir": "",
   "files": [
     {"filename":"Steamworks.gml.dll","origname":"Steamworks.gml.dll","init":"steam_gml_init_cpp_pre","final":"","kind":1,"uncompress":false,"functions":[
+        {"externalName":"steam_get_friends_game_info_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_get_friends_game_info_raw_post","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_raw_post","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_reset","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_reset","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_init","kind":1,"help":"steam_controller_init() : Should be called on game start if you use Steam Controller","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_init","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_update","kind":1,"help":"steam_controller_update() : Can be called prior to other controller functions for lower latency. Called by steam_gml_update.","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_update","tags":[],"resourceType":"GMExtensionFunction",},
@@ -220,10 +226,6 @@
         {"externalName":"steam_activate_overlay_raw","kind":1,"help":"steam_activate_overlay_raw(overlay_code) : Activates an overlay by it's raw Steam API name.","hidden":false,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_activate_overlay_raw","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_get_friends_game_info_1","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_get_friends_game_info_1","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_get_friends_game_info_2","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
-            1,
-          ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_2","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_set_rich_presence","kind":1,"help":"steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence","hidden":false,"returnType":2,"argCount":2,"args":[
             1,
             1,
@@ -285,6 +287,8 @@
         {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_left","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"3","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_right","tags":[],"resourceType":"GMExtensionConstant",},
       ],"ProxyFiles":[],"copyToTargets":105553658380352,"order":[
+        {"name":"steam_get_friends_game_info_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_get_friends_game_info_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_reset","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_init","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_update","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -361,8 +365,6 @@
         {"name":"steam_get_user_steam_id_low","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_user_set_played_with","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_activate_overlay_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_get_friends_game_info_1","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_get_friends_game_info_2","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_set_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_clear_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_set_overlay_notification_position","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -372,6 +374,12 @@
         {"name":"steam_user_request_encrypted_app_ticket_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
     {"filename":"Steamworks.gml.so","origname":"extensions\\Steamworks.gml.so","init":"steam_gml_init_cpp_pre","final":"","kind":1,"uncompress":false,"functions":[
+        {"externalName":"steam_get_friends_game_info_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_get_friends_game_info_raw_post","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_raw_post","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_reset","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_reset","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_init","kind":1,"help":"steam_controller_init() : Should be called on game start if you use Steam Controller","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_init","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_update","kind":1,"help":"steam_controller_update() : Can be called prior to other controller functions for lower latency. Called by steam_gml_update.","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_update","tags":[],"resourceType":"GMExtensionFunction",},
@@ -575,10 +583,6 @@
         {"externalName":"steam_activate_overlay_raw","kind":1,"help":"steam_activate_overlay_raw(overlay_code) : Activates an overlay by it's raw Steam API name.","hidden":false,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_activate_overlay_raw","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_get_friends_game_info_1","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_get_friends_game_info_1","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_get_friends_game_info_2","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
-            1,
-          ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_2","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_set_rich_presence","kind":1,"help":"steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence","hidden":false,"returnType":2,"argCount":2,"args":[
             1,
             1,
@@ -640,6 +644,8 @@
         {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_left","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"3","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_right","tags":[],"resourceType":"GMExtensionConstant",},
       ],"ProxyFiles":[],"copyToTargets":17592320262272,"order":[
+        {"name":"steam_get_friends_game_info_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_get_friends_game_info_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_reset","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_init","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_update","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -716,8 +722,6 @@
         {"name":"steam_get_user_steam_id_low","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_user_set_played_with","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_activate_overlay_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_get_friends_game_info_1","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_get_friends_game_info_2","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_set_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_clear_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_set_overlay_notification_position","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -727,6 +731,12 @@
         {"name":"steam_user_request_encrypted_app_ticket_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
     {"filename":"Steamworks.gml.dylib","origname":"extensions\\Steamworks.gml.dylib","init":"steam_gml_init_cpp_pre","final":"","kind":1,"uncompress":false,"functions":[
+        {"externalName":"steam_get_friends_game_info_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_get_friends_game_info_raw_post","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_raw_post","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_reset","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_reset","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_init","kind":1,"help":"steam_controller_init() : Should be called on game start if you use Steam Controller","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_init","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_update","kind":1,"help":"steam_controller_update() : Can be called prior to other controller functions for lower latency. Called by steam_gml_update.","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_update","tags":[],"resourceType":"GMExtensionFunction",},
@@ -930,10 +940,6 @@
         {"externalName":"steam_activate_overlay_raw","kind":1,"help":"steam_activate_overlay_raw(overlay_code) : Activates an overlay by it's raw Steam API name.","hidden":false,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_activate_overlay_raw","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_get_friends_game_info_1","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_get_friends_game_info_1","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_get_friends_game_info_2","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
-            1,
-          ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_2","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_set_rich_presence","kind":1,"help":"steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence","hidden":false,"returnType":2,"argCount":2,"args":[
             1,
             1,
@@ -995,6 +1001,8 @@
         {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_left","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"3","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_right","tags":[],"resourceType":"GMExtensionConstant",},
       ],"ProxyFiles":[],"copyToTargets":67108866,"order":[
+        {"name":"steam_get_friends_game_info_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_get_friends_game_info_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_reset","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_init","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_update","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -1071,8 +1079,6 @@
         {"name":"steam_get_user_steam_id_low","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_user_set_played_with","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_activate_overlay_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_get_friends_game_info_1","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_get_friends_game_info_2","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_set_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_clear_rich_presence","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_set_overlay_notification_position","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -1108,14 +1114,12 @@
         {"name":"steam_net_packet_send","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
     {"filename":"steam_misc.gml","origname":"","init":"","final":"","kind":2,"uncompress":false,"functions":[
-        {"externalName":"steam_get_friends_game_info","kind":2,"help":"steam_get_friends_game_info()->array<[user_id, game_id, lobby_id]>","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_get_friends_game_info","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_ugc_delete_item","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[],"resourceVersion":"1.0","name":"steam_ugc_delete_item","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_get_app_ownership_ticket_data","kind":2,"help":"steam_get_app_ownership_ticket_data(buffer, ?app_id)->[size_total, ofs_app_id, ofs_steam_id, ofs_signature, size_signature]","hidden":false,"returnType":2,"argCount":-1,"args":[],"resourceVersion":"1.0","name":"steam_get_app_ownership_ticket_data","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_user_request_encrypted_app_ticket","kind":2,"help":"steam_user_request_encrypted_app_ticket(?bufferOrStringToInclude, ?bufferToIncludeSize)","hidden":false,"returnType":2,"argCount":-1,"args":[],"resourceVersion":"1.0","name":"steam_user_request_encrypted_app_ticket","tags":[],"resourceType":"GMExtensionFunction",},
       ],"constants":[
         
       ],"ProxyFiles":[],"copyToTargets":-1,"order":[
-        {"name":"steam_get_friends_game_info","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_ugc_delete_item","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_app_ownership_ticket_data","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_user_request_encrypted_app_ticket","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -1191,6 +1195,15 @@
         {"externalName":"steam_gml_prepare_buffer","kind":2,"help":"steam_gml_prepare_buffer(min_size)->buffer~","hidden":false,"returnType":2,"argCount":1,"args":[
             2,
           ],"resourceVersion":"1.0","name":"steam_gml_prepare_buffer","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_gml_read_chars","kind":2,"help":"steam_gml_read_chars(buffer:buffer, len:int)->string~","hidden":false,"returnType":2,"argCount":2,"args":[
+            2,
+            2,
+          ],"resourceVersion":"1.0","name":"steam_gml_read_chars","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_gml_write_chars","kind":11,"help":"","hidden":true,"returnType":2,"argCount":3,"args":[
+            2,
+            2,
+            2,
+          ],"resourceVersion":"1.0","name":"steam_gml_write_chars","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_net_is_available","kind":2,"help":"steam_net_is_available()->bool","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_net_is_available","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_net_update","kind":2,"help":"steam_net_update()->bool","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_net_update","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_net_check_version","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_net_check_version","tags":[],"resourceType":"GMExtensionFunction",},
@@ -1200,6 +1213,8 @@
         {"name":"steam_gml_init_gml","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_gml_check_version","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_gml_prepare_buffer","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_gml_read_chars","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_gml_write_chars","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_net_is_available","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_net_update","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_net_check_version","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -1246,11 +1261,11 @@
         {"name":"steam_controller_get_analog_status","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
     {"filename":"steam_autogen.gml","origname":"","init":"","final":"","kind":2,"uncompress":false,"functions":[
-        
+        {"externalName":"steam_get_friends_game_info","kind":2,"help":"steam_get_friends_game_info()->array<any>","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_get_friends_game_info","tags":[],"resourceType":"GMExtensionFunction",},
       ],"constants":[
         
       ],"ProxyFiles":[],"copyToTargets":-1,"order":[
-        
+        {"name":"steam_get_friends_game_info","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
   ],
   "classname": "",

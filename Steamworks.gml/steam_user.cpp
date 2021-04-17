@@ -37,36 +37,28 @@ void steam_net_callbacks_t::micro_txn_auth_response(MicroTxnAuthorizationRespons
 }
 
 struct steam_get_friends_game_info_t {
-	CSteamID friendId{};
-	FriendGameInfo_t gameInfo{};
+	uint64 friendId;
+	uint32 gameId;
+	uint64 lobbyId;
+	char name[32];
 };
-static std::vector<steam_get_friends_game_info_t> steam_get_friends_game_info_vec{};
-dllx double steam_get_friends_game_info_1() {
+dllg vector<steam_get_friends_game_info_t> steam_get_friends_game_info() {
 	int flags = k_EFriendFlagImmediate;
 	auto count = SteamFriends()->GetFriendCount(flags);
-	steam_get_friends_game_info_vec.clear();
-	steam_get_friends_game_info_t tmp{};
+	vector<steam_get_friends_game_info_t> vec {};
+	steam_get_friends_game_info_t item {};
+	FriendGameInfo_t gameInfo {};
 	for (auto i = 0; i < count; i++) {
-		tmp.friendId = SteamFriends()->GetFriendByIndex(i, flags);
-		if (!SteamFriends()->GetFriendGamePlayed(tmp.friendId, &tmp.gameInfo)) continue;
-		steam_get_friends_game_info_vec.push_back(tmp);
+		auto friendId = SteamFriends()->GetFriendByIndex(i, flags);
+		if (!SteamFriends()->GetFriendGamePlayed(friendId, &gameInfo)) continue;
+		item.friendId = friendId.ConvertToUint64();
+		item.gameId = gameInfo.m_gameID.AppID();
+		item.lobbyId = gameInfo.m_steamIDLobby.ConvertToUint64();
+		auto name = SteamFriends()->GetFriendPersonaName(friendId);
+		strncpy(item.name, name, std::size(item.name));
+		vec.push_back(item);
 	}
-	return (double)steam_get_friends_game_info_vec.size();
-}
-struct steam_get_friends_game_info_r {
-	int64 friendId;
-	int64 gameId;
-	int64 lobbyId;
-};
-dllx double steam_get_friends_game_info_2(steam_get_friends_game_info_r* out) {
-	for (auto i = 0u; i < steam_get_friends_game_info_vec.size(); i++) {
-		auto& q = steam_get_friends_game_info_vec[i];
-		auto& r = out[i];
-		r.friendId = q.friendId.ConvertToUint64();
-		r.gameId = q.gameInfo.m_gameID.AppID();
-		r.lobbyId = q.gameInfo.m_steamIDLobby.ConvertToUint64();
-	}
-	return 1;
+	return vec;
 }
 
 #pragma region Rich Text Presence
