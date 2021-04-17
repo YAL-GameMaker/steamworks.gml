@@ -5878,6 +5878,30 @@
             "uncompress": false
         },
         {
+            "id": "386555e2-d3fd-4cb7-b533-d5d30f657724",
+            "modelName": "GMExtensionFile",
+            "mvc": "1.0",
+            "ProxyFiles": [
+                
+            ],
+            "constants": [
+                
+            ],
+            "copyToTargets": -1,
+            "filename": "steam_inventory.gml",
+            "final": "",
+            "functions": [
+                
+            ],
+            "init": "",
+            "kind": 2,
+            "order": [
+                
+            ],
+            "origname": "",
+            "uncompress": false
+        },
+        {
             "id": "6409c883-7a4d-4d45-9286-5c80cba5519c",
             "modelName": "GMExtensionFile",
             "mvc": "1.0",
@@ -5951,3 +5975,4 @@
     "tvosmaclinkerflags": "",
     "tvosplistinject": "",
     "version": "1.0.0"
+}
