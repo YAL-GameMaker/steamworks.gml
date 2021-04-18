@@ -7,16 +7,16 @@ function sfmt() {
 	var f = argument[0];
 	var w = global.sfmt_map[?f], i, n;
 	if (w == undefined) {
-	    w[0] = "";
-	    global.sfmt_map[?f] = w;
-	    i = string_pos("%", f);
-	    n = 0;
-	    while (i) {
-	        w[n++] = string_copy(f, 1, i - 1);
-	        f = string_delete(f, 1, i);
-	        i = string_pos("%", f);
-	    }
-	    w[n++] = f;
+		w[0] = "";
+		global.sfmt_map[?f] = w;
+		i = string_pos("%", f);
+		n = 0;
+		while (i) {
+			w[n++] = string_copy(f, 1, i - 1);
+			f = string_delete(f, 1, i);
+			i = string_pos("%", f);
+		}
+		w[n++] = f;
 	} else n = array_length_1d(w);
 	//
 	var b = global.sfmt_buf;
@@ -24,12 +24,12 @@ function sfmt() {
 	buffer_write(b, buffer_text, w[0]);
 	var m = argument_count;
 	for (i = 1; i < n; i++) {
-	    if (i < m) {
-	        f = string(argument[i]);
-	        if (f != "") buffer_write(b, buffer_text, f);
-	    }
-	    f = w[i];
-	    if (f != "") buffer_write(b, buffer_text, f);
+		if (i < m) {
+			f = string(argument[i]);
+			if (f != "") buffer_write(b, buffer_text, f);
+		}
+		f = w[i];
+		if (f != "") buffer_write(b, buffer_text, f);
 	}
 	buffer_write(b, buffer_u8, 0);
 	buffer_seek(b, buffer_seek_start, 0);

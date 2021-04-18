@@ -1,2 +1,1 @@
-test_update();
-
+steam_gml_update();

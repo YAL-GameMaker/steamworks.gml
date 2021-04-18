@@ -1,2 +1,1 @@
-test_steam();
-
+test_steam_trace();

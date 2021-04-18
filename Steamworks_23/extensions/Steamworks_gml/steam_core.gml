@@ -4,6 +4,7 @@
 /// steam_gml_init_gml()
 /// steam_gml_initialized = global.g_steam_gml_initialized : Whether the extension is initialized.
 /// steam_net_initialized = global.g_steam_gml_initialized
+//#macro steam_gml_use_structs true
 global.g_steam_net_buffer = noone; /// @is {buffer}
 global.g_steam_str_buffer = noone; /// @is {buffer}
 global.g_steam_controller_get_max_count = -1;
