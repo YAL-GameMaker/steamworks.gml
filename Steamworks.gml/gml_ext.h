@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#if _HAS_CXX17
+#if ((defined(_MSVC_LANG) && _MSVC_LANG >= 201703L) || __cplusplus >= 201703L)
 #include <optional>
 #endif
 #include <stdint.h>
@@ -133,7 +133,7 @@ public:
 	}
 	#pragma endregion
 
-	#if _HAS_CXX17 // optional
+	#if ((defined(_MSVC_LANG) && _MSVC_LANG >= 201703L) || __cplusplus >= 201703L) // optional
 	template<class T> optional<T> read_optional() {
 		if (read<bool>()) {
 			return read<T>;
