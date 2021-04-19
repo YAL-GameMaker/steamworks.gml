@@ -40,6 +40,7 @@ extern CSteamID steam_lobby_current;
 #include <vector>
 #include <map>
 #include <string>
+#include <stdint.h>
 #include "steam_callbacks.h"
 std::string b64encode(const void* data, const size_t& len);
 
