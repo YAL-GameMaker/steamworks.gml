@@ -1,6 +1,6 @@
 #!/bin/sh
 g++ \
-    -std=c++11 \
+    -std=c++17 \
     Steamworks.gml/steam_*.cpp \
     Steamworks.gml/gml_*.cpp \
     Steamworks.gml/base64_encode.cpp \
