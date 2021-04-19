@@ -17,12 +17,31 @@
   "installdir": "",
   "files": [
     {"filename":"Steamworks.gml.dll","origname":"Steamworks.gml.dll","init":"steam_gml_init_cpp_pre","final":"","kind":1,"uncompress":false,"functions":[
+        {"externalName":"steam_inventory_result_get_status_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_status_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_result_get_unix_timestamp_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_unix_timestamp_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_result_get_item_property_raw","kind":11,"help":"","hidden":true,"returnType":1,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_item_property_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_inventory_result_get_items_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_inventory_result_get_items_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_inventory_result_get_items_raw_post","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_inventory_result_get_items_raw_post","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_result_destroy_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_destroy_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_trigger_item_drop_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_trigger_item_drop_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_add_promo_item_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_add_promo_item_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_inventory_add_promo_items_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_inventory_add_promo_items_raw","tags":[],"resourceType":"GMExtensionFunction",},
@@ -35,6 +54,60 @@
         {"externalName":"steam_inventory_generate_items_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_inventory_generate_items_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_all_items_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_all_items_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_request_eligible_promo_item_defs_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_request_eligible_promo_item_defs_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_items_by_id_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_items_by_id_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_start_update_properties_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_start_update_properties_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_bool_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_bool_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_float_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_float_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_int_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_int_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_string_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":3,"args":[
+            1,
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_string_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_remove_property_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_remove_property_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_submit_update_properties_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_submit_update_properties_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_load_item_definitions_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_load_item_definitions_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_item_price_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_item_price_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_items_with_prices_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_items_with_prices_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_items_with_prices_raw_post","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_items_with_prices_raw_post","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_request_prices_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_request_prices_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_transfer_item_quantity_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_transfer_item_quantity_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_get_friends_game_info_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_raw","tags":[],"resourceType":"GMExtensionFunction",},
@@ -99,26 +172,6 @@
             1,
             1,
           ],"resourceVersion":"1.0","name":"RegisterCallbacks","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_result_get_status","kind":1,"help":"steam_inventory_result_get_status(inv_result) : (result:steam_inventory_result)->int","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_status","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_result_get_unix_timestamp","kind":1,"help":"steam_inventory_result_get_unix_timestamp(inv_result) : (result:steam_inventory_result)->int","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_unix_timestamp","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_result_get_item_property","kind":1,"help":"steam_inventory_result_get_item_property(inv_result, item_index, prop_name) : (result:steam_inventory_result, item_index:int, prop_name:string)->string","hidden":false,"returnType":1,"argCount":3,"args":[
-            2,
-            2,
-            1,
-          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_item_property","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_result_destroy","kind":1,"help":"steam_inventory_result_destroy(inv_result) : (result:steam_inventory_result)","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_inventory_result_destroy","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_trigger_item_drop","kind":1,"help":"steam_inventory_trigger_item_drop(item_def) ->steam_inventory_result","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_inventory_trigger_item_drop","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_add_promo_item","kind":1,"help":"steam_inventory_add_promo_item(item_def) ->steam_inventory_result","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_inventory_add_promo_item","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_lobby_get_lobby_id_high","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_lobby_get_lobby_id_high","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_lobby_get_lobby_id_low","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_lobby_get_lobby_id_low","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_lobby_leave","kind":1,"help":"steam_lobby_leave() : Leaves the current lobby (if any)","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_lobby_leave","tags":[],"resourceType":"GMExtensionFunction",},
@@ -331,12 +384,34 @@
         {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_left","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"3","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_right","tags":[],"resourceType":"GMExtensionConstant",},
       ],"ProxyFiles":[],"copyToTargets":105553658380352,"order":[
+        {"name":"steam_inventory_result_get_status_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_result_get_unix_timestamp_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_result_get_item_property_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_result_get_items_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_result_get_items_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_result_destroy_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_trigger_item_drop_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_add_promo_item_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_add_promo_items_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_consume_item_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_exchange_items_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_generate_items_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_all_items_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_request_eligible_promo_item_defs_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_items_by_id_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_start_update_properties_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_bool_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_float_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_int_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_string_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_remove_property_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_submit_update_properties_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_load_item_definitions_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_item_price_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_items_with_prices_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_items_with_prices_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_request_prices_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_transfer_item_quantity_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_reset","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -357,12 +432,6 @@
         {"name":"steam_controller_get_analog_origins_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_get_max_origins_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"RegisterCallbacks","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_result_get_status","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_result_get_unix_timestamp","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_result_get_item_property","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_result_destroy","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_trigger_item_drop","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_add_promo_item","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_get_lobby_id_high","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_get_lobby_id_low","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_leave","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -429,12 +498,31 @@
         {"name":"steam_user_request_encrypted_app_ticket_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
     {"filename":"Steamworks.gml.so","origname":"extensions\\Steamworks.gml.so","init":"steam_gml_init_cpp_pre","final":"","kind":1,"uncompress":false,"functions":[
+        {"externalName":"steam_inventory_result_get_status_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_status_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_result_get_unix_timestamp_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_unix_timestamp_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_result_get_item_property_raw","kind":11,"help":"","hidden":true,"returnType":1,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_item_property_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_inventory_result_get_items_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_inventory_result_get_items_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_inventory_result_get_items_raw_post","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_inventory_result_get_items_raw_post","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_result_destroy_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_destroy_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_trigger_item_drop_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_trigger_item_drop_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_add_promo_item_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_add_promo_item_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_inventory_add_promo_items_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_inventory_add_promo_items_raw","tags":[],"resourceType":"GMExtensionFunction",},
@@ -447,6 +535,60 @@
         {"externalName":"steam_inventory_generate_items_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_inventory_generate_items_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_all_items_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_all_items_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_request_eligible_promo_item_defs_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_request_eligible_promo_item_defs_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_items_by_id_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_items_by_id_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_start_update_properties_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_start_update_properties_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_bool_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_bool_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_float_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_float_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_int_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_int_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_string_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":3,"args":[
+            1,
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_string_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_remove_property_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_remove_property_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_submit_update_properties_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_submit_update_properties_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_load_item_definitions_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_load_item_definitions_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_item_price_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_item_price_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_items_with_prices_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_items_with_prices_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_items_with_prices_raw_post","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_items_with_prices_raw_post","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_request_prices_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_request_prices_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_transfer_item_quantity_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_transfer_item_quantity_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_get_friends_game_info_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_raw","tags":[],"resourceType":"GMExtensionFunction",},
@@ -511,26 +653,6 @@
             1,
             1,
           ],"resourceVersion":"1.0","name":"RegisterCallbacks","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_result_get_status","kind":1,"help":"steam_inventory_result_get_status(inv_result) : (result:steam_inventory_result)->int","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_status","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_result_get_unix_timestamp","kind":1,"help":"steam_inventory_result_get_unix_timestamp(inv_result) : (result:steam_inventory_result)->int","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_unix_timestamp","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_result_get_item_property","kind":1,"help":"steam_inventory_result_get_item_property(inv_result, item_index, prop_name) : (result:steam_inventory_result, item_index:int, prop_name:string)->string","hidden":false,"returnType":1,"argCount":3,"args":[
-            2,
-            2,
-            1,
-          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_item_property","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_result_destroy","kind":1,"help":"steam_inventory_result_destroy(inv_result) : (result:steam_inventory_result)","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_inventory_result_destroy","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_trigger_item_drop","kind":1,"help":"steam_inventory_trigger_item_drop(item_def) ->steam_inventory_result","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_inventory_trigger_item_drop","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_add_promo_item","kind":1,"help":"steam_inventory_add_promo_item(item_def) ->steam_inventory_result","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_inventory_add_promo_item","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_lobby_get_lobby_id_high","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_lobby_get_lobby_id_high","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_lobby_get_lobby_id_low","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_lobby_get_lobby_id_low","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_lobby_leave","kind":1,"help":"steam_lobby_leave() : Leaves the current lobby (if any)","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_lobby_leave","tags":[],"resourceType":"GMExtensionFunction",},
@@ -743,12 +865,34 @@
         {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_left","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"3","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_right","tags":[],"resourceType":"GMExtensionConstant",},
       ],"ProxyFiles":[],"copyToTargets":17592320262272,"order":[
+        {"name":"steam_inventory_result_get_status_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_result_get_unix_timestamp_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_result_get_item_property_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_result_get_items_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_result_get_items_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_result_destroy_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_trigger_item_drop_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_add_promo_item_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_add_promo_items_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_consume_item_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_exchange_items_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_generate_items_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_all_items_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_request_eligible_promo_item_defs_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_items_by_id_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_start_update_properties_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_bool_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_float_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_int_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_string_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_remove_property_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_submit_update_properties_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_load_item_definitions_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_item_price_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_items_with_prices_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_items_with_prices_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_request_prices_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_transfer_item_quantity_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_reset","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -769,12 +913,6 @@
         {"name":"steam_controller_get_analog_origins_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_get_max_origins_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"RegisterCallbacks","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_result_get_status","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_result_get_unix_timestamp","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_result_get_item_property","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_result_destroy","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_trigger_item_drop","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_add_promo_item","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_get_lobby_id_high","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_get_lobby_id_low","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_leave","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -841,12 +979,31 @@
         {"name":"steam_user_request_encrypted_app_ticket_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
     {"filename":"Steamworks.gml.dylib","origname":"extensions\\Steamworks.gml.dylib","init":"steam_gml_init_cpp_pre","final":"","kind":1,"uncompress":false,"functions":[
+        {"externalName":"steam_inventory_result_get_status_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_status_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_result_get_unix_timestamp_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_unix_timestamp_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_result_get_item_property_raw","kind":11,"help":"","hidden":true,"returnType":1,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_item_property_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_inventory_result_get_items_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_inventory_result_get_items_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_inventory_result_get_items_raw_post","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_inventory_result_get_items_raw_post","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_result_destroy_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_destroy_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_trigger_item_drop_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_trigger_item_drop_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_add_promo_item_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_add_promo_item_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_inventory_add_promo_items_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_inventory_add_promo_items_raw","tags":[],"resourceType":"GMExtensionFunction",},
@@ -859,6 +1016,60 @@
         {"externalName":"steam_inventory_generate_items_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_inventory_generate_items_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_all_items_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_all_items_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_request_eligible_promo_item_defs_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_request_eligible_promo_item_defs_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_items_by_id_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_items_by_id_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_start_update_properties_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_start_update_properties_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_bool_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_bool_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_float_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_float_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_int_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_int_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_string_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":3,"args":[
+            1,
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_string_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_remove_property_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_remove_property_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_submit_update_properties_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_submit_update_properties_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_load_item_definitions_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_load_item_definitions_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_item_price_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_item_price_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_items_with_prices_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_items_with_prices_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_items_with_prices_raw_post","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_items_with_prices_raw_post","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_request_prices_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_request_prices_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_transfer_item_quantity_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_inventory_transfer_item_quantity_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_get_friends_game_info_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_raw","tags":[],"resourceType":"GMExtensionFunction",},
@@ -923,26 +1134,6 @@
             1,
             1,
           ],"resourceVersion":"1.0","name":"RegisterCallbacks","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_result_get_status","kind":1,"help":"steam_inventory_result_get_status(inv_result) : (result:steam_inventory_result)->int","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_status","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_result_get_unix_timestamp","kind":1,"help":"steam_inventory_result_get_unix_timestamp(inv_result) : (result:steam_inventory_result)->int","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_unix_timestamp","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_result_get_item_property","kind":1,"help":"steam_inventory_result_get_item_property(inv_result, item_index, prop_name) : (result:steam_inventory_result, item_index:int, prop_name:string)->string","hidden":false,"returnType":1,"argCount":3,"args":[
-            2,
-            2,
-            1,
-          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_item_property","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_result_destroy","kind":1,"help":"steam_inventory_result_destroy(inv_result) : (result:steam_inventory_result)","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_inventory_result_destroy","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_trigger_item_drop","kind":1,"help":"steam_inventory_trigger_item_drop(item_def) ->steam_inventory_result","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_inventory_trigger_item_drop","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_add_promo_item","kind":1,"help":"steam_inventory_add_promo_item(item_def) ->steam_inventory_result","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_inventory_add_promo_item","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_lobby_get_lobby_id_high","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_lobby_get_lobby_id_high","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_lobby_get_lobby_id_low","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_lobby_get_lobby_id_low","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_lobby_leave","kind":1,"help":"steam_lobby_leave() : Leaves the current lobby (if any)","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_lobby_leave","tags":[],"resourceType":"GMExtensionFunction",},
@@ -1155,12 +1346,34 @@
         {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_left","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"3","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_right","tags":[],"resourceType":"GMExtensionConstant",},
       ],"ProxyFiles":[],"copyToTargets":67108866,"order":[
+        {"name":"steam_inventory_result_get_status_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_result_get_unix_timestamp_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_result_get_item_property_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_result_get_items_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_result_get_items_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_result_destroy_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_trigger_item_drop_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_add_promo_item_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_add_promo_items_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_consume_item_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_exchange_items_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_generate_items_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_all_items_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_request_eligible_promo_item_defs_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_items_by_id_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_start_update_properties_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_bool_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_float_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_int_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_string_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_remove_property_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_submit_update_properties_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_load_item_definitions_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_item_price_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_items_with_prices_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_items_with_prices_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_request_prices_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_transfer_item_quantity_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_reset","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -1181,12 +1394,6 @@
         {"name":"steam_controller_get_analog_origins_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_get_max_origins_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"RegisterCallbacks","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_result_get_status","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_result_get_unix_timestamp","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_result_get_item_property","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_result_destroy","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_trigger_item_drop","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_inventory_add_promo_item","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_get_lobby_id_high","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_get_lobby_id_low","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_leave","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -1433,32 +1640,122 @@
         
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
     {"filename":"steam_autogen.gml","origname":"","init":"","final":"","kind":2,"uncompress":false,"functions":[
-        {"externalName":"steam_inventory_result_get_items","kind":2,"help":"steam_inventory_result_get_items(result:steam_inventory_result)->array","hidden":false,"returnType":2,"argCount":1,"args":[
+        {"externalName":"steam_inventory_result_get_status","kind":2,"help":"steam_inventory_result_get_status(inv_result:steam_inventory_result)->int","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_status","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_result_get_unix_timestamp","kind":2,"help":"steam_inventory_result_get_unix_timestamp(result:steam_inventory_result)->int","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_unix_timestamp","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_result_get_item_property","kind":2,"help":"steam_inventory_result_get_item_property(inv_result:steam_inventory_result, item_index:int, prop_name:int)->int","hidden":false,"returnType":2,"argCount":3,"args":[
+            2,
+            2,
+            2,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_get_item_property","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_result_get_items","kind":2,"help":"steam_inventory_result_get_items(inv_result:steam_inventory_result)->array<any>","hidden":false,"returnType":2,"argCount":1,"args":[
             2,
           ],"resourceVersion":"1.0","name":"steam_inventory_result_get_items","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_add_promo_items","kind":2,"help":"steam_inventory_add_promo_items(item_defs:array<int>)->steam_inventory_result","hidden":false,"returnType":2,"argCount":1,"args":[
+        {"externalName":"steam_inventory_result_destroy","kind":2,"help":"steam_inventory_result_destroy(inv_result:steam_inventory_result)->bool","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"steam_inventory_result_destroy","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_trigger_item_drop","kind":2,"help":"steam_inventory_trigger_item_drop(item_def:steam_inventory_item_def)->steam_inventory_result","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"steam_inventory_trigger_item_drop","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_add_promo_item","kind":2,"help":"steam_inventory_add_promo_item(item_def:steam_inventory_item_def)->steam_inventory_result","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"steam_inventory_add_promo_item","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_add_promo_items","kind":2,"help":"steam_inventory_add_promo_items(item_defs:array<steam_inventory_item_def>)->steam_inventory_result","hidden":false,"returnType":2,"argCount":1,"args":[
             2,
           ],"resourceVersion":"1.0","name":"steam_inventory_add_promo_items","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_consume_item","kind":2,"help":"steam_inventory_consume_item(item_inst:int, quantity:int)->steam_inventory_result","hidden":false,"returnType":2,"argCount":2,"args":[
+        {"externalName":"steam_inventory_consume_item","kind":2,"help":"steam_inventory_consume_item(item_id:steam_inventory_item_id, quantity:int)->steam_inventory_result","hidden":false,"returnType":2,"argCount":2,"args":[
             2,
             2,
           ],"resourceVersion":"1.0","name":"steam_inventory_consume_item","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_exchange_items","kind":2,"help":"steam_inventory_exchange_items(create:array<any>, destroy:array<any>)->int","hidden":false,"returnType":2,"argCount":2,"args":[
+        {"externalName":"steam_inventory_exchange_items","kind":2,"help":"steam_inventory_exchange_items(create:array<any>, destroy:array<any>)->steam_inventory_result","hidden":false,"returnType":2,"argCount":2,"args":[
             2,
             2,
           ],"resourceVersion":"1.0","name":"steam_inventory_exchange_items","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_inventory_generate_items","kind":2,"help":"steam_inventory_generate_items(create:array<any>)->int","hidden":false,"returnType":2,"argCount":1,"args":[
+        {"externalName":"steam_inventory_generate_items","kind":2,"help":"steam_inventory_generate_items(create:array<any>)->steam_inventory_result","hidden":false,"returnType":2,"argCount":1,"args":[
             2,
           ],"resourceVersion":"1.0","name":"steam_inventory_generate_items","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_all_items","kind":2,"help":"steam_inventory_get_all_items()->steam_inventory_result","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_inventory_get_all_items","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_request_eligible_promo_item_defs","kind":2,"help":"steam_inventory_request_eligible_promo_item_defs(user_id:int = 0)->bool","hidden":false,"returnType":2,"argCount":-1,"args":[],"resourceVersion":"1.0","name":"steam_inventory_request_eligible_promo_item_defs","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_items_by_id","kind":2,"help":"steam_inventory_get_items_by_id(item_ids:array<steam_inventory_item_id>)->steam_inventory_result","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_items_by_id","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_start_update_properties","kind":2,"help":"steam_inventory_start_update_properties()->steam_inventory_update_handle","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_inventory_start_update_properties","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_bool","kind":2,"help":"steam_inventory_set_property_bool(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:bool)->bool","hidden":false,"returnType":2,"argCount":4,"args":[
+            2,
+            2,
+            2,
+            2,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_bool","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_float","kind":2,"help":"steam_inventory_set_property_float(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:number)->bool","hidden":false,"returnType":2,"argCount":4,"args":[
+            2,
+            2,
+            2,
+            2,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_float","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_int","kind":2,"help":"steam_inventory_set_property_int(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:int)->bool","hidden":false,"returnType":2,"argCount":4,"args":[
+            2,
+            2,
+            2,
+            2,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_int","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_set_property_string","kind":2,"help":"steam_inventory_set_property_string(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:int)->bool","hidden":false,"returnType":2,"argCount":4,"args":[
+            2,
+            2,
+            2,
+            2,
+          ],"resourceVersion":"1.0","name":"steam_inventory_set_property_string","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_remove_property","kind":2,"help":"steam_inventory_remove_property(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int)->bool","hidden":false,"returnType":2,"argCount":3,"args":[
+            2,
+            2,
+            2,
+          ],"resourceVersion":"1.0","name":"steam_inventory_remove_property","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_submit_update_properties","kind":2,"help":"steam_inventory_submit_update_properties(handle:steam_inventory_update_handle)->steam_inventory_result","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"steam_inventory_submit_update_properties","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_load_item_definitions","kind":2,"help":"steam_inventory_load_item_definitions()->bool","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_inventory_load_item_definitions","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_item_price","kind":2,"help":"steam_inventory_get_item_price(item_def:steam_inventory_item_def)->int?","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"steam_inventory_get_item_price","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_get_items_with_prices","kind":2,"help":"steam_inventory_get_items_with_prices()->array<any>?","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_inventory_get_items_with_prices","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_request_prices","kind":2,"help":"steam_inventory_request_prices()->bool","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_inventory_request_prices","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_inventory_transfer_item_quantity","kind":2,"help":"steam_inventory_transfer_item_quantity(source_item_id:steam_inventory_item_id, quantity:int, dest_item_id:steam_inventory_item_id)->steam_inventory_result","hidden":false,"returnType":2,"argCount":3,"args":[
+            2,
+            2,
+            2,
+          ],"resourceVersion":"1.0","name":"steam_inventory_transfer_item_quantity","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_get_friends_game_info","kind":2,"help":"steam_get_friends_game_info()->array<any>","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_get_friends_game_info","tags":[],"resourceType":"GMExtensionFunction",},
       ],"constants":[
         
       ],"ProxyFiles":[],"copyToTargets":-1,"order":[
+        {"name":"steam_inventory_result_get_status","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_result_get_unix_timestamp","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_result_get_item_property","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_result_get_items","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_result_destroy","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_trigger_item_drop","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_add_promo_item","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_add_promo_items","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_consume_item","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_exchange_items","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_generate_items","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_all_items","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_request_eligible_promo_item_defs","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_items_by_id","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_start_update_properties","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_bool","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_float","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_int","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_set_property_string","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_remove_property","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_submit_update_properties","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_load_item_definitions","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_item_price","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_get_items_with_prices","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_request_prices","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_inventory_transfer_item_quantity","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
   ],

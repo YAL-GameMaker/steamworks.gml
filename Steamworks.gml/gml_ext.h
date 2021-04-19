@@ -1,5 +1,8 @@
 #pragma once
 #include <vector>
+#if _HAS_CXX17
+#include <optional>
+#endif
 using namespace std;
 
 #define dllg /* tag */
@@ -128,4 +131,17 @@ public:
 		write<D>(std::get<3>(tup));
 	}
 	#pragma endregion
+
+	#if _HAS_CXX17 // optional
+	template<class T> optional<T> read_optional() {
+		if (read<bool>()) {
+			return read<T>;
+		} else return {};
+	}
+	template<class T> void write_optional(optional<T>& val) {
+		auto hasValue = val.has_value();
+		write<bool>(hasValue);
+		if (hasValue) write<T>(val.value());
+	}
+	#endif
 };

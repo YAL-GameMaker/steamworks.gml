@@ -15,6 +15,28 @@ A most up-to-date version of the manual is always [available online](https://yal
 ```set og:image https://yal.cc/r/17/steamworks-gml/og.png```
 ```set og:image:width 640```
 ```set og:image:height 240```
+```exec
+ref_url = "";
+function ref(name) {
+	return render("[" + name + "](" + ref_url + "#" + name + ")");
+}
+function ref_root(label) {
+	return render("[" + label + "](" + ref_url + ")");
+}
+function wrap(name) {
+	return render("A wrapper for [" + name + "](" + ref_url + "#" + name + ").");
+}
+function ref_set(url) {
+	ref_url = url;
+	return null;
+}
+```
+```setmd gms2sct
+*NOTE:* The following are only available for GMS2/SDK1.42+.
+```
+```setmd gms2one
+*NOTE:* This is only available for GMS2/SDK1.42+.
+```
 #[General]() {
 	#[Setting up Steam](setting-up-steam) {
 		See the [official documentation.](https://help.yoyogames.com/hc/en-us/articles/216754138-Using-The-Steamworks-SDK-With-GameMaker-Studio)
@@ -76,6 +98,14 @@ A most up-to-date version of the manual is always [available online](https://yal
 			Afterwards, the connection is kept active for as long as anything is sent at least once every 30 seconds or so.
 		}
 	}
+	#[Notes on structs](structs) {
+		Some of the extension's functions take and/or return structures.
+		
+		When using GameMaker Studio 2.3 with [steam_gml_use_structs] enabled,
+		these will be represented with GML structs.
+		
+		Otherwise, they will be represented with arrays where fields are written sequentially.
+	}
 }
 #[General functions](steam_general) {
 	#[steam_gml_is_available()->bool]() {
@@ -100,6 +130,31 @@ A most up-to-date version of the manual is always [available online](https://yal
 		Polls Steam API and dispatches any new events since the last call to the function.
 		
 		As outlined above, you generally want to call this function every now and then.
+	}
+}
+#[Macros](steam_macros) {
+	#[steam_id_use_int64]() {
+		*Located in*: `steam_id.gml`
+		
+		*Default:* `true`
+		
+		Indicates whether the extension should use 64-bit integers for Steam IDs.
+		
+		If disabled, the extension will instead represent IDs as two-element array with
+		higher/lower 32-bit halves.
+		
+		Exists only for backwards compatibility and will be removed at some point.
+	}
+	#[steam_gml_use_structs]() {
+		*Located in*: `steam_core.gml`
+		
+		*Default:* `true`
+		
+		Indicates whether the extension should use GMS2.3 structs
+		(as opposed to arrays)
+		to represent multi-value arguments and return types in some cases.
+		
+		Can be disabled to avoid changing code when migrating from GMS2.2 to GMS2.3+.
 	}
 }
 #[Async events](steam_async) {
@@ -706,11 +761,246 @@ A most up-to-date version of the manual is always [available online](https://yal
 	}
 }
 #[Steam Inventory](steam_inventory) {
-	#[steam_inventory_trigger_item_drop(item_def)->bool]() {
-		A wrapper around [TriggerItemDrop](https://partner.steamgames.com/doc/api/ISteamInventory#TriggerItemDrop).
+	```setmd inv_result_note
+	*NOTE*: You must call [steam_inventory_result_destroy] on the returned async result ID when you are done with it.
+	```
+	```exec
+	ref_set("https://partner.steamgames.com/doc/api/ISteamInventory");
+	```
+	The following functions allow to use
+	[Steam Inventory Service](https://partner.steamgames.com/doc/features/inventory).
+	
+	Types:
+	#[steam_inventory_item_def]() {
+		Represents an item type ("item definition number").
 		
-		Note that this simply indicates whether the async request was sent off - the item may not 
-		drop if calling the function more often that the max drop rate that you have configured.
+		Valid definition numbers are between 1 and 999999999;\
+		Numbers less than or equal to zero are invalid;\
+		Numbers greater than or equal to one billion (1x10^9) are reserved for internal Steam use.
+	}
+	#[steam_inventory_item_id]() {
+		Every individual instance of an item has a globally-unique instance ID.
+		
+		This ID is unique to the combination of a player and specific item instance,
+		and will not be transferred to another player or re-used for another item.
+	}
+	#[steam_inventory_result]() {
+		Many of the functions in this section return a `steam_inventory_result` async result ID.
+		
+		Invalid results are represented by `-1`, also available as `steam_inventory_result_invalid` constant.
+		
+		When a result is ready, an async event will be dispatched with: --{
+		--	`async_load[?"event_type"]`: `"inventory_result_ready"`
+		--	`async_load[?"result"]`: status code as per [steam_inventory_result_get_status].
+		--	`async_load[?"handle"]`: the associated async result ID,
+			which can be used to tell apart what result this event is for.
+		}
+		
+		The ID can later be found in `async_load[?"handle"]` in inventory-related async events
+		and can be polled to retrieve status or returned items.
+		
+		Async results must be destroyed when you are done using them via [steam_inventory_result_destroy].
+		
+		#[steam_inventory_result_get_status(inv_result)->int]() {
+			${wrap("GetResultStatus")}
+			
+			Returns status code of a result.
+			
+			You may opt to use this instead of async events.
+			
+			Possible values are: --{
+				-- `steam_inventory_result_status_pending`
+				-- `steam_inventory_result_status_ok`
+				-- `steam_inventory_result_status_expired`
+				-- `steam_inventory_result_status_invalid`
+				-- `steam_inventory_result_status_fail`
+				-- `steam_inventory_result_status_invalid_param`
+				-- `steam_inventory_result_status_service_unavailable`
+				-- `steam_inventory_result_status_limit_exceeded`
+			} (see Steam documentation for status code explanations)
+		}
+		#[steam_inventory_result_destroy(inv_result)->bool]() {
+			${wrap("DestroyResult")}
+			
+			Destroys a result handle and frees all associated memory.
+		}
+		#[steam_inventory_result_get_unix_timestamp(inv_result)->int]() {
+			${wrap("GetResultTimestamp")}
+			
+			Returns a Unix timestamp for the server time at which the result was generated.
+		}
+		#[steam_inventory_result_get_item_property(inv_result, item_index:int, prop_name:int)->int]() {
+			${wrap("GetResultItemProperty")}
+			
+			Gets the dynamic properties from an item in an inventory result set.
+			
+			Property names are always composed of ASCII letters, numbers, and/or underscores.
+		}
+		#[steam_inventory_result_get_items(inv_result)->array]() {
+			${wrap("GetResultItems")}
+			
+			Get the items associated with an inventory result handle.
+			
+			This returns an array of [structs] that contain: --{
+			--	`item_id`: a [steam_inventory_item_id] representing the item instance.
+			--	`item_def`: a [steam_inventory_item_def] representing the item type.
+			--	`quantity`: an `int` indicating how many of the said item there is in the slot.
+			--	`flags`: see ${ref("ESteamItemFlags")}
+			}
+		}
+	}
+	---
+	#[steam_inventory_trigger_item_drop(item_def)->steam_inventory_result]() {
+		${wrap("TriggerItemDrop")}
+		
+		%[inv_result_note]
+	}
+	#[steam_inventory_add_promo_item(item_def)->steam_inventory_result]() {
+		${wrap("AddPromoItem")}
+		
+		%[inv_result_note]
+	}
+	#[steam_inventory_add_promo_items(item_defs)->steam_inventory_result]() {
+		${wrap("AddPromoItems")}
+		
+		Takes an array of [steam_inventory_item_def]s and grants the user multiple items.
+		
+		%[inv_result_note]
+	}
+	#[steam_inventory_consume_item(item_id, quantity)->steam_inventory_result]() {
+		${wrap("ConsumeItem")}
+		
+		%[inv_result_note]
+	}
+	#[steam_inventory_exchange_items(create_arr, destroy_arr)->steam_inventory_result]() {
+		${wrap("ExchangeItems")}
+		
+		Grants one item in exchange for a set of other items.
+		
+		`create_arr` is an array of [structs] representing items to be created: --{
+		--	`item_def`: a [steam_inventory_item_def] representing the item type
+		--	`quantitiy`: number of items of type to be created
+		}
+		
+		`destroy_arr` is an array of structs representing items to be consumed: --{
+		--	`item_id`: a [steam_inventory_item_id] of an item to be consumed
+		--	`quantity`: how much of the said item is to be consumed
+		}
+		
+		As of writing this, Steam only supports creating one item per call.
+		
+		See Steam documentation for specifics.
+		
+		%[inv_result_note]
+	}
+	#[steam_inventory_generate_items(create_arr)->steam_inventory_result]() {
+		${wrap("GenerateItems")}
+		
+		Generates specific items for the current user.
+		
+		This is only usable by Steam accounts that belong to the publisher group for your game.
+		
+		`create_arr` is an array of [structs] representing items to be created: --{
+		--	`item_def`: a [steam_inventory_item_def] representing the item type
+		--	`quantitiy`: number of items of type to be created
+		}
+		
+		%[inv_result_note]
+	}
+	#[steam_inventory_get_all_items()->steam_inventory_result]() {
+		${wrap("GetAllItems")}
+		
+		Starts retrieving all items in the current user's inventory.
+		
+		%[inv_result_note]
+	}
+	#[steam_inventory_request_eligible_promo_item_defs(?user_id)->bool]() {
+		${wrap("RequestEligiblePromoItemDefinitionsIDs")}
+		
+		Requests the list of "eligible" promo items that can be manually granted to the given user.
+		
+		If `user_id` is omitted, the items will be checked for the current user.
+		
+		Once ready, dispatches an async event with: --{
+		--	`async_load[?"event_type"]`: `"inventory_request_eligible_promo_item_defs"`
+		--	`async_load[?"user_id_high"]`: First half of the user ID (to be passed to [steam_id_create])
+		--	`async_load[?"user_id_low"]`: Second half of the user ID (same as above)
+		--	`async_load[?"item_def_count"]`: Number of items returned
+		--	`async_load[?"item_def_json"]`: A JSON string with an array of
+			[steam_inventory_item_def]s
+		--	`async_load[?"is_cached_data"]`: indicates whether the data was retrieved from the cache
+			and not from the server
+		}
+		
+		%[gms2one]
+	}
+	#[steam_inventory_get_items_by_id(item_ids)->steam_inventory_result]() {
+		${wrap("GetItemsByID")}
+		
+		Requests information about a subset of the current user's inventory.
+		
+		`item_ids` is an array of [steam_inventory_item_id]s.
+		
+		%[inv_result_note]
+	}
+	#[steam_inventory_load_item_definitions()->bool]() {
+		${wrap("LoadItemDefinitions")}
+		
+		Triggers an asynchronous load and refresh of item definitions.
+		
+		Dispatches an async event with `async_load[?"event_type"]` == `"inventory_definition_update"` when done.
+	}
+	#[Item prices](steam_inventory_price) {
+		%[gms2sct]
+		
+		#[steam_inventory_request_prices()->bool]() {
+			${wrap("RequestPrices")}
+		}
+		#[steam_inventory_get_item_price(item_def:steam_inventory_item_def)->int?]() {
+			${wrap("GetItemPrice")}
+		}
+		#[steam_inventory_get_items_with_prices()->array<any>?]() {
+			${wrap("GetItemsWithPrices")}
+		}
+	}
+	#[steam_inventory_transfer_item_quantity(source_item_id, quantity, dest_item_id)->steam_inventory_result]() {
+		${wrap("TransferItemQuantity")}
+		%[inv_result_note]
+	}
+	#[Item property updates](steam_inventory_update_) {
+		%[gms2sct]
+		
+		#[steam_inventory_start_update_properties()->steam_inventory_update_handle]() {
+			${wrap("StartUpdateProperties")}
+			
+			Starts a transaction request to update dynamic properties on items for the current user. 
+			
+			Returns a `steam_inventory_update_handle` that is used in other functions in this section.
+		}
+		---
+		#[steam_inventory_set_property_bool(handle, item_id, prop_name, bool_val)->bool]() {
+			${wrap("SetProperty")}
+		}
+		#[steam_inventory_set_property_float(handle, item_id, prop_name, f32_val)->bool]() {
+			Same as above, but for 32-bit floats.
+		}
+		#[steam_inventory_set_property_int(handle, item_id, prop_name, int_val)->bool]() {
+			Same as above, but for 64-bit integers.
+		}
+		#[steam_inventory_set_property_string(handle, item_id, prop_name, str_val)->bool]() {
+			Same as above, but for strings.
+		}
+		#[steam_inventory_remove_property(handle, item_id, prop_name)->bool]() {
+			${wrap("RemoveProperty")}
+			
+			Removes a dynamic property for the given item.
+		}
+		---
+		#[steam_inventory_submit_update_properties(handle)->steam_inventory_result]() {
+			${wrap("SubmitUpdateProperties")}
+			
+			%[inv_result_note]
+		}
 	}
 }
 #[Steam ID functions](steam_id) {
@@ -732,7 +1022,7 @@ A most up-to-date version of the manual is always [available online](https://yal
 	#[steam_id_get_high(steam_id)->int]() {
 		Returns the higher 32-bit half of a Steam ID.
 	}
-	#[steam_id_get_high(steam_id)->int]() {
+	#[steam_id_get_low(steam_id)->int]() {
 		Returns the lower 32-bit half of a Steam ID.
 	}
 	#[steam_id_equals(steam_id1, steam_id2)->bool]() {

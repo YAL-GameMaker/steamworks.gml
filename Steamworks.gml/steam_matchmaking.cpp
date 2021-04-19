@@ -199,16 +199,11 @@ dllx double steam_lobby_list_get_count() {
 
 char* steam_lobby_list_get_data_str = (char*)malloc(1);
 /// Retrieves given information about the given lobby
-dllx char* steam_lobby_list_get_data(double index, char* key) {
+dllx const char* steam_lobby_list_get_data(double index, char* key) {
 	int32 i = (int32)index;
 	if (i >= 0 && i < steam_lobby_count) {
 		CSteamID lobby = steam_lobby_list[i];
-		const char* data = SteamMatchmaking()->GetLobbyData(lobby, key);
-		// update steam_lobby_get_data_str to contain the next data string:
-		size_t data_size = sizeof(char) * (strlen(data) + 1);
-		steam_lobby_list_get_data_str = (char*)realloc(steam_lobby_list_get_data_str, data_size);
-		strcpy(steam_lobby_list_get_data_str, data);
-		return steam_lobby_list_get_data_str;
+		return SteamMatchmaking()->GetLobbyData(lobby, key);
 	} else return "";
 }
 //

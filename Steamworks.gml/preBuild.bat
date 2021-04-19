@@ -17,6 +17,8 @@ if %ERRORLEVEL% EQU 0 (
 	--include "steam_glue.h"^
 	--cpp "%projectDir%steam_autogen.cpp"^
 	--gml "%solutionDir%Steamworks_23/extensions/Steamworks_gml/steam_autogen.gml"^
+	--struct "steam_gml_use_structs"^
+	--index "%solutionDir%\steamworks_sdk_142\public\steam\isteam*.h"^
 	%projectDir%steam_*.cpp
 ) else (
 	echo preBuild.bat: Warning N/A: Could not find GmlCppExtFuncs - `dllg` functions will not be auto-updated.

@@ -19,7 +19,6 @@
 // For unidentifiable reason Steam API doesn't init unless using "safe" interfaces.
 // Might be a conflict with GM runtime.
 #define VERSION_SAFE_STEAM_API_INTERFACES 1
-#define _CRT_SECURE_NO_WARNINGS
 #include "steam/steam_api.h"
 #include "steam/isteamappticket.h"
 
@@ -43,6 +42,10 @@ extern CSteamID steam_lobby_current;
 #include <string>
 #include "steam_callbacks.h"
 std::string b64encode(const void* data, const size_t& len);
+
+#if (STEAMWORKS < 142)
+typedef uint64 SteamInventoryUpdateHandle_t;
+#endif
 
 using std::map;
 using std::vector;

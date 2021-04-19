@@ -370,26 +370,30 @@ label[for="night"] {
 })();</script>
 <main class="page">
 <p>This is a function "cheat sheet" for Steamworks.gml extension by YellowAfterlife.  <br/>
+
 The extension is available <a href="https://github.com/YellowAfterlife/steamworks.gml">on GitHub</a>.  <br/>
+
 Example files are available via <a href="https://yellowafterlife.itch.io/steamworks-gml-example">itch.io</a>.  <br/>
+
 Donations are accepted via itch.io.  <br/>
+
 A most up-to-date version of the manual is always <a href="https://yal.cc/r/17/steamworks-gml/">available online</a>.</p><p class="display-controls">
 Click on sections to expand/collapse them.<br>Quick display controls: <a href="#" onclick="opt_none(); return false">Categories</a>
 &middot; <a href="#" onclick="opt_list(); return false">Sections</a>
 &middot; <a href="#" onclick="opt_all(); return false">Everything</a>
 &middot; <label for="night">Toggle night mode</label><br/>
 </p><section id="doc">
-<!--<doc--><section><header id="General"><a href="#General" title="(permalink)">General</a></header><article><section><header id="setting-up-steam"><a href="#setting-up-steam" title="(permalink)">Setting up Steam</a></header><article><p>
+<!--<doc--><p><section><header id="General"><a href="#General" title="(permalink)">General</a></header><article><section><header id="setting-up-steam"><a href="#setting-up-steam" title="(permalink)">Setting up Steam</a></header><article><p>
 		See the <a href="https://help.yoyogames.com/hc/en-us/articles/216754138-Using-The-Steamworks-SDK-With-GameMaker-Studio">official documentation.</a>
 		</p><p>
 		Additional note: you can use the test application ID (480) prior to being granted your own application ID, but generally it shouldn't be used for public builds.
 	</p></article></section><section><header id="testing"><a href="#testing" title="(permalink)">Testing games with Steam networking</a></header><article><p>
 		There are a few things to note about how Steam API works:
 		</p><ul>
-		<li>	If multiple instances of the same game are ran at once, Steam does not tell them apart, and will send events to whichever happens to ask for them first.
+		<li><p>	If multiple instances of the same game are ran at once, Steam does not tell them apart, and will send events to whichever happens to ask for them first.
 			</p><p>
 			Steam client will generally try to prevent you from opening multiples of the same game, but it's possible when running from editor.
-		</li><li>	Steam API uses user IDs as endpoints for connections, meaning that you cannot expect reliable results if trying to send something to yourself.
+		</p></li><li>	Steam API uses user IDs as endpoints for connections, meaning that you cannot expect reliable results if trying to send something to yourself.
 		</li></ul><p>
 		That said, if you want to test two or more game instances on the same computer, you need to run them through multiple instances of Steam tied to multiple accounts.
 		</p><p>
@@ -408,47 +412,77 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
     <span class="cb">}</span> <span class="kw">else</span> <span class="lv">r</span> <span class="op">+=</span> <span class="lv">s</span><span class="op">;</span>
 <span class="cb">}</span>
 <span class="kw">return</span> <span class="lv">r</span><span class="op">;</span>
-</pre><p>and then copy that string to clipboard,
+</pre><p>
+		and then copy that string to clipboard,
 		</p><pre class="gmlmd">
 <span class="sf">clipboard_set_text</span><span class="op">(</span><span class="uf">parameter_string_all</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
-</pre><p>on game start (or when other debug condition is met).
+</pre><p>
+		on game start (or when other debug condition is met).
 		</p><p>
 		Then you would be able to use the copied parameter string to start up additional copies of the game in sandboxed environment(s).
 	</p></article></section><section><header id="summary"><a href="#summary" title="(permalink)">Brief summary on Steam networking</a></header><article><p>
 		There is a number of things to note about Steam networking compared to regular:
 		</p><ul>
-		<li>	System is P2P; user IDs are used as endpoints instead of IP+port.
+		<li><p>	System is P2P; user IDs are used as endpoints instead of IP+port.
 			</p><p>
 			If you need to port existing code utilizing IP+port combinations, you can use bit math to assume lower 32 bits to be the IP and higher 32 bits to be the port, for example.
-		</li><li>	Steam handles sending/receiving and async events by itself, queuing the results.
+		</p></li><li><p>	Steam handles sending/receiving and async events by itself, queuing the results.
 			</p><p>
 			This means that you generally should call the extension's update-function (<a href="#steam_net_update">steam_net_update</a>) every step while in lobby and at least once per second while not in lobby, or you may later deal with an avalanche of (outdated) events once finally calling it again.
 			</p><p>
 			This schema also introduces an interesting thing where if your game crashed without handling the remaining events/packets, you may receive them after restarting the game.
-		</li><li>	Steam handles port forwarding by itself, meaning that it'll generally find any open port if there is one, and use a wide variety of workarounds to connect when there isn't one.
+		</p></li><li><p>	Steam handles port forwarding by itself, meaning that it'll generally find any open port if there is one, and use a wide variety of workarounds to connect when there isn't one.
 			</p><p>
 			In worst case scenario Steam reverts to tunneling (using a Steam server as an intermediate node for connection), but this usually results in fairly high latency.
-		</li><li>	Related to above, it may take up to 10 seconds to establish connection.
+		</p></li><li><p>	Related to above, it may take up to 10 seconds to establish connection.
 			</p><p>
 			Afterwards, the connection is kept active for as long as anything is sent at least once every 30 seconds or so.
-		</li></ul></article></section></article></section><section><header id="steam_general"><a href="#steam_general" title="(permalink)">General functions</a></header><article><section><header id="steam_gml_is_available"><a href="#steam_gml_is_available" title="(permalink)">steam_gml_is_available()<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		</p></li></ul></article></section><section><header id="structs"><a href="#structs" title="(permalink)">Notes on structs</a></header><article><p>
+		Some of the extension's functions take and/or return structures.
+		</p><p>
+		When using GameMaker Studio 2.3 with <a href="#steam_gml_use_structs">steam_gml_use_structs</a> enabled,
+		these will be represented with GML structs.
+		</p><p>
+		Otherwise, they will be represented with arrays where fields are written sequentially.
+	</p></article></section></article></section><section><header id="steam_general"><a href="#steam_general" title="(permalink)">General functions</a></header><article><section><header id="steam_gml_is_available"><a href="#steam_gml_is_available" title="(permalink)">steam_gml_is_available()&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
 		Returns whether the native extension loaded at all.
-	</p></article></section><section><header id="steam_gml_is_ready"><a href="#steam_gml_is_ready" title="(permalink)">steam_gml_is_ready()<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+	</p></article></section><section><header id="steam_gml_is_ready"><a href="#steam_gml_is_ready" title="(permalink)">steam_gml_is_ready()&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
 		Returns whether the native extension had been loaded and initialized.
 		</p><p>
-		<strong>NB!</strong> in GMS2.3, "global" code in scripts runs before extension init does.
-	</p></article></section><section><header id="steam_gml_check_version"><a href="#steam_gml_check_version" title="(permalink)">steam_gml_check_version()<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		<b>NB!</b> in GMS2.3, "global" code in scripts runs before extension init does.
+	</p></article></section><section><header id="steam_gml_check_version"><a href="#steam_gml_check_version" title="(permalink)">steam_gml_check_version()&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
 		Returns whether the native extension is loaded correctly and has it's version matching the one that the game had been built with.
 		</p><p>
 		Can be used to timely inform the player that their copy might be broken instead of having them wonder why things are not working.
 		</p><pre class="gmlmd">
-<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><a class="sf" href="#steam_gml_check_version">steam_gml_check_version</a><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
+<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="uf">steam_gml_check_version</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
     <span class="sf">show_message</span><span class="op">(</span><span class="st">"oh no"</span><span class="op">)</span><span class="op">;</span>
 <span class="cb">}</span>
 </pre></article></section><section><header id="steam_gml_update"><a href="#steam_gml_update" title="(permalink)">steam_gml_update()</a></header><article><p>
 		Polls Steam API and dispatches any new events since the last call to the function.
 		</p><p>
 		As outlined above, you generally want to call this function every now and then.
+	</p></article></section></article></section><section><header id="steam_macros"><a href="#steam_macros" title="(permalink)">Macros</a></header><article><section><header id="steam_id_use_int64"><a href="#steam_id_use_int64" title="(permalink)">steam_id_use_int64</a></header><article><p>
+		<b>Located in</b>: <tt>steam_id.gml</tt>
+		</p><p>
+		<b>Default:</b> <tt>true</tt>
+		</p><p>
+		Indicates whether the extension should use 64-bit integers for Steam IDs.
+		</p><p>
+		If disabled, the extension will instead represent IDs as two-element array with
+		higher/lower 32-bit halves.
+		</p><p>
+		Exists only for backwards compatibility and will be removed at some point.
+	</p></article></section><section><header id="steam_gml_use_structs"><a href="#steam_gml_use_structs" title="(permalink)">steam_gml_use_structs</a></header><article><p>
+		<b>Located in</b>: <tt>steam_core.gml</tt>
+		</p><p>
+		<b>Default:</b> <tt>true</tt>
+		</p><p>
+		Indicates whether the extension should use GMS2.3 structs
+		(as opposed to arrays)
+		to represent multi-value arguments and return types in some cases.
+		</p><p>
+		Can be disabled to avoid changing code when migrating from GMS2.2 to GMS2.3+.
 	</p></article></section></article></section><section><header id="steam_async"><a href="#steam_async" title="(permalink)">Async events</a></header><article><p>
 	As result of a number of function calls, the extension dispatches asynchronous events.
 	</p><p>
@@ -490,7 +524,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		Is commonly used as following:
 		</p><pre class="gmlmd">
 <span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"lobby_join_requested"</span><span class="op">)</span> <span class="cb">{</span>
-    <a class="sf" href="#steam_lobby_join_id">steam_lobby_join_id</a><span class="op">(</span><a class="sf" href="#steam_id_create">steam_id_create</a><span class="op">(</span>
+    <span class="uf">steam_lobby_join_id</span><span class="op">(</span><span class="uf">steam_id_create</span><span class="op">(</span>
         <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"lobby_id_high"</span><span class="op">]</span><span class="op">,</span>
         <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"lobby_id_low"</span><span class="op">]</span>
     <span class="op">)</span><span class="op">)</span><span class="op">;</span>
@@ -501,7 +535,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		you will want to handle this event for anyone to be able to connect to you.
 		</p><pre class="gmlmd">
 <span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"lobby_join_requested"</span><span class="op">)</span> <span class="cb">{</span>
-    <a class="sf" href="#steam_net_accept_p2p_session">steam_net_accept_p2p_session</a><span class="op">(</span><a class="sf" href="#steam_id_create">steam_id_create</a><span class="op">(</span>
+    <span class="uf">steam_net_accept_p2p_session</span><span class="op">(</span><span class="uf">steam_id_create</span><span class="op">(</span>
         <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"user_id_high"</span><span class="op">]</span><span class="op">,</span>
         <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"user_id_low"</span><span class="op">]</span>
     <span class="op">)</span><span class="op">)</span><span class="op">;</span>
@@ -513,10 +547,11 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			</p><p>
 			At most times you would utilize this as following:
 			</p><pre class="gmlmd">
-<span class="kw">while</span> <span class="op">(</span><a class="sf" href="#steam_net_packet_receive">steam_net_packet_receive</a><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
+<span class="kw">while</span> <span class="op">(</span><span class="uf">steam_net_packet_receive</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
     <span class="co">// process the received packet</span>
 <span class="cb">}</span>
-</pre><p>(every step while in lobby, less frequently otherwise)
+</pre><p>
+			(every step while in lobby, less frequently otherwise)
 		</p></article></section><section><header id="steam_net_packet_get_sender_id"><a href="#steam_net_packet_get_sender_id" title="(permalink)">steam_net_packet_get_sender_id()</a></header><article><p>
 			Returns Steam ID of the user that sent the last received packet.
 			</p><p>
@@ -526,7 +561,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			</p><p>
 			So, for instance, if you wanted to just display the size of each incoming packet, you could use a snippet of code like the following:
 			</p><pre class="gmlmd">
-<span class="kw">while</span> <span class="op">(</span><a class="sf" href="#steam_net_packet_receive">steam_net_packet_receive</a><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
+<span class="kw">while</span> <span class="op">(</span><span class="uf">steam_net_packet_receive</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
     <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"Received "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="uf">steam_net_packet_size</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="st">" bytes."</span><span class="op">)</span><span class="op">;</span>
 <span class="cb">}</span>
 </pre></article></section><section><header id="steam_net_packet_get_data"><a href="#steam_net_packet_get_data" title="(permalink)">steam_net_packet_get_data(buffer)</a></header><article><p>
@@ -537,8 +572,8 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			</p><p>
 			If the buffer is not big enough to fit data, it will be resized automatically.
 			</p><pre class="gmlmd">
-<span class="kw">while</span> <span class="op">(</span><a class="sf" href="#steam_net_packet_receive">steam_net_packet_receive</a><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
-    <a class="sf" href="#steam_net_packet_get_data">steam_net_packet_get_data</a><span class="op">(</span><span class="uv">inbuf</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">while</span> <span class="op">(</span><span class="uf">steam_net_packet_receive</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
+    <span class="uf">steam_net_packet_get_data</span><span class="op">(</span><span class="uv">inbuf</span><span class="op">)</span><span class="op">;</span>
     <span class="sf">buffer_seek</span><span class="op">(</span><span class="uv">inbuf</span><span class="op">,</span> <span class="sv">buffer_seek_start</span><span class="op">,</span> <span class="nu">0</span><span class="op">)</span><span class="op">;</span>
     <span class="kw">switch</span> <span class="op">(</span><span class="sf">buffer_read</span><span class="op">(</span><span class="uv">inbuf</span><span class="op">,</span> <span class="sv">buffer_u8</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
         <span class="kw">case</span> <span class="nu">1</span><span class="op">:</span> <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"packet ID 1"</span><span class="op">)</span><span class="op">;</span> <span class="kw">break</span><span class="op">;</span>
@@ -546,7 +581,8 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
         <span class="kw">default</span><span class="op">:</span> <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"unknown packet"</span><span class="op">)</span><span class="op">;</span> <span class="kw">break</span><span class="op">;</span>
     <span class="cb">}</span>
 <span class="cb">}</span>
-</pre><p>Whether <tt>inbuf</tt> is a "fixed" or "growing" buffer created on game start for the controller object.
+</pre><p>
+			Whether <tt>inbuf</tt> is a "fixed" or "growing" buffer created on game start for the controller object.
 		</p></article></section><section><header id="steam_net_packet_send"><a href="#steam_net_packet_send" title="(permalink)">steam_net_packet_send(steam_id, buffer, size, type)</a></header><article><p>
 			Sends a packet to the given endpoint, returns whether successful (as opposed to incorrect arguments/invalid ID).
 			</p><p>
@@ -563,9 +599,10 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			</p><pre class="gmlmd">
 <span class="kw">var</span> <span class="lv">b</span> <span class="op">=</span> <span class="sf">buffer_create</span><span class="op">(</span><span class="nu">16</span><span class="op">,</span> <span class="sv">buffer_grow</span><span class="op">,</span> <span class="nu">1</span><span class="op">)</span><span class="op">;</span>
 <span class="sf">buffer_write</span><span class="op">(</span><span class="lv">b</span><span class="op">,</span> <span class="sv">buffer_string</span><span class="op">,</span> <span class="st">"Hello!"</span><span class="op">)</span><span class="op">;</span>
-<a class="sf" href="#steam_net_packet_send">steam_net_packet_send</a><span class="op">(</span><a class="sv" href="#steam_id">steam_id</a><span class="op">,</span> <span class="lv">b</span><span class="op">,</span> <span class="sf">buffer_tell</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">,</span> <span class="uv">steam_net_packet_type_reliable</span><span class="op">)</span><span class="op">;</span>
+<span class="uf">steam_net_packet_send</span><span class="op">(</span><span class="uv">steam_id</span><span class="op">,</span> <span class="lv">b</span><span class="op">,</span> <span class="sf">buffer_tell</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">,</span> <span class="uv">steam_net_packet_type_reliable</span><span class="op">)</span><span class="op">;</span>
 <span class="sf">buffer_delete</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">;</span>
-</pre><p>Where <tt>steam_id</tt> would hold the user ID to send the packet to.
+</pre><p>
+			Where <tt>steam_id</tt> would hold the user ID to send the packet to.
 		</p></article></section></article></section><section><header id="steam_net_p2p"><a href="#steam_net_p2p" title="(permalink)">P2P sessions</a></header><article><section><header id="steam_net_set_auto_accept_p2p_sessions"><a href="#steam_net_set_auto_accept_p2p_sessions" title="(permalink)">steam_net_set_auto_accept_p2p_sessions(enable)</a></header><article><p>
 			Sets whether to auto-accept session requests coming from players in the same lobby.
 			</p><p>
@@ -605,18 +642,19 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</p><p>
 		<tt>type</tt> can be one of the following:
 		</p><ul>
-		<li>	<tt>steam_lobby_type_private</tt>: Can only be joined by invitation.
+		<li><p>	<tt>steam_lobby_type_private</tt>: Can only be joined by invitation.
 			</p><p>
 			You would usually <a href="#steam_lobby_set_type">change</a> the lobby type to this on match start.
-		</li><li>	<tt>steam_lobby_type_friends_only</tt>: Can be joined by invitation or via friends-list
+		</p></li><li>	<tt>steam_lobby_type_friends_only</tt>: Can be joined by invitation or via friends-list
 		(by opening the user's menu and picking "Join game").
 		</li><li>	<tt>steam_lobby_type_public</tt>: Can be joined by invitation, via friends-list,
 		and shows up in the public lobby list (see <a href="#steam_lobby_list">matchmaking</a> functions).
 		</li></ul><p>
 		Can be used as following:
 		</p><pre class="gmlmd">
-<a class="sf" href="#steam_lobby_create">steam_lobby_create</a><span class="op">(</span><span class="uv">steam_lobby_type_public</span><span class="op">,</span> <span class="nu">4</span><span class="op">)</span><span class="op">;</span>
-</pre><p>(which would create a 4-player public lobby)
+<span class="uf">steam_lobby_create</span><span class="op">(</span><span class="uv">steam_lobby_type_public</span><span class="op">,</span> <span class="nu">4</span><span class="op">)</span><span class="op">;</span>
+</pre><p>
+		(which would create a 4-player public lobby)
 	</p></article></section><section><header id="steam_lobby_leave"><a href="#steam_lobby_leave" title="(permalink)">steam_lobby_leave()</a></header><article><p>
 		Leaves the current lobby (if any).
 		</p><p>
@@ -630,46 +668,45 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</p><p>
 		So, for example, if you don't allow mid-session joining, you could have the game make lobbies private on session start:
 		</p><pre class="gmlmd">
-<a class="sf" href="#steam_lobby_set_type">steam_lobby_set_type</a><span class="op">(</span><span class="uv">steam_lobby_type_private</span><span class="op">)</span><span class="op">;</span>
-</pre></article></section><hr/><section><header id="steam_lobby_get_data"><a href="#steam_lobby_get_data" title="(permalink)">steam_lobby_get_data(key:string)<span class="ret-arrow">&#10140;</span>string</a></header><article><p>
+<span class="uf">steam_lobby_set_type</span><span class="op">(</span><span class="uv">steam_lobby_type_private</span><span class="op">)</span><span class="op">;</span>
+</pre></article></section><hr/><section><header id="steam_lobby_get_data"><a href="#steam_lobby_get_data" title="(permalink)">steam_lobby_get_data(key:string)&#8203;<span class="ret-arrow">&#10140;</span>string</a></header><article><p>
 		Returns a lobby field value, as set by <a href="#steam_lobby_set_data">steam_lobby_set_data</a>.
-		
-</p><pre class="gmlmd">
-<span class="kw">var</span> <span class="lv">title</span> <span class="op">=</span> <a class="sf" href="#steam_lobby_get_data">steam_lobby_get_data</a><span class="op">(</span><span class="st">"title"</span><span class="op">)</span><span class="op">;</span>
+		</p><pre class="gmlmd">
+<span class="kw">var</span> <span class="lv">title</span> <span class="op">=</span> <span class="uf">steam_lobby_get_data</span><span class="op">(</span><span class="st">"title"</span><span class="op">)</span><span class="op">;</span>
 </pre></article></section><section><header id="steam_lobby_set_data"><a href="#steam_lobby_set_data" title="(permalink)">steam_lobby_set_data(key:string, value:string)</a></header><article><p>
 		Changes a lobby's field. You must be the lobby's owner to do this.
 		</p><p>
 		Fields can then be used to filter lobbies via <a href="#steam_lobby_list">matchmaking</a> functions.
 		</p><p>
-		<strong>Note</strong>: if your value is numeric, convert it to string prior to passing it to the function.
+		<b>Note</b>: if your value is numeric, convert it to string prior to passing it to the function.
 		</p><p>
 		Otherwise GM will assume your numeric value to be a pointer to a string, which can hard crash your game and/or Steam client.
-	</p></article></section><hr/><section><header id="steam_lobby_is_owner"><a href="#steam_lobby_is_owner" title="(permalink)">steam_lobby_is_owner()<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+	</p></article></section><hr/><section><header id="steam_lobby_is_owner"><a href="#steam_lobby_is_owner" title="(permalink)">steam_lobby_is_owner()&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
 		Returns whether the local player is the lobby's owner.
 		</p><p>
 		If the lobby is not valid, returns false.
-	</p></article></section><section><header id="steam_lobby_get_owner_id"><a href="#steam_lobby_get_owner_id" title="(permalink)">steam_lobby_get_owner_id()<span class="ret-arrow">&#10140;</span>user_id</a></header><article><p>
+	</p></article></section><section><header id="steam_lobby_get_owner_id"><a href="#steam_lobby_get_owner_id" title="(permalink)">steam_lobby_get_owner_id()&#8203;<span class="ret-arrow">&#10140;</span>user_id</a></header><article><p>
 		Returns the lobby's owner's Steam ID.
 		</p><p>
 		If the lobby is not valid, returns ID 0.
-	</p></article></section><section><header id="steam_lobby_set_owner_id"><a href="#steam_lobby_set_owner_id" title="(permalink)">steam_lobby_set_owner_id(user_id)<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+	</p></article></section><section><header id="steam_lobby_set_owner_id"><a href="#steam_lobby_set_owner_id" title="(permalink)">steam_lobby_set_owner_id(user_id)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
 		If you are a lobby owner, transfers the lobby ownership to the specified player,
 		which must be in this same lobby.
 		</p><p>
 		Returns whether successful.
 		</p><p>
 		See remarks in <a href="https://partner.steamgames.com/doc/api/ISteamMatchmaking#SetLobbyOwner">SetLobbyOwner</a>
-	</p></article></section><hr/><section><header id="steam_lobby_get_member_count"><a href="#steam_lobby_get_member_count" title="(permalink)">steam_lobby_get_member_count()<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+	</p></article></section><hr/><section><header id="steam_lobby_get_member_count"><a href="#steam_lobby_get_member_count" title="(permalink)">steam_lobby_get_member_count()&#8203;<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
 		Returns the number of users in the current lobby (including you).
 		</p><p>
 		If the lobby is not valid, returns 0.
-	</p></article></section><section><header id="steam_lobby_get_member_id"><a href="#steam_lobby_get_member_id" title="(permalink)">steam_lobby_get_member_id(index)<span class="ret-arrow">&#10140;</span>user_id</a></header><article><p>
+	</p></article></section><section><header id="steam_lobby_get_member_id"><a href="#steam_lobby_get_member_id" title="(permalink)">steam_lobby_get_member_id(index)&#8203;<span class="ret-arrow">&#10140;</span>user_id</a></header><article><p>
 		Returns the user ID of the member at the given index in the current lobby.
 		</p><p>
 		Index should be between 0 (incl.) and result of <a href="#steam_lobby_get_member_count">steam_lobby_get_member_count</a> (excl.). Results will include the local user.
 		</p><p>
 		If the index (or lobby) is not valid, returns ID 0.
-	</p></article></section><hr/><section><header id="steam_lobby_get_lobby_id"><a href="#steam_lobby_get_lobby_id" title="(permalink)">steam_lobby_get_lobby_id()<span class="ret-arrow">&#10140;</span>lobby_id</a></header><article><p>
+	</p></article></section><hr/><section><header id="steam_lobby_get_lobby_id"><a href="#steam_lobby_get_lobby_id" title="(permalink)">steam_lobby_get_lobby_id()&#8203;<span class="ret-arrow">&#10140;</span>lobby_id</a></header><article><p>
 		Returns the Steam ID of the current lobby.
 	</p></article></section><section><header id="steam_lobby_activate_invite_overlay"><a href="#steam_lobby_activate_invite_overlay" title="(permalink)">steam_lobby_activate_invite_overlay()</a></header><article><p>
 		Displays an invitation overlay if currently in a lobby.
@@ -702,23 +739,23 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			Starts joining the lobby at the given index in the list.
 			</p><p>
 			See <a href="#steam_lobby_join_id">steam_lobby_join_id</a> for more information on the process.
-		</p></article></section><hr/><section><header id="steam_lobby_list_get_data"><a href="#steam_lobby_list_get_data" title="(permalink)">steam_lobby_list_get_data(list_index, key:string)<span class="ret-arrow">&#10140;</span>string</a></header><article><p>
+		</p></article></section><hr/><section><header id="steam_lobby_list_get_data"><a href="#steam_lobby_list_get_data" title="(permalink)">steam_lobby_list_get_data(list_index, key:string)&#8203;<span class="ret-arrow">&#10140;</span>string</a></header><article><p>
 			Returns the value of the given field of a lobby at the given index in the current list.
 			</p><p>
 			Fields can be set via <a href="#steam_lobby_set_data">steam_lobby_set_data</a>.
 			</p><p>
-			<strong>NB!</strong> Value is always returned as a string.
+			<b>NB!</b> Value is always returned as a string.
 			</p><p>
 			Returns <tt>""</tt> if the lobby does not have the given field set.
-		</p></article></section><section><header id="steam_lobby_list_get_lobby_id"><a href="#steam_lobby_list_get_lobby_id" title="(permalink)">steam_lobby_list_get_lobby_id(list_index)<span class="ret-arrow">&#10140;</span>lobby_id</a></header><article><p>
+		</p></article></section><section><header id="steam_lobby_list_get_lobby_id"><a href="#steam_lobby_list_get_lobby_id" title="(permalink)">steam_lobby_list_get_lobby_id(list_index)&#8203;<span class="ret-arrow">&#10140;</span>lobby_id</a></header><article><p>
 			Returns the Steam ID of the lobby at the given index in the list.
 			</p><p>
 			Returns <tt>0</tt> if the index is out of bounds.
-		</p></article></section><section><header id="steam_lobby_list_get_lobby_owner_id"><a href="#steam_lobby_list_get_lobby_owner_id" title="(permalink)">steam_lobby_list_get_lobby_owner_id(list_index)<span class="ret-arrow">&#10140;</span>user_id</a></header><article><p>
+		</p></article></section><section><header id="steam_lobby_list_get_lobby_owner_id"><a href="#steam_lobby_list_get_lobby_owner_id" title="(permalink)">steam_lobby_list_get_lobby_owner_id(list_index)&#8203;<span class="ret-arrow">&#10140;</span>user_id</a></header><article><p>
 			Returns the Steam ID of the owner of the lobby at the given index in the list.
 			</p><p>
 			Returns <tt>0</tt> if the index is out of bounds.
-		</p></article></section><section><header id="steam_lobby_list_get_lobby_member_count"><a href="#steam_lobby_list_get_lobby_member_count" title="(permalink)">steam_lobby_list_get_lobby_member_count(list_index)<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+		</p></article></section><section><header id="steam_lobby_list_get_lobby_member_count"><a href="#steam_lobby_list_get_lobby_member_count" title="(permalink)">steam_lobby_list_get_lobby_member_count(list_index)&#8203;<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
 			Returns the number of users in the lobby at the given index in the list.
 			</p><p>
 			Returns <tt>0</tt> if the index is out of bounds.
@@ -765,21 +802,21 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</li><li>	<tt>steam_lobby_list_distance_filter_worldwide</tt>: Allows any lobbies. May result in very high latencies, so use with care.
 		</li></ul></article></section></article></section><section><header id="steam_controller_"><a href="#steam_controller_" title="(permalink)">Steam Controller/Input functions</a></header><article><p>
 	These have been since renamed to Steam Input in SDK documentation to avoid confusion with Steam Controller device.
-	</p><section><header id="steam_controller_general"><a href="#steam_controller_general" title="(permalink)">General</a></header><article><section><header id="steam_controller_init"><a href="#steam_controller_init" title="(permalink)">steam_controller_init()<span class="ret-arrow">&#10140;</span>success</a></header><article><p>
+	</p><section><header id="steam_controller_general"><a href="#steam_controller_general" title="(permalink)">General</a></header><article><section><header id="steam_controller_init"><a href="#steam_controller_init" title="(permalink)">steam_controller_init()&#8203;<span class="ret-arrow">&#10140;</span>success</a></header><article><p>
 			Should be called on game start if you intend to use Steam Controller API.
 			</p><p>
 			Returns whether successful.
 		</p></article></section><section><header id="steam_controller_update"><a href="#steam_controller_update" title="(permalink)">steam_controller_update()</a></header><article><p>
 			Is automatically called by <a href="#steam_gml_update">steam_gml_update</a>,
 			but can also be called manually to poll data more often.
-		</p></article></section></article></section><section><header id="steam_controller_controller"><a href="#steam_controller_controller" title="(permalink)">Controller functions</a></header><article><section><header id="steam_controller_get_ids"><a href="#steam_controller_get_ids" title="(permalink)">steam_controller_get_ids()<span class="ret-arrow">&#10140;</span>array&lt;controller_id&gt;</a></header><article><p>
+		</p></article></section></article></section><section><header id="steam_controller_controller"><a href="#steam_controller_controller" title="(permalink)">Controller functions</a></header><article><section><header id="steam_controller_get_ids"><a href="#steam_controller_get_ids" title="(permalink)">steam_controller_get_ids()&#8203;<span class="ret-arrow">&#10140;</span>array&lt;controller_id&gt;</a></header><article><p>
 			Returns an array of IDs for the connected Steam Controllers.
 			</p><p>
 			Such IDs are used for the rest of the functions.
 			</p><p>
-			<strong>Note:</strong> You can also use <tt>all</tt> (<tt>-3</tt>) in most controller functions to apply to any/all
+			<b>Note:</b> You can also use <tt>all</tt> (<tt>-3</tt>) in most controller functions to apply to any/all
 			of the connected controllers.
-		</p></article></section><section><header id="steam_controller_get_ids"><a href="#steam_controller_get_ids" title="(permalink)">steam_controller_get_ids(arr)<span class="ret-arrow">&#10140;</span>count</a></header><article><p>
+		</p></article></section><section><header id="steam_controller_get_ids"><a href="#steam_controller_get_ids" title="(permalink)">steam_controller_get_ids(arr)&#8203;<span class="ret-arrow">&#10140;</span>count</a></header><article><p>
 			The above function can also be called with an existing array as an argument,
 			in which case it will store the IDs in the provided array and return how many it 
 			had filled out.
@@ -800,10 +837,9 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			</li><li> <tt>steam_controller_switch_pro</tt>
 			</li><li> <tt>steam_controller_mobile_touch</tt>
 			</li><li> <tt>steam_controller_ps3</tt>
-			</li></ul><p class="pad">
-			
+			</li></ul><p>
 			Note that GMS1 / Steamworks1.35a does not support getting controller types and will always return <tt>steam_controller_unknown</tt>.
-		</p></article></section><section><header id="steam_controller_get_max_count"><a href="#steam_controller_get_max_count" title="(permalink)">steam_controller_get_max_count()<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+		</p></article></section><section><header id="steam_controller_get_max_count"><a href="#steam_controller_get_max_count" title="(permalink)">steam_controller_get_max_count()&#8203;<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
 			Returns how many Steam Input devices can be detected at most.
 			</p><p>
 			This is constant per SDK version;
@@ -811,38 +847,37 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			As of writing this in 2021, this is 16.
 		</p></article></section></article></section><section><header id="steam_controller_actionset"><a href="#steam_controller_actionset" title="(permalink)">Action sets</a></header><article><p>
 		See <a href="https://partner.steamgames.com/doc/features/steam_controller/action_set_layers">documentation</a>;
-		
-		</p><section><header id="steam_controller_get_actionset_id"><a href="#steam_controller_get_actionset_id" title="(permalink)">steam_controller_get_actionset_id(actionset_name)<span class="ret-arrow">&#10140;</span>actionset_id</a></header><article><p>
+		</p><section><header id="steam_controller_get_actionset_id"><a href="#steam_controller_get_actionset_id" title="(permalink)">steam_controller_get_actionset_id(actionset_name)&#8203;<span class="ret-arrow">&#10140;</span>actionset_id</a></header><article><p>
 			Finds an action set ID with given name.
 			</p><p>
 			Returns a negative number if such an action set does not exist!
-		</p></article></section><section><header id="steam_controller_set_actionset"><a href="#steam_controller_set_actionset" title="(permalink)">steam_controller_set_actionset(controller_id, actionset_id)<span class="ret-arrow">&#10140;</span>success</a></header><article><p>
+		</p></article></section><section><header id="steam_controller_set_actionset"><a href="#steam_controller_set_actionset" title="(permalink)">steam_controller_set_actionset(controller_id, actionset_id)&#8203;<span class="ret-arrow">&#10140;</span>success</a></header><article><p>
 			Activates an action set.
 			</p><p>
-			<strong>Note:</strong> As of GMS2.3, GameMaker uses Steamworks 1.42, which is not new enough to support action set layers.
+			<b>Note:</b> As of GMS2.3, GameMaker uses Steamworks 1.42, which is not new enough to support action set layers.
 			</p><p>
 			<tt>actionset_id</tt> comes from <a href="#steam_controller_get_actionset_id">steam_controller_get_actionset_id</a>.
 			</p><p>
 			See <a href="https://partner.steamgames.com/doc/api/ISteamInput#ActivateActionSetLayer">ActivateActionSetLayer</a>.
-		</p></article></section><section><header id="steam_controller_get_actionset"><a href="#steam_controller_get_actionset" title="(permalink)">steam_controller_get_actionset(controller_id)<span class="ret-arrow">&#10140;</span>actionset_id</a></header><article><p>
+		</p></article></section><section><header id="steam_controller_get_actionset"><a href="#steam_controller_get_actionset" title="(permalink)">steam_controller_get_actionset(controller_id)&#8203;<span class="ret-arrow">&#10140;</span>actionset_id</a></header><article><p>
 			Returns the current action set id for a controller, or -1 if it fails (e.g. wrong controller ID).
 		</p></article></section></article></section><section><header id="steam_controller_ingame"><a href="#steam_controller_ingame" title="(permalink)">In-game actions</a></header><article><p>
 		See <a href="https://partner.steamgames.com/doc/features/steam_controller/iga_file">documentation</a>;
 		</p><p>
 		Digital actions:
-		</p><section><header id="steam_controller_get_digital_id"><a href="#steam_controller_get_digital_id" title="(permalink)">steam_controller_get_digital_id(action_name)<span class="ret-arrow">&#10140;</span>digital_id</a></header><article><p>
+		</p><section><header id="steam_controller_get_digital_id"><a href="#steam_controller_get_digital_id" title="(permalink)">steam_controller_get_digital_id(action_name)&#8203;<span class="ret-arrow">&#10140;</span>digital_id</a></header><article><p>
 			Finds a Digital Action ID by its name.
 			</p><p>
 			Returns a <tt>&gt;=0</tt> action ID on success, or a negative value on failure.
-		</p></article></section><section><header id="steam_controller_get_digital_value"><a href="#steam_controller_get_digital_value" title="(permalink)">steam_controller_get_digital_value(controller_id, digital_id)<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		</p></article></section><section><header id="steam_controller_get_digital_value"><a href="#steam_controller_get_digital_value" title="(permalink)">steam_controller_get_digital_value(controller_id, digital_id)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
 			Retrieves the current state of a digital action for a controller.
 			</p><p>
 			Returns <tt>false</tt> if controller is missing or action ID is invalid.
-		</p></article></section><section><header id="steam_controller_get_digital_status"><a href="#steam_controller_get_digital_status" title="(permalink)">steam_controller_get_digital_status(controller_id, digital_id)<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		</p></article></section><section><header id="steam_controller_get_digital_status"><a href="#steam_controller_get_digital_status" title="(permalink)">steam_controller_get_digital_status(controller_id, digital_id)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
 			Returns whether the given digital action is currently active.
 			</p><p>
 			Similarly, returns <tt>false</tt> if controller is missing or action ID is invalid.
-		</p></article></section><section><header id="steam_controller_get_digital_origins"><a href="#steam_controller_get_digital_origins" title="(permalink)">steam_controller_get_digital_origins(controller_id, actionset_id, digital_id, ?out:array&lt;origin&gt;)<span class="ret-arrow">&#10140;</span>array&lt;origin&gt;</a></header><article><p>
+		</p></article></section><section><header id="steam_controller_get_digital_origins"><a href="#steam_controller_get_digital_origins" title="(permalink)">steam_controller_get_digital_origins(controller_id, actionset_id, digital_id, ?out:array&lt;origin&gt;)&#8203;<span class="ret-arrow">&#10140;</span>array&lt;origin&gt;</a></header><article><p>
 			Fetches the origins for the specified digital action of an action set for a controller.
 			</p><p>
 			The result is an array of origin IDs (see values <a href="https://partner.steamgames.com/doc/api/ISteamInput#EInputActionOrigin">here</a>) that can then be used to display the correct input prompt.
@@ -850,23 +885,23 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			See <a href="https://partner.steamgames.com/doc/api/ISteamInput#GetDigitalActionOrigins">GetDigitalActionOrigins</a>
 		</p></article></section><p>
 		Analog actions:
-		</p><section><header id="steam_controller_get_analog_id"><a href="#steam_controller_get_analog_id" title="(permalink)">steam_controller_get_analog_id(action_name)<span class="ret-arrow">&#10140;</span>analog_id</a></header><article><p>
+		</p><section><header id="steam_controller_get_analog_id"><a href="#steam_controller_get_analog_id" title="(permalink)">steam_controller_get_analog_id(action_name)&#8203;<span class="ret-arrow">&#10140;</span>analog_id</a></header><article><p>
 			Find an Analog Action ID by its name.
 			</p><p>
 			Returns a <tt>&gt;=0</tt> action ID on success, or a negative value on failure.
 			</p><p>
-			<strong>NB!</strong> Digital and analog action names and IDs can overlap. Don't mix them up!
-		</p></article></section><section><header id="steam_controller_get_analog_status"><a href="#steam_controller_get_analog_status" title="(permalink)">steam_controller_get_analog_status(controller_id, analog_id)<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+			<b>NB!</b> Digital and analog action names and IDs can overlap. Don't mix them up!
+		</p></article></section><section><header id="steam_controller_get_analog_status"><a href="#steam_controller_get_analog_status" title="(permalink)">steam_controller_get_analog_status(controller_id, analog_id)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
 			Returns whether the given analog action is currently active.
 			</p><p>
 			Returns <tt>false</tt> if controller is missing or action ID is invalid.
-		</p></article></section><section><header id="steam_controller_get_analog_mode"><a href="#steam_controller_get_analog_mode" title="(permalink)">steam_controller_get_analog_mode(controller_id, analog_id)<span class="ret-arrow">&#10140;</span>mode_id</a></header><article><p>
+		</p></article></section><section><header id="steam_controller_get_analog_mode"><a href="#steam_controller_get_analog_mode" title="(permalink)">steam_controller_get_analog_mode(controller_id, analog_id)&#8203;<span class="ret-arrow">&#10140;</span>mode_id</a></header><article><p>
 			Returns the virtual input mode used by an analog action.
 			</p><p>
 			See the returned values <a href="https://partner.steamgames.com/doc/api/ISteamInput#EControllerSourceMode">here</a>.
 			</p><p>
 			Returns <tt>-1</tt> if controller is missing or action ID is invalid.
-		</p></article></section><section><header id="steam_controller_get_analog_x"><a href="#steam_controller_get_analog_x" title="(permalink)">steam_controller_get_analog_x(controller_id, analog_id)<span class="ret-arrow">&#10140;</span>number</a></header><article><p>
+		</p></article></section><section><header id="steam_controller_get_analog_x"><a href="#steam_controller_get_analog_x" title="(permalink)">steam_controller_get_analog_x(controller_id, analog_id)&#8203;<span class="ret-arrow">&#10140;</span>number</a></header><article><p>
 			Returns the state of an action's horizontal axis.
 			</p><p>
 			As per <a href="https://partner.steamgames.com/doc/api/ISteamInput#InputAnalogActionData_t">documentation</a>,
@@ -874,11 +909,11 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			while mouse-like actions provide updates in pixels since the last frame.
 			</p><p>
 			Returns <tt>0</tt> if controller is missing or action ID is invalid.
-		</p></article></section><section><header id="steam_controller_get_analog_y"><a href="#steam_controller_get_analog_y" title="(permalink)">steam_controller_get_analog_y(controller_id, analog_id)<span class="ret-arrow">&#10140;</span>number</a></header><article><p>
+		</p></article></section><section><header id="steam_controller_get_analog_y"><a href="#steam_controller_get_analog_y" title="(permalink)">steam_controller_get_analog_y(controller_id, analog_id)&#8203;<span class="ret-arrow">&#10140;</span>number</a></header><article><p>
 			Same as above, but for vertical axis.
 			</p><p>
 			Returns <tt>0</tt> if controller is missing or action ID is invalid.
-		</p></article></section><section><header>steam_controller_get_analog_origins(controller_id, actionset_id, analog_id, ?out:array&lt;origin&gt;)<span class="ret-arrow">&#10140;</span>array&lt;origin&gt;</header><article><p>
+		</p></article></section><section><header>steam_controller_get_analog_origins(controller_id, actionset_id, analog_id, ?out:array&lt;origin&gt;)&#8203;<span class="ret-arrow">&#10140;</span>array&lt;origin&gt;</header><article><p>
 			Fetches the origins for the specified analog action of an action set for a controller.
 			</p><p>
 			The result is an array of origin IDs (see values <a href="https://partner.steamgames.com/doc/api/ISteamInput#EInputActionOrigin">here</a>) that can then be used to display the correct input prompt.
@@ -886,7 +921,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			See <a href="https://partner.steamgames.com/doc/api/ISteamInput#GetAnalogActionOrigins">GetAnalogActionOrigins</a>
 		</p></article></section><p>
 		Misc.:
-		</p><section><header id="steam_controller_get_max_origins"><a href="#steam_controller_get_max_origins" title="(permalink)">steam_controller_get_max_origins()<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+		</p><section><header id="steam_controller_get_max_origins"><a href="#steam_controller_get_max_origins" title="(permalink)">steam_controller_get_max_origins()&#8203;<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
 			Returns the maximum number of input origins that can be attached to a single action.
 			</p><p>
 			This value is constant per SDK version and is set to 8 as of writing this in 2021.
@@ -894,18 +929,19 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		Adds the given user to the "recently played with" list (accessed via "Players" - "Recent games") menu in Steam overlay.
 		</p><p>
 		This is usually something to do on session start for all remote users.
-	</p></article></section><section><header id="steam_get_friends_game_info"><a href="#steam_get_friends_game_info" title="(permalink)">steam_get_friends_game_info()<span class="ret-arrow">&#10140;</span>array</a></header><article><p>
+	</p></article></section><section><header id="steam_get_friends_game_info"><a href="#steam_get_friends_game_info" title="(permalink)">steam_get_friends_game_info()&#8203;<span class="ret-arrow">&#10140;</span>array</a></header><article><p>
 		Returns an array of information about what the current user's Steam friends are playing,
 		roughly equivalent to what can be seen in Steam Friends UI.
 		</p><p>
 		The array contains nested 3-element arrays with the following fields: </p><ul>
 		<li>	Steam User ID
 		</li><li>	Steam Game ID
-		</li><li>	Steam Lobby ID<br/>(if hosting a lobby that is open for friends to join - otherwise <tt>0</tt>)
+		</li><li>	Steam Lobby ID<br/>
+			(if hosting a lobby that is open for friends to join - otherwise <tt>0</tt>)
 		</li></ul><p>
 		This can be used to display an in-game join dialog.
 		</p><pre class="gmlmd">
-<span class="kw">var</span> <span class="lv">info_arr</span> <span class="op">=</span> <a class="sf" href="#steam_get_friends_game_info">steam_get_friends_game_info</a><span class="op">(</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">var</span> <span class="lv">info_arr</span> <span class="op">=</span> <span class="uf">steam_get_friends_game_info</span><span class="op">(</span><span class="op">)</span><span class="op">;</span>
 <span class="kw">var</span> <span class="lv">info_num</span> <span class="op">=</span> <span class="uf">array_length</span><span class="op">(</span><span class="lv">info_arr</span><span class="op">)</span><span class="op">;</span>
 <span class="kw">var</span> <span class="lv">_steam_app_id</span> <span class="op">=</span> <span class="sf">steam_get_app_id</span><span class="op">(</span><span class="op">)</span><span class="op">;</span>
 <span class="kw">for</span> <span class="op">(</span><span class="kw">var</span> <span class="lv">i</span> <span class="op">=</span> <span class="nu">0</span><span class="op">;</span> <span class="lv">i</span> <span class="op">&lt;</span> <span class="lv">info_num</span><span class="op">;</span> <span class="lv">i</span><span class="op">++</span><span class="op">)</span> <span class="cb">{</span>
@@ -931,8 +967,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</li><li>	<tt>steam_overlay_notification_position_top_right</tt>
 		</li><li>	<tt>steam_overlay_notification_position_bottom_left</tt>
 		</li><li>	<tt>steam_overlay_notification_position_bottom_right</tt>
-		</li></ul><p class="pad">
-		
+		</li></ul><p>
 		This position is per-game and is reset each launch.
 	</p></article></section><section><header id="steam_set_overlay_notification_inset"><a href="#steam_set_overlay_notification_inset" title="(permalink)">steam_set_overlay_notification_inset(hor_inset, vert_inset)</a></header><article><p>
 		Sets the inset of the overlay notification from the corner specified by <a href="#steam_set_overlay_notification_position">steam_set_overlay_notification_position</a>.
@@ -940,17 +975,207 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		A value of (0, 0) resets the position into the corner.
 		</p><p>
 		This position is per-game and is reset each launch.
-	</p></article></section></article></section><section><header id="steam_rich_presence"><a href="#steam_rich_presence" title="(permalink)">Rich Presence</a></header><article><section><header id="steam_set_rich_presence"><a href="#steam_set_rich_presence" title="(permalink)">steam_set_rich_presence(key:string, value:string)<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+	</p></article></section></article></section><section><header id="steam_rich_presence"><a href="#steam_rich_presence" title="(permalink)">Rich Presence</a></header><article><section><header id="steam_set_rich_presence"><a href="#steam_set_rich_presence" title="(permalink)">steam_set_rich_presence(key:string, value:string)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
 		See <a href="https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence">SetRichPresence</a>
 		for a comprehensive explanation of things to do with this function.
 	</p></article></section><section><header id="steam_clear_rich_presence"><a href="#steam_clear_rich_presence" title="(permalink)">steam_clear_rich_presence()</a></header><article><p>
 		Equivalent of <a href="https://partner.steamgames.com/doc/api/ISteamFriends#ClearRichPresence">ClearRichPresence</a>
-	</p></article></section></article></section><section><header id="steam_inventory"><a href="#steam_inventory" title="(permalink)">Steam Inventory</a></header><article><section><header id="steam_inventory_trigger_item_drop"><a href="#steam_inventory_trigger_item_drop" title="(permalink)">steam_inventory_trigger_item_drop(item_def)<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
-		A wrapper around <a href="https://partner.steamgames.com/doc/api/ISteamInventory#TriggerItemDrop">TriggerItemDrop</a>.
+	</p></article></section></article></section><section><header id="steam_inventory"><a href="#steam_inventory" title="(permalink)">Steam Inventory</a></header><article><p>
+	
+	
+	The following functions allow to use
+	<a href="https://partner.steamgames.com/doc/features/inventory">Steam Inventory Service</a>.
+	</p><p>
+	Types:
+	</p><section><header id="steam_inventory_item_def"><a href="#steam_inventory_item_def" title="(permalink)">steam_inventory_item_def</a></header><article><p>
+		Represents an item type ("item definition number").
 		</p><p>
-		Note that this simply indicates whether the async request was sent off - the item may not 
-		drop if calling the function more often that the max drop rate that you have configured.
-	</p></article></section></article></section><section><header id="steam_id"><a href="#steam_id" title="(permalink)">Steam ID functions</a></header><article><p>
+		Valid definition numbers are between 1 and 999999999;<br/>
+		Numbers less than or equal to zero are invalid;<br/>
+		Numbers greater than or equal to one billion (1x10^9) are reserved for internal Steam use.
+	</p></article></section><section><header id="steam_inventory_item_id"><a href="#steam_inventory_item_id" title="(permalink)">steam_inventory_item_id</a></header><article><p>
+		Every individual instance of an item has a globally-unique instance ID.
+		</p><p>
+		This ID is unique to the combination of a player and specific item instance,
+		and will not be transferred to another player or re-used for another item.
+	</p></article></section><section><header id="steam_inventory_result"><a href="#steam_inventory_result" title="(permalink)">steam_inventory_result</a></header><article><p>
+		Many of the functions in this section return a <tt>steam_inventory_result</tt> async result ID.
+		</p><p>
+		Invalid results are represented by <tt>-1</tt>, also available as <tt>steam_inventory_result_invalid</tt> constant.
+		</p><p>
+		When a result is ready, an async event will be dispatched with: </p><ul>
+		<li>	<tt>async_load[?"event_type"]</tt>: <tt>"inventory_result_ready"</tt>
+		</li><li>	<tt>async_load[?"result"]</tt>: status code as per <a href="#steam_inventory_result_get_status">steam_inventory_result_get_status</a>.
+		</li><li>	<tt>async_load[?"handle"]</tt>: the associated async result ID,
+			which can be used to tell apart what result this event is for.
+		</li></ul><p>
+		The ID can later be found in <tt>async_load[?"handle"]</tt> in inventory-related async events
+		and can be polled to retrieve status or returned items.
+		</p><p>
+		Async results must be destroyed when you are done using them via <a href="#steam_inventory_result_destroy">steam_inventory_result_destroy</a>.
+		</p><section><header id="steam_inventory_result_get_status"><a href="#steam_inventory_result_get_status" title="(permalink)">steam_inventory_result_get_status(inv_result)&#8203;<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+			A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#GetResultStatus">GetResultStatus</a>.
+			</p><p>
+			Returns status code of a result.
+			</p><p>
+			You may opt to use this instead of async events.
+			</p><p>
+			Possible values are: </p><ul>
+				<li> <tt>steam_inventory_result_status_pending</tt>
+				</li><li> <tt>steam_inventory_result_status_ok</tt>
+				</li><li> <tt>steam_inventory_result_status_expired</tt>
+				</li><li> <tt>steam_inventory_result_status_invalid</tt>
+				</li><li> <tt>steam_inventory_result_status_fail</tt>
+				</li><li> <tt>steam_inventory_result_status_invalid_param</tt>
+				</li><li> <tt>steam_inventory_result_status_service_unavailable</tt>
+				</li><li> <tt>steam_inventory_result_status_limit_exceeded</tt>
+			</li></ul><p> (see Steam documentation for status code explanations)
+		</p></article></section><section><header id="steam_inventory_result_destroy"><a href="#steam_inventory_result_destroy" title="(permalink)">steam_inventory_result_destroy(inv_result)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+			A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#DestroyResult">DestroyResult</a>.
+			</p><p>
+			Destroys a result handle and frees all associated memory.
+		</p></article></section><section><header id="steam_inventory_result_get_unix_timestamp"><a href="#steam_inventory_result_get_unix_timestamp" title="(permalink)">steam_inventory_result_get_unix_timestamp(inv_result)&#8203;<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+			A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#GetResultTimestamp">GetResultTimestamp</a>.
+			</p><p>
+			Returns a Unix timestamp for the server time at which the result was generated.
+		</p></article></section><section><header id="steam_inventory_result_get_item_property"><a href="#steam_inventory_result_get_item_property" title="(permalink)">steam_inventory_result_get_item_property(inv_result, item_index:int, prop_name:int)&#8203;<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+			A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#GetResultItemProperty">GetResultItemProperty</a>.
+			</p><p>
+			Gets the dynamic properties from an item in an inventory result set.
+			</p><p>
+			Property names are always composed of ASCII letters, numbers, and/or underscores.
+		</p></article></section><section><header id="steam_inventory_result_get_items"><a href="#steam_inventory_result_get_items" title="(permalink)">steam_inventory_result_get_items(inv_result)&#8203;<span class="ret-arrow">&#10140;</span>array</a></header><article><p>
+			A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#GetResultItems">GetResultItems</a>.
+			</p><p>
+			Get the items associated with an inventory result handle.
+			</p><p>
+			This returns an array of <a href="#structs">structs</a> that contain: </p><ul>
+			<li>	<tt>item_id</tt>: a <a href="#steam_inventory_item_id">steam_inventory_item_id</a> representing the item instance.
+			</li><li>	<tt>item_def</tt>: a <a href="#steam_inventory_item_def">steam_inventory_item_def</a> representing the item type.
+			</li><li>	<tt>quantity</tt>: an <tt>int</tt> indicating how many of the said item there is in the slot.
+			</li><li>	<tt>flags</tt>: see <a href="https://partner.steamgames.com/doc/api/ISteamInventory#ESteamItemFlags">ESteamItemFlags</a>
+			</li></ul></article></section></article></section><hr/><section><header id="steam_inventory_trigger_item_drop"><a href="#steam_inventory_trigger_item_drop" title="(permalink)">steam_inventory_trigger_item_drop(item_def)&#8203;<span class="ret-arrow">&#10140;</span>steam_inventory_result</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#TriggerItemDrop">TriggerItemDrop</a>.
+		</p><p>
+		<b>NOTE</b>: You must call <a href="#steam_inventory_result_destroy">steam_inventory_result_destroy</a> on the returned async result ID when you are done with it.
+	</p></article></section><section><header id="steam_inventory_add_promo_item"><a href="#steam_inventory_add_promo_item" title="(permalink)">steam_inventory_add_promo_item(item_def)&#8203;<span class="ret-arrow">&#10140;</span>steam_inventory_result</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#AddPromoItem">AddPromoItem</a>.
+		</p><p>
+		<b>NOTE</b>: You must call <a href="#steam_inventory_result_destroy">steam_inventory_result_destroy</a> on the returned async result ID when you are done with it.
+	</p></article></section><section><header id="steam_inventory_add_promo_items"><a href="#steam_inventory_add_promo_items" title="(permalink)">steam_inventory_add_promo_items(item_defs)&#8203;<span class="ret-arrow">&#10140;</span>steam_inventory_result</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#AddPromoItems">AddPromoItems</a>.
+		</p><p>
+		Takes an array of <a href="#steam_inventory_item_def">steam_inventory_item_def</a>s and grants the user multiple items.
+		</p><p>
+		<b>NOTE</b>: You must call <a href="#steam_inventory_result_destroy">steam_inventory_result_destroy</a> on the returned async result ID when you are done with it.
+	</p></article></section><section><header id="steam_inventory_consume_item"><a href="#steam_inventory_consume_item" title="(permalink)">steam_inventory_consume_item(item_id, quantity)&#8203;<span class="ret-arrow">&#10140;</span>steam_inventory_result</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#ConsumeItem">ConsumeItem</a>.
+		</p><p>
+		<b>NOTE</b>: You must call <a href="#steam_inventory_result_destroy">steam_inventory_result_destroy</a> on the returned async result ID when you are done with it.
+	</p></article></section><section><header id="steam_inventory_exchange_items"><a href="#steam_inventory_exchange_items" title="(permalink)">steam_inventory_exchange_items(create_arr, destroy_arr)&#8203;<span class="ret-arrow">&#10140;</span>steam_inventory_result</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#ExchangeItems">ExchangeItems</a>.
+		</p><p>
+		Grants one item in exchange for a set of other items.
+		</p><p>
+		<tt>create_arr</tt> is an array of <a href="#structs">structs</a> representing items to be created: </p><ul>
+		<li>	<tt>item_def</tt>: a <a href="#steam_inventory_item_def">steam_inventory_item_def</a> representing the item type
+		</li><li>	<tt>quantitiy</tt>: number of items of type to be created
+		</li></ul><p>
+		<tt>destroy_arr</tt> is an array of structs representing items to be consumed: </p><ul>
+		<li>	<tt>item_id</tt>: a <a href="#steam_inventory_item_id">steam_inventory_item_id</a> of an item to be consumed
+		</li><li>	<tt>quantity</tt>: how much of the said item is to be consumed
+		</li></ul><p>
+		As of writing this, Steam only supports creating one item per call.
+		</p><p>
+		See Steam documentation for specifics.
+		</p><p>
+		<b>NOTE</b>: You must call <a href="#steam_inventory_result_destroy">steam_inventory_result_destroy</a> on the returned async result ID when you are done with it.
+	</p></article></section><section><header id="steam_inventory_generate_items"><a href="#steam_inventory_generate_items" title="(permalink)">steam_inventory_generate_items(create_arr)&#8203;<span class="ret-arrow">&#10140;</span>steam_inventory_result</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#GenerateItems">GenerateItems</a>.
+		</p><p>
+		Generates specific items for the current user.
+		</p><p>
+		This is only usable by Steam accounts that belong to the publisher group for your game.
+		</p><p>
+		<tt>create_arr</tt> is an array of <a href="#structs">structs</a> representing items to be created: </p><ul>
+		<li>	<tt>item_def</tt>: a <a href="#steam_inventory_item_def">steam_inventory_item_def</a> representing the item type
+		</li><li>	<tt>quantitiy</tt>: number of items of type to be created
+		</li></ul><p>
+		<b>NOTE</b>: You must call <a href="#steam_inventory_result_destroy">steam_inventory_result_destroy</a> on the returned async result ID when you are done with it.
+	</p></article></section><section><header id="steam_inventory_get_all_items"><a href="#steam_inventory_get_all_items" title="(permalink)">steam_inventory_get_all_items()&#8203;<span class="ret-arrow">&#10140;</span>steam_inventory_result</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#GetAllItems">GetAllItems</a>.
+		</p><p>
+		Starts retrieving all items in the current user's inventory.
+		</p><p>
+		<b>NOTE</b>: You must call <a href="#steam_inventory_result_destroy">steam_inventory_result_destroy</a> on the returned async result ID when you are done with it.
+	</p></article></section><section><header id="steam_inventory_request_eligible_promo_item_defs"><a href="#steam_inventory_request_eligible_promo_item_defs" title="(permalink)">steam_inventory_request_eligible_promo_item_defs(?user_id)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#RequestEligiblePromoItemDefinitionsIDs">RequestEligiblePromoItemDefinitionsIDs</a>.
+		</p><p>
+		Requests the list of "eligible" promo items that can be manually granted to the given user.
+		</p><p>
+		If <tt>user_id</tt> is omitted, the items will be checked for the current user.
+		</p><p>
+		Once ready, dispatches an async event with: </p><ul>
+		<li>	<tt>async_load[?"event_type"]</tt>: <tt>"inventory_request_eligible_promo_item_defs"</tt>
+		</li><li>	<tt>async_load[?"user_id_high"]</tt>: First half of the user ID (to be passed to <a href="#steam_id_create">steam_id_create</a>)
+		</li><li>	<tt>async_load[?"user_id_low"]</tt>: Second half of the user ID (same as above)
+		</li><li>	<tt>async_load[?"item_def_count"]</tt>: Number of items returned
+		</li><li>	<tt>async_load[?"item_def_json"]</tt>: A JSON string with an array of
+			<a href="#steam_inventory_item_def">steam_inventory_item_def</a>s
+		</li><li>	<tt>async_load[?"is_cached_data"]</tt>: indicates whether the data was retrieved from the cache
+			and not from the server
+		</li></ul><p>
+		<b>NOTE:</b> This is only available for GMS2/SDK1.42+.
+	</p></article></section><section><header id="steam_inventory_get_items_by_id"><a href="#steam_inventory_get_items_by_id" title="(permalink)">steam_inventory_get_items_by_id(item_ids)&#8203;<span class="ret-arrow">&#10140;</span>steam_inventory_result</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#GetItemsByID">GetItemsByID</a>.
+		</p><p>
+		Requests information about a subset of the current user's inventory.
+		</p><p>
+		<tt>item_ids</tt> is an array of <a href="#steam_inventory_item_id">steam_inventory_item_id</a>s.
+		</p><p>
+		<b>NOTE</b>: You must call <a href="#steam_inventory_result_destroy">steam_inventory_result_destroy</a> on the returned async result ID when you are done with it.
+	</p></article></section><section><header id="steam_inventory_load_item_definitions"><a href="#steam_inventory_load_item_definitions" title="(permalink)">steam_inventory_load_item_definitions()&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#LoadItemDefinitions">LoadItemDefinitions</a>.
+		</p><p>
+		Triggers an asynchronous load and refresh of item definitions.
+		</p><p>
+		Dispatches an async event with <tt>async_load[?"event_type"]</tt> == <tt>"inventory_definition_update"</tt> when done.
+	</p></article></section><section><header id="steam_inventory_price"><a href="#steam_inventory_price" title="(permalink)">Item prices</a></header><article><p>
+		<b>NOTE:</b> The following are only available for GMS2/SDK1.42+.
+		</p><section><header id="steam_inventory_request_prices"><a href="#steam_inventory_request_prices" title="(permalink)">steam_inventory_request_prices()&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+			A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#RequestPrices">RequestPrices</a>.
+		</p></article></section><section><header id="steam_inventory_get_item_price"><a href="#steam_inventory_get_item_price" title="(permalink)">steam_inventory_get_item_price(item_def:steam_inventory_item_def)&#8203;<span class="ret-arrow">&#10140;</span>int?</a></header><article><p>
+			A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#GetItemPrice">GetItemPrice</a>.
+		</p></article></section><section><header id="steam_inventory_get_items_with_prices"><a href="#steam_inventory_get_items_with_prices" title="(permalink)">steam_inventory_get_items_with_prices()&#8203;<span class="ret-arrow">&#10140;</span>array&lt;any&gt;?</a></header><article><p>
+			A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#GetItemsWithPrices">GetItemsWithPrices</a>.
+		</p></article></section></article></section><section><header id="steam_inventory_transfer_item_quantity"><a href="#steam_inventory_transfer_item_quantity" title="(permalink)">steam_inventory_transfer_item_quantity(source_item_id, quantity, dest_item_id)&#8203;<span class="ret-arrow">&#10140;</span>steam_inventory_result</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#TransferItemQuantity">TransferItemQuantity</a>.
+		<b>NOTE</b>: You must call <a href="#steam_inventory_result_destroy">steam_inventory_result_destroy</a> on the returned async result ID when you are done with it.
+	</p></article></section><section><header id="steam_inventory_update_"><a href="#steam_inventory_update_" title="(permalink)">Item property updates</a></header><article><p>
+		<b>NOTE:</b> The following are only available for GMS2/SDK1.42+.
+		</p><section><header id="steam_inventory_start_update_properties"><a href="#steam_inventory_start_update_properties" title="(permalink)">steam_inventory_start_update_properties()&#8203;<span class="ret-arrow">&#10140;</span>steam_inventory_update_handle</a></header><article><p>
+			A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#StartUpdateProperties">StartUpdateProperties</a>.
+			</p><p>
+			Starts a transaction request to update dynamic properties on items for the current user. 
+			</p><p>
+			Returns a <tt>steam_inventory_update_handle</tt> that is used in other functions in this section.
+		</p></article></section><hr/><section><header id="steam_inventory_set_property_bool"><a href="#steam_inventory_set_property_bool" title="(permalink)">steam_inventory_set_property_bool(handle, item_id, prop_name, bool_val)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+			A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#SetProperty">SetProperty</a>.
+		</p></article></section><section><header id="steam_inventory_set_property_float"><a href="#steam_inventory_set_property_float" title="(permalink)">steam_inventory_set_property_float(handle, item_id, prop_name, f32_val)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+			Same as above, but for 32-bit floats.
+		</p></article></section><section><header id="steam_inventory_set_property_int"><a href="#steam_inventory_set_property_int" title="(permalink)">steam_inventory_set_property_int(handle, item_id, prop_name, int_val)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+			Same as above, but for 64-bit integers.
+		</p></article></section><section><header id="steam_inventory_set_property_string"><a href="#steam_inventory_set_property_string" title="(permalink)">steam_inventory_set_property_string(handle, item_id, prop_name, str_val)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+			Same as above, but for strings.
+		</p></article></section><section><header id="steam_inventory_remove_property"><a href="#steam_inventory_remove_property" title="(permalink)">steam_inventory_remove_property(handle, item_id, prop_name)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+			A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#RemoveProperty">RemoveProperty</a>.
+			</p><p>
+			Removes a dynamic property for the given item.
+		</p></article></section><hr/><section><header id="steam_inventory_submit_update_properties"><a href="#steam_inventory_submit_update_properties" title="(permalink)">steam_inventory_submit_update_properties(handle)&#8203;<span class="ret-arrow">&#10140;</span>steam_inventory_result</a></header><article><p>
+			A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamInventory#SubmitUpdateProperties">SubmitUpdateProperties</a>.
+			</p><p>
+			<b>NOTE</b>: You must call <a href="#steam_inventory_result_destroy">steam_inventory_result_destroy</a> on the returned async result ID when you are done with it.
+		</p></article></section></article></section></article></section><section><header id="steam_id"><a href="#steam_id" title="(permalink)">Steam ID functions</a></header><article><p>
 	Functions for handling 64-bit Steam IDs
 	</p><section><header id="steam_id_use_int64"><a href="#steam_id_use_int64" title="(permalink)">steam_id_use_int64:bool</a></header><article><p>
 		This macro can be flipped to <tt>false</tt> on the <tt>steam_id.gml</tt> file,
@@ -959,24 +1184,24 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</p><p>
 		This was only useful in REALLY old (1.4.1757 and earlier) versions of GameMaker: Studio
 		where 64-bit integer support was occasionally buggy.
-	</p></article></section><section><header id="steam_id_create"><a href="#steam_id_create" title="(permalink)">steam_id_create(high, low)<span class="ret-arrow">&#10140;</span>steam_id</a></header><article><p>
+	</p></article></section><section><header id="steam_id_create"><a href="#steam_id_create" title="(permalink)">steam_id_create(high, low)&#8203;<span class="ret-arrow">&#10140;</span>steam_id</a></header><article><p>
 		Creates a 64-bit ID from two 32-bit halves.
 		</p><p>
 		You can see it occasionally used in <a href="#steam_async">async events</a> since GameMaker lacks support
 		for dispatching async events with 64-bit integer fields in them.
-	</p></article></section><section><header id="steam_id_get_high"><a href="#steam_id_get_high" title="(permalink)">steam_id_get_high(steam_id)<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+	</p></article></section><section><header id="steam_id_get_high"><a href="#steam_id_get_high" title="(permalink)">steam_id_get_high(steam_id)&#8203;<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
 		Returns the higher 32-bit half of a Steam ID.
-	</p></article></section><section><header id="steam_id_get_high"><a href="#steam_id_get_high" title="(permalink)">steam_id_get_high(steam_id)<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+	</p></article></section><section><header id="steam_id_get_low"><a href="#steam_id_get_low" title="(permalink)">steam_id_get_low(steam_id)&#8203;<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
 		Returns the lower 32-bit half of a Steam ID.
-	</p></article></section><section><header id="steam_id_equals"><a href="#steam_id_equals" title="(permalink)">steam_id_equals(steam_id1, steam_id2)<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+	</p></article></section><section><header id="steam_id_equals"><a href="#steam_id_equals" title="(permalink)">steam_id_equals(steam_id1, steam_id2)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
 		Returns whether the two Steam IDs are identical.
 		</p><p>
 		(with <a href="#steam_id_use_int64">steam_id_use_int64</a> enabled, this is just <tt>steam_id1 == steam_id2</tt>)
-	</p></article></section><section><header id="steam_id_from_int64"><a href="#steam_id_from_int64" title="(permalink)">steam_id_from_int64(int64)<span class="ret-arrow">&#10140;</span>steam_id</a></header><article><p>
+	</p></article></section><section><header id="steam_id_from_int64"><a href="#steam_id_from_int64" title="(permalink)">steam_id_from_int64(int64)&#8203;<span class="ret-arrow">&#10140;</span>steam_id</a></header><article><p>
 		Converts an int64 to a Steam ID.
 		</p><p>
 		(only useful with <a href="#steam_id_use_int64">steam_id_use_int64</a> disabled)
-	</p></article></section><section><header id="steam_id_to_int64"><a href="#steam_id_to_int64" title="(permalink)">steam_id_to_int64(steam_id)<span class="ret-arrow">&#10140;</span>int64</a></header><article><p>
+	</p></article></section><section><header id="steam_id_to_int64"><a href="#steam_id_to_int64" title="(permalink)">steam_id_to_int64(steam_id)&#8203;<span class="ret-arrow">&#10140;</span>int64</a></header><article><p>
 		Converts a Steam ID to an int64.
 		</p><p>
 		(only useful with <a href="#steam_id_use_int64">steam_id_use_int64</a> disabled)
@@ -993,7 +1218,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</li><li>	<tt>"published_file_id_low"</tt>
 		</li></ul><pre class="gmlmd">
 <span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"ugc_delete_item"</span><span class="op">)</span> <span class="cb">{</span>
-    <span class="kw">var</span> <span class="lv">file_id</span> <span class="op">=</span> <a class="sf" href="#steam_id_create">steam_id_create</a><span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"published_file_id_high"</span><span class="op">]</span><span class="op">,</span> <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"published_file_id_low"</span><span class="op">]</span><span class="op">)</span><span class="op">;</span>
+    <span class="kw">var</span> <span class="lv">file_id</span> <span class="op">=</span> <span class="uf">steam_id_create</span><span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"published_file_id_high"</span><span class="op">]</span><span class="op">,</span> <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"published_file_id_low"</span><span class="op">]</span><span class="op">)</span><span class="op">;</span>
     <span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"success"</span><span class="op">]</span><span class="op">)</span> <span class="cb">{</span>
         <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"Deleted "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="lv">file_id</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
     <span class="cb">}</span> <span class="kw">else</span> <span class="cb">{</span>
@@ -1016,12 +1241,11 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</li><li>	2: Byte offset for Steam User ID in the buffer.
 		</li><li>	3: Byte offset for signature in the buffer.
 		</li><li>	4: Byte length for signature in the buffer.
-		</li></ul><p class="pad">
-		
+		</li></ul><p>
 		For example,
 		</p><pre class="gmlmd">
 <span class="kw">var</span> <span class="lv">b</span> <span class="op">=</span> <span class="sf">buffer_create</span><span class="op">(</span><span class="nu">256</span><span class="op">,</span> <span class="sv">buffer_fixed</span><span class="op">,</span> <span class="nu">1</span><span class="op">)</span><span class="op">;</span>
-<span class="kw">var</span> <span class="lv">d</span> <span class="op">=</span> <a class="sf" href="#steam_get_app_ownership_ticket_data">steam_get_app_ownership_ticket_data</a><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">var</span> <span class="lv">d</span> <span class="op">=</span> <span class="uf">steam_get_app_ownership_ticket_data</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">;</span>
 <span class="kw">if</span> <span class="op">(</span><span class="lv">d</span><span class="op">[</span><span class="nu">0</span><span class="op">]</span> <span class="op">&gt;</span> <span class="nu">0</span><span class="op">)</span> <span class="cb">{</span>
     <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"App ID: "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="sf">buffer_peek</span><span class="op">(</span><span class="lv">b</span><span class="op">,</span> <span class="lv">d</span><span class="op">[</span><span class="nu">1</span><span class="op">]</span><span class="op">,</span> <span class="sv">buffer_u32</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
     <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"User ID: "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="sf">buffer_peek</span><span class="op">(</span><span class="lv">b</span><span class="op">,</span> <span class="lv">d</span><span class="op">[</span><span class="nu">2</span><span class="op">]</span><span class="op">,</span> <span class="sv">buffer_u64</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
@@ -1029,24 +1253,29 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 <span class="cb">}</span> <span class="kw">else</span> <span class="cb">{</span>
     <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"Failed to retrieve app ownership data."</span><span class="op">)</span><span class="op">;</span>
 <span class="cb">}</span>
-</pre><p>See: <a href="https://partner.steamgames.com/doc/api/ISteamAppTicket">ISteamAppTicket</a>
+</pre><p>
+		See: <a href="https://partner.steamgames.com/doc/api/ISteamAppTicket">ISteamAppTicket</a>
 	</p></article></section><section><header id="steam_user_request_encrypted_app_ticket"><a href="#steam_user_request_encrypted_app_ticket" title="(permalink)">steam_user_request_encrypted_app_ticket(?data, ?data_size)</a></header><article><p>
-		<tt>data</tt> (optional) is a string or a buffer to include in the resulting buffer.<br/>If not specified, defaults to NULL and includes no additional data.
+		<tt>data</tt> (optional) is a string or a buffer to include in the resulting buffer.<br/>
+		If not specified, defaults to NULL and includes no additional data.
 		</p><p>
-		<tt>data_size</tt> (optional) is the number of bytes in <tt>data</tt>.<br/>If not specified, this will be set to byte count in a string (not including the final NUL),
+		<tt>data_size</tt> (optional) is the number of bytes in <tt>data</tt>.<br/>
+		If not specified, this will be set to byte count in a string (not including the final NUL),
 		or buffer size.
 		</p><p>
-		This function is async.<br/>Once ready, it will dispatch the following Async - Steam event: </p><ul>
+		This function is async.<br/>
+		Once ready, it will dispatch the following Async - Steam event: </p><ul>
 		<li>	<tt>"event_type"</tt>: will be <tt>"user_encrypted_app_ticket_response_received"</tt>.
 		</li><li>	<tt>"success"</tt>: will be <tt>true</tt> or <tt>false</tt> depending on whether the operation succeeded.
 		</li><li>	<tt>"result"</tt>: will hold the extended EResult ID if you need that.
-		</li><li>	<tt>"ticket_data"</tt>: will hold base64 of returned binary data.<br/>You'll probably want to <tt>buffer_base64_decode</tt> it.
-		</li></ul><p class="pad">
-		
+		</li><li>	<tt>"ticket_data"</tt>: will hold base64 of returned binary data.<br/>
+			You'll probably want to <tt>buffer_base64_decode</tt> it.
+		</li></ul><p>
 		For example:
 		</p><pre class="gmlmd">
-<a class="sf" href="#steam_user_request_encrypted_app_ticket">steam_user_request_encrypted_app_ticket</a><span class="op">(</span><span class="op">)</span><span class="op">;</span>
-</pre><p>and in Async - Steam:
+<span class="uf">steam_user_request_encrypted_app_ticket</span><span class="op">(</span><span class="op">)</span><span class="op">;</span>
+</pre><p>
+		and in Async - Steam:
 		</p><pre class="gmlmd">
 <span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"user_encrypted_app_ticket_response_received"</span><span class="op">)</span> <span class="cb">{</span>
     <span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"success"</span><span class="op">]</span><span class="op">)</span> <span class="cb">{</span>
@@ -1058,10 +1287,11 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
             <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"result"</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
     <span class="cb">}</span>
 <span class="cb">}</span>
-</pre><p>See: <a href="https://partner.steamgames.com/doc/api/ISteamUser#RequestEncryptedAppTicket">RequestEncryptedAppTicket</a>
+</pre><p>
+		See: <a href="https://partner.steamgames.com/doc/api/ISteamUser#RequestEncryptedAppTicket">RequestEncryptedAppTicket</a>
 		</p><p>
 		Not to be confused with <a href="#steam_get_app_ownership_ticket_data">steam_get_app_ownership_ticket_data</a>!
-	</p></article></section></article></section><!--doc>-->
+	</p></article></section></article></section></p><!--doc>-->
 </section></main></div>
 <script type="text/javascript">(function() {
 	var doc, headers;
