@@ -18,18 +18,6 @@
 inline bool gml_bool(double val) {
 	return val > 0.5;
 }
-inline int32_t gml_int32(double val) {
-	if (val < (double)INT32_MIN) {
-		return INT32_MIN;
-	} else if (val > (double)INT32_MAX) {
-		return INT32_MAX;
-	} else {
-		return (int32_t)val;
-	}
-}
-inline uint32_t gml_uint32(double val) {
-	return val < 0 ? 0u : val > UINT32_MAX ? UINT32_MAX : (uint32_t)val;
-}
 
 char* gml_string(const char* s);
 

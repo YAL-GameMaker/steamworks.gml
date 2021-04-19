@@ -3,6 +3,7 @@
 #if _HAS_CXX17
 #include <optional>
 #endif
+#include <stdint.h>
 using namespace std;
 
 #define dllg /* tag */
