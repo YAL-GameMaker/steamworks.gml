@@ -279,10 +279,11 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
       </PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;STEAMWORKS=142;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_WINDOWS;_USRDLL;STEAMWORKS=142;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalIncludeDirectories>./../steamworks_sdk_142/public</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -306,11 +307,12 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
       </PrecompiledHeader>
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;STEAMWORKS=142;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_WINDOWS;_USRDLL;STEAMWORKS=142;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>./../steamworks_sdk_142/public</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <SDLCheck>false</SDLCheck>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -351,10 +353,11 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;STEAMWORKS=142;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_WINDOWS;_USRDLL;STEAMWORKS=142;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>./../steamworks_sdk_142/public</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -379,10 +382,11 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;STEAMWORKS=142;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_WINDOWS;_USRDLL;STEAMWORKS=142;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>./../steamworks_sdk_142/public</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -405,9 +409,10 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;STEAMWORKS=135%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_WINDOWS;_USRDLL;STEAMWORKS=135%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>false</SDLCheck>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>./../steamworks_sdk_135a/redistributable_bin;./../steamworks_sdk_135a/public/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -427,9 +432,10 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <WholeProgramOptimization>true</WholeProgramOptimization>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;STEAMWORKS=135;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_WINDOWS;_USRDLL;STEAMWORKS=135;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>false</SDLCheck>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>./../steamworks_sdk_135a/redistributable_bin;./../steamworks_sdk_135a/public/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -452,6 +458,7 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
     </PostBuildEvent>
     <ClCompile>
       <AdditionalIncludeDirectories>./../steamworks_sdk_135a/public</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>./../steamworks_sdk_135a/redistributable_bin;./../steamworks_sdk_135a/public/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -468,6 +475,7 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
     </PostBuildEvent>
     <ClCompile>
       <AdditionalIncludeDirectories>./../steamworks_sdk_135a/public</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>./../steamworks_sdk_135a/redistributable_bin;./../steamworks_sdk_135a/public/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
