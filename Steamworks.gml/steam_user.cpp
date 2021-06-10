@@ -1,7 +1,9 @@
 /// steam_user.cpp
 #include "steam_glue.h"
+#if _WINDOWS
 #include <algorithm>
 #include <execution>
+#endif
 
 dllx double steam_get_user_steam_id_high() {
 	return uint64_high(steam_local_id.ConvertToUint64());
