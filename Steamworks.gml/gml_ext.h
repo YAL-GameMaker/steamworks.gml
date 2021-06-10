@@ -4,6 +4,7 @@
 #include <optional>
 #endif
 #include <stdint.h>
+#include <cstring>
 using namespace std;
 
 #define dllg /* tag */
