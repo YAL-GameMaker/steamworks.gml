@@ -24,7 +24,7 @@ struct steam_inventory_get_item_prices_t {
 	SteamItemDef_t item_def;
 	uint64 price;
 };
-// from steam_user.cpp:41:
+// from steam_user.cpp:43:
 struct steam_get_friends_game_info_t {
 	uint64 friendId;
 	uint32 gameId;

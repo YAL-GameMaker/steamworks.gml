@@ -107,13 +107,14 @@ enum class steam_user_avatar_size {
 	large = 2,
 };
 dllg steam_image_id steam_get_user_avatar(uint64_t user_id, int avatar_size) {
+	CSteamID _user_id((uint64)user_id);
 	switch ((steam_user_avatar_size)avatar_size) {
 		case steam_user_avatar_size::large:
-			return SteamFriends()->GetLargeFriendAvatar(CSteamID(user_id));
+			return SteamFriends()->GetLargeFriendAvatar(_user_id);
 		case steam_user_avatar_size::medium:
-			return SteamFriends()->GetMediumFriendAvatar(CSteamID(user_id));
+			return SteamFriends()->GetMediumFriendAvatar(_user_id);
 		default:
-			return SteamFriends()->GetSmallFriendAvatar(CSteamID(user_id));
+			return SteamFriends()->GetSmallFriendAvatar(_user_id);
 	}
 }
 dllg std::optional<std::tuple<int, int>> steam_image_get_size(steam_image_id img) {
