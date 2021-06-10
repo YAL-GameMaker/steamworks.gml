@@ -955,7 +955,58 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
         <span class="cb">}</span>
     <span class="cb">}</span>
 <span class="cb">}</span>
-</pre></article></section></article></section><section><header id="steam_overlay"><a href="#steam_overlay" title="(permalink)">Steam Overlay</a></header><article><section><header id="steam_activate_overlay_raw"><a href="#steam_activate_overlay_raw" title="(permalink)">steam_activate_overlay_raw(raw_name)</a></header><article><p>
+</pre></article></section><hr/><section><header id="steam_get_user_avatar"><a href="#steam_get_user_avatar" title="(permalink)">steam_get_user_avatar(user_id, avatar_size)&#8203;<span class="ret-arrow">&#10140;</span>steam_image_id</a></header><article><p>
+		Fetches an avatar for the specified user ID.
+		</p><p>
+		<tt>avatar_size</tt> can be: </p><ul>
+		<li>	<tt>steam_user_avatar_size_small</tt>: A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamFriends#GetSmallFriendAvatar">GetSmallFriendAvatar</a>.
+		</li><li>	<tt>steam_user_avatar_size_medium</tt>: A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamFriends#GetMediumFriendAvatar">GetMediumFriendAvatar</a>.
+		</li><li>	<tt>steam_user_avatar_size_large</tt>: A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamFriends#GetLargeFriendAvatar">GetLargeFriendAvatar</a>.
+		</li></ul><p>
+		Returns positive IDs (for use with function below) if the avatar is ready;<br/>
+		Returns <tt>0</tt> if no avatar is set for the user;<br/>
+		Returns <tt>-1</tt> if the request is pending,
+		in which case an async event will be dispatched with: </p><ul>
+		<li>	<tt>async_load[?"event_type"]</tt>: <tt>"avatar_image_loaded"</tt>
+		</li><li>	<tt>async_load[?"user_id_high"]</tt>: first half of associated user's ID
+		</li><li>	<tt>async_load[?"user_id_low"]</tt>: second half of associated user's ID
+		</li><li>	<tt>async_load[?"user_id_string"]</tt>: associated user ID as a string
+		</li><li>	<tt>async_load[?"image"]</tt>: image ID that would otherwise be returned
+			by the function.
+		</li><li>	<tt>async_load[?"width"]</tt>: image width, in pixels
+		</li><li>	<tt>async_load[?"height"]</tt>: image height, in pixels
+		</li></ul></article></section><section><header id="steam_image_get_size"><a href="#steam_image_get_size" title="(permalink)">steam_image_get_size(steam_image_id)&#8203;<span class="ret-arrow">&#10140;</span></a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamUtils#GetImageSize">GetImageSize</a>.
+		</p><p>
+		Fetches dimensions for the said Steam image ID.
+		</p><p>
+		If the call succeeds, the return value is a two-element array
+		containing width and height in pixels.
+		</p><p>
+		If the call fails, returns <tt>undefined</tt>.
+	</p></article></section><section><header id="steam_image_get_rgba"><a href="#steam_image_get_rgba" title="(permalink)">steam_image_get_rgba(steam_image_id, buffer)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamUtils#GetImageRGBA">GetImageRGBA</a>.
+		</p><p>
+		Grabs RGBA data of the specified Steam image ID into a GameMaker buffer.
+		</p><p>
+		The buffer should be appropriately sized in accordance with
+		<a href="#steam_image_get_size">steam_image_get_size</a> (width * height * 4).
+		</p><p>
+		Returns whether successful.
+	</p></article></section><section><header id="steam_image_get_bgra"><a href="#steam_image_get_bgra" title="(permalink)">steam_image_get_bgra(steam_image_id, buffer)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		Like <a href="#steam_image_get_rgba">steam_image_get_rgba</a>,
+		but converts the pixels to BGRA format
+		(primarily for use with GMS1.4).
+	</p></article></section><section><header id="steam_image_create_sprite"><a href="#steam_image_create_sprite" title="(permalink)">steam_image_create_sprite(steam_image_id)&#8203;<span class="ret-arrow">&#10140;</span>sprite</a></header><article><p>
+		A convenience function that grabs the size of the given Steam image ID,
+		creates a buffer for it, copies the pixels to the buffer,
+		copies the pixels to a surface,
+		and creates a sprite out of it.
+		</p><p>
+		Returns the newly made sprite ID
+		(which you'll want to <tt>sprite_delete</tt> once you're done with it)
+		or <tt>-1</tt> if the operation fails.
+	</p></article></section></article></section><section><header id="steam_overlay"><a href="#steam_overlay" title="(permalink)">Steam Overlay</a></header><article><section><header id="steam_activate_overlay_raw"><a href="#steam_activate_overlay_raw" title="(permalink)">steam_activate_overlay_raw(raw_name)</a></header><article><p>
 		Like GameMaker's <tt>steam_activate_overlay</tt>, but allows to specify any raw names
 		from <a href="https://partner.steamgames.com/doc/api/ISteamFriends#ActivateGameOverlay">Steamworks documentation</a>
 		that may not be covered by <tt>ov_</tt> constants.

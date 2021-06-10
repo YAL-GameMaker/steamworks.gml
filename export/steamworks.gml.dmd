@@ -724,6 +724,71 @@ function ref_set(url) {
 		}
 		```
 	}
+	---
+	```exec
+	ref_set("https://partner.steamgames.com/doc/api/ISteamFriends");
+	```
+	#[steam_get_user_avatar(user_id, avatar_size)->steam_image_id]() {
+		Fetches an avatar for the specified user ID.
+		
+		`avatar_size` can be: --{
+		--	`steam_user_avatar_size_small`: ${wrap("GetSmallFriendAvatar")}
+		--	`steam_user_avatar_size_medium`: ${wrap("GetMediumFriendAvatar")}
+		--	`steam_user_avatar_size_large`: ${wrap("GetLargeFriendAvatar")}
+		}
+		
+		Returns positive IDs (for use with function below) if the avatar is ready;\
+		Returns `0` if no avatar is set for the user;\
+		Returns `-1` if the request is pending,
+		in which case an async event will be dispatched with: --{
+		--	`async_load[?"event_type"]`: `"avatar_image_loaded"`
+		--	`async_load[?"user_id_high"]`: first half of associated user's ID
+		--	`async_load[?"user_id_low"]`: second half of associated user's ID
+		--	`async_load[?"user_id_string"]`: associated user ID as a string
+		--	`async_load[?"image"]`: image ID that would otherwise be returned
+			by the function.
+		--	`async_load[?"width"]`: image width, in pixels
+		--	`async_load[?"height"]`: image height, in pixels
+		}
+	}
+	```exec
+	ref_set("https://partner.steamgames.com/doc/api/ISteamUtils");
+	```
+	#[steam_image_get_size(steam_image_id)->]() {
+		${wrap("GetImageSize")}
+		
+		Fetches dimensions for the said Steam image ID.
+		
+		If the call succeeds, the return value is a two-element array
+		containing width and height in pixels.
+		
+		If the call fails, returns `undefined`.
+	}
+	#[steam_image_get_rgba(steam_image_id, buffer)->bool]() {
+		${wrap("GetImageRGBA")}
+		
+		Grabs RGBA data of the specified Steam image ID into a GameMaker buffer.
+		
+		The buffer should be appropriately sized in accordance with
+		[steam_image_get_size] (width \* height \* 4).
+		
+		Returns whether successful.
+	}
+	#[steam_image_get_bgra(steam_image_id, buffer)->bool]() {
+		Like [steam_image_get_rgba],
+		but converts the pixels to BGRA format
+		(primarily for use with GMS1.4).
+	}
+	#[steam_image_create_sprite(steam_image_id)->sprite]() {
+		A convenience function that grabs the size of the given Steam image ID,
+		creates a buffer for it, copies the pixels to the buffer,
+		copies the pixels to a surface,
+		and creates a sprite out of it.
+		
+		Returns the newly made sprite ID
+		(which you'll want to `sprite_delete` once you're done with it)
+		or `-1` if the operation fails.
+	}
 }
 #[Steam Overlay](steam_overlay) {
 	#[steam_activate_overlay_raw(raw_name)]() {

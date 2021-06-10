@@ -114,6 +114,18 @@
         {"externalName":"steam_get_friends_game_info_raw_post","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_raw_post","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_get_user_avatar_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_get_user_avatar_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_image_get_size_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_image_get_size_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_image_get_rgba_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_image_get_rgba_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_image_get_bgra_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_image_get_bgra_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_reset","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_reset","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_init","kind":1,"help":"steam_controller_init() : Should be called on game start if you use Steam Controller","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_init","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_update","kind":1,"help":"steam_controller_update() : Can be called prior to other controller functions for lower latency. Called by steam_gml_update.","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_update","tags":[],"resourceType":"GMExtensionFunction",},
@@ -379,6 +391,9 @@
         {"value":"1","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_unreliable_nodelay","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_reliable","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"3","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_reliable_buffer","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"0","hidden":false,"resourceVersion":"1.0","name":"steam_user_avatar_size_small","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"1","hidden":false,"resourceVersion":"1.0","name":"steam_user_avatar_size_medium","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_user_avatar_size_large","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"0","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_top_left","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"1","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_top_right","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_left","tags":[],"resourceType":"GMExtensionConstant",},
@@ -414,6 +429,10 @@
         {"name":"steam_inventory_transfer_item_quantity_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_get_user_avatar_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_image_get_size_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_image_get_rgba_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_image_get_bgra_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_reset","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_init","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_update","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -595,6 +614,18 @@
         {"externalName":"steam_get_friends_game_info_raw_post","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_raw_post","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_get_user_avatar_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_get_user_avatar_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_image_get_size_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_image_get_size_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_image_get_rgba_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_image_get_rgba_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_image_get_bgra_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_image_get_bgra_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_reset","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_reset","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_init","kind":1,"help":"steam_controller_init() : Should be called on game start if you use Steam Controller","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_init","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_update","kind":1,"help":"steam_controller_update() : Can be called prior to other controller functions for lower latency. Called by steam_gml_update.","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_update","tags":[],"resourceType":"GMExtensionFunction",},
@@ -860,6 +891,9 @@
         {"value":"1","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_unreliable_nodelay","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_reliable","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"3","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_reliable_buffer","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"0","hidden":false,"resourceVersion":"1.0","name":"steam_user_avatar_size_small","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"1","hidden":false,"resourceVersion":"1.0","name":"steam_user_avatar_size_medium","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_user_avatar_size_large","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"0","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_top_left","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"1","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_top_right","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_left","tags":[],"resourceType":"GMExtensionConstant",},
@@ -895,6 +929,10 @@
         {"name":"steam_inventory_transfer_item_quantity_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_get_user_avatar_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_image_get_size_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_image_get_rgba_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_image_get_bgra_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_reset","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_init","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_update","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -1076,6 +1114,18 @@
         {"externalName":"steam_get_friends_game_info_raw_post","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
             1,
           ],"resourceVersion":"1.0","name":"steam_get_friends_game_info_raw_post","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_get_user_avatar_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_get_user_avatar_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_image_get_size_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_image_get_size_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_image_get_rgba_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_image_get_rgba_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_image_get_bgra_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[
+            1,
+          ],"resourceVersion":"1.0","name":"steam_image_get_bgra_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_reset","kind":11,"help":"","hidden":true,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_reset","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_init","kind":1,"help":"steam_controller_init() : Should be called on game start if you use Steam Controller","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_init","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_controller_update","kind":1,"help":"steam_controller_update() : Can be called prior to other controller functions for lower latency. Called by steam_gml_update.","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_controller_update","tags":[],"resourceType":"GMExtensionFunction",},
@@ -1341,6 +1391,9 @@
         {"value":"1","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_unreliable_nodelay","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_reliable","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"3","hidden":false,"resourceVersion":"1.0","name":"steam_net_packet_type_reliable_buffer","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"0","hidden":false,"resourceVersion":"1.0","name":"steam_user_avatar_size_small","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"1","hidden":false,"resourceVersion":"1.0","name":"steam_user_avatar_size_medium","tags":[],"resourceType":"GMExtensionConstant",},
+        {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_user_avatar_size_large","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"0","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_top_left","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"1","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_top_right","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"2","hidden":false,"resourceVersion":"1.0","name":"steam_overlay_notification_position_bottom_left","tags":[],"resourceType":"GMExtensionConstant",},
@@ -1376,6 +1429,10 @@
         {"name":"steam_inventory_transfer_item_quantity_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_get_user_avatar_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_image_get_size_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_image_get_rgba_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_image_get_bgra_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_reset","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_init","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_controller_update","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -1489,12 +1546,16 @@
         {"externalName":"steam_ugc_delete_item","kind":11,"help":"","hidden":true,"returnType":2,"argCount":1,"args":[],"resourceVersion":"1.0","name":"steam_ugc_delete_item","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_get_app_ownership_ticket_data","kind":2,"help":"steam_get_app_ownership_ticket_data(buffer, ?app_id)->[size_total, ofs_app_id, ofs_steam_id, ofs_signature, size_signature]","hidden":false,"returnType":2,"argCount":-1,"args":[],"resourceVersion":"1.0","name":"steam_get_app_ownership_ticket_data","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_user_request_encrypted_app_ticket","kind":2,"help":"steam_user_request_encrypted_app_ticket(?bufferOrStringToInclude, ?bufferToIncludeSize)","hidden":false,"returnType":2,"argCount":-1,"args":[],"resourceVersion":"1.0","name":"steam_user_request_encrypted_app_ticket","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_image_create_sprite","kind":2,"help":"steam_image_create_sprite(img:steam_image_id)->sprite","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"steam_image_create_sprite","tags":[],"resourceType":"GMExtensionFunction",},
       ],"constants":[
         
       ],"ProxyFiles":[],"copyToTargets":-1,"order":[
         {"name":"steam_ugc_delete_item","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_app_ownership_ticket_data","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_user_request_encrypted_app_ticket","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_image_create_sprite","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
     {"filename":"steam_matchmaking.gml","origname":"","init":"","final":"","kind":2,"uncompress":false,"functions":[
         {"externalName":"steam_lobby_join_id","kind":2,"help":"steam_lobby_join_id(lobby_id)->ok? : Joins the given lobby","hidden":false,"returnType":2,"argCount":1,"args":[
@@ -1727,6 +1788,21 @@
             2,
           ],"resourceVersion":"1.0","name":"steam_inventory_transfer_item_quantity","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_get_friends_game_info","kind":2,"help":"steam_get_friends_game_info()->array<any>","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"steam_get_friends_game_info","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_get_user_avatar","kind":2,"help":"steam_get_user_avatar(user_id:int, avatar_size:int)->int","hidden":false,"returnType":2,"argCount":2,"args":[
+            2,
+            2,
+          ],"resourceVersion":"1.0","name":"steam_get_user_avatar","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_image_get_size","kind":2,"help":"steam_image_get_size(img:int)->","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"steam_image_get_size","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_image_get_rgba","kind":2,"help":"steam_image_get_rgba(img:int, dest_buf:buffer)->bool","hidden":false,"returnType":2,"argCount":2,"args":[
+            2,
+            2,
+          ],"resourceVersion":"1.0","name":"steam_image_get_rgba","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"steam_image_get_bgra","kind":2,"help":"steam_image_get_bgra(img:int, dest_buf:buffer)->bool","hidden":false,"returnType":2,"argCount":2,"args":[
+            2,
+            2,
+          ],"resourceVersion":"1.0","name":"steam_image_get_bgra","tags":[],"resourceType":"GMExtensionFunction",},
       ],"constants":[
         
       ],"ProxyFiles":[],"copyToTargets":-1,"order":[
@@ -1757,6 +1833,10 @@
         {"name":"steam_inventory_request_prices","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_transfer_item_quantity","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_get_friends_game_info","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_get_user_avatar","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_image_get_size","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_image_get_rgba","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
+        {"name":"steam_image_get_bgra","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
   ],
   "classname": "",

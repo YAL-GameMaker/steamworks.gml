@@ -63,6 +63,11 @@ public:
 	bool set(char* key, char* value) {
 		return gml_ds_map_set_string(map, key, value);
 	}
+	bool set_uint64_str(char* key, int64 value) {
+		static string user_id_str{};
+		user_id_str = std::to_string(value);
+		return set(key, user_id_str.data());
+	}
 	void set_success(bool success) {
 		set("success", success);
 		set("result", success ? k_EResultOK : k_EResultFail);

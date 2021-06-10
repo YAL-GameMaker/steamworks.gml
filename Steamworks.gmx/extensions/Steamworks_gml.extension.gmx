@@ -385,6 +385,50 @@
           </args>
         </function>
         <function>
+          <name>steam_get_user_avatar_raw</name>
+          <externalName>steam_get_user_avatar_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_image_get_size_raw</name>
+          <externalName>steam_image_get_size_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_image_get_rgba_raw</name>
+          <externalName>steam_image_get_rgba_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_image_get_bgra_raw</name>
+          <externalName>steam_image_get_bgra_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_controller_reset</name>
           <externalName>steam_controller_reset</externalName>
           <kind>11</kind>
@@ -1464,6 +1508,21 @@
         <constant>
           <name>steam_net_packet_type_reliable_buffer</name>
           <value>3</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_user_avatar_size_small</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_user_avatar_size_medium</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_user_avatar_size_large</name>
+          <value>2</value>
           <hidden>0</hidden>
         </constant>
         <constant>
@@ -1840,6 +1899,50 @@
           </args>
         </function>
         <function>
+          <name>steam_get_user_avatar_raw</name>
+          <externalName>steam_get_user_avatar_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_image_get_size_raw</name>
+          <externalName>steam_image_get_size_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_image_get_rgba_raw</name>
+          <externalName>steam_image_get_rgba_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_image_get_bgra_raw</name>
+          <externalName>steam_image_get_bgra_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_controller_reset</name>
           <externalName>steam_controller_reset</externalName>
           <kind>11</kind>
@@ -2919,6 +3022,21 @@
         <constant>
           <name>steam_net_packet_type_reliable_buffer</name>
           <value>3</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_user_avatar_size_small</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_user_avatar_size_medium</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_user_avatar_size_large</name>
+          <value>2</value>
           <hidden>0</hidden>
         </constant>
         <constant>
@@ -3384,9 +3502,7 @@
           <help></help>
           <returnType>2</returnType>
           <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
+          <args/>
         </function>
         <function>
           <name>steam_get_app_ownership_ticket_data</name>
@@ -3405,6 +3521,17 @@
           <returnType>2</returnType>
           <argCount>-1</argCount>
           <args/>
+        </function>
+        <function>
+          <name>steam_image_create_sprite</name>
+          <externalName>steam_image_create_sprite</externalName>
+          <kind>2</kind>
+          <help>steam_image_create_sprite(img:steam_image_id)-&gt;sprite</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
         </function>
       </functions>
       <constants/>
@@ -3814,6 +3941,53 @@
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
+        </function>
+        <function>
+          <name>steam_get_user_avatar</name>
+          <externalName>steam_get_user_avatar</externalName>
+          <kind>2</kind>
+          <help>steam_get_user_avatar(user_id:int, avatar_size:int)-&gt;int</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_image_get_size</name>
+          <externalName>steam_image_get_size</externalName>
+          <kind>2</kind>
+          <help>steam_image_get_size(img:int)-&gt;</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_image_get_rgba</name>
+          <externalName>steam_image_get_rgba</externalName>
+          <kind>2</kind>
+          <help>steam_image_get_rgba(img:int, dest_buf:buffer)-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_image_get_bgra</name>
+          <externalName>steam_image_get_bgra</externalName>
+          <kind>2</kind>
+          <help>steam_image_get_bgra(img:int, dest_buf:buffer)-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
         </function>
       </functions>
       <constants/>

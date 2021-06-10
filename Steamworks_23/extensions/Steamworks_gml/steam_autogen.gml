@@ -360,3 +360,58 @@ if (steam_gml_use_structs) {
 	return _arr_0;
 }
 
+#define steam_get_user_avatar
+/// steam_get_user_avatar(user_id:int, avatar_size:int)->int
+var _buf = steam_gml_prepare_buffer(12);
+buffer_write(_buf, buffer_u64, argument0);
+buffer_write(_buf, buffer_s32, argument1);
+return steam_get_user_avatar_raw(buffer_get_address(_buf));
+
+#define steam_image_get_size
+/// steam_image_get_size(img:int)->
+var _buf = steam_gml_prepare_buffer(9);
+buffer_write(_buf, buffer_s32, argument0);
+if (steam_image_get_size_raw(buffer_get_address(_buf))) {
+	buffer_seek(_buf, buffer_seek_start, 0);
+	var _val_0;
+	if (buffer_read(_buf, buffer_bool)) {
+		var _tup_1 = array_create(2);
+		_tup_1[0] = buffer_read(_buf, buffer_s32);
+		_tup_1[1] = buffer_read(_buf, buffer_s32);
+		_val_0 = _tup_1;
+	} else _val_0 = undefined;
+	return _val_0;
+} else return undefined;
+
+#define steam_image_get_rgba
+/// steam_image_get_rgba(img:int, dest_buf:buffer)->bool
+var _buf = steam_gml_prepare_buffer(12);
+buffer_write(_buf, buffer_s32, argument0);
+var _val_0 = argument1;
+if (buffer_exists(_val_0)) {
+	buffer_write(_buf, buffer_u64, int64(buffer_get_address(_val_0)));
+	buffer_write(_buf, buffer_s32, buffer_get_size(_val_0));
+	buffer_write(_buf, buffer_s32, buffer_tell(_val_0));
+} else {
+	buffer_write(_buf, buffer_u64, 0);
+	buffer_write(_buf, buffer_s32, 0);
+	buffer_write(_buf, buffer_s32, 0);
+}
+return steam_image_get_rgba_raw(buffer_get_address(_buf));
+
+#define steam_image_get_bgra
+/// steam_image_get_bgra(img:int, dest_buf:buffer)->bool
+var _buf = steam_gml_prepare_buffer(12);
+buffer_write(_buf, buffer_s32, argument0);
+var _val_0 = argument1;
+if (buffer_exists(_val_0)) {
+	buffer_write(_buf, buffer_u64, int64(buffer_get_address(_val_0)));
+	buffer_write(_buf, buffer_s32, buffer_get_size(_val_0));
+	buffer_write(_buf, buffer_s32, buffer_tell(_val_0));
+} else {
+	buffer_write(_buf, buffer_u64, 0);
+	buffer_write(_buf, buffer_s32, 0);
+	buffer_write(_buf, buffer_s32, 0);
+}
+return steam_image_get_bgra_raw(buffer_get_address(_buf));
+

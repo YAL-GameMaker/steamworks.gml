@@ -34,3 +34,24 @@ if (l_data == undefined) {
 	l_data = buffer_get_address(l_data);
 }
 return steam_user_request_encrypted_app_ticket_raw(l_data, l_size);
+
+#define steam_image_create_sprite
+/// (img:steam_image_id)->sprite
+var l_img = argument0;
+var l_dims = steam_image_get_size(l_img);
+if (l_dims == undefined) return -1;
+var l_cols = buffer_create(l_dims[0] * l_dims[1] * 4, buffer_fixed, 1);
+var l_sprite, l_ok;
+// GMS >= 2:
+l_ok = steam_image_get_rgba(l_img, l_cols);
+/*/
+l_ok = steam_image_get_bgra(l_img, l_cols);
+//*/
+if (l_ok) {
+	var l_surf = surface_create(l_dims[0], l_dims[1]);
+	buffer_set_surface(l_cols, l_surf, 0);
+	l_sprite = sprite_create_from_surface(l_surf, 0, 0, l_dims[0], l_dims[1], false, false, 0, 0);
+	surface_free(l_surf);
+} else l_sprite = -1;
+buffer_delete(l_cols);
+return l_sprite;

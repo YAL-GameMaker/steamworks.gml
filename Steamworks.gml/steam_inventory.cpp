@@ -94,9 +94,9 @@ dllg SteamInventoryResult_t steam_inventory_add_promo_item(SteamItemDef_t item_d
 	} else return k_SteamInventoryResultInvalid;
 }
 
-dllg SteamInventoryResult_t steam_inventory_add_promo_items(gml_vector<SteamItemDef_t> item_defs) {
+dllg SteamInventoryResult_t steam_inventory_add_promo_items(vector<SteamItemDef_t> item_defs) {
 	SteamInventoryResult_t result;
-	if (API->AddPromoItems(&result, item_defs.array, item_defs.length)) {
+	if (API->AddPromoItems(&result, item_defs.data(), item_defs.size())) {
 		return result;
 	} else return k_SteamInventoryResultInvalid;
 }
@@ -116,37 +116,37 @@ struct steam_inventory_destroy_item_t {
 	SteamItemInstanceID_t item_id;
 	uint32 quantity;
 };
-dllg SteamInventoryResult_t steam_inventory_exchange_items(gml_vector<steam_inventory_create_item_t> create, gml_vector< steam_inventory_destroy_item_t> destroy) {
-	vector<SteamItemDef_t> create_defs; create_defs.resize(create.length);
-	vector<uint32> create_quantities; create_quantities.resize(create.length);
-	for (auto i = 0u; i < create.length; i++) {
+dllg SteamInventoryResult_t steam_inventory_exchange_items(vector<steam_inventory_create_item_t> create, vector< steam_inventory_destroy_item_t> destroy) {
+	vector<SteamItemDef_t> create_defs; create_defs.resize(create.size());
+	vector<uint32> create_quantities; create_quantities.resize(create.size());
+	for (auto i = 0u; i < create.size(); i++) {
 		create_defs[i] = create[i].item_def;
 		create_quantities[i] = create[i].quantity;
 	}
 	
-	vector<SteamItemInstanceID_t> destroy_items; destroy_items.resize(destroy.length);
-	vector<uint32> destroy_quantities; destroy_quantities.resize(destroy.length);
-	for (auto i = 0u; i < destroy.length; i++) {
+	vector<SteamItemInstanceID_t> destroy_items; destroy_items.resize(destroy.size());
+	vector<uint32> destroy_quantities; destroy_quantities.resize(destroy.size());
+	for (auto i = 0u; i < destroy.size(); i++) {
 		destroy_items[i] = destroy[i].item_id;
 		destroy_quantities[i] = destroy[i].quantity;
 	}
 	
 	SteamInventoryResult_t result;
-	if (API->ExchangeItems(&result, create_defs.data(), create_quantities.data(), create.length, destroy_items.data(), destroy_quantities.data(), destroy.length)) {
+	if (API->ExchangeItems(&result, create_defs.data(), create_quantities.data(), create.size(), destroy_items.data(), destroy_quantities.data(), destroy.size())) {
 		return result;
 	} else return k_SteamInventoryResultInvalid;
 }
 
-dllg SteamInventoryResult_t steam_inventory_generate_items(gml_vector<steam_inventory_create_item_t> create) {
-	vector<SteamItemDef_t> create_defs; create_defs.resize(create.length);
-	vector<uint32> create_quantities; create_quantities.resize(create.length);
-	for (auto i = 0u; i < create.length; i++) {
+dllg SteamInventoryResult_t steam_inventory_generate_items(vector<steam_inventory_create_item_t> create) {
+	vector<SteamItemDef_t> create_defs; create_defs.resize(create.size());
+	vector<uint32> create_quantities; create_quantities.resize(create.size());
+	for (auto i = 0u; i < create.size(); i++) {
 		create_defs[i] = create[i].item_def;
 		create_quantities[i] = create[i].quantity;
 	}
 
 	SteamInventoryResult_t result;
-	if (API->GenerateItems(&result, create_defs.data(), create_quantities.data(), create.length)) {
+	if (API->GenerateItems(&result, create_defs.data(), create_quantities.data(), create.size())) {
 		return result;
 	} else return k_SteamInventoryResultInvalid;
 }
@@ -210,9 +210,9 @@ dllg bool steam_inventory_request_eligible_promo_item_defs(uint64 user_id = 0) {
 }
 
 
-dllg SteamInventoryResult_t steam_inventory_get_items_by_id(gml_vector<SteamItemInstanceID_t> item_ids) {
+dllg SteamInventoryResult_t steam_inventory_get_items_by_id(vector<SteamItemInstanceID_t> item_ids) {
 	SteamInventoryResult_t result;
-	if (API->GetItemsByID(&result, item_ids.array, item_ids.length)) {
+	if (API->GetItemsByID(&result, item_ids.data(), item_ids.size())) {
 		return result;
 	} else return k_SteamInventoryResultInvalid;
 }

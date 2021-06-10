@@ -352,6 +352,30 @@
                     "value": "3"
                 },
                 {
+                    "id": "e1f1ecaa-3b35-e0e3-e8c2-cb7f4324994c",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_user_avatar_size_small",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "a0cba89f-83de-da93-6798-2cf07d2d4eb5",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_user_avatar_size_medium",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "a45a9e4f-c601-a2d7-6ae1-1f70ee293213",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_user_avatar_size_large",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
                     "id": "3c2c3177-e6e8-3d3e-8ea4-ad192abdbb61",
                     "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
@@ -843,6 +867,66 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "steam_get_friends_game_info_raw_post",
+                    "returnType": 2
+                },
+                {
+                    "id": "776a22d3-3b7a-2f97-5852-4f51116848ef",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_get_user_avatar_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_user_avatar_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "5d5f7a77-ddcd-ad25-092d-ee83f953847b",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_image_get_size_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_image_get_size_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "e1f1ecaa-d5db-0ee3-bd97-70c4fc35dd0c",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_image_get_rgba_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_image_get_rgba_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "43f89b42-04a9-4305-05ba-547c52aa39c2",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_image_get_bgra_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_image_get_bgra_raw",
                     "returnType": 2
                 },
                 {
@@ -2527,6 +2611,30 @@
                     "value": "3"
                 },
                 {
+                    "id": "5f7e42a2-170b-e72b-f71f-532a5eaa8393",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_user_avatar_size_small",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "bfb688d8-3367-2598-6e78-7d2ba2cda0de",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_user_avatar_size_medium",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "efb37a43-a0e0-d40a-8786-2839b049aede",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_user_avatar_size_large",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
                     "id": "7edd99d7-b76e-3427-f786-5b1871fd962d",
                     "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
@@ -3018,6 +3126,66 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "steam_get_friends_game_info_raw_post",
+                    "returnType": 2
+                },
+                {
+                    "id": "6e08c0eb-9354-a5ba-5843-7a2da4bd6bf1",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_get_user_avatar_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_user_avatar_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "4d560c47-505c-d24e-ea03-840896b33c26",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_image_get_size_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_image_get_size_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "f1e1cb1a-97f3-d5a4-b730-0e8296a9d123",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_image_get_rgba_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_image_get_rgba_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "7babf0f5-b386-8530-0d87-06c42e799aaf",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_image_get_bgra_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_image_get_bgra_raw",
                     "returnType": 2
                 },
                 {
@@ -4696,6 +4864,30 @@
                     "value": "3"
                 },
                 {
+                    "id": "c009b9d8-9f06-d0fa-644b-f1d49ee5203d",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_user_avatar_size_small",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "5ded4a6e-76b5-ac31-eb80-742018200783",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_user_avatar_size_medium",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "f29d7b26-0649-e125-fb00-1e8e78dad0a8",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_user_avatar_size_large",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
                     "id": "aad7f322-3ac4-1903-51c1-0b8eef6b3bfd",
                     "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
@@ -5187,6 +5379,66 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "steam_get_friends_game_info_raw_post",
+                    "returnType": 2
+                },
+                {
+                    "id": "bb8e1214-3e4c-46f9-50a3-7ab3ff5a2f8d",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_get_user_avatar_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_user_avatar_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "36f85201-4e5f-58ce-cb4e-853c885f9126",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_image_get_size_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_image_get_size_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "419c4b88-7898-1c3b-e38d-b40fdc7e59ac",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_image_get_rgba_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_image_get_rgba_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "0ae73f91-2095-5cb8-2064-e694eaca6ae2",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_image_get_bgra_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_image_get_bgra_raw",
                     "returnType": 2
                 },
                 {
@@ -6699,6 +6951,21 @@
                     "kind": 2,
                     "name": "steam_user_request_encrypted_app_ticket",
                     "returnType": 2
+                },
+                {
+                    "id": "96869bdd-e6e8-3d94-bd97-3480b7ca558b",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_image_create_sprite",
+                    "help": "steam_image_create_sprite(img:steam_image_id)->sprite",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_image_create_sprite",
+                    "returnType": 2
                 }
             ],
             "init": "",
@@ -7797,6 +8064,69 @@
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_get_friends_game_info",
+                    "returnType": 2
+                },
+                {
+                    "id": "0a550d43-46ff-8f79-c50e-0e3ada2c625c",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_get_user_avatar",
+                    "help": "steam_get_user_avatar(user_id:int, avatar_size:int)->int",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_get_user_avatar",
+                    "returnType": 2
+                },
+                {
+                    "id": "07eacfc5-8dce-43b0-2ed8-311f7c8c10bc",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_image_get_size",
+                    "help": "steam_image_get_size(img:int)->",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_image_get_size",
+                    "returnType": 2
+                },
+                {
+                    "id": "ac8028fe-7dfd-e953-08bc-2f14400bfa3a",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_image_get_rgba",
+                    "help": "steam_image_get_rgba(img:int, dest_buf:buffer)->bool",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_image_get_rgba",
+                    "returnType": 2
+                },
+                {
+                    "id": "b0bcfeec-f3ff-c500-5b48-66d883fd965b",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_image_get_bgra",
+                    "help": "steam_image_get_bgra(img:int, dest_buf:buffer)->bool",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_image_get_bgra",
                     "returnType": 2
                 }
             ],

@@ -47,6 +47,7 @@ std::string b64encode(const void* data, const size_t& len);
 #if (STEAMWORKS < 142)
 typedef uint64 SteamInventoryUpdateHandle_t;
 #endif
+typedef int steam_image_id;
 
 using std::map;
 using std::vector;
