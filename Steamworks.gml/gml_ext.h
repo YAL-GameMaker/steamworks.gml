@@ -5,6 +5,7 @@
 #endif
 #include <stdint.h>
 #include <cstring>
+#include <tuple>
 using namespace std;
 
 #define dllg /* tag */
