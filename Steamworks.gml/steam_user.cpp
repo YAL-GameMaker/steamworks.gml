@@ -131,9 +131,16 @@ dllg bool steam_image_get_bgra(steam_image_id img, gml_buffer dest_buf) {
 	if (SteamUtils()->GetImageRGBA(img, data, size)) {
 		auto cols = (uint32*)data;
 		auto count = (size_t)(size >> 2);
+		#if _WINDOWS
 		std::transform(std::execution::par_unseq, cols, cols + count, cols, [](uint32 col) {
 			return (col & 0xFF00FF00u) | ((col & 0xFF) << 16) | ((col & 0xFF0000) >> 16);
-		});
+			});
+		#else
+		for (size_t i = 0; i < count; i++) {
+			auto col = cols[i];
+			cols[i] = (col & 0xFF00FF00u) | ((col & 0xFF) << 16) | ((col & 0xFF0000) >> 16);
+		}
+		#endif
 		return true;
 	} else return false;
 }
