@@ -189,7 +189,7 @@ if (steam_inventory_get_all_items_raw(buffer_get_address(_buf))) {
 #define steam_inventory_request_eligible_promo_item_defs
 /// steam_inventory_request_eligible_promo_item_defs(user_id:int = 0)->bool
 var _buf = steam_gml_prepare_buffer(8);
-if (argument_count >= 0) {
+if (argument_count >= 1) {
 	buffer_write(_buf, buffer_bool, true);
 	buffer_write(_buf, buffer_u64, argument[0]);
 } else buffer_write(_buf, buffer_bool, false);
