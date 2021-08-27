@@ -42,7 +42,7 @@ var l_dims = steam_image_get_size(l_img);
 if (l_dims == undefined) return -1;
 var l_cols = buffer_create(l_dims[0] * l_dims[1] * 4, buffer_fixed, 1);
 var l_sprite, l_ok;
-// GMS >= 2:
+// GMS >= 2.0:
 l_ok = steam_image_get_rgba(l_img, l_cols);
 /*/
 l_ok = steam_image_get_bgra(l_img, l_cols);
