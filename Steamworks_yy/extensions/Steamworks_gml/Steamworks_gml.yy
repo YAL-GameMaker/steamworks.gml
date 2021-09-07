@@ -840,6 +840,21 @@
                     "returnType": 2
                 },
                 {
+                    "id": "f0e0fdbb-1917-c2f2-715b-61d5e9bd885d",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_lobby_set_joinable_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_set_joinable_raw",
+                    "returnType": 2
+                },
+                {
                     "id": "3c2c3177-6e60-b53e-8ea4-2591a81711c1",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -3099,6 +3114,21 @@
                     "returnType": 2
                 },
                 {
+                    "id": "859efdf9-6f12-256e-ba45-7b873e2f6c97",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_lobby_set_joinable_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_set_joinable_raw",
+                    "returnType": 2
+                },
+                {
                     "id": "c24b07d6-5a45-5d2d-4ae8-8661459fdcf5",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -5349,6 +5379,21 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "steam_inventory_transfer_item_quantity_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "3da55283-0afe-d5a0-29d0-0e5246a90120",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_lobby_set_joinable_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_set_joinable_raw",
                     "returnType": 2
                 },
                 {
@@ -8049,6 +8094,21 @@
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_inventory_transfer_item_quantity",
+                    "returnType": 2
+                },
+                {
+                    "id": "4cd14697-4b49-2f97-e3b4-7c603bf10afe",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_lobby_set_joinable",
+                    "help": "steam_lobby_set_joinable(joinable:bool)->bool",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_lobby_set_joinable",
                     "returnType": 2
                 },
                 {

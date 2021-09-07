@@ -622,6 +622,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			Returns whether successful.
 		</p></article></section></article></section></article></section><section><header id="steam_lobby"><a href="#steam_lobby" title="(permalink)">Lobby functions</a></header><article><p>
 	The following functions deal with the current lobby.
+	
 	</p><section><header id="steam_lobby_join_id"><a href="#steam_lobby_join_id" title="(permalink)">steam_lobby_join_id(lobby_id)</a></header><article><p>
 		Starts joining a lobby with the given ID.
 		</p><p>
@@ -690,12 +691,16 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</p><p>
 		If the lobby is not valid, returns ID 0.
 	</p></article></section><section><header id="steam_lobby_set_owner_id"><a href="#steam_lobby_set_owner_id" title="(permalink)">steam_lobby_set_owner_id(user_id)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
-		If you are a lobby owner, transfers the lobby ownership to the specified player,
+		If you are the lobby owner, transfers the lobby ownership to the specified player,
 		which must be in this same lobby.
 		</p><p>
 		Returns whether successful.
 		</p><p>
 		See remarks in <a href="https://partner.steamgames.com/doc/api/ISteamMatchmaking#SetLobbyOwner">SetLobbyOwner</a>
+	</p></article></section><section><header id="steam_lobby_set_joinable"><a href="#steam_lobby_set_joinable" title="(permalink)">steam_lobby_set_joinable(joinable)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamMatchmaking#SetLobbyJoinable">SetLobbyJoinable</a>.
+		</p><p>
+		If you are the lobby owner, changes whether the lobby can be joined - be it from lobby list or by invites.
 	</p></article></section><hr/><section><header id="steam_lobby_get_member_count"><a href="#steam_lobby_get_member_count" title="(permalink)">steam_lobby_get_member_count()&#8203;<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
 		Returns the number of users in the current lobby (including you).
 		</p><p>

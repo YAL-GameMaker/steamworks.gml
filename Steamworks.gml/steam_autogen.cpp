@@ -317,6 +317,14 @@ dllx double steam_inventory_transfer_item_quantity_raw(void* _ptr) {
 	return 1;
 }
 
+extern bool steam_lobby_set_joinable(bool joinable);
+dllx double steam_lobby_set_joinable_raw(void* _ptr) {
+	gml_istream _in(_ptr);
+	bool _arg_joinable;
+	_arg_joinable = _in.read<bool>();
+	return steam_lobby_set_joinable(_arg_joinable);
+}
+
 extern vector<steam_get_friends_game_info_t> steam_get_friends_game_info();
 static vector<steam_get_friends_game_info_t> steam_get_friends_game_info_raw_vec;
 dllx double steam_get_friends_game_info_raw(void* _ptr) {

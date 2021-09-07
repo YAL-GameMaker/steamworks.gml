@@ -44,6 +44,12 @@ dllx double steam_lobby_set_owner_id_raw(double user_id_high, double user_id_low
 	} else return false;
 }
 
+dllg bool steam_lobby_set_joinable(bool joinable) {
+	if (steam_lobby_current.IsValid()) {
+		return SteamMatchmaking()->SetLobbyJoinable(steam_lobby_current, joinable);
+	} else return false;
+}
+
 /// Returns the number of users in the lobby.
 dllx double steam_lobby_get_member_count() {
 	if (SteamMatchmaking()) {

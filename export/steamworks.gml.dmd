@@ -320,6 +320,9 @@ function ref_set(url) {
 }
 #[Lobby functions](steam_lobby) {
 	The following functions deal with the current lobby.
+	```exec
+	ref_set("https://partner.steamgames.com/doc/api/ISteamMatchmaking");
+	```
 	#[steam_lobby_join_id(lobby_id)]() {
 		Starts joining a lobby with the given ID.
 		
@@ -402,12 +405,17 @@ function ref_set(url) {
 		If the lobby is not valid, returns ID 0.
 	}
 	#[steam_lobby_set_owner_id(user_id)->bool]() {
-		If you are a lobby owner, transfers the lobby ownership to the specified player,
+		If you are the lobby owner, transfers the lobby ownership to the specified player,
 		which must be in this same lobby.
 		
 		Returns whether successful.
 		
 		See remarks in [SetLobbyOwner](https://partner.steamgames.com/doc/api/ISteamMatchmaking#SetLobbyOwner)
+	}
+	#[steam_lobby_set_joinable(joinable)->bool]() {
+		${wrap("SetLobbyJoinable")}
+		
+		If you are the lobby owner, changes whether the lobby can be joined - be it from lobby list or by invites.
 	}
 	---
 	#[steam_lobby_get_member_count()->int]() {

@@ -363,6 +363,17 @@
           </args>
         </function>
         <function>
+          <name>steam_lobby_set_joinable_raw</name>
+          <externalName>steam_lobby_set_joinable_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_get_friends_game_info_raw</name>
           <externalName>steam_get_friends_game_info_raw</externalName>
           <kind>11</kind>
@@ -1868,6 +1879,17 @@
         <function>
           <name>steam_inventory_transfer_item_quantity_raw</name>
           <externalName>steam_inventory_transfer_item_quantity_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_set_joinable_raw</name>
+          <externalName>steam_lobby_set_joinable_raw</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -3930,6 +3952,17 @@
           <args>
             <arg>2</arg>
             <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_set_joinable</name>
+          <externalName>steam_lobby_set_joinable</externalName>
+          <kind>2</kind>
+          <help>steam_lobby_set_joinable(joinable:bool)-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
             <arg>2</arg>
           </args>
         </function>

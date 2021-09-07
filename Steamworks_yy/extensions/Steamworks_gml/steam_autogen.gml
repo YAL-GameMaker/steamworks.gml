@@ -321,6 +321,12 @@ if (steam_inventory_transfer_item_quantity_raw(buffer_get_address(_buf))) {
 	return buffer_read(_buf, buffer_s32);
 } else return undefined;
 
+#define steam_lobby_set_joinable
+/// steam_lobby_set_joinable(joinable:bool)->bool
+var _buf = steam_gml_prepare_buffer(1);
+buffer_write(_buf, buffer_bool, argument0);
+return steam_lobby_set_joinable_raw(buffer_get_address(_buf));
+
 #define steam_get_friends_game_info
 /// steam_get_friends_game_info()->array<any>
 var _buf = steam_gml_prepare_buffer(8);
