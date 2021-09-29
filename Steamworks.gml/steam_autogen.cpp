@@ -24,7 +24,13 @@ struct steam_inventory_get_item_prices_t {
 	SteamItemDef_t item_def;
 	uint64 price;
 };
-// from steam_user.cpp:43:
+// from steam_lobby_chat.cpp:4:
+struct steam_lobby_message {
+	uint8_t* data;
+	size_t size;
+	int lifetime;
+};
+// from steam_user.cpp:42:
 struct steam_get_friends_game_info_t {
 	uint64 friendId;
 	uint32 gameId;
@@ -317,6 +323,34 @@ dllx double steam_inventory_transfer_item_quantity_raw(void* _ptr) {
 	return 1;
 }
 
+extern bool steam_lobby_send_chat_message(const char* text);
+dllx double steam_lobby_send_chat_message_raw(void* _ptr, const char* _arg_text) {
+	gml_istream _in(_ptr);
+	return steam_lobby_send_chat_message(_arg_text);
+}
+
+extern double steam_lobby_send_chat_message_buffer(gml_buffer buf, int size);
+dllx double steam_lobby_send_chat_message_buffer_raw(void* _ptr) {
+	gml_istream _in(_ptr);
+	gml_buffer _arg_buf;
+	_arg_buf = _in.read_gml_buffer();
+	int _arg_size;
+	if (_in.read<bool>()) {
+		_arg_size = _in.read<int>();
+	} else _arg_size = -1;
+	return steam_lobby_send_chat_message_buffer(_arg_buf, _arg_size);
+}
+
+extern bool steam_lobby_get_chat_message_data(int64_t message_index, gml_buffer buf);
+dllx double steam_lobby_get_chat_message_data_raw(void* _ptr) {
+	gml_istream _in(_ptr);
+	int64_t _arg_message_index;
+	_arg_message_index = _in.read<int64_t>();
+	gml_buffer _arg_buf;
+	_arg_buf = _in.read_gml_buffer();
+	return steam_lobby_get_chat_message_data(_arg_message_index, _arg_buf);
+}
+
 extern bool steam_lobby_set_joinable(bool joinable);
 dllx double steam_lobby_set_joinable_raw(void* _ptr) {
 	gml_istream _in(_ptr);
@@ -336,6 +370,14 @@ dllx double steam_get_friends_game_info_raw_post(void* _ptr) {
 	gml_ostream _out(_ptr);
 	_out.write_vector<steam_get_friends_game_info_t>(steam_get_friends_game_info_raw_vec);
 	return 1;
+}
+
+extern const char* steam_get_user_persona_name_sync(uint64_t user_id);
+dllx const char* steam_get_user_persona_name_sync_raw(void* _ptr) {
+	gml_istream _in(_ptr);
+	uint64_t _arg_user_id;
+	_arg_user_id = _in.read<uint64_t>();
+	return steam_get_user_persona_name_sync(_arg_user_id);
 }
 
 extern steam_image_id steam_get_user_avatar(uint64_t user_id, int avatar_size);

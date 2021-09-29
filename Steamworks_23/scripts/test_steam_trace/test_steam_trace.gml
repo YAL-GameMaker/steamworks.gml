@@ -1,20 +1,16 @@
 function test_steam_trace() {
-	var s = "{ ";
-	var o = async_load;
-	var n = ds_map_size(o);
-	var k = ds_map_find_first(o);
-	for (var i = 0; i < n; i += 1) {
-		if (i > 0) s += ", ";
-		s += string(k) + ": ";
-		var v = o[?k];
-		if (is_string(v)) {
-			s += "\"" + string(v) + "\"";
-		} else s += string(v);
-		k = ds_map_find_next(o, k);
+	var _data = json_parse(json_encode(async_load));
+	var _type = _data[$"event_type"];
+	if (_type == undefined) return;
+	var _out = _type + ": { ";
+	variable_struct_remove(_data, "event_type");
+	var _keys = variable_struct_get_names(_data);
+	var n = array_length(_keys);
+	for (var i = 0; i < n; i++) {
+		var _key = _keys[i];
+		if (i > 0) _out += ", ";
+		_out += _key + ": " + json_stringify(_data[$_key]);
 	}
-	s += " }";
-	trace("steam_event " + s);
-
-
-
+	_out += " }";
+	trace(_out);
 }

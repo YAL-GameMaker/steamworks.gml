@@ -216,6 +216,54 @@
                     "value": "27"
                 },
                 {
+                    "id": "69796422-a2ac-796b-5379-61d5e335bb64",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_max_chat_message_size",
+                    "hidden": false,
+                    "value": "4096"
+                },
+                {
+                    "id": "0f1f0244-4c42-970d-8ea4-3480be605582",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_member_change_entered",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "d843208e-1a47-da93-6576-4a94afc3a097",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_member_change_left",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "c25a07d6-5d26-5d2a-240c-c23177b8bfcd",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_member_change_disconnected",
+                    "hidden": false,
+                    "value": "4"
+                },
+                {
+                    "id": "93e7996a-311f-d0a1-7ab4-97da0a4a07b8",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_member_change_kicked",
+                    "hidden": false,
+                    "value": "8"
+                },
+                {
+                    "id": "9e67f8cc-eefe-03cb-e529-22a36bbd6ad5",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_member_change_banned",
+                    "hidden": false,
+                    "value": "16"
+                },
+                {
                     "id": "a2363bf1-780a-47d1-8035-52df62586ba5",
                     "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
@@ -840,6 +888,52 @@
                     "returnType": 2
                 },
                 {
+                    "id": "2d3d2066-7f71-a42f-bd97-16a297e8cc10",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        1
+                    ],
+                    "externalName": "steam_lobby_send_chat_message_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_send_chat_message_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "a5b5a8ee-e6e8-3da7-9fb5-2591a4ca4498",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_lobby_send_chat_message_buffer_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_send_chat_message_buffer_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "96869bdd-e6e8-3d94-240e-ad192d6066bb",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_lobby_get_chat_message_data_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_get_chat_message_data_raw",
+                    "returnType": 2
+                },
+                {
                     "id": "f0e0fdbb-1917-c2f2-715b-61d5e9bd885d",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -883,6 +977,21 @@
                     "kind": 11,
                     "name": "steam_get_friends_game_info_raw_post",
                     "returnType": 2
+                },
+                {
+                    "id": "b4a4b9ff-919f-4ab6-062c-da6e5e0600d9",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_get_user_persona_name_sync_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_user_persona_name_sync_raw",
+                    "returnType": 1
                 },
                 {
                     "id": "776a22d3-3b7a-2f97-5852-4f51116848ef",
@@ -1226,6 +1335,36 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "RegisterCallbacks",
+                    "returnType": 2
+                },
+                {
+                    "id": "686907d6-57b4-4c31-ad91-1fd41a6669a4",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_lobby_get_chat_message_text",
+                    "help": "steam_lobby_get_chat_message_text(message_index)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_lobby_get_chat_message_text",
+                    "returnType": 1
+                },
+                {
+                    "id": "784320bd-11fc-5210-5c32-3652f0bf6c86",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_lobby_get_chat_message_size",
+                    "help": "steam_lobby_get_chat_message_size(message_index)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_lobby_get_chat_message_size",
                     "returnType": 2
                 },
                 {
@@ -2490,6 +2629,54 @@
                     "value": "27"
                 },
                 {
+                    "id": "38432006-2c21-3478-d667-e5635eb18297",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_max_chat_message_size",
+                    "hidden": false,
+                    "value": "4096"
+                },
+                {
+                    "id": "f55c7580-3793-e7c8-5358-2bb9e5f8b1e2",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_member_change_entered",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "ab34c925-86fd-25dd-5d61-d6e431630186",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_member_change_left",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "d712a2d5-6667-b21e-0ed8-692626f2d5a9",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_member_change_disconnected",
+                    "hidden": false,
+                    "value": "4"
+                },
+                {
+                    "id": "57fb6a72-0837-1e03-52e3-7ab1e96fd515",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_member_change_kicked",
+                    "hidden": false,
+                    "value": "8"
+                },
+                {
+                    "id": "037dd806-de74-782d-942e-e731afbf6bfe",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_member_change_banned",
+                    "hidden": false,
+                    "value": "16"
+                },
+                {
                     "id": "0b66689d-8f4c-407d-ae8c-138541c0fe0e",
                     "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
@@ -3114,6 +3301,52 @@
                     "returnType": 2
                 },
                 {
+                    "id": "e0cba817-91fc-703a-f7cd-e30697f3a00e",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        1
+                    ],
+                    "externalName": "steam_lobby_send_chat_message_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_send_chat_message_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "d3c39e4f-cf0e-6e12-a624-4ab3ee2cf129",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_lobby_send_chat_message_buffer_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_send_chat_message_buffer_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "0331a1e8-2198-58ff-2f84-fa0365869de7",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_lobby_get_chat_message_data_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_get_chat_message_data_raw",
+                    "returnType": 2
+                },
+                {
                     "id": "859efdf9-6f12-256e-ba45-7b873e2f6c97",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -3157,6 +3390,21 @@
                     "kind": 11,
                     "name": "steam_get_friends_game_info_raw_post",
                     "returnType": 2
+                },
+                {
+                    "id": "0e25468e-20ed-1656-3eba-bcfc4a35c686",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_get_user_persona_name_sync_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_user_persona_name_sync_raw",
+                    "returnType": 1
                 },
                 {
                     "id": "6e08c0eb-9354-a5ba-5843-7a2da4bd6bf1",
@@ -3500,6 +3748,36 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "RegisterCallbacks",
+                    "returnType": 2
+                },
+                {
+                    "id": "283a8208-b581-f6fb-5ac5-fc5377f1b226",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_lobby_get_chat_message_text",
+                    "help": "steam_lobby_get_chat_message_text(message_index)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_lobby_get_chat_message_text",
+                    "returnType": 1
+                },
+                {
+                    "id": "0d57f700-1aba-7c3f-ab12-a1b8e194f333",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_lobby_get_chat_message_size",
+                    "help": "steam_lobby_get_chat_message_size(message_index)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_lobby_get_chat_message_size",
                     "returnType": 2
                 },
                 {
@@ -4758,6 +5036,54 @@
                     "value": "27"
                 },
                 {
+                    "id": "1f78ad7c-ff89-1966-6bfa-a4da72ed6749",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_max_chat_message_size",
+                    "hidden": false,
+                    "value": "4096"
+                },
+                {
+                    "id": "f00b12fa-c3c6-4784-8843-f13fbb7c316c",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_member_change_entered",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "0837f5b3-a9de-1719-f8b0-f8f718c54855",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_member_change_left",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "9164fff4-40e4-1435-2f69-b5480596a5c4",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_member_change_disconnected",
+                    "hidden": false,
+                    "value": "4"
+                },
+                {
+                    "id": "6104857d-f56d-e686-1bd3-d5322ad2983d",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_member_change_kicked",
+                    "hidden": false,
+                    "value": "8"
+                },
+                {
+                    "id": "7c84a605-713b-1c43-6711-8e1b85f9cbf8",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "steam_lobby_member_change_banned",
+                    "hidden": false,
+                    "value": "16"
+                },
+                {
                     "id": "704c5309-9091-4536-ad49-4c083f3e324b",
                     "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
@@ -5382,6 +5708,52 @@
                     "returnType": 2
                 },
                 {
+                    "id": "f1f0bc6d-ed3c-e69a-3516-68816599b47e",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        1
+                    ],
+                    "externalName": "steam_lobby_send_chat_message_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_send_chat_message_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "f80d5155-ccdc-23cb-ee5c-ccdfa5ac7bf5",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_lobby_send_chat_message_buffer_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_send_chat_message_buffer_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "ec9a7e7a-f894-43cf-5d26-6e0eb049640e",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_lobby_get_chat_message_data_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_lobby_get_chat_message_data_raw",
+                    "returnType": 2
+                },
+                {
                     "id": "3da55283-0afe-d5a0-29d0-0e5246a90120",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -5425,6 +5797,21 @@
                     "kind": 11,
                     "name": "steam_get_friends_game_info_raw_post",
                     "returnType": 2
+                },
+                {
+                    "id": "4ac3f829-ac55-5d24-a378-86172b71447c",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "steam_get_user_persona_name_sync_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_get_user_persona_name_sync_raw",
+                    "returnType": 1
                 },
                 {
                     "id": "bb8e1214-3e4c-46f9-50a3-7ab3ff5a2f8d",
@@ -5768,6 +6155,36 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "RegisterCallbacks",
+                    "returnType": 2
+                },
+                {
+                    "id": "cab86a72-0296-3c2b-e846-2fdc07845622",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_lobby_get_chat_message_text",
+                    "help": "steam_lobby_get_chat_message_text(message_index)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_lobby_get_chat_message_text",
+                    "returnType": 1
+                },
+                {
+                    "id": "34bbe35d-4b92-7eb8-b2ce-a92b76e8a57b",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_lobby_get_chat_message_size",
+                    "help": "steam_lobby_get_chat_message_size(message_index)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "steam_lobby_get_chat_message_size",
                     "returnType": 2
                 },
                 {
@@ -7727,7 +8144,7 @@
                         2
                     ],
                     "externalName": "steam_inventory_result_get_item_property",
-                    "help": "steam_inventory_result_get_item_property(inv_result:steam_inventory_result, item_index:int, prop_name:int)->int",
+                    "help": "steam_inventory_result_get_item_property(inv_result:steam_inventory_result, item_index:int, prop_name:string)->string",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_inventory_result_get_item_property",
@@ -7927,7 +8344,7 @@
                         2
                     ],
                     "externalName": "steam_inventory_set_property_bool",
-                    "help": "steam_inventory_set_property_bool(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:bool)->bool",
+                    "help": "steam_inventory_set_property_bool(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:string, value:bool)->bool",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_inventory_set_property_bool",
@@ -7945,7 +8362,7 @@
                         2
                     ],
                     "externalName": "steam_inventory_set_property_float",
-                    "help": "steam_inventory_set_property_float(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:number)->bool",
+                    "help": "steam_inventory_set_property_float(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:string, value:number)->bool",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_inventory_set_property_float",
@@ -7963,7 +8380,7 @@
                         2
                     ],
                     "externalName": "steam_inventory_set_property_int",
-                    "help": "steam_inventory_set_property_int(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:int)->bool",
+                    "help": "steam_inventory_set_property_int(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:string, value:int)->bool",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_inventory_set_property_int",
@@ -7981,7 +8398,7 @@
                         2
                     ],
                     "externalName": "steam_inventory_set_property_string",
-                    "help": "steam_inventory_set_property_string(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:int)->bool",
+                    "help": "steam_inventory_set_property_string(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:string, value:string)->bool",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_inventory_set_property_string",
@@ -7998,7 +8415,7 @@
                         2
                     ],
                     "externalName": "steam_inventory_remove_property",
-                    "help": "steam_inventory_remove_property(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int)->bool",
+                    "help": "steam_inventory_remove_property(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:string)->bool",
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_inventory_remove_property",
@@ -8097,6 +8514,52 @@
                     "returnType": 2
                 },
                 {
+                    "id": "a8ce569e-64f9-9477-b6c0-be4802d3c4a2",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_lobby_send_chat_message",
+                    "help": "steam_lobby_send_chat_message(text:string)->bool ",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_lobby_send_chat_message",
+                    "returnType": 2
+                },
+                {
+                    "id": "6ea688a6-dbd5-ad6e-d5f5-56882616c11b",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": -1,
+                    "args": [
+                        
+                    ],
+                    "externalName": "steam_lobby_send_chat_message_buffer",
+                    "help": "steam_lobby_send_chat_message_buffer(buf:buffer, size:int = -1)->number",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_lobby_send_chat_message_buffer",
+                    "returnType": 2
+                },
+                {
+                    "id": "7d4faf7d-5dcb-5ad9-6009-9bf26ab550b6",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        2,
+                        2
+                    ],
+                    "externalName": "steam_lobby_get_chat_message_data",
+                    "help": "steam_lobby_get_chat_message_data(message_index:int, buf:buffer)->bool",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_lobby_get_chat_message_data",
+                    "returnType": 2
+                },
+                {
                     "id": "4cd14697-4b49-2f97-e3b4-7c603bf10afe",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -8124,6 +8587,21 @@
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_get_friends_game_info",
+                    "returnType": 2
+                },
+                {
+                    "id": "893e81ec-3e40-9496-94f5-939dcd5b98f2",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_get_user_persona_name_sync",
+                    "help": "steam_get_user_persona_name_sync(user_id:int)->string",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_get_user_persona_name_sync",
                     "returnType": 2
                 },
                 {

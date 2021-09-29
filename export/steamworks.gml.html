@@ -428,7 +428,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			If you need to port existing code utilizing IP+port combinations, you can use bit math to assume lower 32 bits to be the IP and higher 32 bits to be the port, for example.
 		</p></li><li><p>	Steam handles sending/receiving and async events by itself, queuing the results.
 			</p><p>
-			This means that you generally should call the extension's update-function (<a href="#steam_net_update">steam_net_update</a>) every step while in lobby and at least once per second while not in lobby, or you may later deal with an avalanche of (outdated) events once finally calling it again.
+			This means that you generally should call the extension's update-function (<a href="#steam_gml_update">steam_gml_update</a>) every step while in lobby and at least once per second while not in lobby, or you may later deal with an avalanche of (outdated) events once finally calling it again.
 			</p><p>
 			This schema also introduces an interesting thing where if your game crashed without handling the remaining events/packets, you may receive them after restarting the game.
 		</p></li><li><p>	Steam handles port forwarding by itself, meaning that it'll generally find any open port if there is one, and use a wide variety of workarounds to connect when there isn't one.
@@ -455,7 +455,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</p><p>
 		Can be used to timely inform the player that their copy might be broken instead of having them wonder why things are not working.
 		</p><pre class="gmlmd">
-<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="uf">steam_gml_check_version</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
+<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><a class="sf" href="#steam_gml_check_version">steam_gml_check_version</a><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
     <span class="sf">show_message</span><span class="op">(</span><span class="st">"oh no"</span><span class="op">)</span><span class="op">;</span>
 <span class="cb">}</span>
 </pre></article></section><section><header id="steam_gml_update"><a href="#steam_gml_update" title="(permalink)">steam_gml_update()</a></header><article><p>
@@ -485,69 +485,182 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		Can be disabled to avoid changing code when migrating from GMS2.2 to GMS2.3+.
 	</p></article></section></article></section><section><header id="steam_async"><a href="#steam_async" title="(permalink)">Async events</a></header><article><p>
 	As result of a number of function calls, the extension dispatches asynchronous events.
+	
 	</p><p>
-	All of these events have <tt>async_load[?"success"]</tt> indicating whether the async action succeeded (true or false) and <tt>async_load[?"result"]</tt> containing the status code (descriptions can be found in Steam API documentation);
-	</p><p>
+	
+	Where appropriate,
+	these events have <tt>async_load[?"success"]</tt> indicating whether the async action succeeded (true or false)
+	and <tt>async_load[?"result"]</tt> containing the status code
+	(see <a href="https://partner.steamgames.com/doc/api/steam_api#EResult">EResult</a>).
+	</p><section><header id="steam_async_ids"><a href="#steam_async_ids" title="(permalink)">A note on IDs</a></header><article><p>
+		For fields named <tt>some_id_string</tt>,
+		the field contains a 64-bit integer converted to a string,
+		which you may pass to <tt>int64</tt> to make an actual 64-bit integer out of it;
+		there will also be <tt>some_id_high</tt> and <tt>some_id_low</tt> representing the 32-bit
+		halves of it, which you can pass to <a href="#steam_id_create">steam_id_create</a> or combine yourself via bit operations.
+		</p><p>
+		This is due to GameMaker not allowing to include 64-bit integers in async events
+	</p></article></section><p>
 	These can be caught by adding a Async - Steam event, and checking whether <tt>async_load[?"event_type"]</tt> is one of following names (as strings):
 	</p><section><header id="lobby_list"><a href="#lobby_list" title="(permalink)">lobby_list</a></header><article><p>
 		Triggers after requesting a list of public lobbies via <a href="#steam_lobby_list_request">steam_lobby_list_request</a>.
 		</p><p>
 		It is not required to do anything in response to this event.
-		</p><p>
-		<tt>async_load[?"lobby_count"]</tt> contains the number of matching lobbies (0 in case of network failure).
-		</p><p>
-		Use <a href="#steam_lobby_list">matchmaking functions</a> to retrieve other information.
-	</p></article></section><section><header id="lobby_joined"><a href="#lobby_joined" title="(permalink)">lobby_joined</a></header><article><p>
-		Triggers after requesting to join a lobby. This can fail if:
 		</p><ul>
-		<li>	There's no connection to Steam
-		</li><li>	Lobby is full (no available player slots left)
-		</li><li>	Lobby was destroyed before you requested to join it
+			<li> <tt>async_load[?"success"]</tt>, <tt>async_load[?"result"]</tt><br/>
+			Generally lobby list request can only fail if there's no connection.
+			</li><li> <tt>async_load[?"lobby_count"]</tt>: number of lobbies found.<br/>
+			(same as <a href="#steam_lobby_list_get_count">steam_lobby_list_get_count</a>)
 		</li></ul><p>
-		When successful, this is a good place to establish connection to lobby's members.
-	</p></article></section><section><header id="lobby_created"><a href="#lobby_created" title="(permalink)">lobby_created</a></header><article><p>
-		Fires after requesting to create a lobby. This can fail if:
+		Use <a href="#steam_lobby_list">matchmaking functions</a> to retrieve further information.
+	</p></article></section><section><header id="lobby_joined"><a href="#lobby_joined" title="(permalink)">lobby_joined</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamMatchmaking#LobbyEnter_t">LobbyEnter_t</a>.
+		</p><p>
+		Triggers after requesting to join a lobby.
 		</p><ul>
-		<li>	There's no connection to Steam
-		</li><li>	You are trying to create a public lobby for a game that does not have matchmaking API enabled
-		(is off by default for free games - request permissions via support forum).
+			<li><p> <tt>async_load[?"success"]</tt>, <tt>async_load[?"result"]</tt><br/>
+			An attempt to join a lobby can fail on a few occasions, such as: </p><ul>
+				<li> Lack of internet
+				</li><li> Lack of connection to Steam (inc. maintenance)
+				</li><li> Lobby being full
+				</li><li> Lobby getting auto-destroyed by the time you requested to join it<br/>
+				(a thing to be aware of when letting the user pick a lobby to join)
+			</li></ul></li><li> <tt>async_load[?"lobby_id_string"]</tt><sup><a href="#steam_async_ids">[id]</a></sup>: ID of lobby joined, if successful.<br/>
+			(equivalent to <a href="#steam_lobby_get_lobby_id">steam_lobby_get_lobby_id</a>)
+		</li></ul><p>
+		When successful, this is a good place to establish connection to lobby members.
+	</p></article></section><section><header id="lobby_created"><a href="#lobby_created" title="(permalink)">lobby_created</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamMatchmaking#LobbyCreated_t">LobbyCreated_t</a>.
+		</p><p>
+		Triggers after requesting to create a lobby.
+		</p><ul>
+			<li><p> <tt>async_load[?"success"]</tt>, <tt>async_load[?"result"]</tt><br/>
+			Can fail if: </p><ul>
+				<li> Lack of connection to Steam (see above)
+				</li><li> Matchmaking not being enabled for App ID.<br/>
+				If you have marked your App ID as free when creating it, matchmaking will be disabled
+				and you'll need to request matchmaking permissions from Steam Support.
+			</li></ul></li><li> <tt>async_load[?"lobby_id_string"]</tt><sup><a href="#steam_async_ids">[id]</a></sup>: ID of lobby created, if successful.<br/>
+			(equivalent to <a href="#steam_lobby_get_lobby_id">steam_lobby_get_lobby_id</a>)
 		</li></ul><p>
 		When successful, this is a good place to <a href="#steam_lobby_set_data">set up lobby data</a>.
 	</p></article></section><section><header id="lobby_join_requested"><a href="#lobby_join_requested" title="(permalink)">lobby_join_requested</a></header><article><p>
-		Triggers when the local player accepts an invitation via Steam overlay.
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamFriends#GameLobbyJoinRequested_t">GameLobbyJoinRequested_t</a>.
 		</p><p>
-		This event has several fields:
+		Triggers when the local player accepts an invitation via Steam overlay.
 		</p><ul>
-		<li>	<tt>async_load[?"lobby_id_high"]</tt>, <tt>async_load[?"lobby_id_low"]</tt> (combine via <a href="#steam_id_create">steam_id_create</a>) indicate the ID of the lobby to join (via <a href="#steam_lobby_join_id">steam_lobby_join_id</a>).
-		</li><li>	<tt>async_load[?"friend_id_high"]</tt>, <tt>async_load[?"friend_id_low"]</tt> (combine via <a href="#steam_id_create">steam_id_create</a>) indicate the ID of the user that the invitation was from (in case you want to display "joining X's lobby" while loading).
+			<li> <tt>async_load[?"lobby_id_string"]</tt><sup><a href="#steam_async_ids">[id]</a></sup>: ID of lobby to be joined<br/>
+			(via <a href="#steam_lobby_join_id">steam_lobby_join_id</a>)
+			</li><li> <tt>async_load[?"friend_id_string"]</tt><sup><a href="#steam_async_ids">[id]</a></sup>: ID of user that sent the invitation<br/>
+			(in case you want to display "joining X's lobby" while loading).
 		</li></ul><p>
 		Is commonly used as following:
 		</p><pre class="gmlmd">
 <span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"lobby_join_requested"</span><span class="op">)</span> <span class="cb">{</span>
-    <span class="uf">steam_lobby_join_id</span><span class="op">(</span><span class="uf">steam_id_create</span><span class="op">(</span>
+    <a class="sf" href="#steam_lobby_join_id">steam_lobby_join_id</a><span class="op">(</span><a class="sf" href="#steam_id_create">steam_id_create</a><span class="op">(</span>
         <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"lobby_id_high"</span><span class="op">]</span><span class="op">,</span>
         <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"lobby_id_low"</span><span class="op">]</span>
     <span class="op">)</span><span class="op">)</span><span class="op">;</span>
 <span class="cb">}</span>
+</pre></article></section><section><header id="lobby_chat_update"><a href="#lobby_chat_update" title="(permalink)">lobby_chat_update</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamMatchmaking#LobbyChatUpdate_t">LobbyChatUpdate_t</a>.
+		</p><p>
+		Triggers upon arrival/departures of players in the lobby.
+		</p><ul>
+			<li> <tt>async_load[?"lobby_id_string"]</tt><sup><a href="#steam_async_ids">[id]</a></sup>: ID of lobby in question.
+			</li><li> <tt>async_load[?"user_id_string"]</tt><sup><a href="#steam_async_ids">[id]</a></sup>: ID of user that things are happening to.
+			</li><li> <tt>async_load[?"change_id_string"]</tt><sup><a href="#steam_async_ids">[id]</a></sup>: ID of user that's authoring the change.
+			</li><li><p> <tt>async_load[?"change_flags"]</tt>: bit flags for whatever's happening.<br/>
+			These can be the following: </p><ul>
+				<li> <tt>steam_lobby_member_change_entered</tt>
+				</li><li> <tt>steam_lobby_member_change_left</tt>
+				</li><li> <tt>steam_lobby_member_change_disconnected</tt>
+				</li><li> <tt>steam_lobby_member_change_kicked</tt>
+				</li><li> <tt>steam_lobby_member_change_banned</tt>
+			</li></ul><p>
+			You may reasonably remark that there are no functions to kick/ban people,
+			and, well, there aren't - that's just
+			<a href="https://partner.steamgames.com/doc/api/ISteamMatchmaking#LobbyKicked_t">how Steam API is</a>.
+			<a href="http://web.archive.org/web/20170920175315/https://partner.steamgames.com/doc/api/ISteamMatchmaking#LobbyKicked_t">Always has been</a>.
+		</p></li></ul></article></section><section><header id="lobby_chat_message"><a href="#lobby_chat_message" title="(permalink)">lobby_chat_message</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamMatchmaking#LobbyChatMsg_t">LobbyChatMsg_t</a>.
+		</p><p>
+		Triggers as result of calling <a href="#steam_lobby_send_chat_message">steam_lobby_send_chat_message</a> or <a href="#steam_lobby_send_chat_message_buffer">steam_lobby_send_chat_message_buffer</a>.
+		</p><ul>
+			<li> <tt>async_load[?"lobby_id_string"]</tt><sup><a href="#steam_async_ids">[id]</a></sup>: ID of lobby in question.
+			</li><li> <tt>async_load[?"user_id_string"]</tt><sup><a href="#steam_async_ids">[id]</a></sup>: ID of user that sent the message.
+			</li><li> <tt>async_load[?"entry_type"]</tt>: a type from <a href="https://partner.steamgames.com/doc/api/steam_api#EChatEntryType">EChatEntryType</a>.<br/>
+			There is no evidence that this can be anything other than "normal message".
+			</li><li> <tt>async_load[?"message_index"]</tt>: message index.<br/>
+			(for use with <a href="#steam_lobby_get_chat_message_text">steam_lobby_get_chat_message_text</a> or <a href="#steam_lobby_get_chat_message_data">steam_lobby_get_chat_message_data</a>)
+			Note that chat messages expire after 3 calls to <tt>steam_gml_update</tt>,
+			so you should not be storing this for later use.
+			</li><li> <tt>async_load[?"message_size"]</tt>: size of received message, in bytes.
+		</li></ul><p>
+		Example:
+		</p><pre class="gmlmd">
+<span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"lobby_chat_message"</span><span class="op">)</span> <span class="cb">{</span>
+    <span class="kw">var</span> <span class="lv">_msg_index</span> <span class="op">=</span> <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"message_index"</span><span class="op">]</span><span class="op">;</span>
+    <span class="kw">var</span> <span class="lv">_from_id</span> <span class="op">=</span> <span class="sf">int64</span><span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"user_id_string"</span><span class="op">]</span><span class="op">)</span><span class="op">;</span>
+    <span class="kw">var</span> <span class="lv">_from_name</span> <span class="op">=</span> <a class="sf" href="#steam_get_user_persona_name_sync">steam_get_user_persona_name_sync</a><span class="op">(</span><span class="lv">_from_id</span><span class="op">)</span><span class="op">;</span>
+    <span class="kw">var</span> <span class="lv">_text</span> <span class="op">=</span> <a class="sf" href="#steam_lobby_get_chat_message_text">steam_lobby_get_chat_message_text</a><span class="op">(</span><span class="lv">_msg_index</span><span class="op">)</span><span class="op">;</span>
+    <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"A chat message from `"</span> <span class="op">+</span> <span class="lv">_from_name</span> <span class="op">+</span> <span class="st">"`: "</span> <span class="op">+</span> <span class="lv">_text</span><span class="op">)</span><span class="op">;</span>
+<span class="cb">}</span>
 </pre></article></section><section><header id="p2p_session_request"><a href="#p2p_session_request" title="(permalink)">p2p_session_request</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamNetworking#P2PSessionRequest_t">P2PSessionRequest_t</a>.
+		</p><p>
 		If you have opted to handle P2P sessions yourself
-		(by calling <a href="#steam_net_set_auto_accept_p2p_sessions">steam_net_set_auto_accept_p2p_sessions</a>(false)),
+		(via <a href="#steam_net_set_auto_accept_p2p_sessions">steam_net_set_auto_accept_p2p_sessions</a>),
 		you will want to handle this event for anyone to be able to connect to you.
+		</p><ul>
+			<li> <tt>async_load[?"user_id_string"]</tt><sup><a href="#steam_async_ids">[id]</a></sup>: ID of user attempting the connection.
+		</li></ul><p>
+		Example (auto-accept anyone):
 		</p><pre class="gmlmd">
 <span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"lobby_join_requested"</span><span class="op">)</span> <span class="cb">{</span>
-    <span class="uf">steam_net_accept_p2p_session</span><span class="op">(</span><span class="uf">steam_id_create</span><span class="op">(</span>
+    <span class="kw">var</span> <span class="lv">user_id</span> <span class="op">=</span> <a class="sf" href="#steam_id_create">steam_id_create</a><span class="op">(</span>
         <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"user_id_high"</span><span class="op">]</span><span class="op">,</span>
         <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"user_id_low"</span><span class="op">]</span>
-    <span class="op">)</span><span class="op">)</span><span class="op">;</span>
+    <span class="op">)</span><span class="op">;</span>
+    <a class="sf" href="#steam_net_accept_p2p_session">steam_net_accept_p2p_session</a><span class="op">(</span><span class="lv">user_id</span><span class="op">)</span><span class="op">;</span>
 <span class="cb">}</span>
-</pre></article></section></article></section><section><header id="steam_net"><a href="#steam_net" title="(permalink)">Networking functions</a></header><article><section><header id="steam_net_packet"><a href="#steam_net_packet" title="(permalink)">Packet I/O</a></header><article><section><header id="steam_net_packet_receive"><a href="#steam_net_packet_receive" title="(permalink)">steam_net_packet_receive()</a></header><article><p>
+</pre></article></section><section><header id="avatar_image_loaded"><a href="#avatar_image_loaded" title="(permalink)">avatar_image_loaded</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamFriends#AvatarImageLoaded_t">AvatarImageLoaded_t</a>.
+		</p><p>
+		Triggers as result of calling <a href="#steam_get_user_avatar">steam_get_user_avatar</a>.
+		</p><ul>
+			<li> <tt>async_load[?"user_id_string"]</tt><sup><a href="#steam_async_ids">[id]</a></sup>: ID of the user that avatar was requested for.
+			</li><li> <tt>async_load[?"image"]</tt>: image ID for use with <a href="#steam_avatar">image functions</a>.
+			</li><li> <tt>async_load[?"width"]</tt>: width of the image, in pixels.
+			</li><li> <tt>async_load[?"height"]</tt>: height of the image, in pixels.
+		</li></ul></article></section><section><header id="micro_txn_auth_response"><a href="#micro_txn_auth_response" title="(permalink)">micro_txn_auth_response</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamUser#MicroTxnAuthorizationResponse_t">MicroTxnAuthorizationResponse_t</a>.
+		</p><ul>
+			<li> <tt>async_load[?"success"]</tt>: whether the transaction was authorized.
+			</li><li> <tt>async_load[?"order_id_string"]</tt><sup><a href="#steam_async_ids">[id]</a></sup>: order ID provided for the microtransaction.
+			</li><li> <tt>async_load[?"app_id"]</tt>: app ID for this microtransaction.
+		</li></ul></article></section><section><header id="user_encrypted_app_ticket_response_received"><a href="#user_encrypted_app_ticket_response_received" title="(permalink)">user_encrypted_app_ticket_response_received</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamUser#EncryptedAppTicketResponse_t">EncryptedAppTicketResponse_t</a>.
+		</p><p>
+		Triggers in response to <a href="#steam_user_request_encrypted_app_ticket">steam_user_request_encrypted_app_ticket</a>.
+		</p><ul>
+			<li> <tt>async_load[?"success"]</tt>, <tt>async_load[?"result"]</tt>
+			</li><li> <tt>async_load[?"ticket_data"]</tt>: base64-encoded binary ticket data.
+		</li></ul></article></section><section><header id="ugc_delete_item"><a href="#ugc_delete_item" title="(permalink)">ugc_delete_item</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamUGC#DeleteItemResult_t">DeleteItemResult_t</a>.
+		</p><p>
+		Triggers in response to <a href="#steam_ugc_delete_item">steam_ugc_delete_item</a>.
+		</p><ul>
+			<li> <tt>async_load[?"success"]</tt>, <tt>async_load[?"result"]</tt>
+			</li><li> <tt>async_load[?"published_file_id_string"]</tt><sup><a href="#steam_async_ids">[id]</a></sup>
+		</li></ul></article></section></article></section><section><header id="steam_net"><a href="#steam_net" title="(permalink)">Networking functions</a></header><article><section><header id="steam_net_packet"><a href="#steam_net_packet" title="(permalink)">Packet I/O</a></header><article><section><header id="steam_net_packet_receive"><a href="#steam_net_packet_receive" title="(permalink)">steam_net_packet_receive()</a></header><article><p>
 			Attempts to get the next packet from Steam API and returns whether successfully done so.
 			</p><p>
 			Other <tt>steam_net_</tt> functions can then be used to get packet information/contents.
 			</p><p>
 			At most times you would utilize this as following:
 			</p><pre class="gmlmd">
-<span class="kw">while</span> <span class="op">(</span><span class="uf">steam_net_packet_receive</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
+<span class="kw">while</span> <span class="op">(</span><a class="sf" href="#steam_net_packet_receive">steam_net_packet_receive</a><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
     <span class="co">// process the received packet</span>
 <span class="cb">}</span>
 </pre><p>
@@ -561,7 +674,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			</p><p>
 			So, for instance, if you wanted to just display the size of each incoming packet, you could use a snippet of code like the following:
 			</p><pre class="gmlmd">
-<span class="kw">while</span> <span class="op">(</span><span class="uf">steam_net_packet_receive</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
+<span class="kw">while</span> <span class="op">(</span><a class="sf" href="#steam_net_packet_receive">steam_net_packet_receive</a><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
     <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"Received "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="uf">steam_net_packet_size</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="st">" bytes."</span><span class="op">)</span><span class="op">;</span>
 <span class="cb">}</span>
 </pre></article></section><section><header id="steam_net_packet_get_data"><a href="#steam_net_packet_get_data" title="(permalink)">steam_net_packet_get_data(buffer)</a></header><article><p>
@@ -572,8 +685,8 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			</p><p>
 			If the buffer is not big enough to fit data, it will be resized automatically.
 			</p><pre class="gmlmd">
-<span class="kw">while</span> <span class="op">(</span><span class="uf">steam_net_packet_receive</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
-    <span class="uf">steam_net_packet_get_data</span><span class="op">(</span><span class="uv">inbuf</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">while</span> <span class="op">(</span><a class="sf" href="#steam_net_packet_receive">steam_net_packet_receive</a><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
+    <a class="sf" href="#steam_net_packet_get_data">steam_net_packet_get_data</a><span class="op">(</span><span class="uv">inbuf</span><span class="op">)</span><span class="op">;</span>
     <span class="sf">buffer_seek</span><span class="op">(</span><span class="uv">inbuf</span><span class="op">,</span> <span class="sv">buffer_seek_start</span><span class="op">,</span> <span class="nu">0</span><span class="op">)</span><span class="op">;</span>
     <span class="kw">switch</span> <span class="op">(</span><span class="sf">buffer_read</span><span class="op">(</span><span class="uv">inbuf</span><span class="op">,</span> <span class="sv">buffer_u8</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
         <span class="kw">case</span> <span class="nu">1</span><span class="op">:</span> <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"packet ID 1"</span><span class="op">)</span><span class="op">;</span> <span class="kw">break</span><span class="op">;</span>
@@ -599,7 +712,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			</p><pre class="gmlmd">
 <span class="kw">var</span> <span class="lv">b</span> <span class="op">=</span> <span class="sf">buffer_create</span><span class="op">(</span><span class="nu">16</span><span class="op">,</span> <span class="sv">buffer_grow</span><span class="op">,</span> <span class="nu">1</span><span class="op">)</span><span class="op">;</span>
 <span class="sf">buffer_write</span><span class="op">(</span><span class="lv">b</span><span class="op">,</span> <span class="sv">buffer_string</span><span class="op">,</span> <span class="st">"Hello!"</span><span class="op">)</span><span class="op">;</span>
-<span class="uf">steam_net_packet_send</span><span class="op">(</span><span class="uv">steam_id</span><span class="op">,</span> <span class="lv">b</span><span class="op">,</span> <span class="sf">buffer_tell</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">,</span> <span class="uv">steam_net_packet_type_reliable</span><span class="op">)</span><span class="op">;</span>
+<a class="sf" href="#steam_net_packet_send">steam_net_packet_send</a><span class="op">(</span><a class="sv" href="#steam_id">steam_id</a><span class="op">,</span> <span class="lv">b</span><span class="op">,</span> <span class="sf">buffer_tell</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">,</span> <span class="uv">steam_net_packet_type_reliable</span><span class="op">)</span><span class="op">;</span>
 <span class="sf">buffer_delete</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">;</span>
 </pre><p>
 			Where <tt>steam_id</tt> would hold the user ID to send the packet to.
@@ -653,7 +766,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</li></ul><p>
 		Can be used as following:
 		</p><pre class="gmlmd">
-<span class="uf">steam_lobby_create</span><span class="op">(</span><span class="uv">steam_lobby_type_public</span><span class="op">,</span> <span class="nu">4</span><span class="op">)</span><span class="op">;</span>
+<a class="sf" href="#steam_lobby_create">steam_lobby_create</a><span class="op">(</span><span class="uv">steam_lobby_type_public</span><span class="op">,</span> <span class="nu">4</span><span class="op">)</span><span class="op">;</span>
 </pre><p>
 		(which would create a 4-player public lobby)
 	</p></article></section><section><header id="steam_lobby_leave"><a href="#steam_lobby_leave" title="(permalink)">steam_lobby_leave()</a></header><article><p>
@@ -669,11 +782,11 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</p><p>
 		So, for example, if you don't allow mid-session joining, you could have the game make lobbies private on session start:
 		</p><pre class="gmlmd">
-<span class="uf">steam_lobby_set_type</span><span class="op">(</span><span class="uv">steam_lobby_type_private</span><span class="op">)</span><span class="op">;</span>
+<a class="sf" href="#steam_lobby_set_type">steam_lobby_set_type</a><span class="op">(</span><span class="uv">steam_lobby_type_private</span><span class="op">)</span><span class="op">;</span>
 </pre></article></section><hr/><section><header id="steam_lobby_get_data"><a href="#steam_lobby_get_data" title="(permalink)">steam_lobby_get_data(key:string)&#8203;<span class="ret-arrow">&#10140;</span>string</a></header><article><p>
 		Returns a lobby field value, as set by <a href="#steam_lobby_set_data">steam_lobby_set_data</a>.
 		</p><pre class="gmlmd">
-<span class="kw">var</span> <span class="lv">title</span> <span class="op">=</span> <span class="uf">steam_lobby_get_data</span><span class="op">(</span><span class="st">"title"</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">var</span> <span class="lv">title</span> <span class="op">=</span> <a class="sf" href="#steam_lobby_get_data">steam_lobby_get_data</a><span class="op">(</span><span class="st">"title"</span><span class="op">)</span><span class="op">;</span>
 </pre></article></section><section><header id="steam_lobby_set_data"><a href="#steam_lobby_set_data" title="(permalink)">steam_lobby_set_data(key:string, value:string)</a></header><article><p>
 		Changes a lobby's field. You must be the lobby's owner to do this.
 		</p><p>
@@ -717,7 +830,65 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		Displays an invitation overlay if currently in a lobby.
 		</p><p>
 		The invitation overlay is much akin to friends-list overlay, but only shows online friends, and spots "invite" buttons on each row.
-	</p></article></section></article></section><section><header id="steam_lobby_list"><a href="#steam_lobby_list" title="(permalink)">Matchmaking functions</a></header><article><p>
+	</p></article></section><hr/><section><header id="steam_lobby_chat"><a href="#steam_lobby_chat" title="(permalink)">Lobby chat</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamMatchmaking#SendLobbyChatMsg">SendLobbyChatMsg</a>.
+		</p><p>
+		These few functions allow you to send and receive chat messages without
+		establishing a P2P connection!
+		</p><p>
+		This comes with some caveats: </p><ul>
+		<li>	A single message can only be 4KB at most.
+		</li><li>	Bandwidth is limited (documentation doesn't clarify the limits).
+		</li><li>	As this sends data via Steam backend, it'll take longer for it to arrive.
+		</li><li>	Messages are broadcasted to all players in the lobby rather than to the recipient.
+		</li></ul><p>
+		Still, this can be handy for any initial communication.
+		</p><section><header id="steam_lobby_max_chat_message_size"><a href="#steam_lobby_max_chat_message_size" title="(permalink)">steam_lobby_max_chat_message_size</a></header><article><p>
+			Indicates the maximum number of bytes a single lobby message can be (<tt>4096</tt>).
+		</p></article></section><hr/><section><header id="steam_lobby_send_chat_message"><a href="#steam_lobby_send_chat_message" title="(permalink)">steam_lobby_send_chat_message(text)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+			Broadcasts a chat message into the current lobby,
+			returns whether successful.
+			</p><p>
+			Triggers <a href="#lobby_chat_message">lobby_chat_message</a>.
+			</p><p>
+			Example: the following would send a message upon joining a lobby and handle the said message:
+			</p><pre class="gmlmd">
+<span class="co">// in Async - Steam</span>
+<span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"lobby_joined"</span><span class="op">)</span> <span class="cb">{</span>
+    <a class="sf" href="#steam_lobby_send_chat_message">steam_lobby_send_chat_message</a><span class="op">(</span><span class="st">"hello!"</span><span class="op">)</span><span class="op">;</span>
+<span class="cb">}</span>
+<span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"lobby_chat_message"</span><span class="op">)</span> <span class="cb">{</span>
+    <span class="kw">var</span> <span class="lv">_msg_index</span> <span class="op">=</span> <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"message_index"</span><span class="op">]</span><span class="op">;</span>
+    <span class="kw">var</span> <span class="lv">_from_id</span> <span class="op">=</span> <span class="sf">int64</span><span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"user_id_string"</span><span class="op">]</span><span class="op">)</span><span class="op">;</span>
+    <span class="kw">var</span> <span class="lv">_from_name</span> <span class="op">=</span> <a class="sf" href="#steam_get_user_persona_name_sync">steam_get_user_persona_name_sync</a><span class="op">(</span><span class="lv">_from_id</span><span class="op">)</span><span class="op">;</span>
+    
+    <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"A chat message from `"</span> <span class="op">+</span> <span class="lv">_from_name</span>
+        <span class="op">+</span> <span class="st">"` (text): "</span> <span class="op">+</span> <a class="sf" href="#steam_lobby_get_chat_message_text">steam_lobby_get_chat_message_text</a><span class="op">(</span><span class="lv">_msg_index</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
+<span class="cb">}</span>
+</pre></article></section><section><header id="steam_lobby_send_chat_message_buffer"><a href="#steam_lobby_send_chat_message_buffer" title="(permalink)">steam_lobby_send_chat_message_buffer(buffer, ?size)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+			Akin to above, but sends binary data instead.
+		</p></article></section><p>
+		The following can only be ran inside an Async - Steam event to work with lobby messages,
+		so make sure to copy the results if you'll need them later!
+		</p><section><header id="steam_lobby_get_chat_message_size"><a href="#steam_lobby_get_chat_message_size" title="(permalink)">steam_lobby_get_chat_message_size(message_index)&#8203;<span class="ret-arrow">&#10140;</span>int</a></header><article><p>
+			Returns the size of the given lobby message in bytes.
+			</p><p>
+			Returns <tt>-1</tt> if the message index is invalid.
+		</p></article></section><section><header id="steam_lobby_get_chat_message_text"><a href="#steam_lobby_get_chat_message_text" title="(permalink)">steam_lobby_get_chat_message_text(message_index)&#8203;<span class="ret-arrow">&#10140;</span>string</a></header><article><p>
+			Grabs the content of a lobby message as a string.
+			</p><p>
+			Returns <tt>""</tt> if the message index is invalid.
+			</p><p>
+			If the message was binary, this would result in garbled data up until the first <tt>00</tt> byte
+			or until the end of the message.
+		</p></article></section><section><header id="steam_lobby_get_chat_message_data"><a href="#steam_lobby_get_chat_message_data" title="(permalink)">steam_lobby_get_chat_message_data(message_index, buffer)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+			Copies the content of a lobby message into a buffer.
+			</p><p>
+			The buffer should be at least <a href="#steam_lobby_max_chat_message_size">steam_lobby_max_chat_message_size</a> bytes long,
+			or the message will be truncated.
+			</p><p>
+			Returns whether the message index was valid.
+		</p></article></section></article></section></article></section><section><header id="steam_lobby_list"><a href="#steam_lobby_list" title="(permalink)">Matchmaking functions</a></header><article><p>
 	The following functions allow retrieving lists of public lobbies.
 	</p><section><header id="steam_lobby_list_request"><a href="#steam_lobby_list_request" title="(permalink)">steam_lobby_list_request()</a></header><article><p>
 		Starts loading the list of lobbies matching the current filters.
@@ -930,7 +1101,12 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 			Returns the maximum number of input origins that can be attached to a single action.
 			</p><p>
 			This value is constant per SDK version and is set to 8 as of writing this in 2021.
-		</p></article></section></article></section></article></section><section><header id="steam_user"><a href="#steam_user" title="(permalink)">User/friend functions</a></header><article><section><header id="steam_user_set_played_with"><a href="#steam_user_set_played_with" title="(permalink)">steam_user_set_played_with(user_id)</a></header><article><p>
+		</p></article></section></article></section></article></section><section><header id="steam_user"><a href="#steam_user" title="(permalink)">User/friend functions</a></header><article><section><header id="steam_get_user_persona_name_sync"><a href="#steam_get_user_persona_name_sync" title="(permalink)">steam_get_user_persona_name_sync(user_id)</a></header><article><p>
+		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamFriends#GetFriendPersonaName">GetFriendPersonaName</a>.
+		Like the built-in <tt>steam_get_user_persona_name</tt>, but returns immediately.
+		</p><p>
+		This function will only return names for users that are "known" (e.g. in your lobby).
+	</p></article></section><section><header id="steam_user_set_played_with"><a href="#steam_user_set_played_with" title="(permalink)">steam_user_set_played_with(user_id)</a></header><article><p>
 		Adds the given user to the "recently played with" list (accessed via "Players" - "Recent games") menu in Steam overlay.
 		</p><p>
 		This is usually something to do on session start for all remote users.
@@ -946,7 +1122,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</li></ul><p>
 		This can be used to display an in-game join dialog.
 		</p><pre class="gmlmd">
-<span class="kw">var</span> <span class="lv">info_arr</span> <span class="op">=</span> <span class="uf">steam_get_friends_game_info</span><span class="op">(</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">var</span> <span class="lv">info_arr</span> <span class="op">=</span> <a class="sf" href="#steam_get_friends_game_info">steam_get_friends_game_info</a><span class="op">(</span><span class="op">)</span><span class="op">;</span>
 <span class="kw">var</span> <span class="lv">info_num</span> <span class="op">=</span> <span class="uf">array_length</span><span class="op">(</span><span class="lv">info_arr</span><span class="op">)</span><span class="op">;</span>
 <span class="kw">var</span> <span class="lv">_steam_app_id</span> <span class="op">=</span> <span class="sf">steam_get_app_id</span><span class="op">(</span><span class="op">)</span><span class="op">;</span>
 <span class="kw">for</span> <span class="op">(</span><span class="kw">var</span> <span class="lv">i</span> <span class="op">=</span> <span class="nu">0</span><span class="op">;</span> <span class="lv">i</span> <span class="op">&lt;</span> <span class="lv">info_num</span><span class="op">;</span> <span class="lv">i</span><span class="op">++</span><span class="op">)</span> <span class="cb">{</span>
@@ -960,7 +1136,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
         <span class="cb">}</span>
     <span class="cb">}</span>
 <span class="cb">}</span>
-</pre></article></section><hr/><section><header id="steam_get_user_avatar"><a href="#steam_get_user_avatar" title="(permalink)">steam_get_user_avatar(user_id, avatar_size)&#8203;<span class="ret-arrow">&#10140;</span>steam_image_id</a></header><article><p>
+</pre></article></section></article></section><section><header id="steam_avatar"><a href="#steam_avatar" title="(permalink)">Avatar functions</a></header><article><section><header id="steam_get_user_avatar"><a href="#steam_get_user_avatar" title="(permalink)">steam_get_user_avatar(user_id, avatar_size)&#8203;<span class="ret-arrow">&#10140;</span>steam_image_id</a></header><article><p>
 		Fetches an avatar for the specified user ID.
 		</p><p>
 		<tt>avatar_size</tt> can be: </p><ul>
@@ -970,17 +1146,8 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</li></ul><p>
 		Returns positive IDs (for use with function below) if the avatar is ready;<br/>
 		Returns <tt>0</tt> if no avatar is set for the user;<br/>
-		Returns <tt>-1</tt> if the request is pending,
-		in which case an async event will be dispatched with: </p><ul>
-		<li>	<tt>async_load[?"event_type"]</tt>: <tt>"avatar_image_loaded"</tt>
-		</li><li>	<tt>async_load[?"user_id_high"]</tt>: first half of associated user's ID
-		</li><li>	<tt>async_load[?"user_id_low"]</tt>: second half of associated user's ID
-		</li><li>	<tt>async_load[?"user_id_string"]</tt>: associated user ID as a string
-		</li><li>	<tt>async_load[?"image"]</tt>: image ID that would otherwise be returned
-			by the function.
-		</li><li>	<tt>async_load[?"width"]</tt>: image width, in pixels
-		</li><li>	<tt>async_load[?"height"]</tt>: image height, in pixels
-		</li></ul></article></section><section><header id="steam_image_get_size"><a href="#steam_image_get_size" title="(permalink)">steam_image_get_size(steam_image_id)&#8203;<span class="ret-arrow">&#10140;</span></a></header><article><p>
+		Returns <tt>-1</tt> if the request is pending, triggers a <a href="#avatar_image_loaded">avatar_image_loaded</a> event.
+	</p></article></section><section><header id="steam_image_get_size"><a href="#steam_image_get_size" title="(permalink)">steam_image_get_size(steam_image_id)&#8203;<span class="ret-arrow">&#10140;</span></a></header><article><p>
 		A wrapper for <a href="https://partner.steamgames.com/doc/api/ISteamUtils#GetImageSize">GetImageSize</a>.
 		</p><p>
 		Fetches dimensions for the said Steam image ID.
@@ -1274,7 +1441,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</li><li>	<tt>"published_file_id_low"</tt>
 		</li></ul><pre class="gmlmd">
 <span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"ugc_delete_item"</span><span class="op">)</span> <span class="cb">{</span>
-    <span class="kw">var</span> <span class="lv">file_id</span> <span class="op">=</span> <span class="uf">steam_id_create</span><span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"published_file_id_high"</span><span class="op">]</span><span class="op">,</span> <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"published_file_id_low"</span><span class="op">]</span><span class="op">)</span><span class="op">;</span>
+    <span class="kw">var</span> <span class="lv">file_id</span> <span class="op">=</span> <a class="sf" href="#steam_id_create">steam_id_create</a><span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"published_file_id_high"</span><span class="op">]</span><span class="op">,</span> <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"published_file_id_low"</span><span class="op">]</span><span class="op">)</span><span class="op">;</span>
     <span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"success"</span><span class="op">]</span><span class="op">)</span> <span class="cb">{</span>
         <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"Deleted "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="lv">file_id</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
     <span class="cb">}</span> <span class="kw">else</span> <span class="cb">{</span>
@@ -1301,7 +1468,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		For example,
 		</p><pre class="gmlmd">
 <span class="kw">var</span> <span class="lv">b</span> <span class="op">=</span> <span class="sf">buffer_create</span><span class="op">(</span><span class="nu">256</span><span class="op">,</span> <span class="sv">buffer_fixed</span><span class="op">,</span> <span class="nu">1</span><span class="op">)</span><span class="op">;</span>
-<span class="kw">var</span> <span class="lv">d</span> <span class="op">=</span> <span class="uf">steam_get_app_ownership_ticket_data</span><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">;</span>
+<span class="kw">var</span> <span class="lv">d</span> <span class="op">=</span> <a class="sf" href="#steam_get_app_ownership_ticket_data">steam_get_app_ownership_ticket_data</a><span class="op">(</span><span class="lv">b</span><span class="op">)</span><span class="op">;</span>
 <span class="kw">if</span> <span class="op">(</span><span class="lv">d</span><span class="op">[</span><span class="nu">0</span><span class="op">]</span> <span class="op">&gt;</span> <span class="nu">0</span><span class="op">)</span> <span class="cb">{</span>
     <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"App ID: "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="sf">buffer_peek</span><span class="op">(</span><span class="lv">b</span><span class="op">,</span> <span class="lv">d</span><span class="op">[</span><span class="nu">1</span><span class="op">]</span><span class="op">,</span> <span class="sv">buffer_u32</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
     <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"User ID: "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="sf">buffer_peek</span><span class="op">(</span><span class="lv">b</span><span class="op">,</span> <span class="lv">d</span><span class="op">[</span><span class="nu">2</span><span class="op">]</span><span class="op">,</span> <span class="sv">buffer_u64</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">;</span>
@@ -1329,7 +1496,7 @@ Click on sections to expand/collapse them.<br>Quick display controls: <a href="#
 		</li></ul><p>
 		For example:
 		</p><pre class="gmlmd">
-<span class="uf">steam_user_request_encrypted_app_ticket</span><span class="op">(</span><span class="op">)</span><span class="op">;</span>
+<a class="sf" href="#steam_user_request_encrypted_app_ticket">steam_user_request_encrypted_app_ticket</a><span class="op">(</span><span class="op">)</span><span class="op">;</span>
 </pre><p>
 		and in Async - Steam:
 		</p><pre class="gmlmd">

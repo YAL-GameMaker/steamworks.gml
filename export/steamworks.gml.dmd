@@ -26,6 +26,9 @@ function ref_root(label) {
 function wrap(name) {
 	return render("A wrapper for [" + name + "](" + ref_url + "#" + name + ").");
 }
+function wrap_url(name, url) {
+	return render("A wrapper for [" + name + "](" + url + "#" + name + ").");
+}
 function ref_set(url) {
 	ref_url = url;
 	return null;
@@ -87,7 +90,7 @@ function ref_set(url) {
 			If you need to port existing code utilizing IP+port combinations, you can use bit math to assume lower 32 bits to be the IP and higher 32 bits to be the port, for example.
 		--	Steam handles sending/receiving and async events by itself, queuing the results.
 			
-			This means that you generally should call the extension's update-function ([steam_net_update]) every step while in lobby and at least once per second while not in lobby, or you may later deal with an avalanche of (outdated) events once finally calling it again.
+			This means that you generally should call the extension's update-function ([steam_gml_update]) every step while in lobby and at least once per second while not in lobby, or you may later deal with an avalanche of (outdated) events once finally calling it again.
 			
 			This schema also introduces an interesting thing where if your game crashed without handling the remaining events/packets, you may receive them after restarting the game.
 		--	Steam handles port forwarding by itself, meaning that it'll generally find any open port if there is one, and use a wide variety of workarounds to connect when there isn't one.
@@ -159,8 +162,31 @@ function ref_set(url) {
 }
 #[Async events](steam_async) {
 	As result of a number of function calls, the extension dispatches asynchronous events.
+	```setmd sucres
+	`async_load[?"success"]`, `async_load[?"result"]`
+	```
+	```exec
+	function al(key) { return render('`async_load[?"' + key + '"]`');}
+	function aid(key) {
+	return render('`async_load[?"' + key + '_string"]`')
+		+ "<sup>" + render("[\\[id\\]](steam_async_ids)") + "</sup>"
+	;}
+	```
 	
-	All of these events have `async_load[?"success"]` indicating whether the async action succeeded (true or false) and `async_load[?"result"]` containing the status code (descriptions can be found in Steam API documentation);
+	Where appropriate,
+	these events have `async_load[?"success"]` indicating whether the async action succeeded (true or false)
+	and `async_load[?"result"]` containing the status code
+	(see [EResult](https://partner.steamgames.com/doc/api/steam_api#EResult)).
+	
+	#[A note on IDs](steam_async_ids) {
+		For fields named `some_id_string`,
+		the field contains a 64-bit integer converted to a string,
+		which you may pass to `int64` to make an actual 64-bit integer out of it;
+		there will also be `some_id_high` and `some_id_low` representing the 32-bit
+		halves of it, which you can pass to [steam_id_create] or combine yourself via bit operations.
+		
+		This is due to GameMaker not allowing to include 64-bit integers in async events
+	}
 	
 	These can be caught by adding a Async - Steam event, and checking whether `async_load[?"event_type"]` is one of following names (as strings):
 	#[lobby_list]() {
@@ -168,36 +194,62 @@ function ref_set(url) {
 		
 		It is not required to do anything in response to this event.
 		
-		`async_load[?"lobby_count"]` contains the number of matching lobbies (0 in case of network failure).
+		--{
+			- %[sucres]\
+			Generally lobby list request can only fail if there's no connection.
+			- ${al("lobby_count")}: number of lobbies found.\
+			(same as [steam_lobby_list_get_count])
+		}
 		
-		Use [matchmaking functions](steam_lobby_list) to retrieve other information.
+		Use [matchmaking functions](steam_lobby_list) to retrieve further information.
 	}
 	#[lobby_joined]() {
-		Triggers after requesting to join a lobby. This can fail if:
+		${wrap_url("LobbyEnter_t", "https://partner.steamgames.com/doc/api/ISteamMatchmaking")}
+		
+		Triggers after requesting to join a lobby.
 		--{
-		--	There's no connection to Steam
-		--	Lobby is full (no available player slots left)
-		--	Lobby was destroyed before you requested to join it
+			- %[sucres]\
+			An attempt to join a lobby can fail on a few occasions, such as: --{
+				- Lack of internet
+				- Lack of connection to Steam (inc. maintenance)
+				- Lobby being full
+				- Lobby getting auto-destroyed by the time you requested to join it\
+				(a thing to be aware of when letting the user pick a lobby to join)
+			}
+			- ${aid("lobby_id")}: ID of lobby joined, if successful.\
+			(equivalent to [steam_lobby_get_lobby_id])
 		}
-		When successful, this is a good place to establish connection to lobby's members.
+		When successful, this is a good place to establish connection to lobby members.
 	}
 	#[lobby_created]() {
-		Fires after requesting to create a lobby. This can fail if:
+		${wrap_url("LobbyCreated_t", "https://partner.steamgames.com/doc/api/ISteamMatchmaking")}
+		
+		Triggers after requesting to create a lobby.
 		--{
-		--	There's no connection to Steam
-		--	You are trying to create a public lobby for a game that does not have matchmaking API enabled
-		(is off by default for free games - request permissions via support forum).
+			- %[sucres]\
+			Can fail if: --{
+				- Lack of connection to Steam (see above)
+				- Matchmaking not being enabled for App ID.\
+				If you have marked your App ID as free when creating it, matchmaking will be disabled
+				and you'll need to request matchmaking permissions from Steam Support.
+			}
+			- ${aid("lobby_id")}: ID of lobby created, if successful.\
+			(equivalent to [steam_lobby_get_lobby_id])
 		}
 		When successful, this is a good place to [set up lobby data](steam_lobby_set_data).
 	}
 	#[lobby_join_requested]() {
+		${wrap_url("GameLobbyJoinRequested_t", "https://partner.steamgames.com/doc/api/ISteamFriends")}
+		
 		Triggers when the local player accepts an invitation via Steam overlay.
 		
-		This event has several fields:
 		--{
-		--	`async_load[?"lobby_id_high"]`, `async_load[?"lobby_id_low"]` (combine via [steam_id_create]) indicate the ID of the lobby to join (via [steam_lobby_join_id]).
-		--	`async_load[?"friend_id_high"]`, `async_load[?"friend_id_low"]` (combine via [steam_id_create]) indicate the ID of the user that the invitation was from (in case you want to display "joining X's lobby" while loading).
+			- ${aid("lobby_id")}: ID of lobby to be joined\
+			(via [steam_lobby_join_id])
+			- ${aid("friend_id")}: ID of user that sent the invitation\
+			(in case you want to display "joining X's lobby" while loading).
 		}
+		
 		Is commonly used as following:
 		```
 		if (async_load[?"event_type"] == "lobby_join_requested") {
@@ -208,18 +260,111 @@ function ref_set(url) {
 		}
 		```
 	}
-	#[p2p_session_request]() {
-		If you have opted to handle P2P sessions yourself
-		(by calling [steam_net_set_auto_accept_p2p_sessions]\(false)),
-		you will want to handle this event for anyone to be able to connect to you.
+	#[lobby_chat_update]() {
+		${wrap_url("LobbyChatUpdate_t", "https://partner.steamgames.com/doc/api/ISteamMatchmaking")}
+		
+		Triggers upon arrival/departures of players in the lobby.
+		--{
+			- ${aid("lobby_id")}: ID of lobby in question.
+			- ${aid("user_id")}: ID of user that things are happening to.
+			- ${aid("change_id")}: ID of user that's authoring the change.
+			- ${al("change_flags")}: bit flags for whatever's happening.\
+			These can be the following: --{
+				- `steam_lobby_member_change_entered`
+				- `steam_lobby_member_change_left`
+				- `steam_lobby_member_change_disconnected`
+				- `steam_lobby_member_change_kicked`
+				- `steam_lobby_member_change_banned`
+			}
+			You may reasonably remark that there are no functions to kick/ban people,
+			and, well, there aren't - that's just
+			[how Steam API is](https://partner.steamgames.com/doc/api/ISteamMatchmaking#LobbyKicked_t).
+			[Always has been](http://web.archive.org/web/20170920175315/https://partner.steamgames.com/doc/api/ISteamMatchmaking#LobbyKicked_t).
+		}
+	}
+	#[lobby_chat_message]() {
+		${wrap_url("LobbyChatMsg_t", "https://partner.steamgames.com/doc/api/ISteamMatchmaking")}
+		
+		Triggers as result of calling [steam_lobby_send_chat_message] or [steam_lobby_send_chat_message_buffer].
+		--{
+			- ${aid("lobby_id")}: ID of lobby in question.
+			- ${aid("user_id")}: ID of user that sent the message.
+			- ${al("entry_type")}: a type from [EChatEntryType](https://partner.steamgames.com/doc/api/steam_api#EChatEntryType).\
+			There is no evidence that this can be anything other than "normal message".
+			- ${al("message_index")}: message index.\
+			(for use with [steam_lobby_get_chat_message_text] or [steam_lobby_get_chat_message_data])
+			Note that chat messages expire after 3 calls to `steam_gml_update`,
+			so you should not be storing this for later use.
+			- ${al("message_size")}: size of received message, in bytes.
+		}
+		Example:
 		```
-		if (async_load[?"event_type"] == "lobby_join_requested") {
-			steam_net_accept_p2p_session(steam_id_create(
-				async_load[?"user_id_high"],
-				async_load[?"user_id_low"]
-			));
+		if (async_load[?"event_type"] == "lobby_chat_message") {
+			var _msg_index = async_load[?"message_index"];
+			var _from_id = int64(async_load[?"user_id_string"]);
+			var _from_name = steam_get_user_persona_name_sync(_from_id);
+			var _text = steam_lobby_get_chat_message_text(_msg_index);
+			show_debug_message("A chat message from `" + _from_name + "`: " + _text);
 		}
 		```
+	}
+	#[p2p_session_request]() {
+		${wrap_url("P2PSessionRequest_t", "https://partner.steamgames.com/doc/api/ISteamNetworking")}
+		
+		If you have opted to handle P2P sessions yourself
+		(via [steam_net_set_auto_accept_p2p_sessions]),
+		you will want to handle this event for anyone to be able to connect to you.
+		--{
+			- ${aid("user_id")}: ID of user attempting the connection.
+		}
+		Example (auto-accept anyone):
+		```
+		if (async_load[?"event_type"] == "lobby_join_requested") {
+			var user_id = steam_id_create(
+				async_load[?"user_id_high"],
+				async_load[?"user_id_low"]
+			);
+			steam_net_accept_p2p_session(user_id);
+		}
+		```
+	}
+	#[avatar_image_loaded]() {
+		${wrap_url("AvatarImageLoaded_t", "https://partner.steamgames.com/doc/api/ISteamFriends")}
+		
+		Triggers as result of calling [steam_get_user_avatar].
+		--{
+			- ${aid("user_id")}: ID of the user that avatar was requested for.
+			- ${al("image")}: image ID for use with [image functions](steam_avatar).
+			- ${al("width")}: width of the image, in pixels.
+			- ${al("height")}: height of the image, in pixels.
+		}
+	}
+	#[micro_txn_auth_response]() {
+		${wrap_url("MicroTxnAuthorizationResponse_t", "https://partner.steamgames.com/doc/api/ISteamUser")}
+		
+		--{
+			- ${al("success")}: whether the transaction was authorized.
+			- ${aid("order_id")}: order ID provided for the microtransaction.
+			- ${al("app_id")}: app ID for this microtransaction.
+		}
+	}
+	#[user_encrypted_app_ticket_response_received]() {
+		${wrap_url("EncryptedAppTicketResponse_t", "https://partner.steamgames.com/doc/api/ISteamUser")}
+		
+		Triggers in response to [steam_user_request_encrypted_app_ticket].
+		--{
+			- %[sucres]
+			- ${al("ticket_data")}: base64-encoded binary ticket data.
+		}
+	}
+	#[ugc_delete_item]() {
+		${wrap_url("DeleteItemResult_t", "https://partner.steamgames.com/doc/api/ISteamUGC")}
+		
+		Triggers in response to [steam_ugc_delete_item].
+		--{
+			- %[sucres]
+			- ${aid("published_file_id")}
+		}
 	}
 }
 #[Networking functions](steam_net) {
@@ -438,6 +583,74 @@ function ref_set(url) {
 		Displays an invitation overlay if currently in a lobby.
 		
 		The invitation overlay is much akin to friends-list overlay, but only shows online friends, and spots "invite" buttons on each row.
+	}
+	---
+	#[Lobby chat](steam_lobby_chat) {
+		${wrap("SendLobbyChatMsg")}
+		
+		These few functions allow you to send and receive chat messages without
+		establishing a P2P connection!
+		
+		This comes with some caveats: --{
+		--	A single message can only be 4KB at most.
+		--	Bandwidth is limited (documentation doesn't clarify the limits).
+		--	As this sends data via Steam backend, it'll take longer for it to arrive.
+		--	Messages are broadcasted to all players in the lobby rather than to the recipient.
+		}
+		
+		Still, this can be handy for any initial communication.
+		#[steam_lobby_max_chat_message_size]() {
+			Indicates the maximum number of bytes a single lobby message can be (`4096`).
+		}
+		---
+		#[steam_lobby_send_chat_message(text)->bool]() {
+			Broadcasts a chat message into the current lobby,
+			returns whether successful.
+			
+			Triggers [lobby_chat_message].
+			
+			Example: the following would send a message upon joining a lobby and handle the said message:
+			```
+			// in Async - Steam
+			if (async_load[?"event_type"] == "lobby_joined") {
+				steam_lobby_send_chat_message("hello!");
+			}
+			if (async_load[?"event_type"] == "lobby_chat_message") {
+				var _msg_index = async_load[?"message_index"];
+				var _from_id = int64(async_load[?"user_id_string"]);
+				var _from_name = steam_get_user_persona_name_sync(_from_id);
+				
+				show_debug_message("A chat message from `" + _from_name
+					+ "` (text): " + steam_lobby_get_chat_message_text(_msg_index));
+			}
+			```
+		}
+		#[steam_lobby_send_chat_message_buffer(buffer, ?size)->bool]() {
+			Akin to above, but sends binary data instead.
+		}
+		The following can only be ran inside an Async - Steam event to work with lobby messages,
+		so make sure to copy the results if you'll need them later!
+		#[steam_lobby_get_chat_message_size(message_index)->int]() {
+			Returns the size of the given lobby message in bytes.
+			
+			Returns `-1` if the message index is invalid.
+		}
+		#[steam_lobby_get_chat_message_text(message_index)->string]() {
+			Grabs the content of a lobby message as a string.
+			
+			Returns `""` if the message index is invalid.
+			
+			If the message was binary, this would result in garbled data up until the first `00` byte
+			or until the end of the message.
+		}
+		#[steam_lobby_get_chat_message_data(message_index, buffer)->bool]() {
+			Copies the content of a lobby message into a buffer.
+			
+			The buffer should be at least [steam_lobby_max_chat_message_size] bytes long,
+			or the message will be truncated.
+			
+			Returns whether the message index was valid.
+		}
 	}
 }
 #[Matchmaking functions](steam_lobby_list) {
@@ -699,6 +912,15 @@ function ref_set(url) {
 	}
 }
 #[User/friend functions](steam_user) {
+	```exec
+	ref_set("https://partner.steamgames.com/doc/api/ISteamFriends");
+	```
+	#[steam_get_user_persona_name_sync(user_id)]() {
+		${wrap("GetFriendPersonaName")}
+		Like the built-in `steam_get_user_persona_name`, but returns immediately.
+		
+		This function will only return names for users that are "known" (e.g. in your lobby).
+	}
 	#[steam_user_set_played_with(user_id)]() {
 		Adds the given user to the "recently played with" list (accessed via "Players" - "Recent games") menu in Steam overlay.
 		
@@ -732,10 +954,8 @@ function ref_set(url) {
 		}
 		```
 	}
-	---
-	```exec
-	ref_set("https://partner.steamgames.com/doc/api/ISteamFriends");
-	```
+}
+#[Avatar functions](steam_avatar) {
 	#[steam_get_user_avatar(user_id, avatar_size)->steam_image_id]() {
 		Fetches an avatar for the specified user ID.
 		
@@ -747,17 +967,7 @@ function ref_set(url) {
 		
 		Returns positive IDs (for use with function below) if the avatar is ready;\
 		Returns `0` if no avatar is set for the user;\
-		Returns `-1` if the request is pending,
-		in which case an async event will be dispatched with: --{
-		--	`async_load[?"event_type"]`: `"avatar_image_loaded"`
-		--	`async_load[?"user_id_high"]`: first half of associated user's ID
-		--	`async_load[?"user_id_low"]`: second half of associated user's ID
-		--	`async_load[?"user_id_string"]`: associated user ID as a string
-		--	`async_load[?"image"]`: image ID that would otherwise be returned
-			by the function.
-		--	`async_load[?"width"]`: image width, in pixels
-		--	`async_load[?"height"]`: image height, in pixels
-		}
+		Returns `-1` if the request is pending, triggers a [avatar_image_loaded] event.
 	}
 	```exec
 	ref_set("https://partner.steamgames.com/doc/api/ISteamUtils");

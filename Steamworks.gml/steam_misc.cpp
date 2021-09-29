@@ -46,8 +46,10 @@ dllx char* int64_combine_string(double high, double low) {
 }
 #pragma endregion
 
+void steam_lobby_chat_update();
 dllx double steam_gml_update() {
 	SteamAPI_RunCallbacks();
+	steam_lobby_chat_update();
 	return 0;
 }
 

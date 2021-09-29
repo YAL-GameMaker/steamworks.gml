@@ -8,6 +8,7 @@ public:
 	STEAM_CALLBACK(steam_net_callbacks_t, p2p_session_request, P2PSessionRequest_t);
 	//STEAM_CALLBACK(steam_net_callbacks_t, OnPersonaStateChange, PersonaStateChange_t);
 	STEAM_CALLBACK(steam_net_callbacks_t, lobby_chat_update, LobbyChatUpdate_t);
+	STEAM_CALLBACK(steam_net_callbacks_t, lobby_chat_message, LobbyChatMsg_t);
 	STEAM_CALLBACK(steam_net_callbacks_t, lobby_join_requested, GameLobbyJoinRequested_t);
 	STEAM_CALLBACK(steam_net_callbacks_t, micro_txn_auth_response, MicroTxnAuthorizationResponse_t);
 	STEAM_CALLBACK(steam_net_callbacks_t, steam_inventory_result_ready, SteamInventoryResultReady_t);

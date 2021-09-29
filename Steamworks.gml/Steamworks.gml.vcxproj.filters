@@ -63,6 +63,9 @@
     <ClCompile Include="steam_autogen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="steam_lobby_chat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="steam_glue.h">

@@ -23,7 +23,7 @@ function test_params() {
 	if (!is_secondary) {
 		argv += " -secondary";
 		//argv += " -forcecontrollerappid " + string(steam_get_app_id());
-		argv = "\"C:\\Program Files\\Sandboxie\\Start.exe\" /box:SteamBox " + argv;
+		argv = "\"C:\\Program Files\\Sandboxie\\Start.exe\" /box:SteamBoxie " + argv;
 		clipboard_set_text(argv);
 	}
 

@@ -22,7 +22,9 @@ set ext22=%gmlDir22%\extensions\%extName%
 set ext23=%gmlDir23%\extensions\%extName%
 set dllRel=Steamworks_gml.dll
 set cppRel=Steamworks.gml.cpp
+set cppRel2=Steamworks_gml.cpp
 set cppPath=%ext23%\%cppRel%
+set cppPath2=%ext23%\%cppRel2%
 set gmlPath=%ext23%\*.gml
 set docName=Steamworks.gml.html
 set docPath=%solutionDir%export\%docName%
@@ -40,6 +42,7 @@ if %ERRORLEVEL% EQU 0 (
 	
 	echo Combining the source files...
 	type "%projectDir%steam_*.h" "%projectDir%steam_*.cpp" >"%cppPath%" 2>nul
+	copy /Y "%cppPath%" "%cppPath2%"
 	
 	echo Running GmxGen...
 	if %isGMS2% EQU 1 (
@@ -49,11 +52,13 @@ if %ERRORLEVEL% EQU 0 (
 		gmxgen "%ext22%\%extName%.yy" ^
 		--copy "%dllPath%" "%dllRel%:%arch%" ^
 		--copy "%cppPath%" "%cppRel%" ^
+		--copy "%cppPath2%" "%cppRel2%" ^
 		--copy "%gmlPath%" "*.gml"
 	) else (
 		gmxgen "%ext14%.extension.gmx" ^
 		--copy "%dllPath%" "%dllRel%:%arch%" ^
 		--copy "%cppPath%" "%cppRel%" ^
+		--copy "%cppPath2%" "%cppRel2%" ^
 		--copy "%gmlPath%" "*.gml"
 	)
 

@@ -1,9 +1,9 @@
 steam_controller_init();
 var controllers = steam_controller_get_ids();
 if (array_length(controllers) < 1) {
-    controller = -1;
-    trace("No controllers found.");
-    exit;
+	controller = -1;
+	trace("No controllers found.");
+	exit;
 } else controller = controllers[0];
 trace("Controller ID:", controller)
 var _type = steam_controller_get_type(controller);
@@ -15,7 +15,7 @@ aset_ingame = steam_controller_get_actionset_id("InGameControls");
 trace("Ingame ActionSet ID:", aset_ingame);
 //
 if (aset_ingame >= 0) {
-    trace("ActionSet changed?:", steam_controller_set_actionset(controller, aset_ingame));
+	trace("ActionSet changed?:", steam_controller_set_actionset(controller, aset_ingame));
 }
 trace("Current ActionSet ID:", steam_controller_get_actionset(controller));
 //

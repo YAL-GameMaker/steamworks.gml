@@ -11,7 +11,7 @@ buffer_write(_buf, buffer_s32, argument0);
 return steam_inventory_result_get_unix_timestamp_raw(buffer_get_address(_buf));
 
 #define steam_inventory_result_get_item_property
-/// steam_inventory_result_get_item_property(inv_result:steam_inventory_result, item_index:int, prop_name:int)->int
+/// steam_inventory_result_get_item_property(inv_result:steam_inventory_result, item_index:int, prop_name:string)->string
 var _buf = steam_gml_prepare_buffer(9);
 buffer_write(_buf, buffer_s32, argument0);
 buffer_write(_buf, buffer_s32, argument1);
@@ -217,7 +217,7 @@ if (steam_inventory_start_update_properties_raw(buffer_get_address(_buf))) {
 } else return undefined;
 
 #define steam_inventory_set_property_bool
-/// steam_inventory_set_property_bool(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:bool)->bool
+/// steam_inventory_set_property_bool(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:string, value:bool)->bool
 var _buf = steam_gml_prepare_buffer(18);
 buffer_write(_buf, buffer_u64, argument0);
 buffer_write(_buf, buffer_u64, argument1);
@@ -225,7 +225,7 @@ buffer_write(_buf, buffer_bool, argument3);
 return steam_inventory_set_property_bool_raw(buffer_get_address(_buf), argument2);
 
 #define steam_inventory_set_property_float
-/// steam_inventory_set_property_float(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:number)->bool
+/// steam_inventory_set_property_float(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:string, value:number)->bool
 var _buf = steam_gml_prepare_buffer(21);
 buffer_write(_buf, buffer_u64, argument0);
 buffer_write(_buf, buffer_u64, argument1);
@@ -233,7 +233,7 @@ buffer_write(_buf, buffer_f32, argument3);
 return steam_inventory_set_property_float_raw(buffer_get_address(_buf), argument2);
 
 #define steam_inventory_set_property_int
-/// steam_inventory_set_property_int(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:int)->bool
+/// steam_inventory_set_property_int(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:string, value:int)->bool
 var _buf = steam_gml_prepare_buffer(25);
 buffer_write(_buf, buffer_u64, argument0);
 buffer_write(_buf, buffer_u64, argument1);
@@ -241,14 +241,14 @@ buffer_write(_buf, buffer_u64, argument3);
 return steam_inventory_set_property_int_raw(buffer_get_address(_buf), argument2);
 
 #define steam_inventory_set_property_string
-/// steam_inventory_set_property_string(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:int)->bool
+/// steam_inventory_set_property_string(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:string, value:string)->bool
 var _buf = steam_gml_prepare_buffer(18);
 buffer_write(_buf, buffer_u64, argument0);
 buffer_write(_buf, buffer_u64, argument1);
 return steam_inventory_set_property_string_raw(buffer_get_address(_buf), argument2, argument3);
 
 #define steam_inventory_remove_property
-/// steam_inventory_remove_property(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int)->bool
+/// steam_inventory_remove_property(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:string)->bool
 var _buf = steam_gml_prepare_buffer(17);
 buffer_write(_buf, buffer_u64, argument0);
 buffer_write(_buf, buffer_u64, argument1);
@@ -321,6 +321,46 @@ if (steam_inventory_transfer_item_quantity_raw(buffer_get_address(_buf))) {
 	return buffer_read(_buf, buffer_s32);
 } else return undefined;
 
+#define steam_lobby_send_chat_message
+/// steam_lobby_send_chat_message(text:string)->bool 
+var _buf = steam_gml_prepare_buffer(1);
+return steam_lobby_send_chat_message_raw(buffer_get_address(_buf), argument0);
+
+#define steam_lobby_send_chat_message_buffer
+/// steam_lobby_send_chat_message_buffer(buf:buffer, size:int = -1)->number
+var _buf = steam_gml_prepare_buffer(12);
+var _val_0 = argument[0];
+if (buffer_exists(_val_0)) {
+	buffer_write(_buf, buffer_u64, int64(buffer_get_address(_val_0)));
+	buffer_write(_buf, buffer_s32, buffer_get_size(_val_0));
+	buffer_write(_buf, buffer_s32, buffer_tell(_val_0));
+} else {
+	buffer_write(_buf, buffer_u64, 0);
+	buffer_write(_buf, buffer_s32, 0);
+	buffer_write(_buf, buffer_s32, 0);
+}
+if (argument_count >= 2) {
+	buffer_write(_buf, buffer_bool, true);
+	buffer_write(_buf, buffer_s32, argument[1]);
+} else buffer_write(_buf, buffer_bool, false);
+return steam_lobby_send_chat_message_buffer_raw(buffer_get_address(_buf));
+
+#define steam_lobby_get_chat_message_data
+/// steam_lobby_get_chat_message_data(message_index:int, buf:buffer)->bool
+var _buf = steam_gml_prepare_buffer(16);
+buffer_write(_buf, buffer_u64, argument0);
+var _val_0 = argument1;
+if (buffer_exists(_val_0)) {
+	buffer_write(_buf, buffer_u64, int64(buffer_get_address(_val_0)));
+	buffer_write(_buf, buffer_s32, buffer_get_size(_val_0));
+	buffer_write(_buf, buffer_s32, buffer_tell(_val_0));
+} else {
+	buffer_write(_buf, buffer_u64, 0);
+	buffer_write(_buf, buffer_s32, 0);
+	buffer_write(_buf, buffer_s32, 0);
+}
+return steam_lobby_get_chat_message_data_raw(buffer_get_address(_buf));
+
 #define steam_lobby_set_joinable
 /// steam_lobby_set_joinable(joinable:bool)->bool
 var _buf = steam_gml_prepare_buffer(1);
@@ -365,6 +405,12 @@ if (steam_gml_use_structs) {
 	}
 	return _arr_0;
 }
+
+#define steam_get_user_persona_name_sync
+/// steam_get_user_persona_name_sync(user_id:int)->string
+var _buf = steam_gml_prepare_buffer(8);
+buffer_write(_buf, buffer_u64, argument0);
+return steam_get_user_persona_name_sync_raw(buffer_get_address(_buf));
 
 #define steam_get_user_avatar
 /// steam_get_user_avatar(user_id:int, avatar_size:int)->int

@@ -3,5 +3,9 @@
     "linterPrefs": {
         
     },
+    "rawDirectories": [
+        ".",
+        "..\/export"
+    ],
     "templateStringScript": "sfmt"
 }
