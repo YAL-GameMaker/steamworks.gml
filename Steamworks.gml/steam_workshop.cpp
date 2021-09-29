@@ -15,8 +15,7 @@ dllx double steam_ugc_delete_item_raw(double file_high, double file_low) {
 void steam_net_callbacks_t::item_deleted(DeleteItemResult_t* r, bool failed) {
 	steam_net_event x("ugc_delete_item");
 	x.set_result(r->m_eResult);
-	x.set("published_file_id_high", uint64_high(r->m_nPublishedFileId));
-	x.set("published_file_id_low", uint64_low(r->m_nPublishedFileId));
+	x.set_uint64_all("published_file_id", r->m_nPublishedFileId);
 	x.dispatch();
 }
 #endif

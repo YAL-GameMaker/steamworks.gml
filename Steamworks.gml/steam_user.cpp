@@ -34,8 +34,7 @@ dllx double steam_activate_overlay_raw(char* overlay_code) {
 void steam_net_callbacks_t::micro_txn_auth_response(MicroTxnAuthorizationResponse_t* e) {
 	steam_net_event r("micro_txn_auth_response");
 	r.set_result(e->m_bAuthorized);
-	r.set("order_id_high", uint64_high(e->m_ulOrderID));
-	r.set("order_id_low", uint64_low(e->m_ulOrderID));
+	r.set_uint64_all("order_id", e->m_ulOrderID);
 	r.set("app_id", e->m_unAppID);
 	r.dispatch();
 }
@@ -89,11 +88,7 @@ dllx double steam_clear_rich_presence() {
 void steam_net_callbacks_t::avatar_image_loaded(AvatarImageLoaded_t* e) {
 	steam_net_event r("avatar_image_loaded");
 	r.set_success(true);
-	auto user_id = e->m_steamID.ConvertToUint64();
-	r.set("user_id_high", uint64_high(user_id));
-	r.set("user_id_low", uint64_low(user_id));
-	r.set_uint64_str("user_id_string", user_id);
-
+	r.set_steamid_all("user_id", e->m_steamID);
 	r.set("image", e->m_iImage);
 	r.set("width", e->m_iWide);
 	r.set("height", e->m_iTall);

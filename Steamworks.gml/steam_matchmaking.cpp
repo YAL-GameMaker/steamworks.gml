@@ -75,10 +75,6 @@ dllx double steam_lobby_activate_invite_overlay() {
 	} else return false;
 }
 
-void steam_net_callbacks_t::lobby_chat_update(LobbyChatUpdate_t* e) {
-	//auto map = gml_event_create("lobby_chat_update");
-}
-
 #pragma endregion
 
 #pragma region Lobby list request
@@ -266,8 +262,7 @@ CCallResult<steam_net_callbacks_t, LobbyEnter_t> steam_lobby_joined;
 void steam_net_callbacks_t::lobby_joined(LobbyEnter_t* e, bool failed) {
 	steam_lobby_current.SetFromUint64(e->m_ulSteamIDLobby);
 	steam_net_event q("lobby_joined");
-	q.set("lobby_id_high", uint64_high(e->m_ulSteamIDLobby));
-	q.set("lobby_id_low", uint64_low(e->m_ulSteamIDLobby));
+	q.set_uint64_all("lobby_id", e->m_ulSteamIDLobby);
 	q.set_success(!failed);
 	q.dispatch();
 }
@@ -296,12 +291,8 @@ dllx double steam_lobby_join_id_raw(double lobby_id_high, double lobby_id_low) {
 
 void steam_net_callbacks_t::lobby_join_requested(GameLobbyJoinRequested_t* e) {
 	steam_net_event q("lobby_join_requested");
-	uint64 lobby_id = e->m_steamIDLobby.ConvertToUint64();
-	q.set("lobby_id_high", uint64_high(lobby_id));
-	q.set("lobby_id_low", uint64_low(lobby_id));
-	uint64 friend_id = e->m_steamIDFriend.ConvertToUint64();
-	q.set("friend_id_high", uint64_high(friend_id));
-	q.set("friend_id_low", uint64_low(friend_id));
+	q.set_steamid_all("lobby_id", e->m_steamIDLobby);
+	q.set_steamid_all("friend_id", e->m_steamIDFriend);
 	q.dispatch();
 }
 
@@ -326,11 +317,10 @@ ELobbyType steam_lobby_type_from_int(int32 type) {
 
 CCallResult<steam_net_callbacks_t, LobbyCreated_t> steam_lobby_created;
 void steam_net_callbacks_t::lobby_created(LobbyCreated_t* e, bool failed) {
-	uint64 lobby_id = e->m_ulSteamIDLobby;
+	auto lobby_id = e->m_ulSteamIDLobby;
 	steam_lobby_current.SetFromUint64(lobby_id);
 	steam_net_event r("lobby_created");
-	r.set("lobby_id_high", uint64_high(lobby_id));
-	r.set("lobby_id_low", uint64_low(lobby_id));
+	r.set_uint64_all("lobby_id", lobby_id);
 	r.set_result(e->m_eResult);
 	r.dispatch();
 }

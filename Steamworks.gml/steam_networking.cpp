@@ -15,8 +15,7 @@ void steam_net_callbacks_t::p2p_session_request(P2PSessionRequest_t* e) {
 	uint64 uid = id.ConvertToUint64();
 	//
 	steam_net_event x("p2p_session_request");
-	x.set("user_id_high", uint64_high(uid));
-	x.set("user_id_low", uint64_low(uid));
+	x.set_steamid_all("user_id", id);
 	x.dispatch();
 	//
 	if (steam_net_auto_accept_p2p_sessions) {

@@ -63,10 +63,31 @@ public:
 	bool set(char* key, char* value) {
 		return gml_ds_map_set_string(map, key, value);
 	}
-	bool set_uint64_str(char* key, int64 value) {
+	bool set_uint64_str(char* key, uint64 value) {
 		static string user_id_str{};
 		user_id_str = std::to_string(value);
 		return set(key, user_id_str.data());
+	}
+	template<size_t size> void set_uint64_all(const char(&key)[size], uint64 value) {
+		constexpr size_t len = size - 1;
+		char key_tmp[len + 8];
+		std::copy(key, key + len, key_tmp);
+
+		constexpr char sfx_high[] = "_high";
+		std::copy(sfx_high, sfx_high + std::size(sfx_high), key_tmp + len);
+		set(key_tmp, uint64_high(value));
+
+		constexpr char sfx_low[] = "_high";
+		std::copy(sfx_low, sfx_low + std::size(sfx_low), key_tmp + len);
+		set(key_tmp, uint64_low(value));
+
+		constexpr char sfx_string[] = "_string";
+		std::copy(sfx_string, sfx_string + std::size(sfx_string), key_tmp + len);
+		char digits[21]; sprintf_s(digits, "%llu", value);
+		set(key_tmp, digits);
+	}
+	template<size_t size> void set_steamid_all(const char(&key)[size], CSteamID& id) {
+		set_uint64_all(key, id.ConvertToUint64());
 	}
 	void set_success(bool success) {
 		set("success", success);
