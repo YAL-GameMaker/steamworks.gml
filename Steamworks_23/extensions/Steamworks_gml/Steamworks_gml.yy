@@ -140,10 +140,6 @@
             1,
             2,
           ],"resourceVersion":"1.0","name":"steam_inventory_transfer_item_quantity_raw","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_leaderboard_get_entry_count_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
-            1,
-            2,
-          ],"resourceVersion":"1.0","name":"steam_leaderboard_get_entry_count_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_lobby_send_chat_message_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":3,"args":[
             1,
             2,
@@ -505,7 +501,6 @@
         {"name":"steam_inventory_get_items_with_prices_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_request_prices_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_transfer_item_quantity_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_leaderboard_get_entry_count_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_send_chat_message_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_send_chat_message_buffer_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_get_chat_message_data_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -726,10 +721,6 @@
             1,
             2,
           ],"resourceVersion":"1.0","name":"steam_inventory_transfer_item_quantity_raw","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_leaderboard_get_entry_count_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
-            1,
-            2,
-          ],"resourceVersion":"1.0","name":"steam_leaderboard_get_entry_count_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_lobby_send_chat_message_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":3,"args":[
             1,
             2,
@@ -1089,7 +1080,6 @@
         {"name":"steam_inventory_get_items_with_prices_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_request_prices_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_transfer_item_quantity_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_leaderboard_get_entry_count_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_send_chat_message_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_send_chat_message_buffer_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_get_chat_message_data_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -1310,10 +1300,6 @@
             1,
             2,
           ],"resourceVersion":"1.0","name":"steam_inventory_transfer_item_quantity_raw","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_leaderboard_get_entry_count_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
-            1,
-            2,
-          ],"resourceVersion":"1.0","name":"steam_leaderboard_get_entry_count_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_lobby_send_chat_message_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":3,"args":[
             1,
             2,
@@ -1673,7 +1659,6 @@
         {"name":"steam_inventory_get_items_with_prices_raw_post","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_request_prices_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_transfer_item_quantity_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_leaderboard_get_entry_count_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_send_chat_message_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_send_chat_message_buffer_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_get_chat_message_data_raw","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
@@ -2044,9 +2029,6 @@
             2,
             2,
           ],"resourceVersion":"1.0","name":"steam_inventory_transfer_item_quantity","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"steam_leaderboard_get_entry_count","kind":2,"help":"steam_leaderboard_get_entry_count(id:int)->int","hidden":false,"returnType":2,"argCount":1,"args":[
-            2,
-          ],"resourceVersion":"1.0","name":"steam_leaderboard_get_entry_count","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"steam_lobby_send_chat_message","kind":2,"help":"steam_lobby_send_chat_message(text:string)->bool ","hidden":false,"returnType":2,"argCount":1,"args":[
             2,
           ],"resourceVersion":"1.0","name":"steam_lobby_send_chat_message","tags":[],"resourceType":"GMExtensionFunction",},
@@ -2107,7 +2089,6 @@
         {"name":"steam_inventory_get_items_with_prices","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_request_prices","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_inventory_transfer_item_quantity","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
-        {"name":"steam_leaderboard_get_entry_count","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_send_chat_message","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_send_chat_message_buffer","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},
         {"name":"steam_lobby_get_chat_message_data","path":"extensions/Steamworks_gml/Steamworks_gml.yy",},

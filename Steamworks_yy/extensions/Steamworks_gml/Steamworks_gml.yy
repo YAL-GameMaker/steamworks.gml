@@ -932,22 +932,6 @@
                     "returnType": 2
                 },
                 {
-                    "id": "2f345724-0e03-430f-a0ba-38bfc1b1822c",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        1,
-                        2
-                    ],
-                    "externalName": "steam_leaderboard_get_entry_count_raw",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "steam_leaderboard_get_entry_count_raw",
-                    "returnType": 2
-                },
-                {
                     "id": "2d3d2066-7f71-a42f-bd97-16a297e8cc10",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -3416,22 +3400,6 @@
                     "returnType": 2
                 },
                 {
-                    "id": "f268369c-85cc-7a95-1c01-6f59a74a5af5",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        1,
-                        2
-                    ],
-                    "externalName": "steam_leaderboard_get_entry_count_raw",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "steam_leaderboard_get_entry_count_raw",
-                    "returnType": 2
-                },
-                {
                     "id": "e0cba817-91fc-703a-f7cd-e30697f3a00e",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -5891,22 +5859,6 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "steam_inventory_transfer_item_quantity_raw",
-                    "returnType": 2
-                },
-                {
-                    "id": "b1d4bc7f-c12a-c56c-c060-a4095b97081d",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        1,
-                        2
-                    ],
-                    "externalName": "steam_leaderboard_get_entry_count_raw",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "steam_leaderboard_get_entry_count_raw",
                     "returnType": 2
                 },
                 {
@@ -8739,21 +8691,6 @@
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_inventory_transfer_item_quantity",
-                    "returnType": 2
-                },
-                {
-                    "id": "0bd6ed6e-64ca-2bea-46c0-51a53391e42d",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        2
-                    ],
-                    "externalName": "steam_leaderboard_get_entry_count",
-                    "help": "steam_leaderboard_get_entry_count(id:int)->int",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_leaderboard_get_entry_count",
                     "returnType": 2
                 },
                 {

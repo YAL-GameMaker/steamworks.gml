@@ -347,12 +347,6 @@ if (steam_inventory_transfer_item_quantity_raw(buffer_get_address(_buf), 20)) {
 	return buffer_read(_buf, buffer_s32);
 } else return undefined;
 
-#define steam_leaderboard_get_entry_count
-/// steam_leaderboard_get_entry_count(id:int)->int
-var _buf = steam_gml_prepare_buffer(8);
-buffer_write(_buf, buffer_u64, argument0);
-return steam_leaderboard_get_entry_count_raw(buffer_get_address(_buf), 8);
-
 #define steam_lobby_send_chat_message
 /// steam_lobby_send_chat_message(text:string)->bool 
 var _buf = steam_gml_prepare_buffer(1);

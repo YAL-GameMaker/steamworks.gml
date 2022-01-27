@@ -331,14 +331,6 @@ dllx double steam_inventory_transfer_item_quantity_raw(void* _inout_ptr, double 
 	return 1;
 }
 
-extern int steam_leaderboard_get_entry_count(SteamLeaderboard_t id);
-dllx double steam_leaderboard_get_entry_count_raw(void* _in_ptr, double _in_ptr_size) {
-	gml_istream _in(_in_ptr);
-	SteamLeaderboard_t _arg_id;
-	_arg_id = _in.read<SteamLeaderboard_t>();
-	return steam_leaderboard_get_entry_count(_arg_id);
-}
-
 extern bool steam_lobby_send_chat_message(const char* text);
 dllx double steam_lobby_send_chat_message_raw(void* _in_ptr, double _in_ptr_size, const char* _arg_text) {
 	gml_istream _in(_in_ptr);
