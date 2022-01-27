@@ -1205,6 +1205,8 @@ function ref_set(url) {
 		}
 		
 		Returns whether the API started opening overlay (which may not happen instantly).
+		
+		%[gms2one]
 	}
 	#[steam_inventory_get_all_items()->steam_inventory_result]() {
 		${wrap("GetAllItems")}

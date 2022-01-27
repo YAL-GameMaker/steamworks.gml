@@ -151,17 +151,6 @@ dllg SteamInventoryResult_t steam_inventory_generate_items(vector<steam_inventor
 	} else return k_SteamInventoryResultInvalid;
 }
 
-dllg bool steam_inventory_start_purchase(vector<steam_inventory_itemdef_w_quantity> items) {
-	vector<SteamItemDef_t> create_defs; create_defs.resize(items.size());
-	vector<uint32> create_quantities; create_quantities.resize(items.size());
-	for (auto i = 0u; i < items.size(); i++) {
-		create_defs[i] = items[i].item_def;
-		create_quantities[i] = items[i].quantity;
-	}
-	auto call = API->StartPurchase(create_defs.data(), create_quantities.data(), items.size());
-	return call != k_uAPICallInvalid;
-}
-
 
 dllg SteamInventoryResult_t steam_inventory_get_all_items() {
 	SteamInventoryResult_t result;
@@ -203,6 +192,17 @@ void steam_net_callbacks_t::steam_inventory_request_eligible_promo_item_defs(Ste
 
 	q.set("is_cached_data", e->m_bCachedData);
 	q.dispatch();
+}
+
+dllg bool steam_inventory_start_purchase(vector<steam_inventory_itemdef_w_quantity> items) {
+	vector<SteamItemDef_t> create_defs; create_defs.resize(items.size());
+	vector<uint32> create_quantities; create_quantities.resize(items.size());
+	for (auto i = 0u; i < items.size(); i++) {
+		create_defs[i] = items[i].item_def;
+		create_quantities[i] = items[i].quantity;
+	}
+	auto call = API->StartPurchase(create_defs.data(), create_quantities.data(), items.size());
+	return call != k_uAPICallInvalid;
 }
 #endif
 

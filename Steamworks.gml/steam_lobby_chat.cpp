@@ -10,12 +10,12 @@ struct steam_lobby_message {
 struct {
 	vector<steam_lobby_message> arr{};
 	int offset = 0;
-} static messages;
+} static chat_messages;
 
 
 void steam_lobby_chat_update() {
 	size_t removeCount = 0;
-	auto& arr = messages.arr;
+	auto& arr = chat_messages.arr;
 	auto count = arr.size();
 	for (size_t i = 0u; i < count; i++) {
 		if (--arr[i].lifetime <= 0) {
@@ -27,7 +27,7 @@ void steam_lobby_chat_update() {
 	}
 	if (removeCount > 0) {
 		arr.erase(arr.begin(), arr.begin() + removeCount);
-		messages.offset += (int)removeCount;
+		chat_messages.offset += (int)removeCount;
 	}
 }
 
@@ -51,22 +51,22 @@ dllg double steam_lobby_send_chat_message_buffer(gml_buffer buf, int size = -1) 
 
 ///
 dllx const char* steam_lobby_get_chat_message_text(double message_index) {
-	message_index -= messages.offset;
-	if (message_index < 0 || message_index >= messages.arr.size()) return "";
-	return (const char*)messages.arr[(size_t)message_index].data;
+	message_index -= chat_messages.offset;
+	if (message_index < 0 || message_index >= chat_messages.arr.size()) return "";
+	return (const char*)chat_messages.arr[(size_t)message_index].data;
 }
 
 ///
 dllx double steam_lobby_get_chat_message_size(double message_index) {
-	message_index -= messages.offset;
-	if (message_index < 0 || message_index >= messages.arr.size()) return -1;
-	return messages.arr[(size_t)message_index].size;
+	message_index -= chat_messages.offset;
+	if (message_index < 0 || message_index >= chat_messages.arr.size()) return -1;
+	return chat_messages.arr[(size_t)message_index].size;
 }
 
 dllg bool steam_lobby_get_chat_message_data(int64_t message_index, gml_buffer buf) {
-	message_index -= messages.offset;
-	if (message_index < 0 || message_index >= messages.arr.size()) return false;
-	auto& msg = messages.arr[(size_t)message_index];
+	message_index -= chat_messages.offset;
+	if (message_index < 0 || message_index >= chat_messages.arr.size()) return false;
+	auto& msg = chat_messages.arr[(size_t)message_index];
 	auto size = msg.size;
 	if (size > (size_t)buf.size()) size = (size_t)buf.size();
 	memcpy(buf.data(), msg.data, size);
@@ -82,8 +82,8 @@ void steam_net_callbacks_t::lobby_chat_message(LobbyChatMsg_t* e) {
 	msg.data[size] = 0;
 	msg.lifetime = 3;
 	memcpy(msg.data, data, size);
-	auto index = messages.arr.size();
-	messages.arr.push_back(msg);
+	auto index = chat_messages.arr.size();
+	chat_messages.arr.push_back(msg);
 	
 	steam_net_event ev("lobby_chat_message");
 	ev.set_uint64_all("lobby_id", e->m_ulSteamIDLobby);
