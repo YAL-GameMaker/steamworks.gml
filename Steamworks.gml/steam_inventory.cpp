@@ -108,15 +108,15 @@ dllg SteamInventoryResult_t steam_inventory_consume_item(SteamItemInstanceID_t i
 	} else return k_SteamInventoryResultInvalid;
 }
 
-struct steam_inventory_create_item_t {
+struct steam_inventory_itemdef_w_quantity {
 	SteamItemDef_t item_def;
 	uint32 quantity;
 };
-struct steam_inventory_destroy_item_t {
+struct steam_inventory_itemid_w_quantity {
 	SteamItemInstanceID_t item_id;
 	uint32 quantity;
 };
-dllg SteamInventoryResult_t steam_inventory_exchange_items(vector<steam_inventory_create_item_t> create, vector< steam_inventory_destroy_item_t> destroy) {
+dllg SteamInventoryResult_t steam_inventory_exchange_items(vector<steam_inventory_itemdef_w_quantity> create, vector< steam_inventory_itemid_w_quantity> destroy) {
 	vector<SteamItemDef_t> create_defs; create_defs.resize(create.size());
 	vector<uint32> create_quantities; create_quantities.resize(create.size());
 	for (auto i = 0u; i < create.size(); i++) {
@@ -137,7 +137,7 @@ dllg SteamInventoryResult_t steam_inventory_exchange_items(vector<steam_inventor
 	} else return k_SteamInventoryResultInvalid;
 }
 
-dllg SteamInventoryResult_t steam_inventory_generate_items(vector<steam_inventory_create_item_t> create) {
+dllg SteamInventoryResult_t steam_inventory_generate_items(vector<steam_inventory_itemdef_w_quantity> create) {
 	vector<SteamItemDef_t> create_defs; create_defs.resize(create.size());
 	vector<uint32> create_quantities; create_quantities.resize(create.size());
 	for (auto i = 0u; i < create.size(); i++) {
@@ -150,6 +150,18 @@ dllg SteamInventoryResult_t steam_inventory_generate_items(vector<steam_inventor
 		return result;
 	} else return k_SteamInventoryResultInvalid;
 }
+
+dllg bool steam_inventory_start_purchase(vector<steam_inventory_itemdef_w_quantity> items) {
+	vector<SteamItemDef_t> create_defs; create_defs.resize(items.size());
+	vector<uint32> create_quantities; create_quantities.resize(items.size());
+	for (auto i = 0u; i < items.size(); i++) {
+		create_defs[i] = items[i].item_def;
+		create_quantities[i] = items[i].quantity;
+	}
+	auto call = API->StartPurchase(create_defs.data(), create_quantities.data(), items.size());
+	return call != k_uAPICallInvalid;
+}
+
 
 dllg SteamInventoryResult_t steam_inventory_get_all_items() {
 	SteamInventoryResult_t result;

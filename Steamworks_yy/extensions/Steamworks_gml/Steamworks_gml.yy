@@ -464,9 +464,10 @@
                     "id": "87978acc-3b35-e085-062c-43f7cbcaff2a",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_result_get_status_raw",
                     "help": "",
@@ -479,9 +480,10 @@
                     "id": "3c2c3177-6e60-b53e-cae0-61d5e7e8aa71",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_result_get_unix_timestamp_raw",
                     "help": "",
@@ -494,9 +496,10 @@
                     "id": "fc0764db-3b56-da90-5acd-85678b481b68",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
                     "externalName": "steam_inventory_result_get_item_property_raw",
@@ -510,9 +513,10 @@
                     "id": "bf1e8414-c683-1e01-c957-3e41a2dd437a",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_result_get_items_raw",
                     "help": "",
@@ -525,9 +529,10 @@
                     "id": "fb34e4c4-475f-b422-9d41-cae3b9aca25a",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_result_get_items_raw_post",
                     "help": "",
@@ -540,9 +545,10 @@
                     "id": "af345706-9a47-2564-1001-35698d07e4f1",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_result_destroy_raw",
                     "help": "",
@@ -555,9 +561,10 @@
                     "id": "4a8725f4-7ddb-80f5-2622-2c224c0d1741",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_trigger_item_drop_raw",
                     "help": "",
@@ -570,9 +577,10 @@
                     "id": "53c76e1f-997d-94c5-d023-d1b0cab504ef",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_add_promo_item_raw",
                     "help": "",
@@ -585,9 +593,10 @@
                     "id": "a59efd71-2974-cb82-7976-8655965a39c2",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_add_promo_items_raw",
                     "help": "",
@@ -600,9 +609,10 @@
                     "id": "d2c2df99-0806-d3d0-062c-2591aabddd0f",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_consume_item_raw",
                     "help": "",
@@ -615,9 +625,10 @@
                     "id": "948fecdb-12cf-cb8a-f9cd-acf70d8f6c2c",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_exchange_items_raw",
                     "help": "",
@@ -630,9 +641,10 @@
                     "id": "3c2c3177-d5db-0e3e-4268-52e6d571bb61",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_generate_items_raw",
                     "help": "",
@@ -642,12 +654,29 @@
                     "returnType": 2
                 },
                 {
+                    "id": "2d3d2066-b3bd-682f-173d-70c4f360ee30",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        2
+                    ],
+                    "externalName": "steam_inventory_start_purchase_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_inventory_start_purchase_raw",
+                    "returnType": 2
+                },
+                {
                     "id": "87978acc-3b35-e085-ac86-e95d6adb449a",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_get_all_items_raw",
                     "help": "",
@@ -660,9 +689,10 @@
                     "id": "0f1f0244-0806-d30d-8ea4-70c4fd1722f2",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_request_eligible_promo_item_defs_raw",
                     "help": "",
@@ -675,9 +705,10 @@
                     "id": "ae254617-2a47-256f-a0ba-2fc89df3a00e",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_get_items_by_id_raw",
                     "help": "",
@@ -690,9 +721,10 @@
                     "id": "a5b5a8ee-5d53-86a7-e8c2-e95d65609948",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_start_update_properties_raw",
                     "help": "",
@@ -705,9 +737,10 @@
                     "id": "ce254653-00ed-cb89-c910-eb83648c5fc2",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
                     "externalName": "steam_inventory_set_property_bool_raw",
@@ -721,9 +754,10 @@
                     "id": "a49670a1-2c8f-0879-a8cf-f1ba0b7f7036",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
                     "externalName": "steam_inventory_set_property_float_raw",
@@ -737,9 +771,10 @@
                     "id": "2528c782-0693-0dd5-0d73-e391ad8666be",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
                     "externalName": "steam_inventory_set_property_int_raw",
@@ -753,9 +788,10 @@
                     "id": "ff7194bb-5efe-b4b7-2f25-29a5bd2f48bf",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 3,
+                    "argCount": 4,
                     "args": [
                         1,
+                        2,
                         1,
                         1
                     ],
@@ -770,9 +806,10 @@
                     "id": "6cd4a480-3141-0990-68ec-641b001605b9",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
                     "externalName": "steam_inventory_remove_property_raw",
@@ -786,9 +823,10 @@
                     "id": "164b9ddc-5353-da69-91a6-40275a6fdb8b",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_submit_update_properties_raw",
                     "help": "",
@@ -801,9 +839,10 @@
                     "id": "96adce24-b2cf-165d-8c32-0cf5f06b28c2",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_load_item_definitions_raw",
                     "help": "",
@@ -816,9 +855,10 @@
                     "id": "e00fad7c-feea-3b45-2515-5b57b8448cf5",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_get_item_price_raw",
                     "help": "",
@@ -831,9 +871,10 @@
                     "id": "87978acc-808e-5b85-ac86-52e6d6ac33ea",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_get_items_with_prices_raw",
                     "help": "",
@@ -846,9 +887,10 @@
                     "id": "1f3457bd-83de-074e-b6ba-2cfc681e7db5",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_get_items_with_prices_raw_post",
                     "help": "",
@@ -861,9 +903,10 @@
                     "id": "e05a4392-17c8-1960-c152-2c9b77b8fb82",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_request_prices_raw",
                     "help": "",
@@ -876,9 +919,10 @@
                     "id": "c22d34e5-6926-5d2d-1d90-0eb9fd19ea9f",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_transfer_item_quantity_raw",
                     "help": "",
@@ -888,12 +932,29 @@
                     "returnType": 2
                 },
                 {
-                    "id": "2d3d2066-7f71-a42f-bd97-16a297e8cc10",
+                    "id": "2f345724-0e03-430f-a0ba-38bfc1b1822c",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 2,
                     "args": [
                         1,
+                        2
+                    ],
+                    "externalName": "steam_leaderboard_get_entry_count_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_leaderboard_get_entry_count_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "2d3d2066-7f71-a42f-bd97-16a297e8cc10",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 3,
+                    "args": [
+                        1,
+                        2,
                         1
                     ],
                     "externalName": "steam_lobby_send_chat_message_raw",
@@ -907,9 +968,10 @@
                     "id": "a5b5a8ee-e6e8-3da7-9fb5-2591a4ca4498",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_lobby_send_chat_message_buffer_raw",
                     "help": "",
@@ -922,9 +984,10 @@
                     "id": "96869bdd-e6e8-3d94-240e-ad192d6066bb",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_lobby_get_chat_message_data_raw",
                     "help": "",
@@ -937,9 +1000,10 @@
                     "id": "f0e0fdbb-1917-c2f2-715b-61d5e9bd885d",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_lobby_set_joinable_raw",
                     "help": "",
@@ -952,9 +1016,10 @@
                     "id": "3c2c3177-6e60-b53e-8ea4-2591a81711c1",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_get_friends_game_info_raw",
                     "help": "",
@@ -967,9 +1032,10 @@
                     "id": "f7bcdf60-c68b-074f-ae89-874e19a4d7a4",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_get_friends_game_info_raw_post",
                     "help": "",
@@ -982,9 +1048,10 @@
                     "id": "b4a4b9ff-919f-4ab6-062c-da6e5e0600d9",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_get_user_persona_name_sync_raw",
                     "help": "",
@@ -997,9 +1064,10 @@
                     "id": "776a22d3-3b7a-2f97-5852-4f51116848ef",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_get_user_avatar_raw",
                     "help": "",
@@ -1012,9 +1080,10 @@
                     "id": "5d5f7a77-ddcd-ad25-092d-ee83f953847b",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_image_get_size_raw",
                     "help": "",
@@ -1027,9 +1096,10 @@
                     "id": "e1f1ecaa-d5db-0ee3-bd97-70c4fc35dd0c",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_image_get_rgba_raw",
                     "help": "",
@@ -1042,9 +1112,10 @@
                     "id": "43f89b42-04a9-4305-05ba-547c52aa39c2",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_image_get_bgra_raw",
                     "help": "",
@@ -1137,7 +1208,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_type",
-                    "help": "steam_controller_get_type(id)",
+                    "help": "steam_controller_get_type()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_type",
@@ -1152,7 +1223,7 @@
                         1
                     ],
                     "externalName": "steam_controller_get_actionset_id",
-                    "help": "steam_controller_get_actionset_id(actionset_name) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found",
+                    "help": "steam_controller_get_actionset_id() : Assigns and returns ActionSet ID for given name, -1 if actionset is not found",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_actionset_id",
@@ -1167,7 +1238,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_actionset",
-                    "help": "steam_controller_get_actionset(controller) : Returns action set ID (generated by steam_controller_get_actionset_id), as per GetCurrentActionSet",
+                    "help": "steam_controller_get_actionset() : Returns action set ID (generated by steam_controller_get_actionset_id), as per GetCurrentActionSet",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_actionset",
@@ -1183,7 +1254,7 @@
                         2
                     ],
                     "externalName": "steam_controller_set_actionset",
-                    "help": "steam_controller_set_actionset(controller, actionset_id) : Changes controller action set, as per ActivateActionSet",
+                    "help": "steam_controller_set_actionset(, ) : Changes controller action set, as per ActivateActionSet",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_set_actionset",
@@ -1198,7 +1269,7 @@
                         1
                     ],
                     "externalName": "steam_controller_get_digital_id",
-                    "help": "steam_controller_get_digital_id(digitalActionName)",
+                    "help": "steam_controller_get_digital_id()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_id",
@@ -1214,7 +1285,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_value",
-                    "help": "steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true\/false)",
+                    "help": "steam_controller_get_digital_value(, ) : Retreives digital action state (true\/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_value",
@@ -1230,7 +1301,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_status",
-                    "help": "steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true\/false)",
+                    "help": "steam_controller_get_digital_status(, ) : Returns whether the given digital action is currently active (true\/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_status",
@@ -1263,7 +1334,7 @@
                         1
                     ],
                     "externalName": "steam_controller_get_analog_id",
-                    "help": "steam_controller_get_analog_id(analogActionName)",
+                    "help": "steam_controller_get_analog_id()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_analog_id",
@@ -1346,7 +1417,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_get_chat_message_text",
-                    "help": "steam_lobby_get_chat_message_text(message_index)",
+                    "help": "steam_lobby_get_chat_message_text()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_get_chat_message_text",
@@ -1361,7 +1432,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_get_chat_message_size",
-                    "help": "steam_lobby_get_chat_message_size(message_index)",
+                    "help": "steam_lobby_get_chat_message_size()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_get_chat_message_size",
@@ -1574,7 +1645,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_add_string_filter",
-                    "help": "steam_lobby_list_add_string_filter(key, value, comparison_type) : Sets a string filter for the next lobby list request.",
+                    "help": "steam_lobby_list_add_string_filter(, , ) : Sets a string filter for the next lobby list request.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_add_string_filter",
@@ -1591,7 +1662,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_add_numerical_filter",
-                    "help": "steam_lobby_list_add_numerical_filter(key, value, comparison_type) : Sets a numerical filter for the next lobby list request.",
+                    "help": "steam_lobby_list_add_numerical_filter(, , ) : Sets a numerical filter for the next lobby list request.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_add_numerical_filter",
@@ -1607,7 +1678,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_add_near_filter",
-                    "help": "steam_lobby_list_add_near_filter(key, value) : Sorts the results of the next lobby list request based to proximity to the given value.",
+                    "help": "steam_lobby_list_add_near_filter(, ) : Sorts the results of the next lobby list request based to proximity to the given value.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_add_near_filter",
@@ -1622,7 +1693,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_add_distance_filter",
-                    "help": "steam_lobby_list_add_distance_filter(mode) : Restricts results by region",
+                    "help": "steam_lobby_list_add_distance_filter() : Restricts results by region",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_add_distance_filter",
@@ -1653,7 +1724,7 @@
                         1
                     ],
                     "externalName": "steam_lobby_list_get_data",
-                    "help": "steam_lobby_list_get_data(index, key) : Retrieves given information about the given lobby",
+                    "help": "steam_lobby_list_get_data(, ) : Retrieves given information about the given lobby",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_get_data",
@@ -1728,7 +1799,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_get_lobby_member_count",
-                    "help": "steam_lobby_list_get_lobby_member_count(lobby_index) : Returns the number of members in the given lobby in search results.",
+                    "help": "steam_lobby_list_get_lobby_member_count() : Returns the number of members in the given lobby in search results.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_get_lobby_member_count",
@@ -1775,7 +1846,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_join",
-                    "help": "steam_lobby_list_join(index) : [async] Starts joining the given lobby.",
+                    "help": "steam_lobby_list_join() : [async] Starts joining the given lobby.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_join",
@@ -1807,7 +1878,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_create",
-                    "help": "steam_lobby_create(type, max_members) : [async] Creates a lobby.",
+                    "help": "steam_lobby_create(, ) : [async] Creates a lobby.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_create",
@@ -1823,7 +1894,7 @@
                         1
                     ],
                     "externalName": "steam_lobby_set_data",
-                    "help": "steam_lobby_set_data(key, value) : [lobby owner only] Sets the data for the current lobby.",
+                    "help": "steam_lobby_set_data(, ) : [lobby owner only] Sets the data for the current lobby.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_set_data",
@@ -1838,7 +1909,7 @@
                         1
                     ],
                     "externalName": "steam_lobby_get_data",
-                    "help": "steam_lobby_get_data(key) : [anyone] Retrieves previously set data for the current lobby.",
+                    "help": "steam_lobby_get_data() : [anyone] Retrieves previously set data for the current lobby.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_get_data",
@@ -1853,7 +1924,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_set_type",
-                    "help": "steam_lobby_set_type(type) : [lobby owner only] Changes the type of the current lobby.",
+                    "help": "steam_lobby_set_type() : [lobby owner only] Changes the type of the current lobby.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_set_type",
@@ -2034,7 +2105,7 @@
                         2
                     ],
                     "externalName": "steam_net_set_auto_accept_p2p_sessions",
-                    "help": "steam_net_set_auto_accept_p2p_sessions(auto_accept) : Sets whether to auto-accept all incoming P2P session requests.",
+                    "help": "steam_net_set_auto_accept_p2p_sessions() : Sets whether to auto-accept all incoming P2P session requests.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_net_set_auto_accept_p2p_sessions",
@@ -2220,7 +2291,7 @@
                         2
                     ],
                     "externalName": "steam_user_set_played_with",
-                    "help": "steam_user_set_played_with(id_high, id_low) : Can be called on lobby session start, adds the user to \"recently played with\" list.",
+                    "help": "steam_user_set_played_with(, ) : Can be called on lobby session start, adds the user to \"recently played with\" list.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_user_set_played_with",
@@ -2235,7 +2306,7 @@
                         1
                     ],
                     "externalName": "steam_activate_overlay_raw",
-                    "help": "steam_activate_overlay_raw(overlay_code) : Activates an overlay by it's raw Steam API name.",
+                    "help": "steam_activate_overlay_raw() : Activates an overlay by it's raw Steam API name.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_activate_overlay_raw",
@@ -2251,7 +2322,7 @@
                         1
                     ],
                     "externalName": "steam_set_rich_presence",
-                    "help": "steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https:\/\/partner.steamgames.com\/doc\/api\/ISteamFriends#SetRichPresence",
+                    "help": "steam_set_rich_presence(, ) : Sets rich text presence for the active user. See: https:\/\/partner.steamgames.com\/doc\/api\/ISteamFriends#SetRichPresence",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_set_rich_presence",
@@ -2281,7 +2352,7 @@
                         2
                     ],
                     "externalName": "steam_set_overlay_notification_position",
-                    "help": "steam_set_overlay_notification_position(position)",
+                    "help": "steam_set_overlay_notification_position()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_set_overlay_notification_position",
@@ -2297,7 +2368,7 @@
                         2
                     ],
                     "externalName": "steam_set_overlay_notification_inset",
-                    "help": "steam_set_overlay_notification_inset(hor_inset, vert_inset)",
+                    "help": "steam_set_overlay_notification_inset(, )",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_set_overlay_notification_inset",
@@ -2877,9 +2948,10 @@
                     "id": "da208388-a232-3c3c-9052-918398683f73",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_result_get_status_raw",
                     "help": "",
@@ -2892,9 +2964,10 @@
                     "id": "860f4392-15bc-80fb-2157-79989a69bcf3",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_result_get_unix_timestamp_raw",
                     "help": "",
@@ -2907,9 +2980,10 @@
                     "id": "7d4e9a55-da65-d0e6-b6cf-0d7ee4b5635a",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
                     "externalName": "steam_inventory_result_get_item_property_raw",
@@ -2923,9 +2997,10 @@
                     "id": "de61b8ae-4123-4f56-3092-747aade2c609",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_result_get_items_raw",
                     "help": "",
@@ -2938,9 +3013,10 @@
                     "id": "355b74d1-9a8d-2309-08f3-7e4b09417ad3",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_result_get_items_raw_post",
                     "help": "",
@@ -2953,9 +3029,10 @@
                     "id": "7d90975d-e89d-0932-08ef-5b9cb83dc887",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_result_destroy_raw",
                     "help": "",
@@ -2968,9 +3045,10 @@
                     "id": "f5ff828d-bbca-343d-1909-be355b3ace0b",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_trigger_item_drop_raw",
                     "help": "",
@@ -2983,9 +3061,10 @@
                     "id": "3e22b853-a89f-18ee-1dc0-44fe1e72c3e6",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_add_promo_item_raw",
                     "help": "",
@@ -2998,9 +3077,10 @@
                     "id": "2f7a2244-aaba-6961-429e-99c8f4429504",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_add_promo_items_raw",
                     "help": "",
@@ -3013,9 +3093,10 @@
                     "id": "4aa561b0-3e89-f785-4fbd-d3bcf7b82303",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_consume_item_raw",
                     "help": "",
@@ -3028,9 +3109,10 @@
                     "id": "782e80f6-69f3-1c1f-a71e-5e493cb57842",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_exchange_items_raw",
                     "help": "",
@@ -3043,9 +3125,10 @@
                     "id": "49523135-55b8-8fcd-8698-50337a26f51f",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_generate_items_raw",
                     "help": "",
@@ -3055,12 +3138,29 @@
                     "returnType": 2
                 },
                 {
+                    "id": "5b8707d6-5465-d5ab-e734-4a63eb7a474b",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        2
+                    ],
+                    "externalName": "steam_inventory_start_purchase_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_inventory_start_purchase_raw",
+                    "returnType": 2
+                },
+                {
                     "id": "115cde14-2105-1cf4-9448-793c001fa4e4",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_get_all_items_raw",
                     "help": "",
@@ -3073,9 +3173,10 @@
                     "id": "bdd402d6-b36f-d07c-f240-97df53977951",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_request_eligible_promo_item_defs_raw",
                     "help": "",
@@ -3088,9 +3189,10 @@
                     "id": "71919b00-8bab-ac37-20e0-12ee4dc92e3e",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_get_items_by_id_raw",
                     "help": "",
@@ -3103,9 +3205,10 @@
                     "id": "0d0481b4-0c7d-4d4a-03a8-1f466953805a",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_start_update_properties_raw",
                     "help": "",
@@ -3118,9 +3221,10 @@
                     "id": "50fbd1d8-7907-d2c9-47b4-0d7edc33a158",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
                     "externalName": "steam_inventory_set_property_bool_raw",
@@ -3134,9 +3238,10 @@
                     "id": "d3da03b9-906c-e11d-aa72-9377d51b4363",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
                     "externalName": "steam_inventory_set_property_float_raw",
@@ -3150,9 +3255,10 @@
                     "id": "9ffe4f27-187d-4f0a-6063-32b3c9ae1353",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
                     "externalName": "steam_inventory_set_property_int_raw",
@@ -3166,9 +3272,10 @@
                     "id": "c0acac2e-7231-fd9e-89aa-5b76069042f6",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 3,
+                    "argCount": 4,
                     "args": [
                         1,
+                        2,
                         1,
                         1
                     ],
@@ -3183,9 +3290,10 @@
                     "id": "a4c9957a-edcc-8fc5-77e8-fe5b6e2feb8f",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
                     "externalName": "steam_inventory_remove_property_raw",
@@ -3199,9 +3307,10 @@
                     "id": "97d3b594-d199-0c8d-ec07-e350ba88762c",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_submit_update_properties_raw",
                     "help": "",
@@ -3214,9 +3323,10 @@
                     "id": "49191666-4676-c3c9-c0ad-646892738440",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_load_item_definitions_raw",
                     "help": "",
@@ -3229,9 +3339,10 @@
                     "id": "f56f8ff7-4987-0960-2063-9b7f2a4b4b9f",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_get_item_price_raw",
                     "help": "",
@@ -3244,9 +3355,10 @@
                     "id": "6209aa57-a39c-0d83-585a-d39515f16ec1",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_get_items_with_prices_raw",
                     "help": "",
@@ -3259,9 +3371,10 @@
                     "id": "a6e08999-1101-bf07-27f3-229efe4295c3",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_get_items_with_prices_raw_post",
                     "help": "",
@@ -3274,9 +3387,10 @@
                     "id": "932b5008-b1b6-180f-6cac-6afc1a317a87",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_request_prices_raw",
                     "help": "",
@@ -3289,9 +3403,10 @@
                     "id": "f5814a91-21bd-0987-ee80-af1e9000dbab",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_transfer_item_quantity_raw",
                     "help": "",
@@ -3301,12 +3416,29 @@
                     "returnType": 2
                 },
                 {
-                    "id": "e0cba817-91fc-703a-f7cd-e30697f3a00e",
+                    "id": "f268369c-85cc-7a95-1c01-6f59a74a5af5",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 2,
                     "args": [
                         1,
+                        2
+                    ],
+                    "externalName": "steam_leaderboard_get_entry_count_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_leaderboard_get_entry_count_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "e0cba817-91fc-703a-f7cd-e30697f3a00e",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 3,
+                    "args": [
+                        1,
+                        2,
                         1
                     ],
                     "externalName": "steam_lobby_send_chat_message_raw",
@@ -3320,9 +3452,10 @@
                     "id": "d3c39e4f-cf0e-6e12-a624-4ab3ee2cf129",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_lobby_send_chat_message_buffer_raw",
                     "help": "",
@@ -3335,9 +3468,10 @@
                     "id": "0331a1e8-2198-58ff-2f84-fa0365869de7",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_lobby_get_chat_message_data_raw",
                     "help": "",
@@ -3350,9 +3484,10 @@
                     "id": "859efdf9-6f12-256e-ba45-7b873e2f6c97",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_lobby_set_joinable_raw",
                     "help": "",
@@ -3365,9 +3500,10 @@
                     "id": "c24b07d6-5a45-5d2d-4ae8-8661459fdcf5",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_get_friends_game_info_raw",
                     "help": "",
@@ -3380,9 +3516,10 @@
                     "id": "190c23c7-f550-5868-d07d-928580f1b926",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_get_friends_game_info_raw_post",
                     "help": "",
@@ -3395,9 +3532,10 @@
                     "id": "0e25468e-20ed-1656-3eba-bcfc4a35c686",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_get_user_persona_name_sync_raw",
                     "help": "",
@@ -3410,9 +3548,10 @@
                     "id": "6e08c0eb-9354-a5ba-5843-7a2da4bd6bf1",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_get_user_avatar_raw",
                     "help": "",
@@ -3425,9 +3564,10 @@
                     "id": "4d560c47-505c-d24e-ea03-840896b33c26",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_image_get_size_raw",
                     "help": "",
@@ -3440,9 +3580,10 @@
                     "id": "f1e1cb1a-97f3-d5a4-b730-0e8296a9d123",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_image_get_rgba_raw",
                     "help": "",
@@ -3455,9 +3596,10 @@
                     "id": "7babf0f5-b386-8530-0d87-06c42e799aaf",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_image_get_bgra_raw",
                     "help": "",
@@ -3550,7 +3692,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_type",
-                    "help": "steam_controller_get_type(id)",
+                    "help": "steam_controller_get_type()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_type",
@@ -3565,7 +3707,7 @@
                         1
                     ],
                     "externalName": "steam_controller_get_actionset_id",
-                    "help": "steam_controller_get_actionset_id(actionset_name) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found",
+                    "help": "steam_controller_get_actionset_id() : Assigns and returns ActionSet ID for given name, -1 if actionset is not found",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_actionset_id",
@@ -3580,7 +3722,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_actionset",
-                    "help": "steam_controller_get_actionset(controller) : Returns action set ID (generated by steam_controller_get_actionset_id), as per GetCurrentActionSet",
+                    "help": "steam_controller_get_actionset() : Returns action set ID (generated by steam_controller_get_actionset_id), as per GetCurrentActionSet",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_actionset",
@@ -3596,7 +3738,7 @@
                         2
                     ],
                     "externalName": "steam_controller_set_actionset",
-                    "help": "steam_controller_set_actionset(controller, actionset_id) : Changes controller action set, as per ActivateActionSet",
+                    "help": "steam_controller_set_actionset(, ) : Changes controller action set, as per ActivateActionSet",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_set_actionset",
@@ -3611,7 +3753,7 @@
                         1
                     ],
                     "externalName": "steam_controller_get_digital_id",
-                    "help": "steam_controller_get_digital_id(digitalActionName)",
+                    "help": "steam_controller_get_digital_id()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_id",
@@ -3627,7 +3769,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_value",
-                    "help": "steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true\/false)",
+                    "help": "steam_controller_get_digital_value(, ) : Retreives digital action state (true\/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_value",
@@ -3643,7 +3785,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_status",
-                    "help": "steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true\/false)",
+                    "help": "steam_controller_get_digital_status(, ) : Returns whether the given digital action is currently active (true\/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_status",
@@ -3676,7 +3818,7 @@
                         1
                     ],
                     "externalName": "steam_controller_get_analog_id",
-                    "help": "steam_controller_get_analog_id(analogActionName)",
+                    "help": "steam_controller_get_analog_id()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_analog_id",
@@ -3759,7 +3901,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_get_chat_message_text",
-                    "help": "steam_lobby_get_chat_message_text(message_index)",
+                    "help": "steam_lobby_get_chat_message_text()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_get_chat_message_text",
@@ -3774,7 +3916,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_get_chat_message_size",
-                    "help": "steam_lobby_get_chat_message_size(message_index)",
+                    "help": "steam_lobby_get_chat_message_size()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_get_chat_message_size",
@@ -3987,7 +4129,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_add_string_filter",
-                    "help": "steam_lobby_list_add_string_filter(key, value, comparison_type) : Sets a string filter for the next lobby list request.",
+                    "help": "steam_lobby_list_add_string_filter(, , ) : Sets a string filter for the next lobby list request.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_add_string_filter",
@@ -4004,7 +4146,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_add_numerical_filter",
-                    "help": "steam_lobby_list_add_numerical_filter(key, value, comparison_type) : Sets a numerical filter for the next lobby list request.",
+                    "help": "steam_lobby_list_add_numerical_filter(, , ) : Sets a numerical filter for the next lobby list request.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_add_numerical_filter",
@@ -4020,7 +4162,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_add_near_filter",
-                    "help": "steam_lobby_list_add_near_filter(key, value) : Sorts the results of the next lobby list request based to proximity to the given value.",
+                    "help": "steam_lobby_list_add_near_filter(, ) : Sorts the results of the next lobby list request based to proximity to the given value.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_add_near_filter",
@@ -4035,7 +4177,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_add_distance_filter",
-                    "help": "steam_lobby_list_add_distance_filter(mode) : Restricts results by region",
+                    "help": "steam_lobby_list_add_distance_filter() : Restricts results by region",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_add_distance_filter",
@@ -4066,7 +4208,7 @@
                         1
                     ],
                     "externalName": "steam_lobby_list_get_data",
-                    "help": "steam_lobby_list_get_data(index, key) : Retrieves given information about the given lobby",
+                    "help": "steam_lobby_list_get_data(, ) : Retrieves given information about the given lobby",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_get_data",
@@ -4141,7 +4283,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_get_lobby_member_count",
-                    "help": "steam_lobby_list_get_lobby_member_count(lobby_index) : Returns the number of members in the given lobby in search results.",
+                    "help": "steam_lobby_list_get_lobby_member_count() : Returns the number of members in the given lobby in search results.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_get_lobby_member_count",
@@ -4188,7 +4330,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_join",
-                    "help": "steam_lobby_list_join(index) : [async] Starts joining the given lobby.",
+                    "help": "steam_lobby_list_join() : [async] Starts joining the given lobby.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_join",
@@ -4220,7 +4362,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_create",
-                    "help": "steam_lobby_create(type, max_members) : [async] Creates a lobby.",
+                    "help": "steam_lobby_create(, ) : [async] Creates a lobby.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_create",
@@ -4236,7 +4378,7 @@
                         1
                     ],
                     "externalName": "steam_lobby_set_data",
-                    "help": "steam_lobby_set_data(key, value) : [lobby owner only] Sets the data for the current lobby.",
+                    "help": "steam_lobby_set_data(, ) : [lobby owner only] Sets the data for the current lobby.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_set_data",
@@ -4251,7 +4393,7 @@
                         1
                     ],
                     "externalName": "steam_lobby_get_data",
-                    "help": "steam_lobby_get_data(key) : [anyone] Retrieves previously set data for the current lobby.",
+                    "help": "steam_lobby_get_data() : [anyone] Retrieves previously set data for the current lobby.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_get_data",
@@ -4266,7 +4408,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_set_type",
-                    "help": "steam_lobby_set_type(type) : [lobby owner only] Changes the type of the current lobby.",
+                    "help": "steam_lobby_set_type() : [lobby owner only] Changes the type of the current lobby.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_set_type",
@@ -4447,7 +4589,7 @@
                         2
                     ],
                     "externalName": "steam_net_set_auto_accept_p2p_sessions",
-                    "help": "steam_net_set_auto_accept_p2p_sessions(auto_accept) : Sets whether to auto-accept all incoming P2P session requests.",
+                    "help": "steam_net_set_auto_accept_p2p_sessions() : Sets whether to auto-accept all incoming P2P session requests.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_net_set_auto_accept_p2p_sessions",
@@ -4633,7 +4775,7 @@
                         2
                     ],
                     "externalName": "steam_user_set_played_with",
-                    "help": "steam_user_set_played_with(id_high, id_low) : Can be called on lobby session start, adds the user to \"recently played with\" list.",
+                    "help": "steam_user_set_played_with(, ) : Can be called on lobby session start, adds the user to \"recently played with\" list.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_user_set_played_with",
@@ -4648,7 +4790,7 @@
                         1
                     ],
                     "externalName": "steam_activate_overlay_raw",
-                    "help": "steam_activate_overlay_raw(overlay_code) : Activates an overlay by it's raw Steam API name.",
+                    "help": "steam_activate_overlay_raw() : Activates an overlay by it's raw Steam API name.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_activate_overlay_raw",
@@ -4664,7 +4806,7 @@
                         1
                     ],
                     "externalName": "steam_set_rich_presence",
-                    "help": "steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https:\/\/partner.steamgames.com\/doc\/api\/ISteamFriends#SetRichPresence",
+                    "help": "steam_set_rich_presence(, ) : Sets rich text presence for the active user. See: https:\/\/partner.steamgames.com\/doc\/api\/ISteamFriends#SetRichPresence",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_set_rich_presence",
@@ -4694,7 +4836,7 @@
                         2
                     ],
                     "externalName": "steam_set_overlay_notification_position",
-                    "help": "steam_set_overlay_notification_position(position)",
+                    "help": "steam_set_overlay_notification_position()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_set_overlay_notification_position",
@@ -4710,7 +4852,7 @@
                         2
                     ],
                     "externalName": "steam_set_overlay_notification_inset",
-                    "help": "steam_set_overlay_notification_inset(hor_inset, vert_inset)",
+                    "help": "steam_set_overlay_notification_inset(, )",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_set_overlay_notification_inset",
@@ -5284,9 +5426,10 @@
                     "id": "4ccfd18d-2860-6976-fa6b-f2c4b8794ea6",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_result_get_status_raw",
                     "help": "",
@@ -5299,9 +5442,10 @@
                     "id": "9803b500-5676-90fb-e9ab-74d8cd14f39b",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_result_get_unix_timestamp_raw",
                     "help": "",
@@ -5314,9 +5458,10 @@
                     "id": "a009a27f-c4b8-2b1f-3acf-5a2aa294fcb6",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
                     "externalName": "steam_inventory_result_get_item_property_raw",
@@ -5330,9 +5475,10 @@
                     "id": "4a288dc5-10ff-c279-7c62-8875890be90b",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_result_get_items_raw",
                     "help": "",
@@ -5345,9 +5491,10 @@
                     "id": "4b8f5186-fa95-ec14-9eb1-fcddf0cedc82",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_result_get_items_raw_post",
                     "help": "",
@@ -5360,9 +5507,10 @@
                     "id": "3cae1085-1cb0-3c49-327c-a157a3d5cec6",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_result_destroy_raw",
                     "help": "",
@@ -5375,9 +5523,10 @@
                     "id": "1226acbe-7c39-4780-ce07-b125eec3a824",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_trigger_item_drop_raw",
                     "help": "",
@@ -5390,9 +5539,10 @@
                     "id": "62d0f973-ab76-93c8-4129-09bc58dde85e",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_add_promo_item_raw",
                     "help": "",
@@ -5405,9 +5555,10 @@
                     "id": "0b5ae121-61cd-d49c-e963-9c7a2b856a9d",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_add_promo_items_raw",
                     "help": "",
@@ -5420,9 +5571,10 @@
                     "id": "5a2b37aa-d545-25a5-0ee1-f71d10683f95",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_consume_item_raw",
                     "help": "",
@@ -5435,9 +5587,10 @@
                     "id": "c6f62480-325e-6fae-a534-e2dfdea84f1d",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_exchange_items_raw",
                     "help": "",
@@ -5450,9 +5603,10 @@
                     "id": "0e8770a1-2726-a2d8-a40e-e0b90b718cf7",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_generate_items_raw",
                     "help": "",
@@ -5462,12 +5616,29 @@
                     "returnType": 2
                 },
                 {
+                    "id": "e19083aa-3676-53ce-b979-9ccc44de59e3",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        2
+                    ],
+                    "externalName": "steam_inventory_start_purchase_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_inventory_start_purchase_raw",
+                    "returnType": 2
+                },
+                {
                     "id": "776bcb4a-2809-0750-5d37-a4755d55f7c0",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_get_all_items_raw",
                     "help": "",
@@ -5480,9 +5651,10 @@
                     "id": "327df233-0841-e96a-08e2-0769974d3b8d",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_request_eligible_promo_item_defs_raw",
                     "help": "",
@@ -5495,9 +5667,10 @@
                     "id": "9993acf3-c40a-a3b6-9e4e-c1acd61f1249",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_get_items_by_id_raw",
                     "help": "",
@@ -5510,9 +5683,10 @@
                     "id": "5a6899f9-633a-1865-1a35-c82a91bfefa4",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_start_update_properties_raw",
                     "help": "",
@@ -5525,9 +5699,10 @@
                     "id": "57be1778-828a-1a49-dca3-f0db7883c4b2",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
                     "externalName": "steam_inventory_set_property_bool_raw",
@@ -5541,9 +5716,10 @@
                     "id": "f065adc7-7231-5988-3be0-f36c6da58e5a",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
                     "externalName": "steam_inventory_set_property_float_raw",
@@ -5557,9 +5733,10 @@
                     "id": "c5adca37-5c32-3b97-e9b5-9ea362c9db07",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
                     "externalName": "steam_inventory_set_property_int_raw",
@@ -5573,9 +5750,10 @@
                     "id": "cab59528-a60b-1d6d-9ef0-3a881ddfe9a0",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 3,
+                    "argCount": 4,
                     "args": [
                         1,
+                        2,
                         1,
                         1
                     ],
@@ -5590,9 +5768,10 @@
                     "id": "0199c81e-e941-d712-bf4d-ce6bb0fd5a02",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
                     "externalName": "steam_inventory_remove_property_raw",
@@ -5606,9 +5785,10 @@
                     "id": "4c459ea4-ec89-f9f6-f960-505d0012aafa",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_submit_update_properties_raw",
                     "help": "",
@@ -5621,9 +5801,10 @@
                     "id": "201b401a-ed7a-81bc-53d9-07cc663c4fd0",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_load_item_definitions_raw",
                     "help": "",
@@ -5636,9 +5817,10 @@
                     "id": "e78759d8-ab15-9682-bd17-3e0af876b37b",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_get_item_price_raw",
                     "help": "",
@@ -5651,9 +5833,10 @@
                     "id": "f5241c4d-fde7-6170-7fbc-b7dcb74679d8",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_get_items_with_prices_raw",
                     "help": "",
@@ -5666,9 +5849,10 @@
                     "id": "990ca1b4-28bf-6fe9-92ed-61ae5c2fe88d",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_get_items_with_prices_raw_post",
                     "help": "",
@@ -5681,9 +5865,10 @@
                     "id": "19b184be-4204-8794-6a6a-e36c94b608c9",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_request_prices_raw",
                     "help": "",
@@ -5696,9 +5881,10 @@
                     "id": "9a16f305-3c8c-a5bf-d0c3-7af5a87719d9",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_inventory_transfer_item_quantity_raw",
                     "help": "",
@@ -5708,12 +5894,29 @@
                     "returnType": 2
                 },
                 {
-                    "id": "f1f0bc6d-ed3c-e69a-3516-68816599b47e",
+                    "id": "b1d4bc7f-c12a-c56c-c060-a4095b97081d",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 2,
                     "args": [
                         1,
+                        2
+                    ],
+                    "externalName": "steam_leaderboard_get_entry_count_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_leaderboard_get_entry_count_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "f1f0bc6d-ed3c-e69a-3516-68816599b47e",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 3,
+                    "args": [
+                        1,
+                        2,
                         1
                     ],
                     "externalName": "steam_lobby_send_chat_message_raw",
@@ -5727,9 +5930,10 @@
                     "id": "f80d5155-ccdc-23cb-ee5c-ccdfa5ac7bf5",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_lobby_send_chat_message_buffer_raw",
                     "help": "",
@@ -5742,9 +5946,10 @@
                     "id": "ec9a7e7a-f894-43cf-5d26-6e0eb049640e",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_lobby_get_chat_message_data_raw",
                     "help": "",
@@ -5757,9 +5962,10 @@
                     "id": "3da55283-0afe-d5a0-29d0-0e5246a90120",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_lobby_set_joinable_raw",
                     "help": "",
@@ -5772,9 +5978,10 @@
                     "id": "e4c80500-1010-fc35-0cf4-cd1fbbbc7be6",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_get_friends_game_info_raw",
                     "help": "",
@@ -5787,9 +5994,10 @@
                     "id": "f509574c-fc3c-2b40-c243-97037d362dca",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_get_friends_game_info_raw_post",
                     "help": "",
@@ -5802,9 +6010,10 @@
                     "id": "4ac3f829-ac55-5d24-a378-86172b71447c",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_get_user_persona_name_sync_raw",
                     "help": "",
@@ -5817,9 +6026,10 @@
                     "id": "bb8e1214-3e4c-46f9-50a3-7ab3ff5a2f8d",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_get_user_avatar_raw",
                     "help": "",
@@ -5832,9 +6042,10 @@
                     "id": "36f85201-4e5f-58ce-cb4e-853c885f9126",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_image_get_size_raw",
                     "help": "",
@@ -5847,9 +6058,10 @@
                     "id": "419c4b88-7898-1c3b-e38d-b40fdc7e59ac",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_image_get_rgba_raw",
                     "help": "",
@@ -5862,9 +6074,10 @@
                     "id": "0ae73f91-2095-5cb8-2064-e694eaca6ae2",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 1,
+                    "argCount": 2,
                     "args": [
-                        1
+                        1,
+                        2
                     ],
                     "externalName": "steam_image_get_bgra_raw",
                     "help": "",
@@ -5957,7 +6170,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_type",
-                    "help": "steam_controller_get_type(id)",
+                    "help": "steam_controller_get_type()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_type",
@@ -5972,7 +6185,7 @@
                         1
                     ],
                     "externalName": "steam_controller_get_actionset_id",
-                    "help": "steam_controller_get_actionset_id(actionset_name) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found",
+                    "help": "steam_controller_get_actionset_id() : Assigns and returns ActionSet ID for given name, -1 if actionset is not found",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_actionset_id",
@@ -5987,7 +6200,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_actionset",
-                    "help": "steam_controller_get_actionset(controller) : Returns action set ID (generated by steam_controller_get_actionset_id), as per GetCurrentActionSet",
+                    "help": "steam_controller_get_actionset() : Returns action set ID (generated by steam_controller_get_actionset_id), as per GetCurrentActionSet",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_actionset",
@@ -6003,7 +6216,7 @@
                         2
                     ],
                     "externalName": "steam_controller_set_actionset",
-                    "help": "steam_controller_set_actionset(controller, actionset_id) : Changes controller action set, as per ActivateActionSet",
+                    "help": "steam_controller_set_actionset(, ) : Changes controller action set, as per ActivateActionSet",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_set_actionset",
@@ -6018,7 +6231,7 @@
                         1
                     ],
                     "externalName": "steam_controller_get_digital_id",
-                    "help": "steam_controller_get_digital_id(digitalActionName)",
+                    "help": "steam_controller_get_digital_id()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_id",
@@ -6034,7 +6247,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_value",
-                    "help": "steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true\/false)",
+                    "help": "steam_controller_get_digital_value(, ) : Retreives digital action state (true\/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_value",
@@ -6050,7 +6263,7 @@
                         2
                     ],
                     "externalName": "steam_controller_get_digital_status",
-                    "help": "steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true\/false)",
+                    "help": "steam_controller_get_digital_status(, ) : Returns whether the given digital action is currently active (true\/false)",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_digital_status",
@@ -6083,7 +6296,7 @@
                         1
                     ],
                     "externalName": "steam_controller_get_analog_id",
-                    "help": "steam_controller_get_analog_id(analogActionName)",
+                    "help": "steam_controller_get_analog_id()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_controller_get_analog_id",
@@ -6166,7 +6379,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_get_chat_message_text",
-                    "help": "steam_lobby_get_chat_message_text(message_index)",
+                    "help": "steam_lobby_get_chat_message_text()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_get_chat_message_text",
@@ -6181,7 +6394,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_get_chat_message_size",
-                    "help": "steam_lobby_get_chat_message_size(message_index)",
+                    "help": "steam_lobby_get_chat_message_size()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_get_chat_message_size",
@@ -6394,7 +6607,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_add_string_filter",
-                    "help": "steam_lobby_list_add_string_filter(key, value, comparison_type) : Sets a string filter for the next lobby list request.",
+                    "help": "steam_lobby_list_add_string_filter(, , ) : Sets a string filter for the next lobby list request.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_add_string_filter",
@@ -6411,7 +6624,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_add_numerical_filter",
-                    "help": "steam_lobby_list_add_numerical_filter(key, value, comparison_type) : Sets a numerical filter for the next lobby list request.",
+                    "help": "steam_lobby_list_add_numerical_filter(, , ) : Sets a numerical filter for the next lobby list request.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_add_numerical_filter",
@@ -6427,7 +6640,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_add_near_filter",
-                    "help": "steam_lobby_list_add_near_filter(key, value) : Sorts the results of the next lobby list request based to proximity to the given value.",
+                    "help": "steam_lobby_list_add_near_filter(, ) : Sorts the results of the next lobby list request based to proximity to the given value.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_add_near_filter",
@@ -6442,7 +6655,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_add_distance_filter",
-                    "help": "steam_lobby_list_add_distance_filter(mode) : Restricts results by region",
+                    "help": "steam_lobby_list_add_distance_filter() : Restricts results by region",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_add_distance_filter",
@@ -6473,7 +6686,7 @@
                         1
                     ],
                     "externalName": "steam_lobby_list_get_data",
-                    "help": "steam_lobby_list_get_data(index, key) : Retrieves given information about the given lobby",
+                    "help": "steam_lobby_list_get_data(, ) : Retrieves given information about the given lobby",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_get_data",
@@ -6548,7 +6761,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_get_lobby_member_count",
-                    "help": "steam_lobby_list_get_lobby_member_count(lobby_index) : Returns the number of members in the given lobby in search results.",
+                    "help": "steam_lobby_list_get_lobby_member_count() : Returns the number of members in the given lobby in search results.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_get_lobby_member_count",
@@ -6595,7 +6808,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_list_join",
-                    "help": "steam_lobby_list_join(index) : [async] Starts joining the given lobby.",
+                    "help": "steam_lobby_list_join() : [async] Starts joining the given lobby.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_list_join",
@@ -6627,7 +6840,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_create",
-                    "help": "steam_lobby_create(type, max_members) : [async] Creates a lobby.",
+                    "help": "steam_lobby_create(, ) : [async] Creates a lobby.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_create",
@@ -6643,7 +6856,7 @@
                         1
                     ],
                     "externalName": "steam_lobby_set_data",
-                    "help": "steam_lobby_set_data(key, value) : [lobby owner only] Sets the data for the current lobby.",
+                    "help": "steam_lobby_set_data(, ) : [lobby owner only] Sets the data for the current lobby.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_set_data",
@@ -6658,7 +6871,7 @@
                         1
                     ],
                     "externalName": "steam_lobby_get_data",
-                    "help": "steam_lobby_get_data(key) : [anyone] Retrieves previously set data for the current lobby.",
+                    "help": "steam_lobby_get_data() : [anyone] Retrieves previously set data for the current lobby.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_get_data",
@@ -6673,7 +6886,7 @@
                         2
                     ],
                     "externalName": "steam_lobby_set_type",
-                    "help": "steam_lobby_set_type(type) : [lobby owner only] Changes the type of the current lobby.",
+                    "help": "steam_lobby_set_type() : [lobby owner only] Changes the type of the current lobby.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_lobby_set_type",
@@ -6854,7 +7067,7 @@
                         2
                     ],
                     "externalName": "steam_net_set_auto_accept_p2p_sessions",
-                    "help": "steam_net_set_auto_accept_p2p_sessions(auto_accept) : Sets whether to auto-accept all incoming P2P session requests.",
+                    "help": "steam_net_set_auto_accept_p2p_sessions() : Sets whether to auto-accept all incoming P2P session requests.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_net_set_auto_accept_p2p_sessions",
@@ -7040,7 +7253,7 @@
                         2
                     ],
                     "externalName": "steam_user_set_played_with",
-                    "help": "steam_user_set_played_with(id_high, id_low) : Can be called on lobby session start, adds the user to \"recently played with\" list.",
+                    "help": "steam_user_set_played_with(, ) : Can be called on lobby session start, adds the user to \"recently played with\" list.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_user_set_played_with",
@@ -7055,7 +7268,7 @@
                         1
                     ],
                     "externalName": "steam_activate_overlay_raw",
-                    "help": "steam_activate_overlay_raw(overlay_code) : Activates an overlay by it's raw Steam API name.",
+                    "help": "steam_activate_overlay_raw() : Activates an overlay by it's raw Steam API name.",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_activate_overlay_raw",
@@ -7071,7 +7284,7 @@
                         1
                     ],
                     "externalName": "steam_set_rich_presence",
-                    "help": "steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https:\/\/partner.steamgames.com\/doc\/api\/ISteamFriends#SetRichPresence",
+                    "help": "steam_set_rich_presence(, ) : Sets rich text presence for the active user. See: https:\/\/partner.steamgames.com\/doc\/api\/ISteamFriends#SetRichPresence",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_set_rich_presence",
@@ -7101,7 +7314,7 @@
                         2
                     ],
                     "externalName": "steam_set_overlay_notification_position",
-                    "help": "steam_set_overlay_notification_position(position)",
+                    "help": "steam_set_overlay_notification_position()",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_set_overlay_notification_position",
@@ -7117,7 +7330,7 @@
                         2
                     ],
                     "externalName": "steam_set_overlay_notification_inset",
-                    "help": "steam_set_overlay_notification_inset(hor_inset, vert_inset)",
+                    "help": "steam_set_overlay_notification_inset(, )",
                     "hidden": false,
                     "kind": 1,
                     "name": "steam_set_overlay_notification_inset",
@@ -8273,6 +8486,21 @@
                     "returnType": 2
                 },
                 {
+                    "id": "54594a97-8cc0-619b-197e-18679c660911",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_inventory_start_purchase",
+                    "help": "steam_inventory_start_purchase(items:array<any>)->bool",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_inventory_start_purchase",
+                    "returnType": 2
+                },
+                {
                     "id": "e7a0fa26-2083-e12d-2cbf-d4094b04bced",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -8511,6 +8739,21 @@
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_inventory_transfer_item_quantity",
+                    "returnType": 2
+                },
+                {
+                    "id": "0bd6ed6e-64ca-2bea-46c0-51a53391e42d",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_leaderboard_get_entry_count",
+                    "help": "steam_leaderboard_get_entry_count(id:int)->int",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_leaderboard_get_entry_count",
                     "returnType": 2
                 },
                 {

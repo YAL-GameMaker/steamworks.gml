@@ -1,5 +1,6 @@
 ```set template default.html```
 ```set autoapi ext```
+```set tag:defcode gml```
 ```gmlapi fnames```
 ```set title steamworks.gml cheat sheet```
 ```set mainclass boxtt```
@@ -1189,6 +1190,21 @@ function ref_set(url) {
 		}
 		
 		%[inv_result_note]
+	}
+	#[steam_inventory_start_purchase(purchase_arr)->bool]() {
+		${wrap("StartPurchase")}
+		
+		Opens a Steam Overlay browser for user to purchase specified items.
+		The user then may confirm or decline the purchase.
+		
+		This is only usable by Steam accounts that belong to the publisher group for your game.
+		
+		`purchase_arr` is an array of [structs] representing items to be purchased: --{
+		--	`item_def`: a [steam_inventory_item_def] representing the item type
+		--	`quantitiy`: number of items of the type to be purchased
+		}
+		
+		Returns whether the API started opening overlay (which may not happen instantly).
 	}
 	#[steam_inventory_get_all_items()->steam_inventory_result]() {
 		${wrap("GetAllItems")}
