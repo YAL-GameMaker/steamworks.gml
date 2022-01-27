@@ -53,9 +53,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -64,9 +65,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -75,9 +77,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>1</returnType>
-          <argCount>2</argCount>
+          <argCount>3</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
             <arg>1</arg>
           </args>
         </function>
@@ -87,9 +90,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -98,9 +102,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -109,9 +114,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -120,9 +126,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -131,9 +138,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -142,9 +150,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -153,9 +162,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -164,9 +174,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -175,9 +186,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -186,9 +198,22 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_inventory_start_purchase_raw</name>
+          <externalName>steam_inventory_start_purchase_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -197,9 +222,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -208,9 +234,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -219,9 +246,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -230,9 +258,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>2</argCount>
+          <argCount>3</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
             <arg>1</arg>
           </args>
         </function>
@@ -242,9 +271,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>2</argCount>
+          <argCount>3</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
             <arg>1</arg>
           </args>
         </function>
@@ -254,9 +284,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>2</argCount>
+          <argCount>3</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
             <arg>1</arg>
           </args>
         </function>
@@ -266,9 +297,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>3</argCount>
+          <argCount>4</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
             <arg>1</arg>
             <arg>1</arg>
           </args>
@@ -279,9 +311,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>2</argCount>
+          <argCount>3</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
             <arg>1</arg>
           </args>
         </function>
@@ -291,9 +324,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -302,9 +336,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -313,9 +348,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -324,9 +360,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -335,9 +372,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -346,9 +384,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -357,9 +396,47 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_send_chat_message_raw</name>
+          <externalName>steam_lobby_send_chat_message_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_send_chat_message_buffer_raw</name>
+          <externalName>steam_lobby_send_chat_message_buffer_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_get_chat_message_data_raw</name>
+          <externalName>steam_lobby_get_chat_message_data_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -368,9 +445,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -379,9 +457,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -390,9 +469,22 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_get_user_persona_name_sync_raw</name>
+          <externalName>steam_get_user_persona_name_sync_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>1</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -401,9 +493,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -412,9 +505,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -423,9 +517,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -434,9 +529,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -490,7 +586,7 @@
           <name>steam_controller_get_type</name>
           <externalName>steam_controller_get_type</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_type(id)</help>
+          <help>steam_controller_get_type()</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -501,7 +597,7 @@
           <name>steam_controller_get_actionset_id</name>
           <externalName>steam_controller_get_actionset_id</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_actionset_id(actionset_name) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found</help>
+          <help>steam_controller_get_actionset_id() : Assigns and returns ActionSet ID for given name, -1 if actionset is not found</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -512,7 +608,7 @@
           <name>steam_controller_get_actionset</name>
           <externalName>steam_controller_get_actionset</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_actionset(controller) : Returns action set ID (generated by steam_controller_get_actionset_id), as per GetCurrentActionSet</help>
+          <help>steam_controller_get_actionset() : Returns action set ID (generated by steam_controller_get_actionset_id), as per GetCurrentActionSet</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -523,7 +619,7 @@
           <name>steam_controller_set_actionset</name>
           <externalName>steam_controller_set_actionset</externalName>
           <kind>1</kind>
-          <help>steam_controller_set_actionset(controller, actionset_id) : Changes controller action set, as per ActivateActionSet</help>
+          <help>steam_controller_set_actionset(, ) : Changes controller action set, as per ActivateActionSet</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -535,7 +631,7 @@
           <name>steam_controller_get_digital_id</name>
           <externalName>steam_controller_get_digital_id</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_digital_id(digitalActionName)</help>
+          <help>steam_controller_get_digital_id()</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -546,7 +642,7 @@
           <name>steam_controller_get_digital_value</name>
           <externalName>steam_controller_get_digital_value</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true/false)</help>
+          <help>steam_controller_get_digital_value(, ) : Retreives digital action state (true/false)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -558,7 +654,7 @@
           <name>steam_controller_get_digital_status</name>
           <externalName>steam_controller_get_digital_status</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true/false)</help>
+          <help>steam_controller_get_digital_status(, ) : Returns whether the given digital action is currently active (true/false)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -584,7 +680,7 @@
           <name>steam_controller_get_analog_id</name>
           <externalName>steam_controller_get_analog_id</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_analog_id(analogActionName)</help>
+          <help>steam_controller_get_analog_id()</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -639,6 +735,28 @@
             <arg>1</arg>
             <arg>1</arg>
             <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_get_chat_message_text</name>
+          <externalName>steam_lobby_get_chat_message_text</externalName>
+          <kind>1</kind>
+          <help>steam_lobby_get_chat_message_text()</help>
+          <returnType>1</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_get_chat_message_size</name>
+          <externalName>steam_lobby_get_chat_message_size</externalName>
+          <kind>1</kind>
+          <help>steam_lobby_get_chat_message_size()</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -769,7 +887,7 @@
           <name>steam_lobby_list_add_string_filter</name>
           <externalName>steam_lobby_list_add_string_filter</externalName>
           <kind>1</kind>
-          <help>steam_lobby_list_add_string_filter(key, value, comparison_type) : Sets a string filter for the next lobby list request.</help>
+          <help>steam_lobby_list_add_string_filter(, , ) : Sets a string filter for the next lobby list request.</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -782,7 +900,7 @@
           <name>steam_lobby_list_add_numerical_filter</name>
           <externalName>steam_lobby_list_add_numerical_filter</externalName>
           <kind>1</kind>
-          <help>steam_lobby_list_add_numerical_filter(key, value, comparison_type) : Sets a numerical filter for the next lobby list request.</help>
+          <help>steam_lobby_list_add_numerical_filter(, , ) : Sets a numerical filter for the next lobby list request.</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -795,7 +913,7 @@
           <name>steam_lobby_list_add_near_filter</name>
           <externalName>steam_lobby_list_add_near_filter</externalName>
           <kind>1</kind>
-          <help>steam_lobby_list_add_near_filter(key, value) : Sorts the results of the next lobby list request based to proximity to the given value.</help>
+          <help>steam_lobby_list_add_near_filter(, ) : Sorts the results of the next lobby list request based to proximity to the given value.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -807,7 +925,7 @@
           <name>steam_lobby_list_add_distance_filter</name>
           <externalName>steam_lobby_list_add_distance_filter</externalName>
           <kind>1</kind>
-          <help>steam_lobby_list_add_distance_filter(mode) : Restricts results by region</help>
+          <help>steam_lobby_list_add_distance_filter() : Restricts results by region</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -827,7 +945,7 @@
           <name>steam_lobby_list_get_data</name>
           <externalName>steam_lobby_list_get_data</externalName>
           <kind>1</kind>
-          <help>steam_lobby_list_get_data(index, key) : Retrieves given information about the given lobby</help>
+          <help>steam_lobby_list_get_data(, ) : Retrieves given information about the given lobby</help>
           <returnType>1</returnType>
           <argCount>2</argCount>
           <args>
@@ -883,7 +1001,7 @@
           <name>steam_lobby_list_get_lobby_member_count</name>
           <externalName>steam_lobby_list_get_lobby_member_count</externalName>
           <kind>1</kind>
-          <help>steam_lobby_list_get_lobby_member_count(lobby_index) : Returns the number of members in the given lobby in search results.</help>
+          <help>steam_lobby_list_get_lobby_member_count() : Returns the number of members in the given lobby in search results.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -918,7 +1036,7 @@
           <name>steam_lobby_list_join</name>
           <externalName>steam_lobby_list_join</externalName>
           <kind>1</kind>
-          <help>steam_lobby_list_join(index) : [async] Starts joining the given lobby.</help>
+          <help>steam_lobby_list_join() : [async] Starts joining the given lobby.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -941,7 +1059,7 @@
           <name>steam_lobby_create</name>
           <externalName>steam_lobby_create</externalName>
           <kind>1</kind>
-          <help>steam_lobby_create(type, max_members) : [async] Creates a lobby.</help>
+          <help>steam_lobby_create(, ) : [async] Creates a lobby.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -953,7 +1071,7 @@
           <name>steam_lobby_set_data</name>
           <externalName>steam_lobby_set_data</externalName>
           <kind>1</kind>
-          <help>steam_lobby_set_data(key, value) : [lobby owner only] Sets the data for the current lobby.</help>
+          <help>steam_lobby_set_data(, ) : [lobby owner only] Sets the data for the current lobby.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -965,7 +1083,7 @@
           <name>steam_lobby_get_data</name>
           <externalName>steam_lobby_get_data</externalName>
           <kind>1</kind>
-          <help>steam_lobby_get_data(key) : [anyone] Retrieves previously set data for the current lobby.</help>
+          <help>steam_lobby_get_data() : [anyone] Retrieves previously set data for the current lobby.</help>
           <returnType>1</returnType>
           <argCount>1</argCount>
           <args>
@@ -976,7 +1094,7 @@
           <name>steam_lobby_set_type</name>
           <externalName>steam_lobby_set_type</externalName>
           <kind>1</kind>
-          <help>steam_lobby_set_type(type) : [lobby owner only] Changes the type of the current lobby.</help>
+          <help>steam_lobby_set_type() : [lobby owner only] Changes the type of the current lobby.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1095,7 +1213,7 @@
           <name>steam_net_set_auto_accept_p2p_sessions</name>
           <externalName>steam_net_set_auto_accept_p2p_sessions</externalName>
           <kind>1</kind>
-          <help>steam_net_set_auto_accept_p2p_sessions(auto_accept) : Sets whether to auto-accept all incoming P2P session requests.</help>
+          <help>steam_net_set_auto_accept_p2p_sessions() : Sets whether to auto-accept all incoming P2P session requests.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1220,7 +1338,7 @@
           <name>steam_user_set_played_with</name>
           <externalName>steam_user_set_played_with</externalName>
           <kind>1</kind>
-          <help>steam_user_set_played_with(id_high, id_low) : Can be called on lobby session start, adds the user to "recently played with" list.</help>
+          <help>steam_user_set_played_with(, ) : Can be called on lobby session start, adds the user to "recently played with" list.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1232,7 +1350,7 @@
           <name>steam_activate_overlay_raw</name>
           <externalName>steam_activate_overlay_raw</externalName>
           <kind>1</kind>
-          <help>steam_activate_overlay_raw(overlay_code) : Activates an overlay by it's raw Steam API name.</help>
+          <help>steam_activate_overlay_raw() : Activates an overlay by it's raw Steam API name.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1243,7 +1361,7 @@
           <name>steam_set_rich_presence</name>
           <externalName>steam_set_rich_presence</externalName>
           <kind>1</kind>
-          <help>steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence</help>
+          <help>steam_set_rich_presence(, ) : Sets rich text presence for the active user. See: https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1264,7 +1382,7 @@
           <name>steam_set_overlay_notification_position</name>
           <externalName>steam_set_overlay_notification_position</externalName>
           <kind>1</kind>
-          <help>steam_set_overlay_notification_position(position)</help>
+          <help>steam_set_overlay_notification_position()</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -1275,7 +1393,7 @@
           <name>steam_set_overlay_notification_inset</name>
           <externalName>steam_set_overlay_notification_inset</externalName>
           <kind>1</kind>
-          <help>steam_set_overlay_notification_inset(hor_inset, vert_inset)</help>
+          <help>steam_set_overlay_notification_inset(, )</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1434,6 +1552,36 @@
         <constant>
           <name>steam_inventory_result_status_expired</name>
           <value>27</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_max_chat_message_size</name>
+          <value>4096</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_member_change_entered</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_member_change_left</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_member_change_disconnected</name>
+          <value>4</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_member_change_kicked</name>
+          <value>8</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_member_change_banned</name>
+          <value>16</value>
           <hidden>0</hidden>
         </constant>
         <constant>
@@ -1578,9 +1726,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1589,9 +1738,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1600,9 +1750,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>1</returnType>
-          <argCount>2</argCount>
+          <argCount>3</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
             <arg>1</arg>
           </args>
         </function>
@@ -1612,9 +1763,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1623,9 +1775,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1634,9 +1787,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1645,9 +1799,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1656,9 +1811,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1667,9 +1823,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1678,9 +1835,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1689,9 +1847,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1700,9 +1859,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1711,9 +1871,22 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_inventory_start_purchase_raw</name>
+          <externalName>steam_inventory_start_purchase_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1722,9 +1895,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1733,9 +1907,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1744,9 +1919,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1755,9 +1931,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>2</argCount>
+          <argCount>3</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
             <arg>1</arg>
           </args>
         </function>
@@ -1767,9 +1944,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>2</argCount>
+          <argCount>3</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
             <arg>1</arg>
           </args>
         </function>
@@ -1779,9 +1957,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>2</argCount>
+          <argCount>3</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
             <arg>1</arg>
           </args>
         </function>
@@ -1791,9 +1970,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>3</argCount>
+          <argCount>4</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
             <arg>1</arg>
             <arg>1</arg>
           </args>
@@ -1804,9 +1984,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>2</argCount>
+          <argCount>3</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
             <arg>1</arg>
           </args>
         </function>
@@ -1816,9 +1997,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1827,9 +2009,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1838,9 +2021,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1849,9 +2033,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1860,9 +2045,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1871,9 +2057,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1882,9 +2069,47 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_send_chat_message_raw</name>
+          <externalName>steam_lobby_send_chat_message_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_send_chat_message_buffer_raw</name>
+          <externalName>steam_lobby_send_chat_message_buffer_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_get_chat_message_data_raw</name>
+          <externalName>steam_lobby_get_chat_message_data_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1893,9 +2118,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1904,9 +2130,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1915,9 +2142,22 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_get_user_persona_name_sync_raw</name>
+          <externalName>steam_get_user_persona_name_sync_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>1</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1926,9 +2166,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1937,9 +2178,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1948,9 +2190,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -1959,9 +2202,10 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -2015,7 +2259,7 @@
           <name>steam_controller_get_type</name>
           <externalName>steam_controller_get_type</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_type(id)</help>
+          <help>steam_controller_get_type()</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2026,7 +2270,7 @@
           <name>steam_controller_get_actionset_id</name>
           <externalName>steam_controller_get_actionset_id</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_actionset_id(actionset_name) : Assigns and returns ActionSet ID for given name, -1 if actionset is not found</help>
+          <help>steam_controller_get_actionset_id() : Assigns and returns ActionSet ID for given name, -1 if actionset is not found</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2037,7 +2281,7 @@
           <name>steam_controller_get_actionset</name>
           <externalName>steam_controller_get_actionset</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_actionset(controller) : Returns action set ID (generated by steam_controller_get_actionset_id), as per GetCurrentActionSet</help>
+          <help>steam_controller_get_actionset() : Returns action set ID (generated by steam_controller_get_actionset_id), as per GetCurrentActionSet</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2048,7 +2292,7 @@
           <name>steam_controller_set_actionset</name>
           <externalName>steam_controller_set_actionset</externalName>
           <kind>1</kind>
-          <help>steam_controller_set_actionset(controller, actionset_id) : Changes controller action set, as per ActivateActionSet</help>
+          <help>steam_controller_set_actionset(, ) : Changes controller action set, as per ActivateActionSet</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2060,7 +2304,7 @@
           <name>steam_controller_get_digital_id</name>
           <externalName>steam_controller_get_digital_id</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_digital_id(digitalActionName)</help>
+          <help>steam_controller_get_digital_id()</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2071,7 +2315,7 @@
           <name>steam_controller_get_digital_value</name>
           <externalName>steam_controller_get_digital_value</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_digital_value(controller, digital_id) : Retreives digital action state (true/false)</help>
+          <help>steam_controller_get_digital_value(, ) : Retreives digital action state (true/false)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2083,7 +2327,7 @@
           <name>steam_controller_get_digital_status</name>
           <externalName>steam_controller_get_digital_status</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_digital_status(controller, digital_id) : Returns whether the given digital action is currently active (true/false)</help>
+          <help>steam_controller_get_digital_status(, ) : Returns whether the given digital action is currently active (true/false)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2109,7 +2353,7 @@
           <name>steam_controller_get_analog_id</name>
           <externalName>steam_controller_get_analog_id</externalName>
           <kind>1</kind>
-          <help>steam_controller_get_analog_id(analogActionName)</help>
+          <help>steam_controller_get_analog_id()</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2164,6 +2408,28 @@
             <arg>1</arg>
             <arg>1</arg>
             <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_get_chat_message_text</name>
+          <externalName>steam_lobby_get_chat_message_text</externalName>
+          <kind>1</kind>
+          <help>steam_lobby_get_chat_message_text()</help>
+          <returnType>1</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_get_chat_message_size</name>
+          <externalName>steam_lobby_get_chat_message_size</externalName>
+          <kind>1</kind>
+          <help>steam_lobby_get_chat_message_size()</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -2294,7 +2560,7 @@
           <name>steam_lobby_list_add_string_filter</name>
           <externalName>steam_lobby_list_add_string_filter</externalName>
           <kind>1</kind>
-          <help>steam_lobby_list_add_string_filter(key, value, comparison_type) : Sets a string filter for the next lobby list request.</help>
+          <help>steam_lobby_list_add_string_filter(, , ) : Sets a string filter for the next lobby list request.</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -2307,7 +2573,7 @@
           <name>steam_lobby_list_add_numerical_filter</name>
           <externalName>steam_lobby_list_add_numerical_filter</externalName>
           <kind>1</kind>
-          <help>steam_lobby_list_add_numerical_filter(key, value, comparison_type) : Sets a numerical filter for the next lobby list request.</help>
+          <help>steam_lobby_list_add_numerical_filter(, , ) : Sets a numerical filter for the next lobby list request.</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -2320,7 +2586,7 @@
           <name>steam_lobby_list_add_near_filter</name>
           <externalName>steam_lobby_list_add_near_filter</externalName>
           <kind>1</kind>
-          <help>steam_lobby_list_add_near_filter(key, value) : Sorts the results of the next lobby list request based to proximity to the given value.</help>
+          <help>steam_lobby_list_add_near_filter(, ) : Sorts the results of the next lobby list request based to proximity to the given value.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2332,7 +2598,7 @@
           <name>steam_lobby_list_add_distance_filter</name>
           <externalName>steam_lobby_list_add_distance_filter</externalName>
           <kind>1</kind>
-          <help>steam_lobby_list_add_distance_filter(mode) : Restricts results by region</help>
+          <help>steam_lobby_list_add_distance_filter() : Restricts results by region</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2352,7 +2618,7 @@
           <name>steam_lobby_list_get_data</name>
           <externalName>steam_lobby_list_get_data</externalName>
           <kind>1</kind>
-          <help>steam_lobby_list_get_data(index, key) : Retrieves given information about the given lobby</help>
+          <help>steam_lobby_list_get_data(, ) : Retrieves given information about the given lobby</help>
           <returnType>1</returnType>
           <argCount>2</argCount>
           <args>
@@ -2408,7 +2674,7 @@
           <name>steam_lobby_list_get_lobby_member_count</name>
           <externalName>steam_lobby_list_get_lobby_member_count</externalName>
           <kind>1</kind>
-          <help>steam_lobby_list_get_lobby_member_count(lobby_index) : Returns the number of members in the given lobby in search results.</help>
+          <help>steam_lobby_list_get_lobby_member_count() : Returns the number of members in the given lobby in search results.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2443,7 +2709,7 @@
           <name>steam_lobby_list_join</name>
           <externalName>steam_lobby_list_join</externalName>
           <kind>1</kind>
-          <help>steam_lobby_list_join(index) : [async] Starts joining the given lobby.</help>
+          <help>steam_lobby_list_join() : [async] Starts joining the given lobby.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2466,7 +2732,7 @@
           <name>steam_lobby_create</name>
           <externalName>steam_lobby_create</externalName>
           <kind>1</kind>
-          <help>steam_lobby_create(type, max_members) : [async] Creates a lobby.</help>
+          <help>steam_lobby_create(, ) : [async] Creates a lobby.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2478,7 +2744,7 @@
           <name>steam_lobby_set_data</name>
           <externalName>steam_lobby_set_data</externalName>
           <kind>1</kind>
-          <help>steam_lobby_set_data(key, value) : [lobby owner only] Sets the data for the current lobby.</help>
+          <help>steam_lobby_set_data(, ) : [lobby owner only] Sets the data for the current lobby.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2490,7 +2756,7 @@
           <name>steam_lobby_get_data</name>
           <externalName>steam_lobby_get_data</externalName>
           <kind>1</kind>
-          <help>steam_lobby_get_data(key) : [anyone] Retrieves previously set data for the current lobby.</help>
+          <help>steam_lobby_get_data() : [anyone] Retrieves previously set data for the current lobby.</help>
           <returnType>1</returnType>
           <argCount>1</argCount>
           <args>
@@ -2501,7 +2767,7 @@
           <name>steam_lobby_set_type</name>
           <externalName>steam_lobby_set_type</externalName>
           <kind>1</kind>
-          <help>steam_lobby_set_type(type) : [lobby owner only] Changes the type of the current lobby.</help>
+          <help>steam_lobby_set_type() : [lobby owner only] Changes the type of the current lobby.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2620,7 +2886,7 @@
           <name>steam_net_set_auto_accept_p2p_sessions</name>
           <externalName>steam_net_set_auto_accept_p2p_sessions</externalName>
           <kind>1</kind>
-          <help>steam_net_set_auto_accept_p2p_sessions(auto_accept) : Sets whether to auto-accept all incoming P2P session requests.</help>
+          <help>steam_net_set_auto_accept_p2p_sessions() : Sets whether to auto-accept all incoming P2P session requests.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2745,7 +3011,7 @@
           <name>steam_user_set_played_with</name>
           <externalName>steam_user_set_played_with</externalName>
           <kind>1</kind>
-          <help>steam_user_set_played_with(id_high, id_low) : Can be called on lobby session start, adds the user to "recently played with" list.</help>
+          <help>steam_user_set_played_with(, ) : Can be called on lobby session start, adds the user to "recently played with" list.</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2757,7 +3023,7 @@
           <name>steam_activate_overlay_raw</name>
           <externalName>steam_activate_overlay_raw</externalName>
           <kind>1</kind>
-          <help>steam_activate_overlay_raw(overlay_code) : Activates an overlay by it's raw Steam API name.</help>
+          <help>steam_activate_overlay_raw() : Activates an overlay by it's raw Steam API name.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2768,7 +3034,7 @@
           <name>steam_set_rich_presence</name>
           <externalName>steam_set_rich_presence</externalName>
           <kind>1</kind>
-          <help>steam_set_rich_presence(pchKey, pchValue) : Sets rich text presence for the active user. See: https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence</help>
+          <help>steam_set_rich_presence(, ) : Sets rich text presence for the active user. See: https://partner.steamgames.com/doc/api/ISteamFriends#SetRichPresence</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2789,7 +3055,7 @@
           <name>steam_set_overlay_notification_position</name>
           <externalName>steam_set_overlay_notification_position</externalName>
           <kind>1</kind>
-          <help>steam_set_overlay_notification_position(position)</help>
+          <help>steam_set_overlay_notification_position()</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -2800,7 +3066,7 @@
           <name>steam_set_overlay_notification_inset</name>
           <externalName>steam_set_overlay_notification_inset</externalName>
           <kind>1</kind>
-          <help>steam_set_overlay_notification_inset(hor_inset, vert_inset)</help>
+          <help>steam_set_overlay_notification_inset(, )</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -2959,6 +3225,36 @@
         <constant>
           <name>steam_inventory_result_status_expired</name>
           <value>27</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_max_chat_message_size</name>
+          <value>4096</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_member_change_entered</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_member_change_left</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_member_change_disconnected</name>
+          <value>4</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_member_change_kicked</name>
+          <value>8</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>steam_lobby_member_change_banned</name>
+          <value>16</value>
           <hidden>0</hidden>
         </constant>
         <constant>
@@ -3687,7 +3983,7 @@
           <name>steam_inventory_result_get_item_property</name>
           <externalName>steam_inventory_result_get_item_property</externalName>
           <kind>2</kind>
-          <help>steam_inventory_result_get_item_property(inv_result:steam_inventory_result, item_index:int, prop_name:int)-&gt;int</help>
+          <help>steam_inventory_result_get_item_property(inv_result:steam_inventory_result, item_index:int, prop_name:string)-&gt;string</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -3796,6 +4092,17 @@
           <args/>
         </function>
         <function>
+          <name>steam_inventory_start_purchase</name>
+          <externalName>steam_inventory_start_purchase</externalName>
+          <kind>2</kind>
+          <help>steam_inventory_start_purchase(items:array&lt;any&gt;)-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_inventory_request_eligible_promo_item_defs</name>
           <externalName>steam_inventory_request_eligible_promo_item_defs</externalName>
           <kind>2</kind>
@@ -3828,7 +4135,7 @@
           <name>steam_inventory_set_property_bool</name>
           <externalName>steam_inventory_set_property_bool</externalName>
           <kind>2</kind>
-          <help>steam_inventory_set_property_bool(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:bool)-&gt;bool</help>
+          <help>steam_inventory_set_property_bool(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:string, value:bool)-&gt;bool</help>
           <returnType>2</returnType>
           <argCount>4</argCount>
           <args>
@@ -3842,7 +4149,7 @@
           <name>steam_inventory_set_property_float</name>
           <externalName>steam_inventory_set_property_float</externalName>
           <kind>2</kind>
-          <help>steam_inventory_set_property_float(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:number)-&gt;bool</help>
+          <help>steam_inventory_set_property_float(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:string, value:number)-&gt;bool</help>
           <returnType>2</returnType>
           <argCount>4</argCount>
           <args>
@@ -3856,7 +4163,7 @@
           <name>steam_inventory_set_property_int</name>
           <externalName>steam_inventory_set_property_int</externalName>
           <kind>2</kind>
-          <help>steam_inventory_set_property_int(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:int)-&gt;bool</help>
+          <help>steam_inventory_set_property_int(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:string, value:int)-&gt;bool</help>
           <returnType>2</returnType>
           <argCount>4</argCount>
           <args>
@@ -3870,7 +4177,7 @@
           <name>steam_inventory_set_property_string</name>
           <externalName>steam_inventory_set_property_string</externalName>
           <kind>2</kind>
-          <help>steam_inventory_set_property_string(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int, value:int)-&gt;bool</help>
+          <help>steam_inventory_set_property_string(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:string, value:string)-&gt;bool</help>
           <returnType>2</returnType>
           <argCount>4</argCount>
           <args>
@@ -3884,7 +4191,7 @@
           <name>steam_inventory_remove_property</name>
           <externalName>steam_inventory_remove_property</externalName>
           <kind>2</kind>
-          <help>steam_inventory_remove_property(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:int)-&gt;bool</help>
+          <help>steam_inventory_remove_property(handle:steam_inventory_update_handle, item_id:steam_inventory_item_id, prop_name:string)-&gt;bool</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -3956,6 +4263,38 @@
           </args>
         </function>
         <function>
+          <name>steam_lobby_send_chat_message</name>
+          <externalName>steam_lobby_send_chat_message</externalName>
+          <kind>2</kind>
+          <help>steam_lobby_send_chat_message(text:string)-&gt;bool </help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>steam_lobby_send_chat_message_buffer</name>
+          <externalName>steam_lobby_send_chat_message_buffer</externalName>
+          <kind>2</kind>
+          <help>steam_lobby_send_chat_message_buffer(buf:buffer, size:int = -1)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>-1</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>steam_lobby_get_chat_message_data</name>
+          <externalName>steam_lobby_get_chat_message_data</externalName>
+          <kind>2</kind>
+          <help>steam_lobby_get_chat_message_data(message_index:int, buf:buffer)-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>steam_lobby_set_joinable</name>
           <externalName>steam_lobby_set_joinable</externalName>
           <kind>2</kind>
@@ -3974,6 +4313,17 @@
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
+        </function>
+        <function>
+          <name>steam_get_user_persona_name_sync</name>
+          <externalName>steam_get_user_persona_name_sync</externalName>
+          <kind>2</kind>
+          <help>steam_get_user_persona_name_sync(user_id:int)-&gt;string</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
         </function>
         <function>
           <name>steam_get_user_avatar</name>

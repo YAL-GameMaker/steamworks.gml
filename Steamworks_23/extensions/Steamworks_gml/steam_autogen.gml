@@ -25,7 +25,7 @@ var __size__ = steam_inventory_result_get_items_raw(buffer_get_address(_buf), 8)
 if (__size__ == 0) return undefined;
 if (__size__ <= 4) return [];
 if (buffer_get_size(_buf) < __size__) buffer_resize(_buf, __size__);
-steam_inventory_result_get_items_raw_post(buffer_get_address(_buf));
+steam_inventory_result_get_items_raw_post(buffer_get_address(_buf), __size__);
 buffer_seek(_buf, buffer_seek_start, 0);
 // GMS >= 2.3:
 if (steam_gml_use_structs) {
@@ -314,7 +314,7 @@ var __size__ = steam_inventory_get_items_with_prices_raw(buffer_get_address(_buf
 if (__size__ == 0) return undefined;
 if (__size__ <= 4) return [];
 if (buffer_get_size(_buf) < __size__) buffer_resize(_buf, __size__);
-steam_inventory_get_items_with_prices_raw_post(buffer_get_address(_buf));
+steam_inventory_get_items_with_prices_raw_post(buffer_get_address(_buf), __size__);
 buffer_seek(_buf, buffer_seek_start, 0);
 var _val_0;
 if (buffer_read(_buf, buffer_bool)) {
@@ -400,7 +400,7 @@ var __size__ = steam_get_friends_game_info_raw(buffer_get_address(_buf), 8);
 if (__size__ == 0) return undefined;
 if (__size__ <= 4) return [];
 if (buffer_get_size(_buf) < __size__) buffer_resize(_buf, __size__);
-steam_get_friends_game_info_raw_post(buffer_get_address(_buf));
+steam_get_friends_game_info_raw_post(buffer_get_address(_buf), __size__);
 buffer_seek(_buf, buffer_seek_start, 0);
 // GMS >= 2.3:
 if (steam_gml_use_structs) {
