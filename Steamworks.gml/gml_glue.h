@@ -83,7 +83,12 @@ public:
 
 		constexpr char sfx_string[] = "_string";
 		std::copy(sfx_string, sfx_string + std::size(sfx_string), key_tmp + len);
-		char digits[21]; sprintf_s(digits, "%llu", value);
+		char digits[21];
+		#ifdef _WINDOWS
+		sprintf_s(digits, "%llu", value);
+		#else
+		sprintf(digits, "%llu", value);
+		#endif
 		set(key_tmp, digits);
 	}
 	template<size_t size> void set_steamid_all(const char(&key)[size], CSteamID& id) {
