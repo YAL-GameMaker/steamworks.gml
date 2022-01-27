@@ -179,6 +179,13 @@ if (steam_inventory_generate_items_raw(buffer_get_address(_buf), 8)) {
 	return buffer_read(_buf, buffer_s32);
 } else return undefined;
 
+#define steam_inventory_get_all_items
+/// steam_inventory_get_all_items()->steam_inventory_result
+var _buf = steam_gml_prepare_buffer(4);
+if (steam_inventory_get_all_items_raw(buffer_get_address(_buf), 4)) {
+	return buffer_read(_buf, buffer_s32);
+} else return undefined;
+
 #define steam_inventory_start_purchase
 /// steam_inventory_start_purchase(items:array<any>)->bool
 var _buf = steam_gml_prepare_buffer(8);
@@ -204,13 +211,6 @@ if (steam_gml_use_structs) {
 	}
 }
 return steam_inventory_start_purchase_raw(buffer_get_address(_buf), 8);
-
-#define steam_inventory_get_all_items
-/// steam_inventory_get_all_items()->steam_inventory_result
-var _buf = steam_gml_prepare_buffer(4);
-if (steam_inventory_get_all_items_raw(buffer_get_address(_buf), 4)) {
-	return buffer_read(_buf, buffer_s32);
-} else return undefined;
 
 #define steam_inventory_request_eligible_promo_item_defs
 /// steam_inventory_request_eligible_promo_item_defs(user_id:int = 0)->bool

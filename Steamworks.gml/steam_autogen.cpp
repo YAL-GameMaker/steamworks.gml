@@ -156,14 +156,6 @@ dllx double steam_inventory_generate_items_raw(void* _inout_ptr, double _inout_p
 	return 1;
 }
 
-extern bool steam_inventory_start_purchase(vector<steam_inventory_itemdef_w_quantity> items);
-dllx double steam_inventory_start_purchase_raw(void* _in_ptr, double _in_ptr_size) {
-	gml_istream _in(_in_ptr);
-	vector<steam_inventory_itemdef_w_quantity> _arg_items;
-	_arg_items = _in.read_vector<steam_inventory_itemdef_w_quantity>();
-	return steam_inventory_start_purchase(_arg_items);
-}
-
 extern SteamInventoryResult_t steam_inventory_get_all_items();
 dllx double steam_inventory_get_all_items_raw(void* _inout_ptr, double _inout_ptr_size) {
 	gml_istream _in(_inout_ptr);
@@ -171,6 +163,14 @@ dllx double steam_inventory_get_all_items_raw(void* _inout_ptr, double _inout_pt
 	gml_ostream _out(_inout_ptr);
 	_out.write<SteamInventoryResult_t>(_ret);
 	return 1;
+}
+
+extern bool steam_inventory_start_purchase(vector<steam_inventory_itemdef_w_quantity> items);
+dllx double steam_inventory_start_purchase_raw(void* _in_ptr, double _in_ptr_size) {
+	gml_istream _in(_in_ptr);
+	vector<steam_inventory_itemdef_w_quantity> _arg_items;
+	_arg_items = _in.read_vector<steam_inventory_itemdef_w_quantity>();
+	return steam_inventory_start_purchase(_arg_items);
 }
 
 extern bool steam_inventory_request_eligible_promo_item_defs(uint64 user_id);

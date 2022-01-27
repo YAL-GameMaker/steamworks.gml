@@ -654,22 +654,6 @@
                     "returnType": 2
                 },
                 {
-                    "id": "2d3d2066-b3bd-682f-173d-70c4f360ee30",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        1,
-                        2
-                    ],
-                    "externalName": "steam_inventory_start_purchase_raw",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "steam_inventory_start_purchase_raw",
-                    "returnType": 2
-                },
-                {
                     "id": "87978acc-3b35-e085-ac86-e95d6adb449a",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -683,6 +667,22 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "steam_inventory_get_all_items_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "2d3d2066-b3bd-682f-173d-70c4f360ee30",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        2
+                    ],
+                    "externalName": "steam_inventory_start_purchase_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_inventory_start_purchase_raw",
                     "returnType": 2
                 },
                 {
@@ -3122,22 +3122,6 @@
                     "returnType": 2
                 },
                 {
-                    "id": "5b8707d6-5465-d5ab-e734-4a63eb7a474b",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        1,
-                        2
-                    ],
-                    "externalName": "steam_inventory_start_purchase_raw",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "steam_inventory_start_purchase_raw",
-                    "returnType": 2
-                },
-                {
                     "id": "115cde14-2105-1cf4-9448-793c001fa4e4",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -3151,6 +3135,22 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "steam_inventory_get_all_items_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "5b8707d6-5465-d5ab-e734-4a63eb7a474b",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        2
+                    ],
+                    "externalName": "steam_inventory_start_purchase_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_inventory_start_purchase_raw",
                     "returnType": 2
                 },
                 {
@@ -5584,22 +5584,6 @@
                     "returnType": 2
                 },
                 {
-                    "id": "e19083aa-3676-53ce-b979-9ccc44de59e3",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 2,
-                    "args": [
-                        1,
-                        2
-                    ],
-                    "externalName": "steam_inventory_start_purchase_raw",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "steam_inventory_start_purchase_raw",
-                    "returnType": 2
-                },
-                {
                     "id": "776bcb4a-2809-0750-5d37-a4755d55f7c0",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -5613,6 +5597,22 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "steam_inventory_get_all_items_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "e19083aa-3676-53ce-b979-9ccc44de59e3",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        2
+                    ],
+                    "externalName": "steam_inventory_start_purchase_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "steam_inventory_start_purchase_raw",
                     "returnType": 2
                 },
                 {
@@ -8438,21 +8438,6 @@
                     "returnType": 2
                 },
                 {
-                    "id": "54594a97-8cc0-619b-197e-18679c660911",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 1,
-                    "args": [
-                        2
-                    ],
-                    "externalName": "steam_inventory_start_purchase",
-                    "help": "steam_inventory_start_purchase(items:array<any>)->bool",
-                    "hidden": false,
-                    "kind": 2,
-                    "name": "steam_inventory_start_purchase",
-                    "returnType": 2
-                },
-                {
                     "id": "e7a0fa26-2083-e12d-2cbf-d4094b04bced",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -8465,6 +8450,21 @@
                     "hidden": false,
                     "kind": 2,
                     "name": "steam_inventory_get_all_items",
+                    "returnType": 2
+                },
+                {
+                    "id": "54594a97-8cc0-619b-197e-18679c660911",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "steam_inventory_start_purchase",
+                    "help": "steam_inventory_start_purchase(items:array<any>)->bool",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "steam_inventory_start_purchase",
                     "returnType": 2
                 },
                 {

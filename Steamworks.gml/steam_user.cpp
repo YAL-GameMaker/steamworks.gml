@@ -65,7 +65,8 @@ dllg vector<steam_get_friends_game_info_t> steam_get_friends_game_info() {
 }
 
 dllg const char* steam_get_user_persona_name_sync(uint64_t user_id) {
-	return SteamFriends()->GetFriendPersonaName(CSteamID(user_id));
+	CSteamID user{}; user.SetFromUint64(user_id);
+	return SteamFriends()->GetFriendPersonaName(user);
 }
 
 #pragma region Rich Text Presence
