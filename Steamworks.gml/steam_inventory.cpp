@@ -193,8 +193,10 @@ void steam_net_callbacks_t::steam_inventory_request_eligible_promo_item_defs(Ste
 	q.set("is_cached_data", e->m_bCachedData);
 	q.dispatch();
 }
+#endif
 
 dllg bool steam_inventory_start_purchase(vector<steam_inventory_itemdef_w_quantity> items) {
+	#if (STEAMWORKS >= 142)
 	vector<SteamItemDef_t> create_defs; create_defs.resize(items.size());
 	vector<uint32> create_quantities; create_quantities.resize(items.size());
 	for (auto i = 0u; i < items.size(); i++) {
@@ -203,8 +205,10 @@ dllg bool steam_inventory_start_purchase(vector<steam_inventory_itemdef_w_quanti
 	}
 	auto call = API->StartPurchase(create_defs.data(), create_quantities.data(), items.size());
 	return call != k_uAPICallInvalid;
+	#else
+	return false;
+	#endif
 }
-#endif
 
 dllg bool steam_inventory_request_eligible_promo_item_defs(uint64 user_id = 0) {
 	#if (STEAMWORKS >= 142)

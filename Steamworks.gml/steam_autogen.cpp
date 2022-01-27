@@ -19,7 +19,7 @@ struct steam_inventory_itemid_w_quantity {
 	SteamItemInstanceID_t item_id;
 	uint32 quantity;
 };
-// from steam_inventory.cpp:306:
+// from steam_inventory.cpp:310:
 struct steam_inventory_get_item_prices_t {
 	SteamItemDef_t item_def;
 	uint64 price;

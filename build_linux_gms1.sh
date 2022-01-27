@@ -1,5 +1,6 @@
 #!/bin/sh
 g++ -m32 \
+	-DSTEAMWORKS=135 \
     -std=c++17 \
     Steamworks.gml/steam_*.cpp \
     Steamworks.gml/gml_*.cpp \
