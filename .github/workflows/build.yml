@@ -35,7 +35,7 @@ jobs:
       - name: Build for GMS2
         run: |
           msbuild . "/property:Configuration=GMS2 Release" /p:Platform=x86
-          Copy-Item "./GMS2 Release/Steamworks.gml.dll" -Destination " ./GMS2 Release/Steamworks_gml.dll"
+          Copy-Item "./GMS2 Release/Steamworks.gml.dll" -Destination "./GMS2 Release/Steamworks_gml.dll"
       - name: Build for GMS2 x64 runtime
         run: |
           msbuild . "/property:Configuration=GMS2 Release" /p:Platform=x64
