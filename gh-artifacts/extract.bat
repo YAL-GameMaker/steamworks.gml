@@ -8,18 +8,18 @@ if %ERRORLEVEL% NEQ 0 (
 
 if exist GMS1.zip (
 	pushd ..\Steamworks.gmx\extensions\Steamworks_gml
-	cmd /C 7z -y e ..\..\..\Artifacts\GMS1.zip *
+	cmd /C 7z -y e ..\..\..\gh-artifacts\GMS1.zip *
 	popd
 )
 
 if exist GMS2.zip (
 	pushd ..\Steamworks_yy\extensions\Steamworks_gml
-	cmd /C 7z -y e ..\..\..\Artifacts\GMS2.zip *
+	cmd /C 7z -y e ..\..\..\gh-artifacts\GMS2.zip *
 	del /Q Steamworks_gml.dll
 	popd
 
 	pushd ..\Steamworks_23\extensions\Steamworks_gml
-	cmd /C 7z -y e ..\..\..\Artifacts\GMS2.zip *
+	cmd /C 7z -y e ..\..\..\gh-artifacts\GMS2.zip *
 	del /Q Steamworks.gml.dll
 	popd
 )
