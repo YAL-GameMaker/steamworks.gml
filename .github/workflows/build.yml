@@ -35,11 +35,11 @@ jobs:
       - name: Build for GMS2
         run: |
           msbuild . "/property:Configuration=GMS2 Release" /p:Platform=x86
-          copy /Y ./GMS2 Release/Steamworks.gml.dll ./GMS2 Release/Steamworks_gml.dll
+          copy /Y "./GMS2 Release/Steamworks.gml.dll" "./GMS2 Release/Steamworks_gml.dll"
       - name: Build for GMS2 x64 runtime
         run: |
           msbuild . "/property:Configuration=GMS2 Release" /p:Platform=x64
-          move /Y ./x64/GMS2 Release/Steamworks.gml.dll ./x64/GMS2 Release/Steamworks_gml_x64.dll
+          move /Y "./x64/GMS2 Release/Steamworks.gml.dll" "./x64/GMS2 Release/Steamworks_gml_x64.dll"
       - name: Upload GMS2 artifact
         uses: actions/upload-artifact@v2
         with:
