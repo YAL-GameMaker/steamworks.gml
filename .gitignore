@@ -46,6 +46,8 @@ dlldata.c
 project.lock.json
 artifacts/
 
+gh-artifacts/*.zip
+
 *_i.c
 *_p.c
 *_i.h

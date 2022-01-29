@@ -10,7 +10,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Get Steamworks SDK
+      - name: Prepare Steamworks SDK
         run: |
           curl -o sdk135a.zip "${{ secrets.STEAMWORKS_SDK_135A }}"
           powershell -command "Expand-Archive -Path sdk135a.zip -DestinationPath ."
@@ -21,7 +21,7 @@ jobs:
           powershell -command "Expand-Archive -Path sdk142.zip -DestinationPath ."
           mkdir steamworks_sdk_142
           move ./sdk/* ./steamworks_sdk_142
-      - name: Install MSBuild
+      - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1
 
       - name: Build for GMS1
@@ -33,20 +33,21 @@ jobs:
           path: ./GMS1 Release/Steamworks.gml.dll
       
       - name: Build for GMS2
-        run: msbuild . "/property:Configuration=GMS2 Release" /p:Platform=x86
+        run: |
+          msbuild . "/property:Configuration=GMS2 Release" /p:Platform=x86
+          copy /Y ./GMS2 Release/Steamworks.gml.dll ./GMS2 Release/Steamworks_gml.dll
+      - name: Build for GMS2 x64 runtime
+        run: |
+          msbuild . "/property:Configuration=GMS2 Release" /p:Platform=x64
+          move /Y ./x64/GMS2 Release/Steamworks.gml.dll ./x64/GMS2 Release/Steamworks_gml_x64.dll
       - name: Upload GMS2 artifact
         uses: actions/upload-artifact@v2
         with:
           name: GMS2
-          path: ./GMS2 Release/Steamworks.gml.dll
-      
-      - name: Build for GMS2.3 x64 runtime
-        run: msbuild . "/property:Configuration=GMS2 Release" /p:Platform=x64
-      - name: Upload GMS2.3 x64 artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: GMS2.3 with 'Use x64 Windows runtime'
-          path: ./x64/GMS2 Release/Steamworks.gml.dll
+          path: |
+            ./GMS2 Release/Steamworks.gml.dll
+            ./GMS2 Release/Steamworks_gml.dll
+            ./x64/GMS2 Release/Steamworks_gml_x64.dll
 
   build-linux:
     name: Build for Linux
