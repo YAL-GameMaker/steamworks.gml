@@ -1,7 +1,7 @@
 @echo off
 
 where /q 7z
-if %ERRORLEVEL% NEQ 1 (
+if %ERRORLEVEL% NEQ 0 (
 	echo 7-zip should be accessible as "7z" for this to work
 	exit /b 1
 )
