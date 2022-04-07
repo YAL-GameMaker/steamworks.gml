@@ -77,7 +77,7 @@ public:
 		std::copy(sfx_high, sfx_high + std::size(sfx_high), key_tmp + len);
 		set(key_tmp, uint64_high(value));
 
-		constexpr char sfx_low[] = "_high";
+		constexpr char sfx_low[] = "_low";
 		std::copy(sfx_low, sfx_low + std::size(sfx_low), key_tmp + len);
 		set(key_tmp, uint64_low(value));
 
