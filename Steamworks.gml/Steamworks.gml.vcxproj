@@ -486,9 +486,6 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="base64_encode.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
@@ -538,6 +535,10 @@ cmd /c GmxGen "$(SolutionDir)Steamworks_23\extensions\Steamworks_gml\Steamworks_
     <ClInclude Include="steam_callbacks.h" />
     <ClInclude Include="steam_glue.h" />
     <ClInclude Include="steam_a_note.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="postBuild.bat" />
+    <None Include="preBuild.bat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
