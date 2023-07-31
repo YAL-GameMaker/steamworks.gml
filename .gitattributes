@@ -3,3 +3,5 @@
 *.html linguist-vendored
 *.yy linguist-vendored
 */extensions/*/autogen.gml linguist-vendored
+Steamworks.gmx/extensions/*/*.gml linguist-vendored
+Steamworks_yy/extensions/*/*.gml linguist-vendored
