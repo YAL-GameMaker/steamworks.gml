@@ -1,3 +1,5 @@
 *.yy linguist-language=Game Maker Language
-
-export/steamworks.gml.html linguist-vendored
+*.h linguist-language=C++
+*.html linguist-vendored
+*.yy linguist-vendored
+*/extensions/*/autogen.gml linguist-vendored
