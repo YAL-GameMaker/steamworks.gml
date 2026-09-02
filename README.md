@@ -6,7 +6,8 @@
 
 A native extension for GameMaker (GMS1, GMS2, GMS2.3+) that implements various Steam API features not covered by the built-in functions - most importantly, P2P networking, lobbies, and matchmaking.
 
-[![Build](https://github.com/YAL-GameMaker/steamworks.gml/actions/workflows/build.yml/badge.svg)](https://github.com/YAL-GameMaker/steamworks.gml/actions/workflows/build.yml)
+> [!NOTE]  
+> In modern (GM2022/LTS and newer) GameMaker versions, this extension is fully superseded by the official [GMEXT-Steamworks](https://github.com/YoYoGames/GMEXT-Steamworks/).
 
 ## Usage
 
